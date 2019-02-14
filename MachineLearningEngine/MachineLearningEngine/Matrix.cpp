@@ -6,10 +6,12 @@ Matrix::Matrix(int rows, int columns)
 	resizeMatrix(rows, columns);
 }
 
+
 Matrix::~Matrix()
 {
 	deleteMatrix();
 }
+
 
 int Matrix::getNumberOfRows() const
 {
@@ -19,6 +21,7 @@ int Matrix::getNumberOfRows() const
 		return _columns;
 }
 
+
 int Matrix::getNumberOfColumns() const 
 {
 	if (_transposeFlag == true)
@@ -27,32 +30,26 @@ int Matrix::getNumberOfColumns() const
 		return _columns;
 }
 
+
 Matrix& Matrix::getRow(int row)
 {
 	checkForInvalidRowOrColumn(row, 0);
+	
 	Matrix *resultMatrix = new Matrix();
-
-	if (_transposeFlag == false) resultMatrix->resizeMatrix(1, _columns);
-	else resultMatrix->resizeMatrix(1, _rows);
+	constructRowMatrix(resultMatrix, 1);
 	
 	insertRow(resultMatrix, 0, row);
 	return *resultMatrix;
 }
 
-void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow)
-{
-	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); column++)
-		setMatrix->setEntry(setMatrixRow, column, getEntry(getMatrixRow, column));
-}
 
 Matrix& Matrix::getRows(std::vector<int> rows)
 {
 	for (size_t row : rows)
 		checkForInvalidRowOrColumn(row, 0);
 
-	Matrix *resultMatrix;
-	if (_transposeFlag == false) resultMatrix = new Matrix(rows.size(), _columns);
-	else resultMatrix = new Matrix(rows.size(), _rows);
+	Matrix *resultMatrix = new Matrix();
+	constructRowMatrix(resultMatrix, rows.size());
 	
 	for (size_t rowCounter = 0; rowCounter < rows.size(); rowCounter++)
 		insertRow(resultMatrix, rowCounter, rows[rowCounter]);
@@ -60,32 +57,39 @@ Matrix& Matrix::getRows(std::vector<int> rows)
 	return *resultMatrix;
 }
 
+void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) 
+{
+	if (_transposeFlag == false) resultMatrix->resizeMatrix(rows, _columns);
+	else resultMatrix->resizeMatrix(rows, _rows);
+}
+
+
+void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow)
+{
+	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); column++)
+		setMatrix->setEntry(setMatrixRow, column, getEntry(getMatrixRow, column));
+}
+
+
 Matrix& Matrix::getColumn(int column)
 {
 	checkForInvalidRowOrColumn(0, column);
-	Matrix *resultMatrix = new Matrix();
 
-	if (_transposeFlag == false) resultMatrix->resizeMatrix(_rows, 1);
-	else resultMatrix->resizeMatrix(_columns, 1);
+	Matrix *resultMatrix = new Matrix();
+	constructColumnMatrix(resultMatrix, 1);
 
 	insertColumn(resultMatrix, 0, column);
 	return *resultMatrix;
 }
 
-void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixColumn)
-{
-	for (size_t row = 0; row < setMatrix->getNumberOfRows(); row++)
-		setMatrix->setEntry(row, setMatrixColumn, getEntry(row, getMatrixColumn));
-}
 
 Matrix& Matrix::getColumns(std::vector<int> columns)
 {
 	for (size_t column : columns)
 		checkForInvalidRowOrColumn(0, column);
 
-	Matrix *resultMatrix;
-	if (_transposeFlag == false) resultMatrix = new Matrix(_rows, columns.size());
-	else resultMatrix = new Matrix(_columns, columns.size());
+	Matrix *resultMatrix = new Matrix();
+	constructColumnMatrix(resultMatrix, columns.size());
 
 	for (size_t columnCounter = 0; columnCounter < columns.size(); columnCounter++)
 		insertColumn(resultMatrix, columnCounter, columns[columnCounter]);
@@ -93,11 +97,27 @@ Matrix& Matrix::getColumns(std::vector<int> columns)
 	return *resultMatrix;
 }
 
+
+void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns)
+{
+	if (_transposeFlag == false) resultMatrix->resizeMatrix(_rows, columns);
+	else resultMatrix->resizeMatrix(_columns, columns);
+}
+
+
+void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixColumn)
+{
+	for (size_t row = 0; row < setMatrix->getNumberOfRows(); row++)
+		setMatrix->setEntry(row, setMatrixColumn, getEntry(row, getMatrixColumn));
+}
+
+
 void Matrix::setMatrixSize(int rows, int columns)
 {
 	deleteMatrix();
 	resizeMatrix(rows, columns);
 }
+
 
 void Matrix::deleteMatrix()
 {
@@ -113,6 +133,7 @@ void Matrix::deleteMatrix()
 	}
 }
 
+
 void Matrix::setEntry(int row, int column, double value)
 {
 	checkForInvalidRowOrColumn(row, column);
@@ -121,6 +142,7 @@ void Matrix::setEntry(int row, int column, double value)
 	else 
 		_matrix[column][row] = value;
 }
+
 
 void Matrix::setMatrix(const Matrix *newMatrix)
 {
@@ -133,6 +155,7 @@ void Matrix::setMatrix(const Matrix *newMatrix)
 		for (size_t column = 0; column < newMatrix->getNumberOfColumns(); column++)
 			setEntry(row, column, newMatrix->getEntry(row, column));
 }
+
 
 void Matrix::checkForInvalidRowOrColumn(int row, int column) const
 {
@@ -148,16 +171,19 @@ void Matrix::checkForInvalidRowOrColumn(int row, int column) const
 	}
 }
 
+
 double Matrix::getEntry(int row, int column) const
 {
 	checkForInvalidRowOrColumn(row, column);
 	return (_transposeFlag == false) ? _matrix[row][column] : _matrix[column][row];
 }
 
+
 void Matrix::transpose()
 {
 	_transposeFlag = !_transposeFlag;
 }
+
 
 void Matrix::constructMatrix()
 {
@@ -169,6 +195,7 @@ void Matrix::constructMatrix()
 		_matrix[i] = new double[_columns];
 }
 
+
 void Matrix::setRows(int rows)
 {
 	if(_transposeFlag == false)
@@ -178,6 +205,7 @@ void Matrix::setRows(int rows)
 		
 }
 
+
 void Matrix::setColumns(int columns)
 {
 	if(_transposeFlag == false)
@@ -185,6 +213,7 @@ void Matrix::setColumns(int columns)
 	else
 		(columns > 0) ? _rows = columns : throw std::exception("Not possible with minus rows");
 }
+
 
 void Matrix::resizeMatrix(int rows, int columns)
 {

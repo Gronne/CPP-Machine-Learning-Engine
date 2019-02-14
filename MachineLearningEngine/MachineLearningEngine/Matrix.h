@@ -32,6 +32,8 @@ private:
 	void checkForInvalidRowOrColumn(int, int) const;
 	void insertRow(Matrix *, int, int);
 	void insertColumn(Matrix *, int, int);
+	void constructRowMatrix(Matrix *, int);
+	void constructColumnMatrix(Matrix *, int);
 	void deleteMatrix();
 
 	int _rows = 0;
