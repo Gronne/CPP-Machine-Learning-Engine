@@ -179,16 +179,65 @@ double Matrix::getEntry(int row, int column) const
 }
 
 
+void Matrix::setRow(int rowNumber, const Matrix *rowData)
+{
+	checkForInvalidRowOrColumn(rowNumber, rowData->getNumberOfColumns() - 1);
+	if (getNumberOfColumns() != rowData->getNumberOfColumns())
+		throw std::exception("Number of columns does not match the matrixs dimensions");
+
+	for (size_t column = 0; column < _columns; column++)
+		setEntry(rowNumber, column, rowData->getEntry(0, column));
+}
+
+
+void Matrix::setRow(int rowNumber, std::vector<double> rowData)
+{
+	checkForInvalidRowOrColumn(rowNumber, rowData.size() - 1);
+	if (getNumberOfColumns() != rowData.size())
+		throw std::exception("Number of columns does not match the matrixs dimensions");
+
+	for (size_t column = 0; column < _columns; column++)
+		setEntry(rowNumber, column, rowData[column]);
+}
+
+
+void Matrix::setColumn(int columnNumber, const Matrix *columnData)
+{
+	checkForInvalidRowOrColumn(columnData->getNumberOfRows() - 1, columnNumber);
+	if (getNumberOfRows() != columnData->getNumberOfRows())
+		throw std::exception("Number of rows does not match the matrixs dimensions");
+
+	for (size_t row = 0; row < _rows; row++)
+		setEntry(row, columnNumber, columnData->getEntry(row, 0));
+}
+
+
+void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
+{
+	checkForInvalidRowOrColumn(columnData.size() - 1, columnNumber);
+	if (getNumberOfRows() != columnData.size())
+		throw std::exception("Number of rows does not match the matrixs dimensions");
+
+	for (size_t row = 0; row < _rows; row++)
+		setEntry(row, columnNumber, columnData[row]);
+}
+
+
 void Matrix::transpose()
 {
 	_transposeFlag = !_transposeFlag;
 }
+
 
 void Matrix::scale(double scaleingsFactor)
 {
 	for (size_t row = 0; row < _rows; row++)
 		for (size_t column = 0; column < _columns; column++)
 			setEntry(row, column, scaleingsFactor * getEntry(row, column));
+}
+
+void Matrix::print()
+{
 }
 
 

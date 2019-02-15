@@ -15,11 +15,16 @@ public:
 	Matrix& getColumn(int);
 	Matrix& getColumns(std::vector<int>);
 	double getEntry(int, int) const;
+	void setRow(int, const Matrix *);
+	void setColumn(int, const Matrix *);
+	void setRow(int, std::vector<double>);
+	void setColumn(int, std::vector<double>);
 	void setMatrixSize(int, int);
 	void setEntry(int, int, double);
 	void setMatrix(const Matrix*);
 	void transpose();
 	void scale(double);
+	void print();
 
 	void operator=(const Matrix &obj) {
 		this->setMatrix(&obj);

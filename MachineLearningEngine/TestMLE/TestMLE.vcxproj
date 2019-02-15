@@ -47,8 +47,10 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixResizeMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixScaleTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixSetColumnTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetEntryTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetMatrixTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixSetRowTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />
   </ItemGroup>

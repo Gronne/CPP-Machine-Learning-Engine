@@ -57,6 +57,12 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixScaleTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixSetRowTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixSetColumnTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
