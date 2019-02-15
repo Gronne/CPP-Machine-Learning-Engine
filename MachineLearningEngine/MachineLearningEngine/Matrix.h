@@ -19,6 +19,7 @@ public:
 	void setEntry(int, int, double);
 	void setMatrix(const Matrix*);
 	void transpose();
+	void scale(double);
 
 	void operator=(const Matrix &obj) {
 		this->setMatrix(&obj);

@@ -13,4 +13,4 @@
 #include "VectorEngineDatastructuresMatrixGetColumnTest.h"
 #include "VectorEngineDatastructuresMatrixGetColumnsTest.h"
 #include "VectorEngineDatastructuresMatrixEqualOperatorTest.h"
-
+#include "VectorEngineDatastructuresMatrixScaleTest.h"

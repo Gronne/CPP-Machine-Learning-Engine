@@ -46,6 +46,7 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixResizeMatrixTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixScaleTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetEntryTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />

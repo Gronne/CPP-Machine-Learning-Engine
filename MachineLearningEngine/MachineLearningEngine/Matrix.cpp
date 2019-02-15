@@ -184,6 +184,13 @@ void Matrix::transpose()
 	_transposeFlag = !_transposeFlag;
 }
 
+void Matrix::scale(double scaleingsFactor)
+{
+	for (size_t row = 0; row < _rows; row++)
+		for (size_t column = 0; column < _columns; column++)
+			setEntry(row, column, scaleingsFactor * getEntry(row, column));
+}
+
 
 void Matrix::constructMatrix()
 {
