@@ -41,6 +41,16 @@ private:
 	void constructRowMatrix(Matrix *, int);
 	void constructColumnMatrix(Matrix *, int);
 	void deleteMatrix();
+	double getWidestNumberInRow(int);
+	double numberWidth(double);
+	void printMatrix(std::vector<int>, int);
+	void printLine(int);
+	void printRow(int, std::vector<int>);
+	void printEntry(int, int, std::vector<int>);
+	bool unevenSpace(int, int, std::vector<int>);
+	double getDiffWidth(int, int, std::vector<int>);
+	std::vector<int> findMaxValueInRow();
+	std::string eraseZeros(std::string);
 
 	int _rows = 0;
 	int _columns = 0;

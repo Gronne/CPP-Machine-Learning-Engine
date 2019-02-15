@@ -1,5 +1,8 @@
 #include "Matrix.h"
 #include <stdexcept>
+#include <string>
+#include <numeric>
+#include <iostream>
 
 Matrix::Matrix(int rows, int columns)
 {
@@ -236,10 +239,97 @@ void Matrix::scale(double scaleingsFactor)
 			setEntry(row, column, scaleingsFactor * getEntry(row, column));
 }
 
+
 void Matrix::print()
 {
+	std::vector<int> maxValueInRow = findMaxValueInRow();
+	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + _columns*3 + 1;
+	printMatrix(maxValueInRow, fullWidth);
 }
 
+void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth)
+{
+	for (size_t row = 0; row < _rows; row++)
+	{
+		printLine(fullWidth);
+		printRow(row, maxValueInRow);
+	}
+	printLine(fullWidth);
+}
+
+void Matrix::printLine(int width) {
+	for (size_t cursor = 0; cursor < width; cursor++)
+		std::cout << "-";
+	std::cout << std::endl;
+}
+
+void Matrix::printRow(int row, std::vector<int> maxValueInRow)
+{
+	for (size_t column = 0; column < _columns; column++)
+	{
+		std::cout << "|";
+		printEntry(row, column, maxValueInRow);
+	}
+	std::cout << "|" << std::endl;
+}
+
+void Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow)
+{
+	std::cout << " ";
+	size_t space = 0 + unevenSpace(row, column, maxValueInRow);
+
+	for (; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
+		std::cout << " ";
+
+	std::cout << eraseZeros(std::to_string(getEntry(row, column)));
+	for (size_t space = 0; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
+		std::cout << " ";
+	std::cout << " ";
+}
+
+bool Matrix::unevenSpace(int row, int column, std::vector<int>maxValueInRow)
+{
+	return ((getDiffWidth(row, column, maxValueInRow)/ 2) - std::floor((getDiffWidth(row, column, maxValueInRow)) / 2) == 0.5);
+}
+
+double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow)
+{
+	return (maxValueInRow[column] - numberWidth(getEntry(row, column)));
+}
+
+std::vector<int> Matrix::findMaxValueInRow()
+{
+	std::vector<int> maxValueInRow;
+	for (size_t column = 0; column < _columns; column++)
+		maxValueInRow.push_back(getWidestNumberInRow(column));
+	return maxValueInRow;
+}
+
+double Matrix::getWidestNumberInRow(int column)
+{
+	double widestValue = 0;
+	for (size_t row = 0; row < _rows; row++)
+		if (numberWidth(widestValue) < numberWidth(getEntry(row, column)))
+			widestValue = getEntry(row, column);
+	return numberWidth(widestValue);
+}
+
+
+double Matrix::numberWidth(double value)
+{
+	return eraseZeros(std::to_string(value)).size();
+}
+
+std::string Matrix::eraseZeros(std::string string)
+{
+	int cursor = 0;
+	if (string.find(".") != std::string::npos)
+		for (; string[string.size() - (1 + cursor)] == '0'; cursor++);
+	if (string[string.size() - (1 + cursor)] == '.')
+		cursor++;
+	return string.substr(0, string.size() - (cursor));
+
+}
 
 void Matrix::constructMatrix()
 {
