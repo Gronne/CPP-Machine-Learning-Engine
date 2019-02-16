@@ -80,3 +80,23 @@ TEST(VectorEngineDatastructurMatrixScale, scaleNegativeDecimal)
 	EXPECT_EQ(-12.5, matrix->getEntry(1, 1));
 	EXPECT_EQ(-15, matrix->getEntry(1, 2));
 }
+
+TEST(VectorEngineDatastructurMatrixScale, scaleZero)
+{
+	Matrix *matrix = new Matrix(2, 3);
+
+	matrix->setEntry(0, 0, 1);
+	matrix->setEntry(0, 1, 2);
+	matrix->setEntry(0, 2, 3);
+	matrix->setEntry(1, 0, 4);
+	matrix->setEntry(1, 1, 5);
+	matrix->setEntry(1, 2, 6);
+
+	EXPECT_NO_THROW(matrix->scale(0));
+	EXPECT_EQ(0, matrix->getEntry(0, 0));
+	EXPECT_EQ(0, matrix->getEntry(0, 1));
+	EXPECT_EQ(0, matrix->getEntry(0, 2));
+	EXPECT_EQ(0, matrix->getEntry(1, 0));
+	EXPECT_EQ(0, matrix->getEntry(1, 1));
+	EXPECT_EQ(0, matrix->getEntry(1, 2));
+}

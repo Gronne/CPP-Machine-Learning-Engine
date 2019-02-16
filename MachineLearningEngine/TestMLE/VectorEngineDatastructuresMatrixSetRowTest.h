@@ -1,9 +1,6 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-#pragma once
-#include "VectorEngineDatastructureHeader.h"
-
 TEST(VectorEngineDatastructurMatrixsetRow, setRowSetMatrixHolePositiveMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);

@@ -10,10 +10,10 @@ public:
 	~Matrix();
 	int getNumberOfRows() const;
 	int getNumberOfColumns() const;
-	Matrix& getRow(int);
-	Matrix& getRows(std::vector<int>);
-	Matrix& getColumn(int);
-	Matrix& getColumns(std::vector<int>);
+	Matrix& getRow(int) const;
+	Matrix& getRows(std::vector<int>) const;
+	Matrix& getColumn(int) const;
+	Matrix& getColumns(std::vector<int>) const;
 	double getEntry(int, int) const;
 	void setRow(int, const Matrix *);
 	void setColumn(int, const Matrix *);
@@ -26,9 +26,12 @@ public:
 	void scale(double);
 	void print();
 
-	void operator=(const Matrix &obj) {
-		this->setMatrix(&obj);
-	}
+	void operator=(const Matrix &obj);
+	Matrix& operator+(const Matrix &obj);
+	Matrix& operator-(const Matrix &obj);
+	Matrix& operator*(const double value);
+	Matrix& operator*(const Matrix&);
+	Matrix& operator/(const double value);
 
 private:
 	void constructMatrix();
@@ -36,10 +39,10 @@ private:
 	void setColumns(int);
 	void resizeMatrix(int, int);
 	void checkForInvalidRowOrColumn(int, int) const;
-	void insertRow(Matrix *, int, int);
-	void insertColumn(Matrix *, int, int);
-	void constructRowMatrix(Matrix *, int);
-	void constructColumnMatrix(Matrix *, int);
+	void insertRow(Matrix *, int, int) const;
+	void insertColumn(Matrix *, int, int) const;
+	void constructRowMatrix(Matrix *, int) const;
+	void constructColumnMatrix(Matrix *, int) const;
 	void deleteMatrix();
 	double getWidestNumberInRow(int);
 	double numberWidth(double);
@@ -51,6 +54,8 @@ private:
 	double getDiffWidth(int, int, std::vector<int>);
 	std::vector<int> findMaxValueInRow();
 	std::string eraseZeros(std::string);
+	Matrix& multiplication(const Matrix&);
+	double vectorMultiplication(Matrix&, Matrix&);
 
 	int _rows = 0;
 	int _columns = 0;

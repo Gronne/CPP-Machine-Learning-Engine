@@ -34,7 +34,7 @@ int Matrix::getNumberOfColumns() const
 }
 
 
-Matrix& Matrix::getRow(int row)
+Matrix& Matrix::getRow(int row) const
 {
 	checkForInvalidRowOrColumn(row, 0);
 	
@@ -46,7 +46,7 @@ Matrix& Matrix::getRow(int row)
 }
 
 
-Matrix& Matrix::getRows(std::vector<int> rows)
+Matrix& Matrix::getRows(std::vector<int> rows) const 
 {
 	for (size_t row : rows)
 		checkForInvalidRowOrColumn(row, 0);
@@ -60,21 +60,21 @@ Matrix& Matrix::getRows(std::vector<int> rows)
 	return *resultMatrix;
 }
 
-void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) 
+void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
 {
 	if (_transposeFlag == false) resultMatrix->resizeMatrix(rows, _columns);
 	else resultMatrix->resizeMatrix(rows, _rows);
 }
 
 
-void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow)
+void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow) const
 {
 	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); column++)
 		setMatrix->setEntry(setMatrixRow, column, getEntry(getMatrixRow, column));
 }
 
 
-Matrix& Matrix::getColumn(int column)
+Matrix& Matrix::getColumn(int column) const 
 {
 	checkForInvalidRowOrColumn(0, column);
 
@@ -86,7 +86,7 @@ Matrix& Matrix::getColumn(int column)
 }
 
 
-Matrix& Matrix::getColumns(std::vector<int> columns)
+Matrix& Matrix::getColumns(std::vector<int> columns) const 
 {
 	for (size_t column : columns)
 		checkForInvalidRowOrColumn(0, column);
@@ -101,14 +101,14 @@ Matrix& Matrix::getColumns(std::vector<int> columns)
 }
 
 
-void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns)
+void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns) const 
 {
 	if (_transposeFlag == false) resultMatrix->resizeMatrix(_rows, columns);
 	else resultMatrix->resizeMatrix(_columns, columns);
 }
 
 
-void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixColumn)
+void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixColumn) const 
 {
 	for (size_t row = 0; row < setMatrix->getNumberOfRows(); row++)
 		setMatrix->setEntry(row, setMatrixColumn, getEntry(row, getMatrixColumn));
@@ -188,7 +188,7 @@ void Matrix::setRow(int rowNumber, const Matrix *rowData)
 	if (getNumberOfColumns() != rowData->getNumberOfColumns())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
-	for (size_t column = 0; column < _columns; column++)
+	for (size_t column = 0; column < getNumberOfColumns(); column++)
 		setEntry(rowNumber, column, rowData->getEntry(0, column));
 }
 
@@ -199,7 +199,7 @@ void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 	if (getNumberOfColumns() != rowData.size())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
-	for (size_t column = 0; column < _columns; column++)
+	for (size_t column = 0; column < getNumberOfColumns(); column++)
 		setEntry(rowNumber, column, rowData[column]);
 }
 
@@ -210,7 +210,7 @@ void Matrix::setColumn(int columnNumber, const Matrix *columnData)
 	if (getNumberOfRows() != columnData->getNumberOfRows())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
-	for (size_t row = 0; row < _rows; row++)
+	for (size_t row = 0; row < getNumberOfRows(); row++)
 		setEntry(row, columnNumber, columnData->getEntry(row, 0));
 }
 
@@ -221,7 +221,7 @@ void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 	if (getNumberOfRows() != columnData.size())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
-	for (size_t row = 0; row < _rows; row++)
+	for (size_t row = 0; row < getNumberOfRows(); row++)
 		setEntry(row, columnNumber, columnData[row]);
 }
 
@@ -234,8 +234,8 @@ void Matrix::transpose()
 
 void Matrix::scale(double scaleingsFactor)
 {
-	for (size_t row = 0; row < _rows; row++)
-		for (size_t column = 0; column < _columns; column++)
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t column = 0; column < getNumberOfColumns(); column++)
 			setEntry(row, column, scaleingsFactor * getEntry(row, column));
 }
 
@@ -243,13 +243,64 @@ void Matrix::scale(double scaleingsFactor)
 void Matrix::print()
 {
 	std::vector<int> maxValueInRow = findMaxValueInRow();
-	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + _columns*3 + 1;
+	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + getNumberOfColumns()*3 + 1;
 	printMatrix(maxValueInRow, fullWidth);
 }
 
+void Matrix::operator=(const Matrix & obj)
+{
+		this->setMatrix(&obj);
+}
+
+Matrix & Matrix::operator+(const Matrix & obj)
+{
+	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
+		throw std::exception("Matrix dimensions does not comply");
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t column = 0; column < getNumberOfColumns(); column++)
+			returnObj->setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
+	return *returnObj;
+}
+
+Matrix & Matrix::operator-(const Matrix & obj)
+{
+	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
+		throw std::exception("Matrix dimensions does not comply");
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t column = 0; column < getNumberOfColumns(); column++)
+			returnObj->setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
+	return *returnObj;
+}
+
+Matrix & Matrix::operator*(const double value)
+{
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	*returnObj = *this;
+	returnObj->scale(value);
+	return *returnObj;
+}
+
+Matrix & Matrix::operator*(const Matrix &obj)
+{
+	if (getNumberOfColumns() != obj.getNumberOfRows())
+		throw std::exception("Matrix Dimensions does not comply");
+	return multiplication(obj);
+}
+
+Matrix & Matrix::operator/(const double value)
+{
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	*returnObj = *this;
+	returnObj->scale(1/value);
+	return *returnObj;
+}
+
+
 void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth)
 {
-	for (size_t row = 0; row < _rows; row++)
+	for (size_t row = 0; row < getNumberOfRows(); row++)
 	{
 		printLine(fullWidth);
 		printRow(row, maxValueInRow);
@@ -265,7 +316,7 @@ void Matrix::printLine(int width) {
 
 void Matrix::printRow(int row, std::vector<int> maxValueInRow)
 {
-	for (size_t column = 0; column < _columns; column++)
+	for (size_t column = 0; column < getNumberOfColumns(); column++)
 	{
 		std::cout << "|";
 		printEntry(row, column, maxValueInRow);
@@ -300,7 +351,7 @@ double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow)
 std::vector<int> Matrix::findMaxValueInRow()
 {
 	std::vector<int> maxValueInRow;
-	for (size_t column = 0; column < _columns; column++)
+	for (size_t column = 0; column < getNumberOfColumns(); column++)
 		maxValueInRow.push_back(getWidestNumberInRow(column));
 	return maxValueInRow;
 }
@@ -308,7 +359,7 @@ std::vector<int> Matrix::findMaxValueInRow()
 double Matrix::getWidestNumberInRow(int column)
 {
 	double widestValue = 0;
-	for (size_t row = 0; row < _rows; row++)
+	for (size_t row = 0; row < getNumberOfRows(); row++)
 		if (numberWidth(widestValue) < numberWidth(getEntry(row, column)))
 			widestValue = getEntry(row, column);
 	return numberWidth(widestValue);
@@ -330,6 +381,24 @@ std::string Matrix::eraseZeros(std::string string)
 	return string.substr(0, string.size() - (cursor));
 
 }
+
+Matrix & Matrix::multiplication(const Matrix &obj)
+{
+	Matrix *returnMatrix = new Matrix(getNumberOfRows(), obj.getNumberOfColumns());
+	for (size_t row = 0; row < returnMatrix->getNumberOfRows(); row++)
+		for (size_t column = 0; column < returnMatrix->getNumberOfColumns(); column++)
+			returnMatrix->setEntry(row, column, vectorMultiplication(getRow(row), obj.getColumn(column)));
+	return *returnMatrix;
+}
+
+double Matrix::vectorMultiplication(Matrix &rowMatrix, Matrix &columnMatrix)
+{
+	double result = 0;
+	for (size_t cursor = 0; cursor < rowMatrix.getNumberOfColumns(); cursor++)
+		result += rowMatrix.getEntry(0, cursor) * columnMatrix.getEntry(cursor, 0);
+	return result;
+}
+
 
 void Matrix::constructMatrix()
 {
