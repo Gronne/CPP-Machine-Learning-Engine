@@ -13,8 +13,12 @@ public:
 	Matrix& multiplication(Matrix&, Matrix&);
 	Matrix& multiplication(Matrix&, double);
 	Matrix& hadarmard(Matrix&, Matrix&);
-	Matrix& invert(Matrix&);
+	Matrix& invertRecursive(Matrix&);
+	Matrix& invertAdjugate(Matrix&);
 	double determinant(Matrix&);
+
+private:
+	void setDeterminantMatrix(Matrix&, Matrix&, int);
 };
 
 #endif
