@@ -84,9 +84,6 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadarmardTest.h">
-      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
@@ -95,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
       <Filter>VectorEngineDatastructures</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

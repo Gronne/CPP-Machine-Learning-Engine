@@ -2,6 +2,6 @@
 #include "VectorEngineSimpleMatrixOperationsAdditionTest.h"
 #include "VectorEngineSimpleMatrixOperationsSubstractionTest.h"
 #include "VectorEngineSimpleMatrixOperationsMultiplicationTest.h"
-#include "VectorEngineSimpleMatrixOperationsHadarmardTest.h"
+#include "VectorEngineSimpleMatrixOperationsHadamardTest.h"
 #include "VectorEngineSimpleMatrixOperationsInverseTest.h"
 #include "VectorEngineSimpleMatrixOperationsDeterminantTest.h"

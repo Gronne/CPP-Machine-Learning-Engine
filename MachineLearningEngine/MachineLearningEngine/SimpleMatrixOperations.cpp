@@ -31,7 +31,7 @@ Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value)
 	return matrix * value;
 }
 
-Matrix & SimpleMatrixOperations::hadarmard(Matrix &matrixA, Matrix &matrixB)
+Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 {
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		throw std::exception("Matrix dimensions do not comply");

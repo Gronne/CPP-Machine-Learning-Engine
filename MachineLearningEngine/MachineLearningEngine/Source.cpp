@@ -38,7 +38,7 @@ int main(int argc, char ** argv) {
 	SMO.addition(*matrix1, *matrix2).print();
 	SMO.substraction(*matrix1, *matrix2).print();
 	SMO.multiplication(*matrix1, *matrix2).print();
-	SMO.hadarmard(*matrix1, *matrix2).print();
+	SMO.hadamard(*matrix1, *matrix2).print();
 	SMO.multiplication(*matrix1, 10).print();
 	matrix1->print();
 	std::cout << SMO.determinant(*matrix1) << std::endl;

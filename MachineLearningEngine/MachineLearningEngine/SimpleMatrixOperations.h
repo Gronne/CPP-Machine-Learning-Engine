@@ -12,7 +12,7 @@ public:
 	Matrix& substraction(Matrix&, Matrix&);
 	Matrix& multiplication(Matrix&, Matrix&);
 	Matrix& multiplication(Matrix&, double);
-	Matrix& hadarmard(Matrix&, Matrix&);
+	Matrix& hadamard(Matrix&, Matrix&);
 	Matrix& inverse(Matrix&);
 	Matrix& inverseAdjugate(Matrix&);
 	double determinant(Matrix&);

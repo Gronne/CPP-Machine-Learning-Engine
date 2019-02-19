@@ -59,7 +59,7 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsAdditionTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsDeterminantTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadarmardTest.h" />
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />
