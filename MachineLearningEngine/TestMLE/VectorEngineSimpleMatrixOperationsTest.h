@@ -1,0 +1,7 @@
+#pragma once
+#include "VectorEngineSimpleMatrixOperationsAdditionTest.h"
+#include "VectorEngineSimpleMatrixOperationsSubstractionTest.h"
+#include "VectorEngineSimpleMatrixOperationsMultiplicationTest.h"
+#include "VectorEngineSimpleMatrixOperationsHadarmardTest.h"
+#include "VectorEngineSimpleMatrixOperationsInverseTest.h"
+#include "VectorEngineSimpleMatrixOperationsDeterminantTest.h"

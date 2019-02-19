@@ -75,6 +75,27 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixDivisionOperatorTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsAdditionTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadarmardTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsDeterminantTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
+      <Filter>VectorEngineDatastructures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -85,6 +106,9 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\Matrix">
       <UniqueIdentifier>{89c99148-c509-489c-9f74-836525426db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\SimpleMatrixOperations">
+      <UniqueIdentifier>{9d20c9ad-3428-4f91-85d3-41336b850f66}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

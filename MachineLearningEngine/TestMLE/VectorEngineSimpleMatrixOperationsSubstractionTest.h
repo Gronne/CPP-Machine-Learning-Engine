@@ -2,7 +2,7 @@
 #include "VectorEngineDatastructureHeader.h"
 
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHolePositive)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHolePositive)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1);
@@ -15,7 +15,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(-2, matrix2->getEntry(0, 0));
 	EXPECT_EQ(-4, matrix2->getEntry(0, 1));
 	EXPECT_EQ(-6, matrix2->getEntry(0, 2));
@@ -24,7 +25,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	EXPECT_EQ(-12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHoleNegative)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleNegative)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1);
@@ -37,7 +38,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(2, matrix2->getEntry(0, 0));
 	EXPECT_EQ(4, matrix2->getEntry(0, 1));
 	EXPECT_EQ(6, matrix2->getEntry(0, 2));
@@ -46,7 +48,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	EXPECT_EQ(12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHoleMixed)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleMixed)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1);
@@ -59,7 +61,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(2, matrix2->getEntry(0, 0));
 	EXPECT_EQ(-4, matrix2->getEntry(0, 1));
 	EXPECT_EQ(6, matrix2->getEntry(0, 2));
@@ -68,7 +71,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	EXPECT_EQ(-12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHoleZero)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleZero)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1);
@@ -81,7 +84,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1 * -1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(0, matrix2->getEntry(0, 0));
 	EXPECT_EQ(0, matrix2->getEntry(0, 1));
 	EXPECT_EQ(0, matrix2->getEntry(0, 2));
@@ -90,7 +94,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorHol
 	EXPECT_EQ(0, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDecimalPositive)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalPositive)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -103,7 +107,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(-3, matrix2->getEntry(0, 0));
 	EXPECT_EQ(-5, matrix2->getEntry(0, 1));
 	EXPECT_EQ(-7, matrix2->getEntry(0, 2));
@@ -112,7 +117,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	EXPECT_EQ(-13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDecimalNegative)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalNegative)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1.5);
@@ -125,7 +130,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(3, matrix2->getEntry(0, 0));
 	EXPECT_EQ(5, matrix2->getEntry(0, 1));
 	EXPECT_EQ(7, matrix2->getEntry(0, 2));
@@ -134,7 +140,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	EXPECT_EQ(13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDecimalMixed)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalMixed)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1.5);
@@ -147,7 +153,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(3, matrix2->getEntry(0, 0));
 	EXPECT_EQ(-5, matrix2->getEntry(0, 1));
 	EXPECT_EQ(7, matrix2->getEntry(0, 2));
@@ -156,7 +163,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	EXPECT_EQ(-13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDecimalZero)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalZero)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -169,7 +176,8 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1 * -1;
 
-	EXPECT_NO_THROW(*matrix2 = (*matrix1 * -1) - *matrix2);
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.substraction((*matrix1 * -1), *matrix2));
 	EXPECT_EQ(0, matrix2->getEntry(0, 0));
 	EXPECT_EQ(0, matrix2->getEntry(0, 1));
 	EXPECT_EQ(0, matrix2->getEntry(0, 2));
@@ -178,7 +186,7 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorDec
 	EXPECT_EQ(0, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffCol1)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCol1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -190,10 +198,11 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(2, 4);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffCol2)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCol2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -205,10 +214,11 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(2, 2);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffRow1)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRow1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -220,10 +230,11 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(3, 3);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffRow2)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRow2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -235,10 +246,11 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(1, 3);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffRowCol1)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRowCol1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -250,10 +262,11 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(3, 4);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExceptionDiffRowCol2)
+TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRowCol2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -265,5 +278,6 @@ TEST(VectorEngineDatastructurMatrixSubstractionOperator, substractionOperatorExc
 
 	Matrix *matrix2 = new Matrix(1, 2);
 
-	EXPECT_THROW(*matrix1 - *matrix2, std::exception);
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.substraction(*matrix1, *matrix2), std::exception);
 }
