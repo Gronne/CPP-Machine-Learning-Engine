@@ -116,14 +116,36 @@ Matrix& SimpleMatrixOperations::cross(Matrix &vec1, Matrix &vec2)
 	if (vec2.getNumberOfColumns() != 1 && vec2.getNumberOfRows() != 1)
 		throw std::exception("Second argument isn't a 1xN or Nx1 Matrix");
 
-	return calculateCrossProduct(vec1, vec2);
+	Matrix *crossMatrix = new Matrix();
+	*crossMatrix = createCrossMatrix(vec1, vec2);
+
+	return calculateCrossProduct(*crossMatrix);
 }
 
-Matrix& SimpleMatrixOperations::calculateCrossProduct(Matrix &vec1, Matrix &vec2)
+Matrix& SimpleMatrixOperations::createCrossMatrix(Matrix &vec1, Matrix &vec2)
 {
 	Matrix *matrix = new Matrix();
+	(vec1.getNumberOfRows() == 1) ? matrix->setMatrixSize(2, vec1.getNumberOfColumns()) : matrix->setMatrixSize(2, vec1.getNumberOfRows());
 
+	for (size_t col = 0; col < matrix->getNumberOfColumns(); col++)
+	{
+		matrix->setEntry(0, col, ((vec1.getNumberOfRows() == 1) ? vec1.getEntry(0, col) : vec1.getEntry(col, 0)));
+		matrix->setEntry(1, col, ((vec2.getNumberOfRows() == 1) ? vec2.getEntry(0, col) : vec2.getEntry(col, 0)));
+	}
 	return *matrix;
+}
+
+Matrix& SimpleMatrixOperations::calculateCrossProduct(Matrix &matrix)
+{
+	Matrix *crossVec = new Matrix(1, matrix.getNumberOfColumns());
+	Matrix *bufferMatrix = new Matrix(2, 2);
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	{
+		setDeterminantMatrix(matrix, *bufferMatrix, -1, col);
+		crossVec->setEntry(0, col, determinant(*bufferMatrix) * ((col%2) ? -1 : 1));
+	}
+	delete bufferMatrix;
+	return *crossVec;
 }
 
 Matrix& SimpleMatrixOperations::cross(const Matrix &matrix, int row1, int row2, bool transposed)

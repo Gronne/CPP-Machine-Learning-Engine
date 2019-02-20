@@ -24,7 +24,8 @@ private:
 	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
 	void setInverseMatrix(const Matrix&, Matrix&);
 	double calculateDotProduct(Matrix&, Matrix&);
-	Matrix& calculateCrossProduct(Matrix&, Matrix&);
+	Matrix& createCrossMatrix(Matrix&, Matrix&);
+	Matrix& calculateCrossProduct(Matrix&);
 };
 
 #endif
