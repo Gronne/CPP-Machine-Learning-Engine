@@ -11,27 +11,27 @@ SimpleMatrixOperations::~SimpleMatrixOperations()
 {
 }
 
-Matrix & SimpleMatrixOperations::addition(Matrix &matrixA, Matrix &matrixB)
+Matrix & SimpleMatrixOperations::addition(Matrix &matrixA, Matrix &matrixB) const
 {
 	return matrixA + matrixB;
 }
 
-Matrix & SimpleMatrixOperations::substraction(Matrix &matrixA, Matrix &matrixB)
+Matrix & SimpleMatrixOperations::substraction(Matrix &matrixA, Matrix &matrixB) const
 {
 	return matrixA - matrixB;
 }
 
-Matrix & SimpleMatrixOperations::multiplication(Matrix &matrixA, Matrix &matrixB)
+Matrix & SimpleMatrixOperations::multiplication(Matrix &matrixA, Matrix &matrixB) const
 {
 	return matrixA * matrixB;
 }
 
-Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value)
+Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value) const
 {
 	return matrix * value;
 }
 
-Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
+Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB) const
 {
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		throw std::exception("Matrix dimensions do not comply");
@@ -42,7 +42,7 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 	return *returnMatrix;
 }
 
-Matrix & SimpleMatrixOperations::inverse(Matrix &matrix)
+Matrix & SimpleMatrixOperations::inverse(const Matrix &matrix)
 {
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
 		throw std::exception("Matrix need to be square to find the inverse");
@@ -66,7 +66,7 @@ Matrix & SimpleMatrixOperations::inverse(Matrix &matrix)
 	return *inverseMatrix * (1/det);
 }
 
-void SimpleMatrixOperations::setInverseMatrix(Matrix &matrix, Matrix &inverseMatrix)
+void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inverseMatrix)
 {
 	if (inverseMatrix.getNumberOfColumns() == 2)
 	{
@@ -88,13 +88,7 @@ void SimpleMatrixOperations::setInverseMatrix(Matrix &matrix, Matrix &inverseMat
 	}
 }
 
-Matrix & SimpleMatrixOperations::inverseAdjugate(Matrix &matrix)
-{
-	Matrix *returnMatrix = new Matrix();
-	return *returnMatrix;
-}
-
-double SimpleMatrixOperations::determinant(Matrix &matrix)
+double SimpleMatrixOperations::determinant(const Matrix &matrix)
 {
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
 		throw std::exception("Matrix need to be square to find the determinant");
@@ -115,7 +109,7 @@ double SimpleMatrixOperations::determinant(Matrix &matrix)
 	return value;
 }
 
-void SimpleMatrixOperations::setDeterminantMatrix(Matrix &matrix, Matrix &copyMatrix, int row, int column)
+void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &copyMatrix, int row, int column)
 {
 	int copyRow = 0;
 	int copyCol = 0;

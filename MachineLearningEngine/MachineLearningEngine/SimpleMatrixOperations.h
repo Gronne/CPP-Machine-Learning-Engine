@@ -8,18 +8,17 @@ class SimpleMatrixOperations
 public:
 	SimpleMatrixOperations();
 	~SimpleMatrixOperations();
-	Matrix& addition(Matrix&, Matrix&);
-	Matrix& substraction(Matrix&, Matrix&);
-	Matrix& multiplication(Matrix&, Matrix&);
-	Matrix& multiplication(Matrix&, double);
-	Matrix& hadamard(Matrix&, Matrix&);
-	Matrix& inverse(Matrix&);
-	Matrix& inverseAdjugate(Matrix&);
-	double determinant(Matrix&);
+	Matrix& addition(Matrix&, Matrix&) const;
+	Matrix& substraction(Matrix&, Matrix&) const;
+	Matrix& multiplication(Matrix&, Matrix&) const;
+	Matrix& multiplication(Matrix&, double) const;
+	Matrix& hadamard(Matrix&, Matrix&) const;
+	Matrix& inverse(const Matrix&);
+	double determinant(const Matrix&);
 
 private:
-	void setDeterminantMatrix(Matrix&, Matrix&, int, int);
-	void setInverseMatrix(Matrix&, Matrix&);
+	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
+	void setInverseMatrix(const Matrix&, Matrix&);
 };
 
 #endif
