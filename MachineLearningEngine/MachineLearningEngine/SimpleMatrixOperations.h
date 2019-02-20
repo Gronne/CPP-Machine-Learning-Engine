@@ -15,10 +15,16 @@ public:
 	Matrix& hadamard(Matrix&, Matrix&) const;
 	Matrix& inverse(const Matrix&);
 	double determinant(const Matrix&);
+	Matrix& cross(Matrix&, Matrix&);
+	Matrix& cross(const Matrix&, int, int, bool = 0);
+	double dot(Matrix&, Matrix&);
+	double dot(const Matrix&, int, int, bool = 0);
 
 private:
 	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
 	void setInverseMatrix(const Matrix&, Matrix&);
+	double calculateDotProduct(Matrix&, Matrix&);
+	Matrix& calculateCrossProduct(Matrix&, Matrix&);
 };
 
 #endif

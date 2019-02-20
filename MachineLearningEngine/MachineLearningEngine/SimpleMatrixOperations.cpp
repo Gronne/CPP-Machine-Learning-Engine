@@ -109,6 +109,87 @@ double SimpleMatrixOperations::determinant(const Matrix &matrix)
 	return value;
 }
 
+Matrix& SimpleMatrixOperations::cross(Matrix &vec1, Matrix &vec2)
+{
+	if (vec1.getNumberOfColumns() != 1 && vec1.getNumberOfRows() != 1)
+		throw std::exception("First argument isn't a 1xN or Nx1 Matrix");
+	if (vec2.getNumberOfColumns() != 1 && vec2.getNumberOfRows() != 1)
+		throw std::exception("Second argument isn't a 1xN or Nx1 Matrix");
+
+	return calculateCrossProduct(vec1, vec2);
+}
+
+Matrix& SimpleMatrixOperations::calculateCrossProduct(Matrix &vec1, Matrix &vec2)
+{
+	Matrix *matrix = new Matrix();
+
+	return *matrix;
+}
+
+Matrix& SimpleMatrixOperations::cross(const Matrix &matrix, int row1, int row2, bool transposed)
+{
+	Matrix *vec1 = new Matrix();
+	Matrix *vec2 = new Matrix();
+
+	if (transposed == 0)
+		*vec1 = matrix.getRow(row1), *vec2 = matrix.getRow(row2);
+	else
+		*vec1 = matrix.getColumn(row1), *vec2 = matrix.getColumn(row2);
+
+	*vec2 = cross(*vec1, *vec2);
+	delete vec1;
+
+	return *vec2;
+}
+
+double SimpleMatrixOperations::dot(Matrix &vec1, Matrix &vec2)
+{
+	if (vec1.getNumberOfColumns() != 1 && vec1.getNumberOfRows() != 1)
+		throw std::exception("First argument isn't a 1xN or Nx1 Matrix");
+	if (vec2.getNumberOfColumns() != 1 && vec2.getNumberOfRows() != 1)
+		throw std::exception("Second argument isn't a 1xN or Nx1 Matrix");
+	
+	return calculateDotProduct(vec1, vec2);
+}
+
+double SimpleMatrixOperations::calculateDotProduct(Matrix &vec1, Matrix &vec2)
+{
+	double dotValue;
+	if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfColumns() == 1)
+		dotValue = (vec1 * vec2).getEntry(0, 0);
+	else if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfColumns() != 1)
+	{
+		vec2.transpose();
+		dotValue = (vec1 * vec2).getEntry(0, 0);
+		vec2.transpose();
+	}
+	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfColumns() == 1)
+		dotValue = (vec2 * vec1).getEntry(0, 0);
+	else
+	{
+		vec1.transpose();
+		dotValue = (vec2 * vec1).getEntry(0, 0);
+		vec1.transpose();
+	}
+	return dotValue;
+}
+
+double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, bool transposed)
+{
+	Matrix *vec1 = new Matrix();
+	Matrix *vec2 = new Matrix();
+
+	if (transposed == 0)
+		*vec1 = matrix.getRow(row1), *vec2 = matrix.getRow(row2);
+	else
+		*vec1 = matrix.getColumn(row1), *vec2 = matrix.getColumn(row2);
+
+	double dotValue = dot(*vec1, *vec2);
+	delete vec1;
+	delete vec2;
+	return dotValue;
+}
+
 void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &copyMatrix, int row, int column)
 {
 	int copyRow = 0;
