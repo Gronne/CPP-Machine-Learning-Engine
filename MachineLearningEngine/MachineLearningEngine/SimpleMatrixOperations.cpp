@@ -90,11 +90,6 @@ void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inve
 
 double SimpleMatrixOperations::determinant(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Matrix need to be square to find the determinant");
-	if (matrix.getNumberOfColumns() == 1)
-		return matrix.getEntry(0, 0);
-
 	double value = 0;
 	if (matrix.getNumberOfRows() == 2)
 		return matrix.getEntry(0, 0) * matrix.getEntry(1, 1) - matrix.getEntry(0, 1) * matrix.getEntry(1, 0);
@@ -109,59 +104,29 @@ double SimpleMatrixOperations::determinant(const Matrix &matrix)
 	return value;
 }
 
-Matrix& SimpleMatrixOperations::cross(Matrix &vec1, Matrix &vec2)
+Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 {
-	if (vec1.getNumberOfColumns() != 1 && vec1.getNumberOfRows() != 1)
-		throw std::exception("First argument isn't a 1xN or Nx1 Matrix");
-	if (vec2.getNumberOfColumns() != 1 && vec2.getNumberOfRows() != 1)
-		throw std::exception("Second argument isn't a 1xN or Nx1 Matrix");
-
-	Matrix *crossMatrix = new Matrix();
-	*crossMatrix = createCrossMatrix(vec1, vec2);
-
-	return calculateCrossProduct(*crossMatrix);
-}
-
-Matrix& SimpleMatrixOperations::createCrossMatrix(Matrix &vec1, Matrix &vec2)
-{
-	Matrix *matrix = new Matrix();
-	(vec1.getNumberOfRows() == 1) ? matrix->setMatrixSize(2, vec1.getNumberOfColumns()) : matrix->setMatrixSize(2, vec1.getNumberOfRows());
-
-	for (size_t col = 0; col < matrix->getNumberOfColumns(); col++)
+	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns()-1)
+		throw std::exception("Matrix need to have the dimensions: NxN+1");
+	if (matrix.getNumberOfRows() == 1)
 	{
-		matrix->setEntry(0, col, ((vec1.getNumberOfRows() == 1) ? vec1.getEntry(0, col) : vec1.getEntry(col, 0)));
-		matrix->setEntry(1, col, ((vec2.getNumberOfRows() == 1) ? vec2.getEntry(0, col) : vec2.getEntry(col, 0)));
+		Matrix *crossMatrix = new Matrix(1, 2);
+		crossMatrix->setEntry(0, 0, matrix.getEntry(0, 1));
+		crossMatrix->setEntry(0, 1, matrix.getEntry(0, 0));
+		return *crossMatrix;
 	}
-	return *matrix;
-}
 
-Matrix& SimpleMatrixOperations::calculateCrossProduct(Matrix &matrix)
-{
-	Matrix *crossVec = new Matrix(1, matrix.getNumberOfColumns());
-	Matrix *bufferMatrix = new Matrix(2, 2);
+	Matrix *bufferMatrix = new Matrix(matrix.getNumberOfRows(), matrix.getNumberOfRows());
+	Matrix *crossMatrix = new Matrix(1, matrix.getNumberOfColumns());
 	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
 	{
 		setDeterminantMatrix(matrix, *bufferMatrix, -1, col);
-		crossVec->setEntry(0, col, determinant(*bufferMatrix) * ((col%2) ? -1 : 1));
+		double detValue = determinant(*bufferMatrix);
+		crossMatrix->setEntry(0, col, detValue);
 	}
 	delete bufferMatrix;
-	return *crossVec;
-}
-
-Matrix& SimpleMatrixOperations::cross(const Matrix &matrix, int row1, int row2, bool transposed)
-{
-	Matrix *vec1 = new Matrix();
-	Matrix *vec2 = new Matrix();
-
-	if (transposed == 0)
-		*vec1 = matrix.getRow(row1), *vec2 = matrix.getRow(row2);
-	else
-		*vec1 = matrix.getColumn(row1), *vec2 = matrix.getColumn(row2);
-
-	*vec2 = cross(*vec1, *vec2);
-	delete vec1;
-
-	return *vec2;
+	
+	return *crossMatrix;
 }
 
 double SimpleMatrixOperations::dot(Matrix &vec1, Matrix &vec2)

@@ -96,6 +96,12 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsDotTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsCrossTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

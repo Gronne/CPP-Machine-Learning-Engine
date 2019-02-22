@@ -5,3 +5,5 @@
 #include "VectorEngineSimpleMatrixOperationsHadamardTest.h"
 #include "VectorEngineSimpleMatrixOperationsInverseTest.h"
 #include "VectorEngineSimpleMatrixOperationsDeterminantTest.h"
+#include "VectorEngineSimpleMatrixOperationsDotTest.h"
+#include "VectorEngineSimpleMatrixOperationsCrossTest.h"
