@@ -7,26 +7,26 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix1 = new Matrix(3, 4);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(0, 3, 4);
-	matrix1->setEntry(1, 0, -1);
-	matrix1->setEntry(1, 1, -2);
-	matrix1->setEntry(1, 2, 1);
-	matrix1->setEntry(1, 3, 3);
-	matrix1->setEntry(2, 0, 3);
-	matrix1->setEntry(2, 1, 1);
-	matrix1->setEntry(2, 2, 4);
-	matrix1->setEntry(2, 3, 1);
+	Matrix *vec1 = new Matrix(2, 3);
+	vec1->setEntry(0, 0, 1.5);
+	vec1->setEntry(0, 1, 2.5);
+	vec1->setEntry(0, 2, 3.5);
+	vec1->setEntry(0, 0, 1.5);
+	vec1->setEntry(0, 1, 3.5);
+	vec1->setEntry(0, 2, 1.5);
 
 	
 	SimpleMatrixOperations SMO;
-	SMO.cross(*matrix1).print();
+	try {
+		 SMO.cross(*vec1).print();
+	}
+	catch (std::exception ex) {
+		std::cout << ex.what() << std::endl;
+	}
+	
 	
 
-	delete matrix1;
+	delete vec1;
 
 	exit(0);
 }

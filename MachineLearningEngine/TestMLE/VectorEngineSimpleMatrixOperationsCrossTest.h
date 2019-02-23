@@ -2,446 +2,386 @@
 #include "VectorEngineDatastructureHeader.h"
 
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHolePositiveVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossHolePositive)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, 1);
-	vec2->setEntry(0, 1, 3);
-	vec2->setEntry(0, 2, 1);
+	vec1->setEntry(1, 0, 1);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(1, 2, 1);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-7, resultVec->getEntry(0, 0));
 	EXPECT_EQ(2, resultVec->getEntry(0, 1));
 	EXPECT_EQ(1, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleNegativeVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleNegative)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, -1);
-	vec2->setEntry(0, 1, -3);
-	vec2->setEntry(0, 2, -1);
+	vec1->setEntry(1, 0, -1);
+	vec1->setEntry(1, 1, -3);
+	vec1->setEntry(1, 2, -1);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(7, resultVec->getEntry(0, 0));
 	EXPECT_EQ(-2, resultVec->getEntry(0, 1));
 	EXPECT_EQ(-1, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleMixedVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleMixed)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, -1);
-	vec2->setEntry(0, 1, 3);
-	vec2->setEntry(0, 2, -1);
+	vec1->setEntry(1, 0, -1);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(1, 2, -1);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-11, resultVec->getEntry(0, 0));
 	EXPECT_EQ(-2, resultVec->getEntry(0, 1));
 	EXPECT_EQ(5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalPositiveVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalPositive)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1.5);
 	vec1->setEntry(0, 1, 2.5);
 	vec1->setEntry(0, 2, 3.5);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, 1.5);
-	vec2->setEntry(0, 1, 3.5);
-	vec2->setEntry(0, 2, 1.5);
+	vec1->setEntry(1, 0, 1.5);
+	vec1->setEntry(1, 1, 3.5);
+	vec1->setEntry(1, 2, 1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-8.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(1.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalNegativeVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalNegative)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, -1.5);
 	vec1->setEntry(0, 1, -2.5);
 	vec1->setEntry(0, 2, -3.5);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, -1.5);
-	vec2->setEntry(0, 1, -3.5);
-	vec2->setEntry(0, 2, -1.5);
+	vec1->setEntry(1, 0, -1.5);
+	vec1->setEntry(1, 1, -3.5);
+	vec1->setEntry(1, 2, -1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-8.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(1.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalMixedVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalMixed)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, -1.5);
 	vec1->setEntry(0, 1, 2.5);
 	vec1->setEntry(0, 2, -3.5);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, 1.5);
-	vec2->setEntry(0, 1, -3.5);
-	vec2->setEntry(0, 2, 1.5);
+	vec1->setEntry(1, 0, 1.5);
+	vec1->setEntry(1, 1, -3.5);
+	vec1->setEntry(1, 2, 1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-8.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(-3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(1.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedPositiveVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedPositive)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, 1.5);
-	vec2->setEntry(0, 1, 3.5);
-	vec2->setEntry(0, 2, 1.5);
+	vec1->setEntry(1, 0, 1.5);
+	vec1->setEntry(1, 1, 3.5);
+	vec1->setEntry(1, 2, 1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-7.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(0.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegativeVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegative)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, -1.5);
-	vec2->setEntry(0, 1, -3.5);
-	vec2->setEntry(0, 2, -1.5);
+	vec1->setEntry(1, 0, -1.5);
+	vec1->setEntry(1, 1, -3.5);
+	vec1->setEntry(1, 2, -1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(7.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(-3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(-0.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedMixedVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedMixed)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, -1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, -3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, -1.5);
-	vec2->setEntry(0, 1, 3.5);
-	vec2->setEntry(0, 2, -1.5);
+	vec1->setEntry(1, 0, -1.5);
+	vec1->setEntry(1, 1, 3.5);
+	vec1->setEntry(1, 2, -1.5);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(7.5, resultVec->getEntry(0, 0));
 	EXPECT_EQ(3, resultVec->getEntry(0, 1));
 	EXPECT_EQ(-0.5, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossNotSetVectors)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossNotSet)
 {
-	Matrix *vec1 = new Matrix(1, 3);
-	Matrix *vec2 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x1)
-{
-	Matrix *vec1 = new Matrix(1, 1);
-	vec1->setEntry(0, 0, 1);
-	Matrix *vec2 = new Matrix(1, 1);
-	vec2->setEntry(0, 0, 1);
-
-	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*vec1, *vec2), std::exception);
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x2)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossVector1x2)
 {
 	Matrix *vec1 = new Matrix(1, 2);
-	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 0, 2);
-	Matrix *vec2 = new Matrix(1, 2);
-	vec2->setEntry(0, 0, 1);
-	vec2->setEntry(0, 0, -2);
+	vec1->setEntry(0, 1, 8);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*vec1, *vec2), std::exception);
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
+	EXPECT_EQ(8, resultVec->getEntry(0, 0));
+	EXPECT_EQ(-2, resultVec->getEntry(0, 1));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	EXPECT_EQ(0, resultValue);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x3)
 {
-	Matrix *vec1 = new Matrix(1, 3);
+	Matrix *vec1 = new Matrix(2, 3);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
-	Matrix *vec2 = new Matrix(1, 3);
-	vec2->setEntry(0, 0, 1);
-	vec2->setEntry(0, 1, 3);
-	vec2->setEntry(0, 2, 1);
+	vec1->setEntry(1, 0, 1);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(1, 2, 1);   
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
 	EXPECT_EQ(-7, resultVec->getEntry(0, 0));
 	EXPECT_EQ(2, resultVec->getEntry(0, 1));
 	EXPECT_EQ(1, resultVec->getEntry(0, 2));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x4)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossVector3x4)
 {
-	Matrix *vec1 = new Matrix(1, 4);
+	Matrix *vec1 = new Matrix(3, 4);
 	vec1->setEntry(0, 0, 1);
 	vec1->setEntry(0, 1, 2);
 	vec1->setEntry(0, 2, 3);
 	vec1->setEntry(0, 3, 4);
-	Matrix *vec2 = new Matrix(1, 4);
-	vec2->setEntry(0, 0, 1);
-	vec2->setEntry(0, 1, 3);
-	vec2->setEntry(0, 2, 1);
-	vec2->setEntry(0, 3, 3);
+	vec1->setEntry(1, 0, 1);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(1, 2, 1);
+	vec1->setEntry(1, 3, 3);
+	vec1->setEntry(2, 0, 3);
+	vec1->setEntry(2, 1, 1);
+	vec1->setEntry(2, 2, 3);
+	vec1->setEntry(2, 3, 1);
 
 	Matrix *resultVec = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1, *vec2));
-	EXPECT_EQ(-7, resultVec->getEntry(0, 0));
-	EXPECT_EQ(2, resultVec->getEntry(0, 1));
-	EXPECT_EQ(1, resultVec->getEntry(0, 2));
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
+	EXPECT_EQ(16, resultVec->getEntry(0, 0));
+	EXPECT_EQ(-16, resultVec->getEntry(0, 1));
+	EXPECT_EQ(-16, resultVec->getEntry(0, 2));
+	EXPECT_EQ(16, resultVec->getEntry(0, 3));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	resultValue += resultVec->getEntry(0, 3) * vec1->getEntry(0, 3);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x5)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossVector4x5)
 {
+	Matrix *vec1 = new Matrix(4, 5);
+	vec1->setEntry(0, 0, 1);
+	vec1->setEntry(0, 1, 2);
+	vec1->setEntry(0, 2, 3);
+	vec1->setEntry(0, 3, 4);
+	vec1->setEntry(0, 4, 5);
+	vec1->setEntry(1, 0, 5);
+	vec1->setEntry(1, 1, 4);
+	vec1->setEntry(1, 2, -3);
+	vec1->setEntry(1, 3, 2);
+	vec1->setEntry(1, 4, 1);
+	vec1->setEntry(2, 0, 1);
+	vec1->setEntry(2, 1, 3);
+	vec1->setEntry(2, 2, 1);
+	vec1->setEntry(2, 3, 3);
+	vec1->setEntry(2, 4, 1);
+	vec1->setEntry(3, 0, 3);
+	vec1->setEntry(3, 1, 1);
+	vec1->setEntry(3, 2, -3);
+	vec1->setEntry(3, 3, 1);
+	vec1->setEntry(3, 4, 3);
 
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*vec1));
+	EXPECT_EQ(-48, resultVec->getEntry(0, 0));
+	EXPECT_EQ(96, resultVec->getEntry(0, 1));
+	EXPECT_EQ(0, resultVec->getEntry(0, 2));
+	EXPECT_EQ(-96, resultVec->getEntry(0, 3));
+	EXPECT_EQ(48, resultVec->getEntry(0, 4));
+
+	double resultValue = resultVec->getEntry(0, 0) * vec1->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * vec1->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * vec1->getEntry(0, 2);
+	resultValue += resultVec->getEntry(0, 3) * vec1->getEntry(0, 3);
+	resultValue += resultVec->getEntry(0, 4) * vec1->getEntry(0, 4);
+	EXPECT_EQ(0, resultValue);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionVectorsVec1Matrix)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossException1x1)
 {
+	Matrix *vec1 = new Matrix(1, 1);
+	vec1->setEntry(0, 0, 2);
 
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(*resultVec = SMO.cross(*vec1), std::exception);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionVectorsVec2Matrix)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossException2x2)
 {
+	Matrix *vec1 = new Matrix(2, 2);
+	vec1->setEntry(0, 0, 2);
+	vec1->setEntry(0, 1, -2);
+	vec1->setEntry(1, 0, 2);
+	vec1->setEntry(1, 1, 2);
 
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(*resultVec = SMO.cross(*vec1), std::exception);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionVectorsBothMatrix)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x3)
 {
+	Matrix *vec1 = new Matrix(3, 3);
+	vec1->setEntry(0, 0, 1);
+	vec1->setEntry(0, 1, 2);
+	vec1->setEntry(0, 2, 3);
+	vec1->setEntry(1, 0, 1);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(1, 2, 1);
+	vec1->setEntry(2, 0, -4);
+	vec1->setEntry(2, 1, 2);
+	vec1->setEntry(2, 2, 3);
 
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(*resultVec = SMO.cross(*vec1), std::exception);
 }
 
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionMatrixSmallColumn)
+TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x2)
 {
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHolePositiveMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleNegativeMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleMixedMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalPositiveMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalNegativeMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalMixedMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedPositiveMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegativeMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegativeMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionMatrixSmallRow)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionMatrixSmallColumn)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionMatrixLargeRow)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossExceptionMatrixLargeColumn)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossNotSetMatrix)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix1x1)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix2x2)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix3x3)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix4x4)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix5x5)
-{
-
-}
-
-//-----------------------
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHolePositiveMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleNegativeMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleMixedMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalPositiveMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalNegativeMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalMixedMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedPositiveMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegativeMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegativeMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossNotSetMatrixTrans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix1x1Trans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix2x2Trans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix3x3Trans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix4x4Trans)
-{
-
-}
-
-TEST(VectorEngineSimpleMatrixOperationsCross, crossMatrix5x5Trans)
-{
-
+	Matrix *vec1 = new Matrix(3, 2);
+	vec1->setEntry(0, 0, 1);
+	vec1->setEntry(0, 1, 1);
+	vec1->setEntry(1, 0, 2);
+	vec1->setEntry(1, 1, 3);
+	vec1->setEntry(2, 0, 3);
+	vec1->setEntry(2, 1, 1);
+
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(*resultVec = SMO.cross(*vec1), std::exception);
 }

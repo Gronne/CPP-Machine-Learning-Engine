@@ -90,6 +90,11 @@ void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inve
 
 double SimpleMatrixOperations::determinant(const Matrix &matrix)
 {
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Matrix need to be square to find the determinant");
+	if (matrix.getNumberOfColumns() == 1)
+		return matrix.getEntry(0, 0);
+
 	double value = 0;
 	if (matrix.getNumberOfRows() == 2)
 		return matrix.getEntry(0, 0) * matrix.getEntry(1, 1) - matrix.getEntry(0, 1) * matrix.getEntry(1, 0);
@@ -112,7 +117,7 @@ Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 	{
 		Matrix *crossMatrix = new Matrix(1, 2);
 		crossMatrix->setEntry(0, 0, matrix.getEntry(0, 1));
-		crossMatrix->setEntry(0, 1, matrix.getEntry(0, 0));
+		crossMatrix->setEntry(0, 1, -matrix.getEntry(0, 0));
 		return *crossMatrix;
 	}
 
@@ -122,7 +127,7 @@ Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 	{
 		setDeterminantMatrix(matrix, *bufferMatrix, -1, col);
 		double detValue = determinant(*bufferMatrix);
-		crossMatrix->setEntry(0, col, detValue);
+		crossMatrix->setEntry(0, col, (detValue * ((col%2) ? -1 : 1)));
 	}
 	delete bufferMatrix;
 	
