@@ -12,9 +12,6 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixDeconstructorTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixTest.h">
-      <Filter>VectorEngineDatastructures</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfColumnsTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
@@ -90,9 +87,6 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsDeterminantTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
-      <Filter>VectorEngineDatastructures</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
@@ -100,6 +94,15 @@
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsCrossTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngine.h">
+      <Filter>VectorEngineDatastructures</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
   </ItemGroup>

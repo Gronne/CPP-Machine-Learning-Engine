@@ -42,7 +42,7 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB) cons
 	return *returnMatrix;
 }
 
-Matrix & SimpleMatrixOperations::inverse(const Matrix &matrix)
+Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 {
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
 		throw std::exception("Matrix need to be square to find the inverse");
@@ -64,6 +64,11 @@ Matrix & SimpleMatrixOperations::inverse(const Matrix &matrix)
 		throw std::exception("Not possible to invert");
 
 	return *inverseMatrix * (1/det);
+}
+
+void SimpleMatrixOperations::inverse(Matrix &matrix) 
+{
+	matrix = getInverse(matrix);
 }
 
 void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inverseMatrix)

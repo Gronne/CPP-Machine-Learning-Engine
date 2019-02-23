@@ -13,7 +13,8 @@ public:
 	Matrix& multiplication(Matrix&, Matrix&) const;
 	Matrix& multiplication(Matrix&, double) const;
 	Matrix& hadamard(Matrix&, Matrix&) const;
-	Matrix& inverse(const Matrix&);
+	void inverse(Matrix&);
+	Matrix& getInverse(const Matrix&);
 	double determinant(const Matrix&);
 	Matrix& cross(const Matrix&);
 	double dot(Matrix&, Matrix&);

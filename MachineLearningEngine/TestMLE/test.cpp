@@ -1,3 +1,2 @@
 #include "pch.h"
-#include "VectorEngineDatastructuresMatrixTest.h"
-#include "VectorEngineSimpleMatrixOperationsTest.h"
+#include "VectorEngine.h"
