@@ -147,20 +147,20 @@ double SimpleMatrixOperations::dot(Matrix &vec1, Matrix &vec2)
 double SimpleMatrixOperations::calculateDotProduct(Matrix &vec1, Matrix &vec2)
 {
 	double dotValue;
-	if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfColumns() == 1)
-		dotValue = (vec1 * vec2).getEntry(0, 0);
-	else if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfColumns() != 1)
+	if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfRows() == 1)
 	{
 		vec2.transpose();
 		dotValue = (vec1 * vec2).getEntry(0, 0);
 		vec2.transpose();
 	}
-	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfColumns() == 1)
+	else if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfRows() != 1)
+		dotValue = (vec1 * vec2).getEntry(0, 0);
+	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfRows() == 1)
 		dotValue = (vec2 * vec1).getEntry(0, 0);
-	else
+	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfRows() != 1)
 	{
 		vec1.transpose();
-		dotValue = (vec2 * vec1).getEntry(0, 0);
+		dotValue = (vec1 * vec2).getEntry(0, 0);
 		vec1.transpose();
 	}
 	return dotValue;
