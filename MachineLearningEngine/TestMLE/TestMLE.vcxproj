@@ -37,6 +37,7 @@
     <ClInclude Include="VectorEngine.h" />
     <ClInclude Include="VectorEngineDatastructureHeader.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixAdditionOperatorTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixConstructorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixDeconstructorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixDivisionOperatorTest.h" />

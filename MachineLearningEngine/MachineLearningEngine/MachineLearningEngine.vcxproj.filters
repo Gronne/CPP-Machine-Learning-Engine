@@ -60,6 +60,9 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BasicMatrixOperations.cpp">
+      <Filter>Source Files\VectorEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files\VectorEngine\vectorDatastructures</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineDatastructures.h">
+      <Filter>Header Files\VectorEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMatrixOperations.h">
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
   </ItemGroup>

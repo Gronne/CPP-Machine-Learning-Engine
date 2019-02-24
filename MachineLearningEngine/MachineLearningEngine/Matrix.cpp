@@ -247,6 +247,35 @@ void Matrix::print()
 	printMatrix(maxValueInRow, fullWidth);
 }
 
+void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
+{
+	if (appendPosition == 0 && getNumberOfRows() != matrix.getNumberOfRows())
+		throw std::exception("Rows of the two matrixs must be the same");
+	else if(appendPosition == 1 && getNumberOfColumns() != matrix.getNumberOfColumns())
+		throw std::exception("Columns of the two matrixs must be the same");
+
+	Matrix *newMatrix = new Matrix();
+	if (appendPosition == 0)
+	{
+		newMatrix->setMatrixSize(getNumberOfRows(), getNumberOfColumns() + matrix.getNumberOfColumns());
+		for (size_t col1 = 0; col1 < getNumberOfColumns(); col1++)
+			newMatrix->setColumn(col1, &getColumn(col1));
+		for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); col2++)
+			newMatrix->setColumn(col2, &matrix.getColumn(col2 - getNumberOfColumns()));
+	}
+	else
+	{
+		newMatrix->setMatrixSize(getNumberOfRows()+matrix.getNumberOfRows(), getNumberOfColumns());
+		for (size_t col1 = 0; col1 < getNumberOfRows(); col1++)
+			newMatrix->setRow(col1, &getRow(col1));
+		for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); col2++)
+			newMatrix->setRow(col2, &matrix.getRow(col2 - getNumberOfRows()));
+	}
+
+	setMatrix(newMatrix);
+	delete newMatrix;
+}
+
 void Matrix::operator=(const Matrix & obj)
 {
 		this->setMatrix(&obj);

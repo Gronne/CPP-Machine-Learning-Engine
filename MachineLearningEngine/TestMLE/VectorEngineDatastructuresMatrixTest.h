@@ -20,3 +20,4 @@
 #include "VectorEngineDatastructuresMatrixScaleTest.h"
 #include "VectorEngineDatastructuresMatrixSetRowTest.h"
 #include "VectorEngineDatastructuresMatrixSetColumnTest.h"
+#include "VectorEngineDatastructuresMatrixAppendMatrixTest.h"

@@ -25,6 +25,7 @@ public:
 	void transpose();
 	void scale(double);
 	void print();
+	void appendMatrix(const Matrix&, bool = 0);
 
 	void operator=(const Matrix &obj);
 	Matrix& operator+(const Matrix &obj);

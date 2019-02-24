@@ -105,6 +105,9 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

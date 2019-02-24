@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicMatrixOperations.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixResult.cpp" />
     <ClCompile Include="MatrixSpace.cpp" />
@@ -127,6 +128,7 @@
     <ClCompile Include="VectorEngineDatastructures.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicMatrixOperations.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixResult.h" />
     <ClInclude Include="MatrixSpace.h" />

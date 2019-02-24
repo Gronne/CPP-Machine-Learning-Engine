@@ -17,7 +17,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseHolePositive)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(-1.791667, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(0.916677, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(-0.125, matrix2->getEntry(0, 2));
@@ -44,7 +44,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleNegative)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(1.791667, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(-0.916667, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(0.125, matrix2->getEntry(0, 2));
@@ -71,7 +71,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleMixed)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(1.791667, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(0.916667, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(0.125, matrix2->getEntry(0, 2));
@@ -98,7 +98,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleZero)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*matrix2 = SMO.inverse(*matrix1), std::exception);
+	EXPECT_THROW(*matrix2 = SMO.getInverse(*matrix1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalPositive)
@@ -116,7 +116,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalPositive)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(-1.958333, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(1.083333, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(-0.125, matrix2->getEntry(0, 2));
@@ -143,7 +143,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalNegative)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(1.958333, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(-1.083333, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(0.125, matrix2->getEntry(0, 2));
@@ -170,7 +170,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalMixed)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(1.958333, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(1.083333, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(0.125, matrix2->getEntry(0, 2));
@@ -194,7 +194,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseExceptionNotSquare1)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*matrix2 = SMO.inverse(*matrix1), std::exception);
+	EXPECT_THROW(*matrix2 = SMO.getInverse(*matrix1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseExceptionNotSquare2)
@@ -209,7 +209,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseExceptionNotSquare2)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*matrix2 = SMO.inverse(*matrix1), std::exception);
+	EXPECT_THROW(*matrix2 = SMO.getInverse(*matrix1), std::exception);
 }
 
 
@@ -220,7 +220,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize1x1)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_EQ(1, matrix2->getEntry(0, 0));
 }
 
@@ -234,7 +234,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize2x2)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_EQ(-0.2, matrix2->getEntry(0, 0));
 	EXPECT_EQ(0.4, matrix2->getEntry(0, 1));
 	EXPECT_NEAR(0.6, matrix2->getEntry(1, 0), 0.0001);
@@ -256,7 +256,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize3x3)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(-1.791667, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(0.916667, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_EQ(-0.125, matrix2->getEntry(0, 2));
@@ -290,7 +290,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize4x4)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(-0.138889, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(0.027778, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_NEAR(0.111111, matrix2->getEntry(0, 2), 0.0001);
@@ -340,7 +340,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 	EXPECT_NEAR(-0.048976, matrix2->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(0.038892, matrix2->getEntry(0, 1), 0.0001);
 	EXPECT_NEAR(-0.014834, matrix2->getEntry(0, 2), 0.0001);
@@ -399,5 +399,5 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5Time)
 
 	Matrix *matrix2 = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.inverse(*matrix1));
+	EXPECT_NO_THROW(*matrix2 = SMO.getInverse(*matrix1));
 }

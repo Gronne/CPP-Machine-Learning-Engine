@@ -17,7 +17,8 @@ void BasicMatrixOperations::rowReduce(Matrix &)
 
 Matrix & BasicMatrixOperations::getRowReduction(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
 
 void BasicMatrixOperations::echelonFrom(Matrix &)
@@ -26,7 +27,8 @@ void BasicMatrixOperations::echelonFrom(Matrix &)
 
 Matrix & BasicMatrixOperations::getEchelonForm(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
 
 void BasicMatrixOperations::adjugateInverse(Matrix &)
@@ -35,25 +37,30 @@ void BasicMatrixOperations::adjugateInverse(Matrix &)
 
 Matrix & BasicMatrixOperations::getAdjugateInverse(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
 
 Matrix & BasicMatrixOperations::getEigenValues(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
 
 Matrix & BasicMatrixOperations::getEigenVectors(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
 
 MatrixResult & BasicMatrixOperations::findSolution(const Matrix &)
 {
-	// TODO: insert return statement here
+	MatrixResult *matrix = new MatrixResult();
+	return *matrix;
 }
 
 Matrix & BasicMatrixOperations::getOrthonormal(const Matrix &)
 {
-	// TODO: insert return statement here
+	Matrix *matrix = new Matrix();
+	return *matrix;
 }
