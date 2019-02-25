@@ -121,6 +121,7 @@
     <ClCompile Include="BasicMatrixOperations.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixResult.cpp" />
+    <ClCompile Include="MatrixRREF.cpp" />
     <ClCompile Include="MatrixSpace.cpp" />
     <ClCompile Include="Regression.cpp" />
     <ClCompile Include="SimpleMatrixOperations.cpp" />
@@ -131,6 +132,7 @@
     <ClInclude Include="BasicMatrixOperations.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixResult.h" />
+    <ClInclude Include="MatrixRREF.h" />
     <ClInclude Include="MatrixSpace.h" />
     <ClInclude Include="Regression.h" />
     <ClInclude Include="SimpleMatrixOperations.h" />

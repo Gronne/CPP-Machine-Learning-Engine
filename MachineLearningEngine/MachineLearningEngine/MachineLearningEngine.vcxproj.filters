@@ -63,6 +63,9 @@
     <ClCompile Include="BasicMatrixOperations.cpp">
       <Filter>Source Files\VectorEngine</Filter>
     </ClCompile>
+    <ClCompile Include="MatrixRREF.cpp">
+      <Filter>Source Files\VectorEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
     <ClInclude Include="BasicMatrixOperations.h">
+      <Filter>Header Files\VectorEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixRREF.h">
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
   </ItemGroup>
