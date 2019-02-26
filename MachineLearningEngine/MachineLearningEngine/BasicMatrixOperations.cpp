@@ -26,7 +26,7 @@ Matrix & BasicMatrixOperations::getRowReduction(const Matrix &matrix)
 }
 
 
-void BasicMatrixOperations::echelonFrom(Matrix &matrix)
+void BasicMatrixOperations::echelonForm(Matrix &matrix)
 {
 	matrix = getEchelonForm(matrix);
 }

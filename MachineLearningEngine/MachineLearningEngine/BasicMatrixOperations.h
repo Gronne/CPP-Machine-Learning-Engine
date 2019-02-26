@@ -10,7 +10,7 @@ public:
 	~BasicMatrixOperations();
 	void rowReduce(Matrix&);
 	Matrix& getRowReduction(const Matrix&);
-	void echelonFrom(Matrix&);
+	void echelonForm(Matrix&);
 	Matrix& getEchelonForm(const Matrix&);
 	void adjugateInverse(Matrix&);
 	Matrix& getAdjugateInverse(const Matrix&);

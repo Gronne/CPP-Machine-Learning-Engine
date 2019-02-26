@@ -10,7 +10,7 @@ public:
 	Matrix& rowReduceOver(Matrix&);
 
 private:
-	void reduceColumnUnder(Matrix&, int);
+	void reduceColumnUnder(Matrix&, int, int);
 	void reduceColumnOver(Matrix&, int);
 
 	void sameSizeColumnUnder(Matrix&, int, std::vector<double>&);

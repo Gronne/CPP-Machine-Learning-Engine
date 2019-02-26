@@ -17,8 +17,10 @@ Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	for (size_t col = 0; col < matrix.getNumberOfRows()-1; col++)
-		reduceColumnUnder(*resultMatrix, col);
+	int smallestSize = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
+	for (size_t col = 0; col < smallestSize; col++)
+		reduceColumnUnder(*resultMatrix, col, smallestSize);
+
 
 	return *resultMatrix;
 }
@@ -40,14 +42,14 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 }
 
 
-void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column)
+void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column, int smallestValue)
 {
 	chechForZeroRow(matrix, column);
 	std::vector<double> divideVector;
 	sameSizeColumnUnder(matrix, column, divideVector);
 	for (size_t row = 1; column + row < matrix.getNumberOfRows(); row++)
 		substractRow(matrix, column, column + row);
-	for (size_t row = column; row < matrix.getNumberOfRows(); row++)
+	for (size_t row = column; row < smallestValue; row++)
 		minimizeRow(matrix, row, divideVector[row-column]);
 }
 
@@ -65,13 +67,9 @@ void MatrixRREF::reduceColumnOver(Matrix &matrix, int column)
 
 void MatrixRREF::chechForZeroRow(Matrix &matrix, int row)
 {
-	if(matrix.getEntry(row + 1, row) == 0)
-		for (size_t i = row + 2; i < matrix.getNumberOfRows(); i++)
-			if (matrix.getEntry(i, row) != 0)
-			{
-				substractRow(matrix, i, row + 1);
-				break;
-			}
+	if(row != matrix.getNumberOfRows() - 1)
+		if (matrix.getEntry(row, row) == 0 && matrix.getEntry(row + 1, row) != 0)
+			substractRow(matrix, row + 1, row);
 }
 
 
@@ -90,6 +88,8 @@ void MatrixRREF::sameSizeColumnUnder(Matrix &matrix, int column, std::vector<dou
 			for (size_t columnEntry = 0; columnEntry < matrix.getNumberOfColumns(); columnEntry++)
 				matrix.setEntry(row, columnEntry, matrix.getEntry(row, columnEntry) * multiplicationValue);
 		}
+		else 
+			divideVector.push_back(1);
 }
 
 void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<double> &divideVector)
@@ -118,8 +118,9 @@ void MatrixRREF::substractRow(Matrix &matrix, int primaryRow, int secondaryRow)
 
 void MatrixRREF::minimizeRow(Matrix &matrix, int row, double divideValue)
 {
-	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-		matrix.setEntry(row, col, matrix.getEntry(row, col) / (divideValue >= 0 ? divideValue : -divideValue));
+	if(matrix.getEntry(row, row) != 0)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			matrix.setEntry(row, col, matrix.getEntry(row, col) / (divideValue < 0 && matrix.getEntry(row, row) >= 0 ? -divideValue : divideValue));
 }
 
 

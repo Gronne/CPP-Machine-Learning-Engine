@@ -108,6 +108,15 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineBasicMatrixOperationsRowReduceTest.h">
+      <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonFormTest.h">
+      <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineBasicMatrixOperationsTest.h">
+      <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -121,6 +130,9 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\SimpleMatrixOperations">
       <UniqueIdentifier>{9d20c9ad-3428-4f91-85d3-41336b850f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\BasicMatrixOperations">
+      <UniqueIdentifier>{e0da2a23-cc11-4775-bdf2-731b5b410044}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
