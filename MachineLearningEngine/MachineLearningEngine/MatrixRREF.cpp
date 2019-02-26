@@ -19,6 +19,7 @@ Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 
 	for (size_t col = 0; col < matrix.getNumberOfRows()-1; col++)
 		reduceColumnUnder(*resultMatrix, col);
+
 	return *resultMatrix;
 }
 
@@ -28,10 +29,12 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	for (size_t col = 0; col < matrix.getNumberOfRows(); col++)
+	int smallestSize = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
+	for (size_t col = smallestSize-1; col > 0; col--)
 		reduceColumnOver(*resultMatrix, col);
-
-	//Der er noget der ikke er optimalt, eftersom den burde gå fra 
+	
+	for (size_t row = 0; row < smallestSize; row++)
+		minimizeRow(*resultMatrix, row, resultMatrix->getEntry(row, row));
 
 	return *resultMatrix;
 }
@@ -41,7 +44,7 @@ void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column)
 {
 	chechForZeroRow(matrix, column);
 	std::vector<double> divideVector;
-	sameSizeColumn(matrix, column, divideVector);
+	sameSizeColumnUnder(matrix, column, divideVector);
 	for (size_t row = 1; column + row < matrix.getNumberOfRows(); row++)
 		substractRow(matrix, column, column + row);
 	for (size_t row = column; row < matrix.getNumberOfRows(); row++)
@@ -51,7 +54,12 @@ void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column)
 
 void MatrixRREF::reduceColumnOver(Matrix &matrix, int column)
 {
-	
+	std::vector<double> divideVector;
+	sameSizeColumnOver(matrix, column, divideVector);
+	for (size_t row = column; row > 0; row--)
+		substractRow(matrix, column, column - row);
+	for (size_t row = column; row > 0; row--)
+		minimizeRow(matrix, row, divideVector[column - row]);
 }
 
 
@@ -67,7 +75,7 @@ void MatrixRREF::chechForZeroRow(Matrix &matrix, int row)
 }
 
 
-void MatrixRREF::sameSizeColumn(Matrix &matrix, int column, std::vector<double> &divideVector)
+void MatrixRREF::sameSizeColumnUnder(Matrix &matrix, int column, std::vector<double> &divideVector)
 {
 	double multiplicationMaxValue = 1;
 	for (size_t row = column; row < matrix.getNumberOfRows(); row++)
@@ -75,6 +83,23 @@ void MatrixRREF::sameSizeColumn(Matrix &matrix, int column, std::vector<double> 
 			multiplicationMaxValue *= matrix.getEntry(row, column);
 
 	for (size_t row = column; row < matrix.getNumberOfRows(); row++)
+		if (matrix.getEntry(row, column) != 0)
+		{
+			double multiplicationValue = multiplicationMaxValue / matrix.getEntry(row, column);
+			divideVector.push_back(multiplicationValue);
+			for (size_t columnEntry = 0; columnEntry < matrix.getNumberOfColumns(); columnEntry++)
+				matrix.setEntry(row, columnEntry, matrix.getEntry(row, columnEntry) * multiplicationValue);
+		}
+}
+
+void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<double> &divideVector)
+{
+	double multiplicationMaxValue = 1;
+	for (size_t row = 0; row <= column; row++)
+		if (matrix.getEntry(row, column) != 0)
+			multiplicationMaxValue *= matrix.getEntry(row, column);
+
+	for (size_t row = 0; row <= column; row++)
 		if (matrix.getEntry(row, column) != 0)
 		{
 			double multiplicationValue = multiplicationMaxValue / matrix.getEntry(row, column);

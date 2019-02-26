@@ -13,7 +13,8 @@ private:
 	void reduceColumnUnder(Matrix&, int);
 	void reduceColumnOver(Matrix&, int);
 
-	void sameSizeColumn(Matrix&, int, std::vector<double>&);
+	void sameSizeColumnUnder(Matrix&, int, std::vector<double>&);
+	void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
 	void substractRow(Matrix&, int, int);
 	void minimizeRow(Matrix&, int, double);
 	void chechForZeroRow(Matrix&, int);
