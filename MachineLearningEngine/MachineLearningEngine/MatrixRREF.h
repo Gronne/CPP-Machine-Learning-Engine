@@ -18,5 +18,6 @@ private:
 	void substractRow(Matrix&, int, int);
 	void minimizeRow(Matrix&, int, double);
 	void chechForZeroRow(Matrix&, int);
+	void checkForFreePivot(Matrix&);
 };
 

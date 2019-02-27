@@ -37,8 +37,16 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 	
 	for (size_t row = 0; row < smallestSize; row++)
 		minimizeRow(*resultMatrix, row, resultMatrix->getEntry(row, row));
-
+	checkForFreePivot(*resultMatrix);
 	return *resultMatrix;
+}
+
+void MatrixRREF::checkForFreePivot(Matrix &matrix)
+{
+	if (matrix.getNumberOfColumns() > 2)
+		if (matrix.getEntry(0, matrix.getNumberOfColumns() - 2) != 0 && matrix.getEntry(matrix.getNumberOfRows()-1, matrix.getNumberOfColumns()-2) == 0)
+			for (size_t row = 0; row < matrix.getNumberOfRows()-1; row++)
+				matrix.setEntry(row, matrix.getNumberOfColumns() - 1, 0);
 }
 
 
@@ -120,7 +128,7 @@ void MatrixRREF::minimizeRow(Matrix &matrix, int row, double divideValue)
 {
 	if(matrix.getEntry(row, row) != 0)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			matrix.setEntry(row, col, matrix.getEntry(row, col) / (divideValue < 0 && matrix.getEntry(row, row) >= 0 ? -divideValue : divideValue));
+			matrix.setEntry(row, col, matrix.getEntry(row, col) / divideValue);
 }
 
 
