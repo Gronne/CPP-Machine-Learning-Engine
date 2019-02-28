@@ -49,15 +49,24 @@ void BasicMatrixOperations::echelonInverse(Matrix &matrix)
 
 Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 {
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Ned square matrix for inverse");
+	if (matrix.getNumberOfColumns() == 1)
+	{
+		Matrix *resultMatrix = new Matrix(1, 1);
+		resultMatrix->setEntry(0, 0, 1 / matrix.getEntry(0, 0));
+		return *resultMatrix;
+	}
+	if (rref.checkForFullDependentMatrix(matrix))
+		throw std::exception("When finding Inverse, the matrix can't be full dependent");
+
+
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
 	SimpleMatrixOperations SMO;
 	resultMatrix->appendMatrix(SMO.makeIdentityMatrix(matrix.getNumberOfRows()));
-	
-	resultMatrix->print();
 	echelonForm(*resultMatrix);
-
 	std::vector<int> columns;
 	for (int col = matrix.getNumberOfColumns(); col < resultMatrix->getNumberOfColumns(); col++)
 		columns.push_back(col);

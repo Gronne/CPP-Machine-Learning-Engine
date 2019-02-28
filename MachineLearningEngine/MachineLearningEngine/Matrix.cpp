@@ -240,7 +240,7 @@ void Matrix::scale(double scaleingsFactor)
 }
 
 
-void Matrix::print()
+void Matrix::print() const
 {
 	std::vector<int> maxValueInRow = findMaxValueInRow();
 	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + getNumberOfColumns()*3 + 1;
@@ -279,6 +279,28 @@ void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 void Matrix::operator=(const Matrix & obj)
 {
 		this->setMatrix(&obj);
+}
+
+bool Matrix::operator==(const Matrix &obj)
+{
+	if (obj.getNumberOfColumns() != getNumberOfColumns() && obj.getNumberOfRows() != obj.getNumberOfRows())
+		return false;
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t col = 0; col < getNumberOfColumns(); col++)
+			if (getEntry(row, col) != obj.getEntry(row, col))
+				return false;
+	return true;
+}
+
+bool Matrix::operator!=(const Matrix &obj)
+{
+	if (obj.getNumberOfColumns() != getNumberOfColumns() && obj.getNumberOfRows() != obj.getNumberOfRows())
+		return true;
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t col = 0; col < getNumberOfColumns(); col++)
+			if (getEntry(row, col) != obj.getEntry(row, col))
+				return true;
+	return false;
 }
 
 Matrix & Matrix::operator+(const Matrix & obj)
@@ -327,7 +349,7 @@ Matrix & Matrix::operator/(const double value)
 }
 
 
-void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth)
+void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth) const
 {
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 	{
@@ -337,13 +359,14 @@ void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth)
 	printLine(fullWidth);
 }
 
-void Matrix::printLine(int width) {
+void Matrix::printLine(int width) const 
+{
 	for (size_t cursor = 0; cursor < width; cursor++)
 		std::cout << "-";
 	std::cout << std::endl;
 }
 
-void Matrix::printRow(int row, std::vector<int> maxValueInRow)
+void Matrix::printRow(int row, std::vector<int> maxValueInRow) const
 {
 	for (size_t column = 0; column < getNumberOfColumns(); column++)
 	{
@@ -353,7 +376,7 @@ void Matrix::printRow(int row, std::vector<int> maxValueInRow)
 	std::cout << "|" << std::endl;
 }
 
-void Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow)
+void Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow) const
 {
 	std::cout << " ";
 	size_t space = 0 + unevenSpace(row, column, maxValueInRow);
@@ -367,17 +390,17 @@ void Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow)
 	std::cout << " ";
 }
 
-bool Matrix::unevenSpace(int row, int column, std::vector<int>maxValueInRow)
+bool Matrix::unevenSpace(int row, int column, std::vector<int>maxValueInRow) const
 {
 	return ((getDiffWidth(row, column, maxValueInRow)/ 2) - std::floor((getDiffWidth(row, column, maxValueInRow)) / 2) == 0.5);
 }
 
-double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow)
+double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow) const
 {
 	return (maxValueInRow[column] - numberWidth(getEntry(row, column)));
 }
 
-std::vector<int> Matrix::findMaxValueInRow()
+std::vector<int> Matrix::findMaxValueInRow() const
 {
 	std::vector<int> maxValueInRow;
 	for (size_t column = 0; column < getNumberOfColumns(); column++)
@@ -385,7 +408,7 @@ std::vector<int> Matrix::findMaxValueInRow()
 	return maxValueInRow;
 }
 
-double Matrix::getWidestNumberInRow(int column)
+double Matrix::getWidestNumberInRow(int column) const
 {
 	double widestValue = 0;
 	for (size_t row = 0; row < getNumberOfRows(); row++)
@@ -395,12 +418,12 @@ double Matrix::getWidestNumberInRow(int column)
 }
 
 
-double Matrix::numberWidth(double value)
+double Matrix::numberWidth(double value) const
 {
 	return eraseZeros(std::to_string(value)).size();
 }
 
-std::string Matrix::eraseZeros(std::string string)
+std::string Matrix::eraseZeros(std::string string) const
 {
 	int cursor = 0;
 	if (string.find(".") != std::string::npos)

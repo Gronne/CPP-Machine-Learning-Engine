@@ -14,6 +14,9 @@ MatrixRREF::~MatrixRREF()
 
 Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 {
+	if (checkForFullDependentMatrix(matrix) == true)
+		throw std::exception("Your matrix is full dependent and can't be reduced");
+
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
@@ -34,19 +37,37 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 	int smallestSize = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
 	for (size_t col = smallestSize-1; col > 0; col--)
 		reduceColumnOver(*resultMatrix, col);
-	
 	for (size_t row = 0; row < smallestSize; row++)
 		minimizeRow(*resultMatrix, row, resultMatrix->getEntry(row, row));
-	checkForFreePivot(*resultMatrix);
+	checkForFreePivot(*resultMatrix, smallestSize);
 	return *resultMatrix;
 }
 
-void MatrixRREF::checkForFreePivot(Matrix &matrix)
+void MatrixRREF::checkForFreePivot(Matrix &matrix, int smallestSize)
 {
 	if (matrix.getNumberOfColumns() > 2)
-		if (matrix.getEntry(0, matrix.getNumberOfColumns() - 2) != 0 && matrix.getEntry(matrix.getNumberOfRows()-1, matrix.getNumberOfColumns()-2) == 0)
+		if(matrix.getEntry(0, smallestSize - 1) != 0 && matrix.getEntry(smallestSize - 1, smallestSize - 1) == 0)
 			for (size_t row = 0; row < matrix.getNumberOfRows()-1; row++)
 				matrix.setEntry(row, matrix.getNumberOfColumns() - 1, 0);
+}
+
+bool MatrixRREF::checkForFullDependentMatrix(const Matrix &matrix)
+{
+	if (matrix.getNumberOfRows() == 1)
+		return false;
+
+	Matrix *bufferMatrix = new Matrix();
+	*bufferMatrix = matrix;
+	bool returnBool = true;
+
+	std::vector<double> divideVector;
+	sameSizeColumnUnder(*bufferMatrix, 0, divideVector);
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		if(bufferMatrix->getRow(0) != bufferMatrix->getRow(row))
+			returnBool = false;
+		
+	delete bufferMatrix;
+	return returnBool;
 }
 
 
@@ -56,7 +77,8 @@ void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column, int smallestValue
 	std::vector<double> divideVector;
 	sameSizeColumnUnder(matrix, column, divideVector);
 	for (size_t row = 1; column + row < matrix.getNumberOfRows(); row++)
-		substractRow(matrix, column, column + row);
+		if(matrix.getEntry(column + row, column) != 0)
+			substractRow(matrix, column, column + row);
 	for (size_t row = column; row < smallestValue; row++)
 		minimizeRow(matrix, row, divideVector[row-column]);
 }

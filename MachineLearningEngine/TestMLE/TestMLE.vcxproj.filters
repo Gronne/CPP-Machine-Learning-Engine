@@ -120,6 +120,9 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonInverseTest.h">
+      <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

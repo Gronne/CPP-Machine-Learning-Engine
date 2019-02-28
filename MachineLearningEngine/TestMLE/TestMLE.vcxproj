@@ -36,6 +36,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="VectorEngine.h" />
     <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonFormTest.h" />
+    <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonInverseTest.h" />
     <ClInclude Include="VectorEngineBasicMatrixOperationsRowReduceTest.h" />
     <ClInclude Include="VectorEngineBasicMatrixOperationsTest.h" />
     <ClInclude Include="VectorEngineDatastructureHeader.h" />
