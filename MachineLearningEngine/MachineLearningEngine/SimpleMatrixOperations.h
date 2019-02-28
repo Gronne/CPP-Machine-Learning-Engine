@@ -20,6 +20,8 @@ public:
 	double dot(Matrix&, Matrix&);
 	double dot(const Matrix&, int, int, bool = 0);
 
+	Matrix& makeIdentityMatrix(int);
+
 private:
 	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
 	void setInverseMatrix(const Matrix&, Matrix&);

@@ -52,7 +52,7 @@ void MatrixRREF::checkForFreePivot(Matrix &matrix)
 
 void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column, int smallestValue)
 {
-	chechForZeroRow(matrix, column);
+	checkForZeroRow(matrix, column);
 	std::vector<double> divideVector;
 	sameSizeColumnUnder(matrix, column, divideVector);
 	for (size_t row = 1; column + row < matrix.getNumberOfRows(); row++)
@@ -73,7 +73,7 @@ void MatrixRREF::reduceColumnOver(Matrix &matrix, int column)
 }
 
 
-void MatrixRREF::chechForZeroRow(Matrix &matrix, int row)
+void MatrixRREF::checkForZeroRow(Matrix &matrix, int row)
 {
 	if(row != matrix.getNumberOfRows() - 1)
 		if (matrix.getEntry(row, row) == 0 && matrix.getEntry(row + 1, row) != 0)

@@ -7,3 +7,4 @@
 #include "VectorEngineSimpleMatrixOperationsDeterminantTest.h"
 #include "VectorEngineSimpleMatrixOperationsDotTest.h"
 #include "VectorEngineSimpleMatrixOperationsCrossTest.h"
+#include "VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h"

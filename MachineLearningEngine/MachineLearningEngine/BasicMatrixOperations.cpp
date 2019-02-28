@@ -41,23 +41,26 @@ Matrix & BasicMatrixOperations::getEchelonForm(const Matrix &matrix)
 }
 
 
-void BasicMatrixOperations::adjugateInverse(Matrix &matrix)
+void BasicMatrixOperations::echelonInverse(Matrix &matrix)
 {
-	matrix = getAdjugateInverse(matrix);
+	matrix = getEchelonInverse(matrix);
 }
 
 
-Matrix & BasicMatrixOperations::getAdjugateInverse(const Matrix &matrix)
+Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 {
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
-	resultMatrix->appendMatrix(matrix);
-	getEchelonForm(*resultMatrix);
+
+	SimpleMatrixOperations SMO;
+	resultMatrix->appendMatrix(SMO.makeIdentityMatrix(matrix.getNumberOfRows()));
+	
+	resultMatrix->print();
+	echelonForm(*resultMatrix);
 
 	std::vector<int> columns;
-	for (int col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (int col = matrix.getNumberOfColumns(); col < resultMatrix->getNumberOfColumns(); col++)
 		columns.push_back(col);
-
 	resultMatrix->setMatrix(&resultMatrix->getColumns(columns));
 	return *resultMatrix;
 }

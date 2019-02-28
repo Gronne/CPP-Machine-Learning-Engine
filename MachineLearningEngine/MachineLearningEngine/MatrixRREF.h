@@ -17,7 +17,7 @@ private:
 	void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
 	void substractRow(Matrix&, int, int);
 	void minimizeRow(Matrix&, int, double);
-	void chechForZeroRow(Matrix&, int);
+	void checkForZeroRow(Matrix&, int);
 	void checkForFreePivot(Matrix&);
 };
 

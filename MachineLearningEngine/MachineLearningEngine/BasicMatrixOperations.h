@@ -2,6 +2,7 @@
 #include "Matrix.h"
 #include "MatrixResult.h"
 #include "MatrixRREF.h"
+#include "SimpleMatrixOperations.h"
 
 class BasicMatrixOperations
 {
@@ -12,8 +13,8 @@ public:
 	Matrix& getRowReduction(const Matrix&);
 	void echelonForm(Matrix&);
 	Matrix& getEchelonForm(const Matrix&);
-	void adjugateInverse(Matrix&);
-	Matrix& getAdjugateInverse(const Matrix&);
+	void echelonInverse(Matrix&);
+	Matrix& getEchelonInverse(const Matrix&);
 	Matrix& getEigenValues(const Matrix&);
 	Matrix& getEigenVectors(const Matrix&);
 	MatrixResult& findSolution(const Matrix&);
