@@ -1,7 +1,7 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHolePositive)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixHolePositive)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1);
@@ -23,7 +23,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHolePositiv
 	EXPECT_EQ(12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleNegative)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixHoleNegative)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1);
@@ -45,7 +45,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleNegativ
 	EXPECT_EQ(-12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleMixed)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixHoleMixed)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1);
@@ -67,7 +67,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleMixed)
 	EXPECT_EQ(12, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleZero)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixHoleZero)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1);
@@ -89,7 +89,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorHoleZero)
 	EXPECT_EQ(0, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalPositive)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixDecimalPositive)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -111,7 +111,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalPosi
 	EXPECT_EQ(13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalNegative)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixDecimalNegative)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1.5);
@@ -133,7 +133,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalNega
 	EXPECT_EQ(-13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalMixed)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixDecimalMixed)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, -1.5);
@@ -155,7 +155,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalMixe
 	EXPECT_EQ(13, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalZero)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixDecimalZero)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -177,7 +177,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDecimalZero
 	EXPECT_EQ(0, matrix2->getEntry(1, 2));
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffCol1)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffCol1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -192,7 +192,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffCol2)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffCol2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -207,7 +207,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffRow1)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffRow1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -222,7 +222,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffRow2)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffRow2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -237,7 +237,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffRowCol1)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffRowCol1)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -252,7 +252,7 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDiffRowCol2)
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorMatrixExceptionDiffRowCol2)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
 	matrix1->setEntry(0, 0, 1.5);
@@ -265,4 +265,138 @@ TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorExceptionDi
 	Matrix *matrix2 = new Matrix(1, 2);
 
 	EXPECT_THROW(*matrix1 + *matrix2, std::exception);
+}
+
+//-----------------------------------------------------
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleHolePositive)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + 2);
+	EXPECT_EQ(3, matrix2->getEntry(0, 0));
+	EXPECT_EQ(4, matrix2->getEntry(0, 1));
+	EXPECT_EQ(5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(6, matrix2->getEntry(1, 0));
+	EXPECT_EQ(7, matrix2->getEntry(1, 1));
+	EXPECT_EQ(8, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleHoleNegative)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + -2);
+	EXPECT_EQ(-1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(0, matrix2->getEntry(0, 1));
+	EXPECT_EQ(1, matrix2->getEntry(0, 2));
+	EXPECT_EQ(2, matrix2->getEntry(1, 0));
+	EXPECT_EQ(3, matrix2->getEntry(1, 1));
+	EXPECT_EQ(4, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleHoleZero)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + 0);
+	EXPECT_EQ(1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(2, matrix2->getEntry(0, 1));
+	EXPECT_EQ(3, matrix2->getEntry(0, 2));
+	EXPECT_EQ(4, matrix2->getEntry(1, 0));
+	EXPECT_EQ(5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(6, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleDecimalPositive)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + 2.5);
+	EXPECT_EQ(3.5, matrix2->getEntry(0, 0));
+	EXPECT_EQ(4.5, matrix2->getEntry(0, 1));
+	EXPECT_EQ(5.5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(6.5, matrix2->getEntry(1, 0));
+	EXPECT_EQ(7.5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(8.5, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleDecimalNegative)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + -2.5);
+	EXPECT_EQ(-1.5, matrix2->getEntry(0, 0));
+	EXPECT_EQ(-0.5, matrix2->getEntry(0, 1));
+	EXPECT_EQ(0.5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(1.5, matrix2->getEntry(1, 0));
+	EXPECT_EQ(2.5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(3.5, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineDatastructurMatrixAdditionOperator, additionOperatorDoubleDecimalZero)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	EXPECT_NO_THROW(*matrix2 = *matrix1 + 0.0);
+	EXPECT_EQ(1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(2, matrix2->getEntry(0, 1));
+	EXPECT_EQ(3, matrix2->getEntry(0, 2));
+	EXPECT_EQ(4, matrix2->getEntry(1, 0));
+	EXPECT_EQ(5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(6, matrix2->getEntry(1, 2));
 }
