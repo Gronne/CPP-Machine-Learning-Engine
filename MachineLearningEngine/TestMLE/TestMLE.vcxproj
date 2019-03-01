@@ -40,6 +40,7 @@
     <ClInclude Include="VectorEngineBasicMatrixOperationsRowReduceTest.h" />
     <ClInclude Include="VectorEngineBasicMatrixOperationsTest.h" />
     <ClInclude Include="VectorEngineDatastructureHeader.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixAdditionEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixAdditionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixConstructorTest.h" />
@@ -54,6 +55,7 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfRowsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixNotEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixResizeMatrixTest.h" />
@@ -62,6 +64,7 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixSetEntryTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSetRowTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />

@@ -7,14 +7,28 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix1 = new Matrix(3, 3);
-	Matrix *matrix2 = new Matrix(3, 2);
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
 
-	SimpleMatrixOperations SMO;
-	BasicMatrixOperations BMO;
+	Matrix *matrix2 = new Matrix();
+	*matrix2 = *matrix1;
+	matrix2->transpose();
 
-	if (*matrix1 == *matrix2)
-		std::cout << "Not possible" << std::endl;
+	Matrix *resultMatrix = new Matrix();
+	try
+	{
+		*matrix1 *= *matrix2 * *matrix1;
+	}
+	catch (const std::exception ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
+	
 
 	delete matrix1;
 	delete matrix2;

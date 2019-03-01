@@ -129,6 +129,15 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixNotEqualOperatorTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixAdditionEqualOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionEqualOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationEqualOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
