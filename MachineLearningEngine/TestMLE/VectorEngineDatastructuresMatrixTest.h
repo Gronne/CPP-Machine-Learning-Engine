@@ -21,3 +21,5 @@
 #include "VectorEngineDatastructuresMatrixSetRowTest.h"
 #include "VectorEngineDatastructuresMatrixSetColumnTest.h"
 #include "VectorEngineDatastructuresMatrixAppendMatrixTest.h"
+#include "VectorEngineDatastructuresMatrixEqualEqualOperatorTest.h"
+#include "VectorEngineDatastructuresMatrixNotEqualOperatorTest.h"

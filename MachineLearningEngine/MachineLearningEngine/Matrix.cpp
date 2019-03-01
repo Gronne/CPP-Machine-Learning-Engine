@@ -283,7 +283,7 @@ void Matrix::operator=(const Matrix & obj)
 
 bool Matrix::operator==(const Matrix &obj)
 {
-	if (obj.getNumberOfColumns() != getNumberOfColumns() && obj.getNumberOfRows() != obj.getNumberOfRows())
+	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return false;
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 		for (size_t col = 0; col < getNumberOfColumns(); col++)
@@ -294,7 +294,7 @@ bool Matrix::operator==(const Matrix &obj)
 
 bool Matrix::operator!=(const Matrix &obj)
 {
-	if (obj.getNumberOfColumns() != getNumberOfColumns() && obj.getNumberOfRows() != obj.getNumberOfRows())
+	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return true;
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 		for (size_t col = 0; col < getNumberOfColumns(); col++)
