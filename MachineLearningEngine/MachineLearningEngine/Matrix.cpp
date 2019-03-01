@@ -303,6 +303,50 @@ bool Matrix::operator!=(const Matrix &obj)
 	return false;
 }
 
+void Matrix::operator+=(const Matrix &obj)
+{
+	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
+		throw std::exception("Matrix dimensions does not comply");
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t column = 0; column < getNumberOfColumns(); column++)
+			setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
+}
+
+void Matrix::operator+=(const double value)
+{
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t col = 0; col < getNumberOfColumns(); col++)
+			setEntry(row, col, getEntry(row, col) + value);
+}
+
+void Matrix::operator-=(const Matrix &obj)
+{
+	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
+		throw std::exception("Matrix dimensions does not comply");
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t column = 0; column < getNumberOfColumns(); column++)
+			setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
+}
+
+void Matrix::operator-=(const double value)
+{
+	for (size_t row = 0; row < getNumberOfRows(); row++)
+		for (size_t col = 0; col < getNumberOfColumns(); col++)
+			setEntry(row, col, getEntry(row, col) - value);
+}
+
+void Matrix::operator*=(const Matrix &obj)
+{
+	if (getNumberOfColumns() != obj.getNumberOfRows())
+		throw std::exception("Matrix Dimensions does not comply");
+	*this = multiplication(obj);
+}
+
+void Matrix::operator*=(const double value)
+{
+	scale(value);
+}
+
 Matrix & Matrix::operator+(const Matrix & obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
@@ -314,6 +358,15 @@ Matrix & Matrix::operator+(const Matrix & obj)
 	return *returnObj;
 }
 
+Matrix & Matrix::operator+(const double value)
+{
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	for (size_t row = 0; row < returnObj->getNumberOfRows(); row++)
+		for (size_t col = 0; col < returnObj->getNumberOfColumns(); col++)
+			returnObj->setEntry(row, col, getEntry(row, col) + value);
+	return *returnObj;
+}
+
 Matrix & Matrix::operator-(const Matrix & obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
@@ -322,6 +375,15 @@ Matrix & Matrix::operator-(const Matrix & obj)
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 		for (size_t column = 0; column < getNumberOfColumns(); column++)
 			returnObj->setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
+	return *returnObj;
+}
+
+Matrix & Matrix::operator-(const double value)
+{
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	for (size_t row = 0; row < returnObj->getNumberOfRows(); row++)
+		for (size_t col = 0; col < returnObj->getNumberOfColumns(); col++)
+			returnObj->setEntry(row, col, getEntry(row, col) - value);
 	return *returnObj;
 }
 

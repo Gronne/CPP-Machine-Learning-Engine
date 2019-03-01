@@ -30,8 +30,16 @@ public:
 	void operator=(const Matrix&);
 	bool operator==(const Matrix&);
 	bool operator!=(const Matrix&);
+	void operator+=(const Matrix&);
+	void operator+=(const double);
+	void operator-=(const Matrix&);
+	void operator-=(const double);
+	void operator*=(const Matrix&);
+	void operator*=(const double);
 	Matrix& operator+(const Matrix&);
+	Matrix& operator+(const double);
 	Matrix& operator-(const Matrix&);
+	Matrix& operator-(const double);
 	Matrix& operator*(const double);
 	Matrix& operator*(const Matrix&);
 	Matrix& operator/(const double);
