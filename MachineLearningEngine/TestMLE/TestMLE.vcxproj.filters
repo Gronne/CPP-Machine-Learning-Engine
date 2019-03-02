@@ -138,6 +138,18 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationEqualOperatorTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineMatrixRREFTest.h">
+      <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h">
+      <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h">
+      <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h">
+      <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -154,6 +166,9 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\BasicMatrixOperations">
       <UniqueIdentifier>{e0da2a23-cc11-4775-bdf2-731b5b410044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\MatrixRREF">
+      <UniqueIdentifier>{36aca071-d007-4f9f-b8ba-e91c00e5d607}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

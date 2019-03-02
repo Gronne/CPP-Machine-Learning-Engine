@@ -68,6 +68,10 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />
+    <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h" />
+    <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h" />
+    <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h" />
+    <ClInclude Include="VectorEngineMatrixRREFTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsAdditionTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsCrossTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsDeterminantTest.h" />
