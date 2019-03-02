@@ -7,22 +7,29 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(3, 4);
+	matrix->setEntry(0, 0, 1);
+	matrix->setEntry(0, 1, 2);
+	matrix->setEntry(0, 2, 3);
+	matrix->setEntry(0, 3, 4);
+	matrix->setEntry(1, 0, 3);
+	matrix->setEntry(1, 1, 1);
+	matrix->setEntry(1, 2, 5);
+	matrix->setEntry(1, 3, 6);
+	matrix->setEntry(2, 0, 5);
+	matrix->setEntry(2, 1, 1);
+	matrix->setEntry(2, 2, 6);
+	matrix->setEntry(2, 3, 2);
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
-
+	MatrixRREF RREF;
 	Matrix *resultMatrix = new Matrix();
+	*resultMatrix = RREF.rowReduceUnder(*resultMatrix);
+
+
 	try
 	{
-		*matrix1 *= *matrix2 * *matrix1;
+		*resultMatrix = RREF.rowReduceOver(*resultMatrix);
+		resultMatrix->print();
 	}
 	catch (const std::exception ex)
 	{
@@ -30,8 +37,8 @@ int main(int argc, char ** argv) {
 	}
 	
 
-	delete matrix1;
-	delete matrix2;
+	delete matrix;
+	delete resultMatrix;
 
 	exit(0);
 }
