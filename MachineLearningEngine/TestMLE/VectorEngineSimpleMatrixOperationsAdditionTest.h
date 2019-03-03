@@ -281,3 +281,143 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, additionExceptionDiffRowCol2)
 	SimpleMatrixOperations SMO;
 	EXPECT_THROW(SMO.addition(*matrix1, *matrix2), std::exception);
 }
+
+//-----------------
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleHolePositive)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, 2));
+	EXPECT_EQ(3, matrix2->getEntry(0, 0));
+	EXPECT_EQ(4, matrix2->getEntry(0, 1));
+	EXPECT_EQ(5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(6, matrix2->getEntry(1, 0));
+	EXPECT_EQ(7, matrix2->getEntry(1, 1));
+	EXPECT_EQ(8, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleHoleNegative)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+	
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, -2));
+	EXPECT_EQ(-1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(0, matrix2->getEntry(0, 1));
+	EXPECT_EQ(1, matrix2->getEntry(0, 2));
+	EXPECT_EQ(2, matrix2->getEntry(1, 0));
+	EXPECT_EQ(3, matrix2->getEntry(1, 1));
+	EXPECT_EQ(4, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleHoleZero)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, 0));
+	EXPECT_EQ(1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(2, matrix2->getEntry(0, 1));
+	EXPECT_EQ(3, matrix2->getEntry(0, 2));
+	EXPECT_EQ(4, matrix2->getEntry(1, 0));
+	EXPECT_EQ(5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(6, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleDecimalPositive)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, 2.5));
+	EXPECT_EQ(3.5, matrix2->getEntry(0, 0));
+	EXPECT_EQ(4.5, matrix2->getEntry(0, 1));
+	EXPECT_EQ(5.5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(6.5, matrix2->getEntry(1, 0));
+	EXPECT_EQ(7.5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(8.5, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleDecimalNegative)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, -2.5));
+	EXPECT_EQ(-1.5, matrix2->getEntry(0, 0));
+	EXPECT_EQ(-0.5, matrix2->getEntry(0, 1));
+	EXPECT_EQ(0.5, matrix2->getEntry(0, 2));
+	EXPECT_EQ(1.5, matrix2->getEntry(1, 0));
+	EXPECT_EQ(2.5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(3.5, matrix2->getEntry(1, 2));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsAddition, additionDoubleDecimalZero)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	matrix1->setEntry(0, 0, 1);
+	matrix1->setEntry(0, 1, 2);
+	matrix1->setEntry(0, 2, 3);
+	matrix1->setEntry(1, 0, 4);
+	matrix1->setEntry(1, 1, 5);
+	matrix1->setEntry(1, 2, 6);
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*matrix2 = SMO.addition(*matrix1, 0.0));
+	EXPECT_EQ(1, matrix2->getEntry(0, 0));
+	EXPECT_EQ(2, matrix2->getEntry(0, 1));
+	EXPECT_EQ(3, matrix2->getEntry(0, 2));
+	EXPECT_EQ(4, matrix2->getEntry(1, 0));
+	EXPECT_EQ(5, matrix2->getEntry(1, 1));
+	EXPECT_EQ(6, matrix2->getEntry(1, 2));
+}

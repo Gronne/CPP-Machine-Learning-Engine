@@ -16,9 +16,19 @@ Matrix & SimpleMatrixOperations::addition(Matrix &matrixA, Matrix &matrixB) cons
 	return matrixA + matrixB;
 }
 
+Matrix & SimpleMatrixOperations::addition(Matrix &matrix, double value) const
+{
+	return matrix + value;
+}
+
 Matrix & SimpleMatrixOperations::substraction(Matrix &matrixA, Matrix &matrixB) const
 {
 	return matrixA - matrixB;
+}
+
+Matrix & SimpleMatrixOperations::substraction(Matrix &matrix, double value) const
+{
+	return matrix - value;
 }
 
 Matrix & SimpleMatrixOperations::multiplication(Matrix &matrixA, Matrix &matrixB) const

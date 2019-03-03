@@ -9,7 +9,9 @@ public:
 	SimpleMatrixOperations();
 	~SimpleMatrixOperations();
 	Matrix& addition(Matrix&, Matrix&) const;
+	Matrix& addition(Matrix&, double) const;
 	Matrix& substraction(Matrix&, Matrix&) const;
+	Matrix& substraction(Matrix&, double) const;
 	Matrix& multiplication(Matrix&, Matrix&) const;
 	Matrix& multiplication(Matrix&, double) const;
 	Matrix& hadamard(Matrix&, Matrix&) const;
