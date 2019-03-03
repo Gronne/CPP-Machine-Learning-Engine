@@ -150,6 +150,9 @@
     <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h">
       <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

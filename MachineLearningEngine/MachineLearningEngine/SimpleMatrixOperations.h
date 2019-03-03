@@ -22,6 +22,8 @@ public:
 	double dot(Matrix&, Matrix&);
 	double dot(const Matrix&, int, int, bool = 0);
 
+	double sum(Matrix&) const;
+
 	Matrix& makeIdentityMatrix(int);
 
 private:

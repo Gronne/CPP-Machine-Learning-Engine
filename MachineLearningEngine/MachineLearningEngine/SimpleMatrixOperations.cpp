@@ -197,6 +197,15 @@ double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, boo
 	return dotValue;
 }
 
+double SimpleMatrixOperations::sum(Matrix &matrix) const
+{
+	double returnValue = 0.0;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			returnValue += matrix.getEntry(row, col);
+	return returnValue;
+}
+
 Matrix & SimpleMatrixOperations::makeIdentityMatrix(int size)
 {
 	Matrix *Imatrix = new Matrix(size, size);

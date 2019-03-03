@@ -81,6 +81,7 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h" />
   </ItemGroup>
   <ItemGroup>

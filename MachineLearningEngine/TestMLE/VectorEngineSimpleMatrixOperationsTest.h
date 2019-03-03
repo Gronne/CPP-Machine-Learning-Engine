@@ -8,3 +8,4 @@
 #include "VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h"
 #include "VectorEngineSimpleMatrixOperationsMultiplicationTest.h"
 #include "VectorEngineSimpleMatrixOperationsSubstractionTest.h"
+#include "VectorEngineSimpleMatrixOperationsSumTest.h"
