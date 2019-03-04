@@ -4,5 +4,6 @@
 #include "../MachineLearningEngine/BasicMatrixOperations.cpp"
 #include "../MachineLearningEngine/MatrixRREF.cpp"
 #include "../MachineLearningEngine/MatrixResult.cpp"
+#include "../MachineLearningEngine/TypeMatrix.cpp"
 
 

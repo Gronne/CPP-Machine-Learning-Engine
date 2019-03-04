@@ -9,15 +9,15 @@ int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 0);
-	matrix->setEntry(0, 2, 0);
-	matrix->setEntry(1, 0, 0);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 0);
-	matrix->setEntry(2, 0, 0);
-	matrix->setEntry(2, 1, 0);
-	matrix->setEntry(2, 2, 1);
+	matrix->setEntry(0, 0, -1.5);
+	matrix->setEntry(0, 1, -2.5);
+	matrix->setEntry(0, 2, -3.5);
+	matrix->setEntry(1, 0, -2.5);
+	matrix->setEntry(1, 1, -2.5);
+	matrix->setEntry(1, 2, -3.5);
+	matrix->setEntry(2, 0, -4.5);
+	matrix->setEntry(2, 1, -1.5);
+	matrix->setEntry(2, 2, -3.5);
 
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
@@ -25,11 +25,7 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		matrix->print();
-		matrix->deleteRow(1);
-		matrix->print();
-		matrix->deleteColumn(1);
-		matrix->print();
+		BMO.getRowReduction(*matrix).print();
 	}
 	catch (const std::exception ex)
 	{

@@ -156,6 +156,18 @@
     <ClInclude Include="VectorEngineBasicMatrixOperationsDeterminantTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteRowTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteColumnTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixDependentTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -175,6 +187,9 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\MatrixRREF">
       <UniqueIdentifier>{36aca071-d007-4f9f-b8ba-e91c00e5d607}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\TypeMatrix">
+      <UniqueIdentifier>{3e0ebaeb-3659-4551-9f60-0cebe1201b06}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

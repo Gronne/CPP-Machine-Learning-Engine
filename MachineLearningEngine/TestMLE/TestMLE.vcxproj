@@ -47,6 +47,8 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixConstructorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixDeconstructorTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteColumnTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteRowTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixDivisionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixEqualEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixEqualOperatorTest.h" />
@@ -85,6 +87,8 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixDependentTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />

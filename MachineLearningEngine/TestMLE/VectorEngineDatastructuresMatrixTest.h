@@ -4,6 +4,8 @@
 #include "VectorEngineDatastructuresMatrixAppendMatrixTest.h"
 #include "VectorEngineDatastructuresMatrixConstructorTest.h"
 #include "VectorEngineDatastructuresMatrixDeconstructorTest.h"
+#include "VectorEngineDatastructuresMatrixDeleteColumnTest.h"
+#include "VectorEngineDatastructuresMatrixDeleteRowTest.h"
 #include "VectorEngineDatastructuresMatrixDivisionOperatorTest.h"
 #include "VectorEngineDatastructuresMatrixEqualEqualOperatorTest.h"
 #include "VectorEngineDatastructuresMatrixEqualOperatorTest.h"

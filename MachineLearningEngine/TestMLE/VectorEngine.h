@@ -3,3 +3,4 @@
 #include "VectorEngineSimpleMatrixOperationsTest.h"
 #include "VectorEngineBasicMatrixOperationsTest.h"
 #include "VectorEngineMatrixRREFTest.h"
+#include "VectorEngineTypeMatrixTest.h"
