@@ -153,6 +153,9 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineBasicMatrixOperationsDeterminantTest.h">
+      <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

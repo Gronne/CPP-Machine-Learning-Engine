@@ -74,6 +74,27 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	return *resultMatrix;
 }
 
+double BasicMatrixOperations::determinant(const Matrix &matrix)
+{
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Matrix need to be square to find the determinant");
+	if (matrix.getNumberOfColumns() == 1)
+		return matrix.getEntry(0, 0);
+
+	if (rref.checkForFullDependentMatrix(matrix))
+		return 0;
+
+	Matrix *bufferMatrix = new Matrix();
+	*bufferMatrix = getRowReduction(matrix);
+
+	double returnValue = 1.0;
+	for (size_t row = 0; row < bufferMatrix->getNumberOfRows(); row++)
+		returnValue *= bufferMatrix->getEntry(row, row);
+
+	delete bufferMatrix;
+	return returnValue;
+}
+
 
 Matrix & BasicMatrixOperations::getEigenValues(const Matrix &)
 {

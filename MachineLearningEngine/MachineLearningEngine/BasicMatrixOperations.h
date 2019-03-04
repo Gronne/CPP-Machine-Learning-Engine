@@ -15,6 +15,7 @@ public:
 	Matrix& getEchelonForm(const Matrix&);
 	void echelonInverse(Matrix&);
 	Matrix& getEchelonInverse(const Matrix&);
+	double determinant(const Matrix&);
 	Matrix& getEigenValues(const Matrix&);
 	Matrix& getEigenVectors(const Matrix&);
 	MatrixResult& findSolution(const Matrix&);
