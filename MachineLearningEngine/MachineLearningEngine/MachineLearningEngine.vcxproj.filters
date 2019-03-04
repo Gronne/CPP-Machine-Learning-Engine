@@ -37,6 +37,12 @@
     <Filter Include="Source Files\VectorEngine\vectorDatastructures">
       <UniqueIdentifier>{08a33a30-439b-4e66-ad03-93a144323f0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\VectorEngine\BasicMatrixOperations">
+      <UniqueIdentifier>{66fa0f62-259f-40e3-81d3-d962dd8bedb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\BasicMatrixOperations">
+      <UniqueIdentifier>{c7b850fd-23c0-48fb-a4fb-e4ee985be495}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix.cpp">
@@ -60,10 +66,13 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BasicMatrixOperations.cpp">
-      <Filter>Source Files\VectorEngine</Filter>
-    </ClCompile>
     <ClCompile Include="MatrixRREF.cpp">
+      <Filter>Source Files\VectorEngine\BasicMatrixOperations</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicMatrixOperations.cpp">
+      <Filter>Source Files\VectorEngine\BasicMatrixOperations</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeMatrix.cpp">
       <Filter>Source Files\VectorEngine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,9 +96,12 @@
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
     <ClInclude Include="BasicMatrixOperations.h">
-      <Filter>Header Files\VectorEngine</Filter>
+      <Filter>Header Files\VectorEngine\BasicMatrixOperations</Filter>
     </ClInclude>
     <ClInclude Include="MatrixRREF.h">
+      <Filter>Header Files\VectorEngine\BasicMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeMatrix.h">
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
   </ItemGroup>

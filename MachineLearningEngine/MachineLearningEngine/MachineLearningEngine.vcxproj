@@ -126,6 +126,7 @@
     <ClCompile Include="Regression.cpp" />
     <ClCompile Include="SimpleMatrixOperations.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TypeMatrix.cpp" />
     <ClCompile Include="VectorEngineDatastructures.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="MatrixSpace.h" />
     <ClInclude Include="Regression.h" />
     <ClInclude Include="SimpleMatrixOperations.h" />
+    <ClInclude Include="TypeMatrix.h" />
     <ClInclude Include="VectorEngineDatastructures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
