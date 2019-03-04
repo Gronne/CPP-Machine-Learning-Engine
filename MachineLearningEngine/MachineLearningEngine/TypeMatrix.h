@@ -12,7 +12,8 @@ public:
 	~TypeMatrix();
 
 	bool dependent(const Matrix&);
-	bool homogene(const Matrix&);
+	bool homogeneous(const Matrix&);
+	bool trivial(const Matrix&);
 	bool basis(const Matrix&);
 	bool basis(Matrix&, MatrixSpace&) const;
 	bool orthogonal(Matrix&, Matrix&) const;

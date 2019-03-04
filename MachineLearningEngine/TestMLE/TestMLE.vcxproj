@@ -88,7 +88,9 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixDependentTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixTrivialTest.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />

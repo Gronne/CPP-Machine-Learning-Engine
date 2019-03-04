@@ -377,7 +377,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentException1)
 	matrix->setEntry(1, 2, 6);
 
 	TypeMatrix TM;
-	EXPECT_THROW(TM.dependent(*matrix), std::exception);
+	EXPECT_NO_THROW(TM.dependent(*matrix), std::exception);
+	EXPECT_TRUE(TM.dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentException2)
@@ -391,7 +392,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentException2)
 	matrix->setEntry(2, 1, 6);
 
 	TypeMatrix TM;
-	EXPECT_THROW(TM.dependent(*matrix), std::exception);
+	EXPECT_NO_THROW(TM.dependent(*matrix), std::exception);
+	EXPECT_TRUE(TM.dependent(*matrix));
 }
 
 //----------

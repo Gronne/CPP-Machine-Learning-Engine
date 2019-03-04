@@ -168,6 +168,12 @@
     <ClInclude Include="VectorEngineTypeMatrixDependentTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixTrivialTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
