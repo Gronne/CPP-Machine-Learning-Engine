@@ -14,10 +14,10 @@ TypeMatrix::~TypeMatrix()
 }
 
 
-bool TypeMatrix::dependent(const Matrix &)
+bool TypeMatrix::dependent(const Matrix &matrix)
 {
-
-	return false;
+	BasicMatrixOperations BMO;
+	return (BMO.determinant(matrix) == 0) ? true : false;
 }
 
 

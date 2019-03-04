@@ -2,6 +2,8 @@
 #include "Matrix.h"
 #include "MatrixSpace.h"
 #include "MatrixResult.h"
+#include "SimpleMatrixOperations.h"
+#include "BasicMatrixOperations.h"
 
 class TypeMatrix
 {

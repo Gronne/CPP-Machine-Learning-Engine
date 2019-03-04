@@ -159,6 +159,36 @@ void Matrix::setMatrix(const Matrix *newMatrix)
 			setEntry(row, column, newMatrix->getEntry(row, column));
 }
 
+void Matrix::deleteRow(int row)
+{
+	if (row < 0 || row >= getNumberOfRows())
+		throw std::exception("Can't delete an row that doesn't exist");
+
+	Matrix *matrix = new Matrix(getNumberOfRows() - 1, getNumberOfColumns());
+	for (size_t internalCol = 0; internalCol < getNumberOfColumns(); internalCol++)
+		for (size_t internalRow = 0, matrixRow = 0; internalRow < getNumberOfRows(); internalRow++)
+			if (internalRow != row)
+				matrix->setEntry(matrixRow++, internalCol, getEntry(internalRow, internalCol));
+
+	setMatrix(matrix);
+	delete matrix;
+}
+
+void Matrix::deleteColumn(int col)
+{
+	if (col < 0 || col >= getNumberOfColumns())
+		throw std::exception("Can't delete an row that doesn't exist");
+
+	Matrix *matrix = new Matrix(getNumberOfRows(), getNumberOfColumns()-1);
+	for (size_t internalRow = 0; internalRow < getNumberOfRows(); internalRow++)
+		for (size_t internalCol = 0, matrixCol = 0; internalCol < getNumberOfColumns(); internalCol++)
+			if (internalCol != col)
+				matrix->setEntry(internalRow, matrixCol++, getEntry(internalRow, internalCol));
+
+	setMatrix(matrix);
+	delete matrix;
+}
+
 
 void Matrix::checkForInvalidRowOrColumn(int row, int column) const
 {

@@ -22,6 +22,8 @@ public:
 	void setMatrixSize(int, int);
 	void setEntry(int, int, double);
 	void setMatrix(const Matrix*);
+	void deleteRow(int);
+	void deleteColumn(int);
 	void transpose();
 	void scale(double);
 	void print() const;
