@@ -8,16 +8,23 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(2, 1, 4);
-	matrix->setEntry(2, 2, 1);
+	Matrix *matrix = new Matrix(4, 4);
+	matrix->setEntry(0, 0, 0);
+	matrix->setEntry(0, 1, 1);
+	matrix->setEntry(0, 2, 0);
+	matrix->setEntry(0, 3, 0);
+	matrix->setEntry(1, 0, 0);
+	matrix->setEntry(1, 1, 0);
+	matrix->setEntry(1, 2, 0);
+	matrix->setEntry(1, 3, 1);
+	matrix->setEntry(2, 0, 1);
+	matrix->setEntry(2, 1, 0);
+	matrix->setEntry(2, 2, 0);
+	matrix->setEntry(2, 3, 0);
+	matrix->setEntry(3, 0, 0);
+	matrix->setEntry(3, 1, 0);
+	matrix->setEntry(3, 2, 1);
+	matrix->setEntry(3, 3, 0);
 
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
@@ -25,7 +32,7 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		std::cout << BMO.determinant(*matrix) << std::endl;
+		BMO.getEchelonForm(*matrix).print();
 	}
 	catch (const std::exception ex)
 	{

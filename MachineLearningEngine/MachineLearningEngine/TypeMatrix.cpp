@@ -45,15 +45,25 @@ bool TypeMatrix::trivial(const Matrix &matrix)
 	bool _dependent = dependent(*buffer);
 	delete buffer;
 
-	//If it only have 1 solution (not depedent) and that solution is 0
 	return !_dependent && homogeneous(matrix);
 }
 
 
-bool TypeMatrix::basis(const Matrix &)
+bool TypeMatrix::basis(const Matrix &matrix)
 {
+	MatrixRREF RREF;
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows() || RREF.checkForFullDependentMatrix(matrix))
+		return false;
 
-	return false;
+	Matrix *buffer = new Matrix();
+	BasicMatrixOperations BMO;
+	*buffer = BMO.getEchelonForm(matrix);
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		if (buffer->getEntry(row, row) != 1)
+			return false;
+
+	return true;
 }
 
 
@@ -71,10 +81,25 @@ bool TypeMatrix::orthogonal(Matrix &, Matrix &) const
 }
 
 
-bool TypeMatrix::orthogonal(const Matrix *)
+bool TypeMatrix::orthogonal(const Matrix &matrix)
 {
+	MatrixRREF RREF;
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows() || RREF.checkForFullDependentMatrix(matrix))
+		return false;
 
-	return false;
+	SimpleMatrixOperations SMO;
+	Matrix *buffer = new Matrix();
+	*buffer = matrix;
+
+	buffer->transpose();
+	*buffer = matrix * *buffer;
+
+	bool returnState = false;
+	if (*buffer == SMO.makeIdentityMatrix(matrix.getNumberOfRows()))
+		returnState = true;
+
+	delete buffer;
+	return returnState;
 }
 
 

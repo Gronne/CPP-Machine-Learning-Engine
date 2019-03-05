@@ -43,7 +43,7 @@ public:
 	Matrix& operator-(const Matrix&);
 	Matrix& operator-(const double);
 	Matrix& operator*(const double);
-	Matrix& operator*(const Matrix&);
+	Matrix& operator*(Matrix&) const;
 	Matrix& operator/(const double);
 
 private:
@@ -67,8 +67,8 @@ private:
 	double getDiffWidth(int, int, std::vector<int>) const;
 	std::vector<int> findMaxValueInRow() const;
 	std::string eraseZeros(std::string) const;
-	Matrix& multiplication(const Matrix&);
-	double vectorMultiplication(Matrix&, Matrix&);
+	Matrix& multiplication(const Matrix&) const;
+	double vectorMultiplication(Matrix&, Matrix&) const;
 
 	int _rows = 0;
 	int _columns = 0;

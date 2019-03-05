@@ -425,7 +425,7 @@ Matrix & Matrix::operator*(const double value)
 	return *returnObj;
 }
 
-Matrix & Matrix::operator*(const Matrix &obj)
+Matrix & Matrix::operator*(Matrix &obj) const
 {
 	if (getNumberOfColumns() != obj.getNumberOfRows())
 		throw std::exception("Matrix Dimensions does not comply");
@@ -526,7 +526,7 @@ std::string Matrix::eraseZeros(std::string string) const
 
 }
 
-Matrix & Matrix::multiplication(const Matrix &obj)
+Matrix & Matrix::multiplication(const Matrix &obj) const
 {
 	Matrix *returnMatrix = new Matrix(getNumberOfRows(), obj.getNumberOfColumns());
 	for (size_t row = 0; row < returnMatrix->getNumberOfRows(); row++)
@@ -535,7 +535,7 @@ Matrix & Matrix::multiplication(const Matrix &obj)
 	return *returnMatrix;
 }
 
-double Matrix::vectorMultiplication(Matrix &rowMatrix, Matrix &columnMatrix)
+double Matrix::vectorMultiplication(Matrix &rowMatrix, Matrix &columnMatrix) const
 {
 	double result = 0;
 	for (size_t cursor = 0; cursor < rowMatrix.getNumberOfColumns(); cursor++)

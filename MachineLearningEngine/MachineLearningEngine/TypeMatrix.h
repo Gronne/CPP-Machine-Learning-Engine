@@ -17,7 +17,7 @@ public:
 	bool basis(const Matrix&);
 	bool basis(Matrix&, MatrixSpace&) const;
 	bool orthogonal(Matrix&, Matrix&) const;
-	bool orthogonal(const Matrix*);
+	bool orthogonal(const Matrix&);
 	int rank(const Matrix&);
 	int rank(const MatrixResult&);
 	bool checkSpan(Matrix&, Matrix&) const;
