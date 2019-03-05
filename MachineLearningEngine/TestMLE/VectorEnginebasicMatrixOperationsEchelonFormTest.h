@@ -434,7 +434,7 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedPositive)
 	EXPECT_EQ(0, matrix2->getEntry(2, 0));
 	EXPECT_EQ(0, matrix2->getEntry(2, 1));
 	EXPECT_NEAR(1, matrix2->getEntry(2, 2), 0.001);
-	EXPECT_EQ(-4, matrix2->getEntry(0, 3));
+	EXPECT_NEAR(-4, matrix2->getEntry(0, 3), 0.0001);
 	EXPECT_NEAR(-2, matrix2->getEntry(1, 3), 0.0001);
 	EXPECT_NEAR(4, matrix2->getEntry(2, 3), 0.0001);
 }
@@ -465,8 +465,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedPositive)
 	EXPECT_NEAR(0, matrix->getEntry(1, 2), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(2, 0));
 	EXPECT_EQ(0, matrix->getEntry(2, 1));
-	EXPECT_NEAR(1, matrix->getEntry(2, 2), 0.001);
-	EXPECT_EQ(-4, matrix->getEntry(0, 3));
+	EXPECT_NEAR(1, matrix->getEntry(2, 2), 0.0001);
+	EXPECT_NEAR(-4, matrix->getEntry(0, 3), 0.0001);
 	EXPECT_NEAR(-2, matrix->getEntry(1, 3), 0.0001);
 	EXPECT_NEAR(4, matrix->getEntry(2, 3), 0.0001);
 }
@@ -1231,31 +1231,31 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm5x6)
 	EXPECT_EQ(1, matrix2->getEntry(0, 0));
 	EXPECT_EQ(0, matrix2->getEntry(0, 1));
 	EXPECT_EQ(0, matrix2->getEntry(0, 2));
-	EXPECT_EQ(0, matrix2->getEntry(0, 3));
+	EXPECT_NEAR(0, matrix2->getEntry(0, 3), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(0, 4));
 	EXPECT_NEAR(0.03703, matrix2->getEntry(0, 5), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(1, 0));
 	EXPECT_EQ(1, matrix2->getEntry(1, 1));
 	EXPECT_EQ(0, matrix2->getEntry(1, 2));
-	EXPECT_EQ(0, matrix2->getEntry(1, 3));
+	EXPECT_NEAR(0, matrix2->getEntry(1, 3), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(1, 4));
 	EXPECT_NEAR(0.74074, matrix2->getEntry(1, 5), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(2, 0));
 	EXPECT_EQ(0, matrix2->getEntry(2, 1));
 	EXPECT_EQ(1, matrix2->getEntry(2, 2));
-	EXPECT_EQ(0, matrix2->getEntry(2, 3));
+	EXPECT_NEAR(0, matrix2->getEntry(2, 3), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(2, 4));
 	EXPECT_NEAR(-0.14814, matrix2->getEntry(2, 5), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(3, 0));
 	EXPECT_EQ(0, matrix2->getEntry(3, 1));
 	EXPECT_EQ(0, matrix2->getEntry(3, 2));
-	EXPECT_EQ(1, matrix2->getEntry(3, 3));
+	EXPECT_NEAR(1, matrix2->getEntry(3, 3), 0.0001);
 	EXPECT_NEAR(0, matrix2->getEntry(3, 4), 0.0001);
 	EXPECT_NEAR(-0.01851, matrix2->getEntry(3, 5), 0.0001);
 	EXPECT_EQ(0, matrix2->getEntry(4, 0));
 	EXPECT_EQ(0, matrix2->getEntry(4, 1));
 	EXPECT_EQ(0, matrix2->getEntry(4, 2));
-	EXPECT_EQ(0, matrix2->getEntry(4, 3));
+	EXPECT_NEAR(0, matrix2->getEntry(4, 3), 0.0001);
 	EXPECT_EQ(1, matrix2->getEntry(4, 4));
 	EXPECT_NEAR(1, matrix2->getEntry(4, 5), 0.0001);
 }
@@ -1299,31 +1299,72 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm5x6)
 	EXPECT_EQ(1, matrix->getEntry(0, 0));
 	EXPECT_EQ(0, matrix->getEntry(0, 1));
 	EXPECT_EQ(0, matrix->getEntry(0, 2));
-	EXPECT_EQ(0, matrix->getEntry(0, 3));
+	EXPECT_NEAR(0, matrix->getEntry(0, 3), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(0, 4));
 	EXPECT_NEAR(0.03703, matrix->getEntry(0, 5), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(1, 0));
 	EXPECT_EQ(1, matrix->getEntry(1, 1));
 	EXPECT_EQ(0, matrix->getEntry(1, 2));
-	EXPECT_EQ(0, matrix->getEntry(1, 3));
+	EXPECT_NEAR(0, matrix->getEntry(1, 3), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(1, 4));
 	EXPECT_NEAR(0.74074, matrix->getEntry(1, 5), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(2, 0));
 	EXPECT_EQ(0, matrix->getEntry(2, 1));
 	EXPECT_EQ(1, matrix->getEntry(2, 2));
-	EXPECT_EQ(0, matrix->getEntry(2, 3));
+	EXPECT_NEAR(0, matrix->getEntry(2, 3), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(2, 4));
 	EXPECT_NEAR(-0.14814, matrix->getEntry(2, 5), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(3, 0));
 	EXPECT_EQ(0, matrix->getEntry(3, 1));
 	EXPECT_EQ(0, matrix->getEntry(3, 2));
-	EXPECT_EQ(1, matrix->getEntry(3, 3));
+	EXPECT_NEAR(1, matrix->getEntry(3, 3), 0.0001);
 	EXPECT_NEAR(0, matrix->getEntry(3, 4), 0.0001);
 	EXPECT_NEAR(-0.01851, matrix->getEntry(3, 5), 0.0001);
 	EXPECT_EQ(0, matrix->getEntry(4, 0));
 	EXPECT_EQ(0, matrix->getEntry(4, 1));
 	EXPECT_EQ(0, matrix->getEntry(4, 2));
-	EXPECT_EQ(0, matrix->getEntry(4, 3));
+	EXPECT_NEAR(0, matrix->getEntry(4, 3), 0.0001);
 	EXPECT_EQ(1, matrix->getEntry(4, 4));
 	EXPECT_NEAR(1, matrix->getEntry(4, 5), 0.0001);
+}
+
+//----- special case -----
+TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_1)
+{
+	Matrix *matrix = new Matrix(4, 4);
+	matrix->setEntry(0, 0, 0);
+	matrix->setEntry(0, 1, 1);
+	matrix->setEntry(0, 2, 0);
+	matrix->setEntry(0, 3, 0);
+	matrix->setEntry(1, 0, 0);
+	matrix->setEntry(1, 1, 0);
+	matrix->setEntry(1, 2, 0);
+	matrix->setEntry(1, 3, 1);
+	matrix->setEntry(2, 0, 1);
+	matrix->setEntry(2, 1, 0);
+	matrix->setEntry(2, 2, 0);
+	matrix->setEntry(2, 3, 0);
+	matrix->setEntry(3, 0, 0);
+	matrix->setEntry(3, 1, 0);
+	matrix->setEntry(3, 2, 1);
+	matrix->setEntry(3, 3, 0);
+
+	BasicMatrixOperations BMO;
+	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
+	EXPECT_EQ(1, matrix->getEntry(0, 0));
+	EXPECT_EQ(0, matrix->getEntry(0, 1));
+	EXPECT_EQ(0, matrix->getEntry(0, 2));
+	EXPECT_EQ(0, matrix->getEntry(0, 3));
+	EXPECT_EQ(0, matrix->getEntry(1, 0));
+	EXPECT_EQ(1, matrix->getEntry(1, 1));
+	EXPECT_EQ(0, matrix->getEntry(1, 2));
+	EXPECT_EQ(0, matrix->getEntry(1, 3));
+	EXPECT_EQ(0, matrix->getEntry(2, 0));
+	EXPECT_EQ(0, matrix->getEntry(2, 1));
+	EXPECT_EQ(1, matrix->getEntry(2, 2));
+	EXPECT_EQ(0, matrix->getEntry(2, 3));
+	EXPECT_EQ(0, matrix->getEntry(3, 0));
+	EXPECT_EQ(0, matrix->getEntry(3, 1));
+	EXPECT_EQ(0, matrix->getEntry(3, 2));
+	EXPECT_EQ(1, matrix->getEntry(3, 3));
 }

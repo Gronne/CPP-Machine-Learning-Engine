@@ -241,8 +241,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedPositive)
 	EXPECT_NEAR(0, resultMatrix->getEntry(1, 2), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(2, 0));
 	EXPECT_EQ(0, resultMatrix->getEntry(2, 1));
-	EXPECT_NEAR(1, resultMatrix->getEntry(2, 2), 0.001);
-	EXPECT_EQ(-4, resultMatrix->getEntry(0, 3));
+	EXPECT_NEAR(1, resultMatrix->getEntry(2, 2), 0.0001);
+	EXPECT_NEAR(-4, resultMatrix->getEntry(0, 3), 0.0001);
 	EXPECT_NEAR(-2, resultMatrix->getEntry(1, 3), 0.0001);
 	EXPECT_NEAR(4, resultMatrix->getEntry(2, 3), 0.0001);
 }
@@ -666,31 +666,31 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x6)
 	EXPECT_EQ(1, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(0, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(0, resultMatrix->getEntry(0, 2));
-	EXPECT_EQ(0, resultMatrix->getEntry(0, 3));
+	EXPECT_NEAR(0, resultMatrix->getEntry(0, 3), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(0, 4));
 	EXPECT_NEAR(0.03703, resultMatrix->getEntry(0, 5), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(1, 0));
 	EXPECT_EQ(1, resultMatrix->getEntry(1, 1));
 	EXPECT_EQ(0, resultMatrix->getEntry(1, 2));
-	EXPECT_EQ(0, resultMatrix->getEntry(1, 3));
+	EXPECT_NEAR(0, resultMatrix->getEntry(1, 3), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(1, 4));
 	EXPECT_NEAR(0.74074, resultMatrix->getEntry(1, 5), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(2, 0));
 	EXPECT_EQ(0, resultMatrix->getEntry(2, 1));
 	EXPECT_EQ(1, resultMatrix->getEntry(2, 2));
-	EXPECT_EQ(0, resultMatrix->getEntry(2, 3));
+	EXPECT_NEAR(0, resultMatrix->getEntry(2, 3), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(2, 4));
 	EXPECT_NEAR(-0.14814, resultMatrix->getEntry(2, 5), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(3, 0));
 	EXPECT_EQ(0, resultMatrix->getEntry(3, 1));
 	EXPECT_EQ(0, resultMatrix->getEntry(3, 2));
-	EXPECT_EQ(1, resultMatrix->getEntry(3, 3));
+	EXPECT_NEAR(1, resultMatrix->getEntry(3, 3), 0.0001);
 	EXPECT_NEAR(0, resultMatrix->getEntry(3, 4), 0.0001);
 	EXPECT_NEAR(-0.01851, resultMatrix->getEntry(3, 5), 0.0001);
 	EXPECT_EQ(0, resultMatrix->getEntry(4, 0));
 	EXPECT_EQ(0, resultMatrix->getEntry(4, 1));
 	EXPECT_EQ(0, resultMatrix->getEntry(4, 2));
-	EXPECT_EQ(0, resultMatrix->getEntry(4, 3));
+	EXPECT_NEAR(0, resultMatrix->getEntry(4, 3), 0.0001);
 	EXPECT_EQ(1, resultMatrix->getEntry(4, 4));
 	EXPECT_NEAR(1, resultMatrix->getEntry(4, 5), 0.0001);
 }
