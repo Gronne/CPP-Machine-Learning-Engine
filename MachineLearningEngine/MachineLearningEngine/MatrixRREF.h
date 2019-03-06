@@ -20,6 +20,7 @@ private:
 	void substractRow(Matrix&, int, int);
 	void minimizeRow(Matrix&, int, double);
 	void checkForZeroRow(Matrix&, int);
+	void checkForZeroRowOver(Matrix&, int);
 	void checkForFreePivot(Matrix&, int);
 };
 

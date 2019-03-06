@@ -86,6 +86,7 @@ void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column, int smallestValue
 
 void MatrixRREF::reduceColumnOver(Matrix &matrix, int column)
 {
+	checkForZeroRowOver(matrix, column);
 	std::vector<double> divideVector;
 	sameSizeColumnOver(matrix, column, divideVector);
 	for (size_t row = column; row > 0; row--)
@@ -103,6 +104,21 @@ void MatrixRREF::checkForZeroRow(Matrix &matrix, int row)
 		for (size_t getRow = row+1; getRow < matrix.getNumberOfRows(); getRow++)
 			if (matrix.getEntry(row, row) == 0 && matrix.getEntry(getRow, row) != 0)
 				substractRow(matrix, getRow, row);
+}
+
+void MatrixRREF::checkForZeroRowOver(Matrix &matrix, int row)
+{
+	if (row != 0)
+		for (int getRow = row - 1; getRow >= 0; getRow--)
+			if (matrix.getEntry(row, row) == 0 && matrix.getEntry(getRow, row) != 0)
+			{
+				bool zeros = true;
+				for (int col = row - 1; col >= 0; col--)
+					if (matrix.getEntry(getRow, col) != 0)
+						zeros = false;
+				if(zeros == true)
+					substractRow(matrix, getRow, row);
+			}
 }
 
 

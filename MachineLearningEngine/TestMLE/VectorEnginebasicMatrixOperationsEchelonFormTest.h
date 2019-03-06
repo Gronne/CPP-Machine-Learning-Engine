@@ -1368,3 +1368,83 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_1)
 	EXPECT_EQ(0, matrix->getEntry(3, 2));
 	EXPECT_EQ(1, matrix->getEntry(3, 3));
 }
+
+TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_2)
+{
+	Matrix *matrix = new Matrix(4, 4);
+	matrix->setEntry(0, 0, 0);
+	matrix->setEntry(0, 1, 0);
+	matrix->setEntry(0, 2, 0);
+	matrix->setEntry(0, 3, 0);
+	matrix->setEntry(1, 0, 0);
+	matrix->setEntry(1, 1, 0);
+	matrix->setEntry(1, 2, 0);
+	matrix->setEntry(1, 3, 1);
+	matrix->setEntry(2, 0, 1);
+	matrix->setEntry(2, 1, 0);
+	matrix->setEntry(2, 2, 0);
+	matrix->setEntry(2, 3, 0);
+	matrix->setEntry(3, 0, 0);
+	matrix->setEntry(3, 1, 0);
+	matrix->setEntry(3, 2, 1);
+	matrix->setEntry(3, 3, 0);
+
+	BasicMatrixOperations BMO;
+	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
+	EXPECT_EQ(1, matrix->getEntry(0, 0));
+	EXPECT_EQ(0, matrix->getEntry(0, 1));
+	EXPECT_EQ(0, matrix->getEntry(0, 2));
+	EXPECT_EQ(0, matrix->getEntry(0, 3));
+	EXPECT_EQ(0, matrix->getEntry(1, 0));
+	EXPECT_EQ(0, matrix->getEntry(1, 1));
+	EXPECT_EQ(0, matrix->getEntry(1, 2));
+	EXPECT_EQ(0, matrix->getEntry(1, 3));
+	EXPECT_EQ(0, matrix->getEntry(2, 0));
+	EXPECT_EQ(0, matrix->getEntry(2, 1));
+	EXPECT_EQ(1, matrix->getEntry(2, 2));
+	EXPECT_EQ(0, matrix->getEntry(2, 3));
+	EXPECT_EQ(0, matrix->getEntry(3, 0));
+	EXPECT_EQ(0, matrix->getEntry(3, 1));
+	EXPECT_EQ(0, matrix->getEntry(3, 2));
+	EXPECT_EQ(1, matrix->getEntry(3, 3));
+}
+
+TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_3)
+{
+	Matrix *matrix = new Matrix(4, 4);
+	matrix->setEntry(0, 0, 0);
+	matrix->setEntry(0, 1, 0);
+	matrix->setEntry(0, 2, 0);
+	matrix->setEntry(0, 3, 0);
+	matrix->setEntry(1, 0, 0);
+	matrix->setEntry(1, 1, 0);
+	matrix->setEntry(1, 2, 0);
+	matrix->setEntry(1, 3, 1);
+	matrix->setEntry(2, 0, 0);
+	matrix->setEntry(2, 1, 1);
+	matrix->setEntry(2, 2, 0);
+	matrix->setEntry(2, 3, 0);
+	matrix->setEntry(3, 0, 0);
+	matrix->setEntry(3, 1, 0);
+	matrix->setEntry(3, 2, 1);
+	matrix->setEntry(3, 3, 0);
+
+	BasicMatrixOperations BMO;
+	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
+	EXPECT_EQ(0, matrix->getEntry(0, 0));
+	EXPECT_EQ(0, matrix->getEntry(0, 1));
+	EXPECT_EQ(0, matrix->getEntry(0, 2));
+	EXPECT_EQ(0, matrix->getEntry(0, 3));
+	EXPECT_EQ(0, matrix->getEntry(1, 0));
+	EXPECT_EQ(1, matrix->getEntry(1, 1));
+	EXPECT_EQ(0, matrix->getEntry(1, 2));
+	EXPECT_EQ(0, matrix->getEntry(1, 3));
+	EXPECT_EQ(0, matrix->getEntry(2, 0));
+	EXPECT_EQ(0, matrix->getEntry(2, 1));
+	EXPECT_EQ(1, matrix->getEntry(2, 2));
+	EXPECT_EQ(0, matrix->getEntry(2, 3));
+	EXPECT_EQ(0, matrix->getEntry(3, 0));
+	EXPECT_EQ(0, matrix->getEntry(3, 1));
+	EXPECT_EQ(0, matrix->getEntry(3, 2));
+	EXPECT_EQ(1, matrix->getEntry(3, 3));
+}
