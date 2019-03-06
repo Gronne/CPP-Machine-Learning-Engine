@@ -103,10 +103,38 @@ bool TypeMatrix::orthogonal(const Matrix &matrix)
 }
 
 
-int TypeMatrix::rank(const Matrix &)
+int TypeMatrix::rank(const Matrix &matrix)
 {
+	bool zeroes = true;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (matrix.getEntry(row, col) != 0)
+			{
+				zeroes = false;
+				break;
+			}
+	if (zeroes)
+		return 0;
 
-	return 0;
+	MatrixRREF RREF;
+	if (RREF.checkForFullDependentMatrix(matrix))
+		return 1;
+
+	BasicMatrixOperations BMO;
+	Matrix *buffer = new Matrix();
+	*buffer = BMO.getRowReduction(matrix);
+
+	int rank = 0;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (buffer->getEntry(row, col) != 0)
+			{
+				rank++;
+				break;
+			}
+
+	delete buffer;
+	return rank;
 }
 
 
@@ -114,6 +142,17 @@ int TypeMatrix::rank(const MatrixResult &)
 {
 
 	return 0;
+}
+
+bool TypeMatrix::fullRank(const Matrix &matrix)
+{
+	int largestNumber = (matrix.getNumberOfRows() < matrix.getNumberOfColumns()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
+	return (largestNumber == rank(matrix)) ? true : false;
+}
+
+bool TypeMatrix::fullRank(const MatrixResult &)
+{
+	return false;
 }
 
 

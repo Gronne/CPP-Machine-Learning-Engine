@@ -89,8 +89,10 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixBasisTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixDependentTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixFullRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixTrivialTest.h" />
   </ItemGroup>

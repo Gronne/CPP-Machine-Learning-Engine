@@ -180,6 +180,12 @@
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixRankTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixFullRankTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

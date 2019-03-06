@@ -8,37 +8,16 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix = new Matrix(5, 6);
+	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
 	matrix->setEntry(0, 1, 2);
 	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(0, 5, 6);
 	matrix->setEntry(1, 0, 3);
 	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(1, 5, 2);
+	matrix->setEntry(1, 2, 3);
 	matrix->setEntry(2, 0, 5);
 	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(2, 5, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
-	matrix->setEntry(3, 5, 3);
-	matrix->setEntry(4, 0, 5);
-	matrix->setEntry(4, 1, 6);
-	matrix->setEntry(4, 2, 4);
-	matrix->setEntry(4, 3, 2);
-	matrix->setEntry(4, 4, 1);
-	matrix->setEntry(4, 5, 5);
+	matrix->setEntry(2, 2, 2);
 
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
@@ -46,7 +25,7 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		BMO.getEchelonForm(*matrix).print();
+		std::cout << TM.rank(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

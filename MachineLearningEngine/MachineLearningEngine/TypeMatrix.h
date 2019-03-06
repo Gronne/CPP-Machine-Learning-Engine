@@ -20,6 +20,8 @@ public:
 	bool orthogonal(const Matrix&);
 	int rank(const Matrix&);
 	int rank(const MatrixResult&);
+	bool fullRank(const Matrix&);
+	bool fullRank(const MatrixResult&);
 	bool checkSpan(Matrix&, Matrix&) const;
 	bool isomorphic(Matrix&, Matrix&) const;
 
