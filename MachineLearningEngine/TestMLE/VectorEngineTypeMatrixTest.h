@@ -1,6 +1,7 @@
 #pragma once
 
 #include "VectorEngineTypeMatrixBasisTest.h"
+#include "VectorEngineTypeMatrixCheckSpanTest.h"
 #include "VectorEngineTypeMatrixDependentTest.h"
 #include "VectorEngineTypeMatrixFullRankTest.h"
 #include "VectorEngineTypeMatrixHomogeneousTest.h"

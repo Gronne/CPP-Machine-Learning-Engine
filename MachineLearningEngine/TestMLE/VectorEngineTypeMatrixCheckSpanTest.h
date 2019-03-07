@@ -2,7 +2,7 @@
 #include "VectorEngineDatastructureHeader.h"
 
 
-TEST(VectorEngineTypeMatrixRank, rankFullDependent)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanFullDependent)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 1);
@@ -19,11 +19,11 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependent)
 	matrix->setEntry(2, 3, 4);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(1, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(1, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanFullDependentDistributed)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 1);
@@ -40,11 +40,11 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
 	matrix->setEntry(2, 3, 16);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(1, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(1, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankZeroes)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanZeroes)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 0);
@@ -61,11 +61,11 @@ TEST(VectorEngineTypeMatrixRank, rankZeroes)
 	matrix->setEntry(2, 3, 0);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(0, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(0, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankOf2)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanOf2)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 1);
@@ -82,11 +82,11 @@ TEST(VectorEngineTypeMatrixRank, rankOf2)
 	matrix->setEntry(2, 3, 1);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(2, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(2, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankOf2_2)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanOf2_2)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 1);
@@ -103,11 +103,11 @@ TEST(VectorEngineTypeMatrixRank, rankOf2_2)
 	matrix->setEntry(2, 3, 1);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(2, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(2, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankOf3)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanOf3)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	matrix->setEntry(0, 0, 1);
@@ -124,11 +124,11 @@ TEST(VectorEngineTypeMatrixRank, rankOf3)
 	matrix->setEntry(2, 3, 6);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(3, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanOf3x3Matrix)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -142,11 +142,11 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
 	matrix->setEntry(2, 2, 2);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(3, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanOf3x5Matrix)
 {
 	Matrix *matrix = new Matrix(3, 5);
 	matrix->setEntry(0, 0, 1);
@@ -166,11 +166,11 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
 	matrix->setEntry(2, 4, 0);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(3, TM.checkSpan(*matrix));
 }
 
-TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanZeroSpecial)
 {
 	Matrix *matrix = new Matrix(4, 5);
 	matrix->setEntry(0, 0, 0);
@@ -195,8 +195,8 @@ TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
 	matrix->setEntry(3, 4, 1);
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TM.checkSpan(*matrix));
+	EXPECT_EQ(3, TM.checkSpan(*matrix));
 }
 
 

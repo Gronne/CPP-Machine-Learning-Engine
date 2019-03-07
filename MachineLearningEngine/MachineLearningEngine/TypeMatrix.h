@@ -22,7 +22,7 @@ public:
 	int rank(const MatrixResult&);
 	bool fullRank(const Matrix&);
 	bool fullRank(const MatrixResult&);
-	bool checkSpan(Matrix&, Matrix&) const;
+	int checkSpan(const Matrix&);
 	bool isomorphic(Matrix&, Matrix&) const;
 
 private:

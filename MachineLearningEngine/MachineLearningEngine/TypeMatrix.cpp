@@ -155,11 +155,10 @@ bool TypeMatrix::fullRank(const MatrixResult &)
 	return false;
 }
 
-
-bool TypeMatrix::checkSpan(Matrix &, Matrix &) const
+//Will return the number of dimensions that the matrix spans over
+int TypeMatrix::checkSpan(const Matrix &matrix)
 {
-
-	return false;
+	return rank(matrix);
 }
 
 
