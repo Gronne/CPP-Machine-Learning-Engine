@@ -7,4 +7,5 @@
 #include "VectorEngineTypeMatrixHomogeneousTest.h"
 #include "VectorEngineTypeMatrixOrthogonalTest.h"
 #include "VectorEngineTypeMatrixRankTest.h"
+#include "VectorEngineTypeMatrixSpanTest.h"
 #include "VectorEngineTypeMatrixTrivialTest.h"

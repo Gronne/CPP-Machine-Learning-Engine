@@ -156,9 +156,33 @@ bool TypeMatrix::fullRank(const MatrixResult &)
 }
 
 //Will return the number of dimensions that the matrix spans over
-int TypeMatrix::checkSpan(const Matrix &matrix)
+int TypeMatrix::span(const Matrix &matrix)
 {
 	return rank(matrix);
+}
+
+bool TypeMatrix::checkSpan(const Matrix &matrixSpan, const Matrix &matrixInSpan)
+{
+	Matrix *spanBuffer = new Matrix();
+	*spanBuffer = matrixSpan;
+	Matrix *inSpanBuffer = new Matrix();
+	*inSpanBuffer = matrixInSpan;
+
+	spanBuffer->transpose();
+	inSpanBuffer->transpose();
+
+	if (spanBuffer->getNumberOfRows() != inSpanBuffer->getNumberOfRows())
+		inSpanBuffer->transpose();
+
+	spanBuffer->appendMatrix(*inSpanBuffer);
+
+	int primarySpan = span(matrixSpan);
+	int secondarySpan = span(*spanBuffer);
+	bool returnState = (primarySpan == secondarySpan) ? true : false;
+
+	delete spanBuffer;
+	delete inSpanBuffer;
+	return returnState;
 }
 
 

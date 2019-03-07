@@ -94,6 +94,7 @@
     <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixRankTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixSpanTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixTrivialTest.h" />
   </ItemGroup>

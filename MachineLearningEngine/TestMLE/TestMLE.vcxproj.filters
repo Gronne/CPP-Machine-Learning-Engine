@@ -189,6 +189,9 @@
     <ClInclude Include="VectorEngineTypeMatrixCheckSpanTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixSpanTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
