@@ -122,7 +122,7 @@ int TypeMatrix::rank(const Matrix &matrix)
 
 	BasicMatrixOperations BMO;
 	Matrix *buffer = new Matrix();
-	*buffer = BMO.getRowReduction(matrix);
+	*buffer = BMO.getEchelonForm(matrix);
 
 	int rank = 0;
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)

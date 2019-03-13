@@ -75,6 +75,9 @@
     <ClCompile Include="TypeMatrix.cpp">
       <Filter>Source Files\VectorEngine</Filter>
     </ClCompile>
+    <ClCompile Include="GetMatrix.cpp">
+      <Filter>Source Files\VectorEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -102,6 +105,9 @@
       <Filter>Header Files\VectorEngine\BasicMatrixOperations</Filter>
     </ClInclude>
     <ClInclude Include="TypeMatrix.h">
+      <Filter>Header Files\VectorEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="GetMatrix.h">
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
   </ItemGroup>

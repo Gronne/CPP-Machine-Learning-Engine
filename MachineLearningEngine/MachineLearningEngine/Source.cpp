@@ -4,6 +4,7 @@
 #include "SimpleMatrixOperations.h"
 #include "BasicMatrixOperations.h"
 #include "TypeMatrix.h"
+#include "GetMatrix.h"
 
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
@@ -19,20 +20,15 @@ int main(int argc, char ** argv) {
 	matrix->setEntry(2, 1, 8);
 	matrix->setEntry(2, 2, 1);
 
-	Matrix *spanMatrix = new Matrix(3, 1);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(2, 0, 5);
-
-
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
 	TypeMatrix TM;
+	GetMatrix GM;
 
 	try
 	{
 		matrix->print();
-		std::cout << TM.checkSpan(*matrix, *spanMatrix) << std::endl;
+		GM.pivotRows(*matrix).print();
 	}
 	catch (const std::exception ex)
 	{

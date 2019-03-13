@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicMatrixOperations.cpp" />
+    <ClCompile Include="GetMatrix.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixResult.cpp" />
     <ClCompile Include="MatrixRREF.cpp" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicMatrixOperations.h" />
+    <ClInclude Include="GetMatrix.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixResult.h" />
     <ClInclude Include="MatrixRREF.h" />

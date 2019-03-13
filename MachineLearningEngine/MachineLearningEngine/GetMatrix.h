@@ -1,6 +1,7 @@
 #pragma once
 #include "Matrix.h"
 #include "BasicMatrixOperations.h"
+#include "TypeMatrix.h"
 
 class GetMatrix
 {
