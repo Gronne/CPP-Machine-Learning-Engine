@@ -425,7 +425,7 @@ Matrix & Matrix::operator*(const double value)
 	return *returnObj;
 }
 
-Matrix & Matrix::operator*(Matrix &obj) const
+Matrix & Matrix::operator*(const Matrix &obj) const
 {
 	if (getNumberOfColumns() != obj.getNumberOfRows())
 		throw std::exception("Matrix Dimensions does not comply");

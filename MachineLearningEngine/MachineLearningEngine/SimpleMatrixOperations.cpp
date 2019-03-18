@@ -149,7 +149,7 @@ Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 	return *crossMatrix;
 }
 
-double SimpleMatrixOperations::dot(Matrix &vec1, Matrix &vec2)
+double SimpleMatrixOperations::dot(const Matrix &vec1, const Matrix &vec2)
 {
 	if (vec1.getNumberOfColumns() != 1 && vec1.getNumberOfRows() != 1)
 		throw std::exception("First argument isn't a 1xN or Nx1 Matrix");
@@ -159,26 +159,42 @@ double SimpleMatrixOperations::dot(Matrix &vec1, Matrix &vec2)
 	return calculateDotProduct(vec1, vec2);
 }
 
-double SimpleMatrixOperations::calculateDotProduct(Matrix &vec1, Matrix &vec2)
+double SimpleMatrixOperations::calculateDotProduct(const Matrix &vec1, const Matrix &vec2)
 {
 	double dotValue;
+
+	Matrix *vec1Buf = new Matrix();
+	Matrix *vec2Buf = new Matrix();
+	*vec1Buf = vec1;
+	*vec2Buf = vec2;
+
 	if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfRows() == 1)
 	{
-		vec2.transpose();
-		dotValue = (vec1 * vec2).getEntry(0, 0);
-		vec2.transpose();
+		vec2Buf->transpose();
+		dotValue = (*vec1Buf * *vec2Buf).getEntry(0, 0);
 	}
 	else if (vec1.getNumberOfRows() == 1 && vec2.getNumberOfRows() != 1)
-		dotValue = (vec1 * vec2).getEntry(0, 0);
+		dotValue = (*vec1Buf * *vec2Buf).getEntry(0, 0);
 	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfRows() == 1)
-		dotValue = (vec2 * vec1).getEntry(0, 0);
+		dotValue = (*vec2Buf * *vec1Buf).getEntry(0, 0);
 	else if (vec1.getNumberOfRows() != 1 && vec2.getNumberOfRows() != 1)
 	{
-		vec1.transpose();
-		dotValue = (vec1 * vec2).getEntry(0, 0);
-		vec1.transpose();
+		vec1Buf->transpose();
+		dotValue = (*vec1Buf * *vec2Buf).getEntry(0, 0);
 	}
+
+	delete vec1Buf;
+	delete vec2Buf;
+
 	return dotValue;
+}
+
+double SimpleMatrixOperations::calculateVectorLength(const Matrix &matrix)
+{
+	double buffer = 0;
+	for (size_t column = 0; column < matrix.getNumberOfColumns(); column++)
+		buffer += matrix.getEntry(0, column) * matrix.getEntry(0, column);
+	return sqrt(buffer);
 }
 
 double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, bool transposed)
@@ -195,6 +211,40 @@ double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, boo
 	delete vec1;
 	delete vec2;
 	return dotValue;
+}
+
+double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix)
+{
+	if (matrix.getNumberOfRows() != 1 && matrix.getNumberOfColumns() != 1)
+		throw std::exception("There can only be 1 vector in the matrix");
+	double length = 0;
+	if (matrix.getNumberOfRows() == 1)
+		length = calculateVectorLength(matrix);
+	if (matrix.getNumberOfColumns() == 1)
+	{
+		Matrix *buffer = new Matrix();
+		*buffer = matrix;
+		buffer->transpose();
+		length = calculateVectorLength(*buffer);
+		delete buffer;
+	}
+	return length;
+}
+
+double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix, bool rows, int row)
+{
+	if (rows == 1 && matrix.getNumberOfColumns() >= row)
+		throw std::exception("the chosen Row is larger than the given matrix");
+	if (rows == 0 && matrix.getNumberOfRows() >= row)
+		throw std::exception("the chosen Column is larger than the given matrix");
+
+	Matrix *matrixBuffer = new Matrix();
+	*matrixBuffer = (rows) ? matrix.getRow(row) : matrix.getColumn(row);
+
+	double length = lengthOfVector(*matrixBuffer);
+
+	delete matrixBuffer;
+	return length;
 }
 
 double SimpleMatrixOperations::sum(Matrix &matrix) const

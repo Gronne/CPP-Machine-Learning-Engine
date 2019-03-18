@@ -19,8 +19,10 @@ public:
 	Matrix& getInverse(const Matrix&);
 	double determinant(const Matrix&);
 	Matrix& cross(const Matrix&);
-	double dot(Matrix&, Matrix&);
+	double dot(const Matrix&, const Matrix&);
 	double dot(const Matrix&, int, int, bool = 0);
+	double lengthOfVector(const Matrix&);
+	double lengthOfVector(const Matrix&, bool, int);
 
 	double sum(Matrix&) const;
 
@@ -29,7 +31,8 @@ public:
 private:
 	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
 	void setInverseMatrix(const Matrix&, Matrix&);
-	double calculateDotProduct(Matrix&, Matrix&);
+	double calculateDotProduct(const Matrix&, const Matrix&);
+	double calculateVectorLength(const Matrix&);
 };
 
 #endif

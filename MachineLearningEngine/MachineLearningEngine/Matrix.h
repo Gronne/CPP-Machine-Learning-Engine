@@ -43,7 +43,7 @@ public:
 	Matrix& operator-(const Matrix&);
 	Matrix& operator-(const double);
 	Matrix& operator*(const double);
-	Matrix& operator*(Matrix&) const;
+	Matrix& operator*(const Matrix&) const;
 	Matrix& operator/(const double);
 
 private:
