@@ -95,14 +95,29 @@ Matrix & GetMatrix::pivotColumns(const Matrix &matrix)
 	return *returnMatrix;
 }
 
-Matrix & GetMatrix::span(const Matrix &matrix)
-{
-	return pivotRows(matrix);
+Matrix & GetMatrix::span(const Matrix &fullMatrix)
+{	//What if there isn't a result?
+	BasicMatrixOperations BMO;
+	return BMO.getEchelonForm(fullMatrix).getColumn(fullMatrix.getNumberOfColumns()-1);
 }
 
-double GetMatrix::span(const Matrix &, const Matrix &)
+Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)
 {
-	return 0.0;
+	if (spanMatrix.getNumberOfRows() != resultMatrix.getNumberOfRows() && spanMatrix.getNumberOfColumns() != resultMatrix.getNumberOfColumns())
+		throw std::exception("The dimensions between the span and vector doesn't match");
+
+	Matrix *returnMatrix = new Matrix();
+	*returnMatrix = spanMatrix;
+	if (spanMatrix.getNumberOfRows() == resultMatrix.getNumberOfRows())
+		returnMatrix->appendMatrix(resultMatrix);
+	if (spanMatrix.getNumberOfColumns() == resultMatrix.getNumberOfColumns())
+	{
+		returnMatrix->appendMatrix(resultMatrix, 1);
+		returnMatrix->transpose();
+	}
+
+	*returnMatrix = span(*returnMatrix);
+	return *returnMatrix;
 }
 
 double GetMatrix::innerProductSpace(const Matrix &matrix)

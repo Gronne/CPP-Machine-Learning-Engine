@@ -23,6 +23,7 @@ public:
 	bool fullRank(const Matrix&);
 	bool fullRank(const MatrixResult&);
 	int span(const Matrix&);
+	bool isInSpan(const Matrix&, const Matrix&, bool = 0);
 	bool checkSpan(const Matrix&, const Matrix&);
 	bool isomorphic(Matrix&, Matrix&) const;
 

@@ -161,6 +161,28 @@ int TypeMatrix::span(const Matrix &matrix)
 	return rank(matrix);
 }
 
+#include <iostream>
+
+bool TypeMatrix::isInSpan(const Matrix &matrixSpan, const Matrix &newVectors, bool rowVector)
+{
+	Matrix *firstMatrix = new Matrix();
+	Matrix *secondMatrix = new Matrix();
+	*firstMatrix = matrixSpan;
+	*secondMatrix = newVectors;
+
+	if (rowVector)
+	{
+		firstMatrix->transpose();
+		secondMatrix->transpose();
+	}
+
+	bool returnBool = checkSpan(*firstMatrix, *secondMatrix);
+
+	delete firstMatrix;
+	delete secondMatrix;
+	return returnBool;
+}
+
 bool TypeMatrix::checkSpan(const Matrix &matrixSpan, const Matrix &matrixInSpan)
 {
 	Matrix *spanBuffer = new Matrix();
