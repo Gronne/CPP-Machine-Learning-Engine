@@ -151,8 +151,27 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 
 	*buffer = BMO.getEchelonForm(fullMatrix);
 
-	if (buffer->getEntry(buffer->getNumberOfRows()-1, buffer->getNumberOfColumns()-2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0))
-		return buffer->getColumn(fullMatrix.getNumberOfColumns() - 1);
+	if (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0))
+	{
+		Matrix *returnMatrix = new Matrix(fullMatrix.getNumberOfColumns() - 1, 1);
+		Matrix *pivots = new Matrix();
+		*pivots = pivotColumnsNumber(*buffer);
+		*buffer = buffer->getColumn(buffer->getNumberOfColumns() - 1);
+
+		int pivotsCounter = 0;
+		for (size_t row = 0; row < returnMatrix->getNumberOfRows(); row++)
+		{
+			if (pivotsCounter < pivots->getNumberOfColumns() && row == pivots->getEntry(0, pivotsCounter) && pivots->getEntry(0, pivotsCounter) != fullMatrix.getNumberOfColumns() - 1)
+				returnMatrix->setEntry(row, 0, buffer->getEntry(pivotsCounter++, 0));
+			else 
+				returnMatrix->setEntry(row, 0, 0);
+		}
+
+		delete pivots;
+		delete buffer;
+
+		return *returnMatrix;
+	}
 	else
 		throw std::exception("The vector isn't in the span");
 }

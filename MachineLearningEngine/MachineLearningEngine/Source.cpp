@@ -31,7 +31,7 @@ int main(int argc, char ** argv) {
 		matrix->print();
 		matrix2->print();
 		//std::cout << TM.isInSpan(*matrix, *matrix2) << std::endl;
-		GM.pivotRowsNumber(*matrix).print();
+		(*matrix * GM.span(*matrix, *matrix2)).print();
 	}
 	catch (const std::exception ex)
 	{
