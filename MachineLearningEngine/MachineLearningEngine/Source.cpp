@@ -16,8 +16,8 @@ int main(int argc, char ** argv) {
 	matrix->setEntry(1, 1, 4);
 
 	Matrix *matrix2 = new Matrix(2, 1);
-	matrix2->setEntry(0, 0, 3);
-	matrix2->setEntry(1, 0, 6);
+	matrix2->setEntry(0, 0, 20);
+	matrix2->setEntry(1, 0, 4);
 
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
@@ -28,7 +28,8 @@ int main(int argc, char ** argv) {
 	{
 		matrix->print();
 		matrix2->print();
-		std::cout << TM.isInSpan(*matrix, *matrix2) << std::endl;
+		//std::cout << TM.isInSpan(*matrix, *matrix2) << std::endl;
+		GM.span(*matrix, *matrix2).print();
 	}
 	catch (const std::exception ex)
 	{

@@ -96,9 +96,15 @@ Matrix & GetMatrix::pivotColumns(const Matrix &matrix)
 }
 
 Matrix & GetMatrix::span(const Matrix &fullMatrix)
-{	//What if there isn't a result?
+{	
 	BasicMatrixOperations BMO;
-	return BMO.getEchelonForm(fullMatrix).getColumn(fullMatrix.getNumberOfColumns()-1);
+	Matrix *buffer = new Matrix();
+
+	*buffer = BMO.getEchelonForm(fullMatrix);
+	if (buffer->getEntry(buffer->getNumberOfRows()-1, buffer->getNumberOfColumns()-2) != 0)
+		return buffer->getColumn(fullMatrix.getNumberOfColumns() - 1);
+	else
+		throw std::exception("The vector isn't in the span");
 }
 
 Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)
