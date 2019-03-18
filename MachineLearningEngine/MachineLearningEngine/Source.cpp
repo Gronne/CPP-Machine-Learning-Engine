@@ -9,11 +9,13 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix = new Matrix(2, 2);
+	Matrix *matrix = new Matrix(2, 3);
 	matrix->setEntry(0, 0, 1);
 	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
+	matrix->setEntry(0, 2, 5);
+	matrix->setEntry(1, 0, 3);
+	matrix->setEntry(1, 1, 5);
+	matrix->setEntry(1, 2, 1);
 
 	Matrix *matrix2 = new Matrix(2, 1);
 	matrix2->setEntry(0, 0, 20);

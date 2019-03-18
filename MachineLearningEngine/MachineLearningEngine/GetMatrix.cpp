@@ -101,7 +101,8 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 	Matrix *buffer = new Matrix();
 
 	*buffer = BMO.getEchelonForm(fullMatrix);
-	if (buffer->getEntry(buffer->getNumberOfRows()-1, buffer->getNumberOfColumns()-2) != 0)
+
+	if (buffer->getEntry(buffer->getNumberOfRows()-1, buffer->getNumberOfColumns()-2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0))
 		return buffer->getColumn(fullMatrix.getNumberOfColumns() - 1);
 	else
 		throw std::exception("The vector isn't in the span");
