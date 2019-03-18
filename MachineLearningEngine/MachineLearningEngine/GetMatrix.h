@@ -11,7 +11,9 @@ public:
 
 	int numberOfPivots(const Matrix&);
 	Matrix& pivotRows(const Matrix&);
+	Matrix& pivotRowsNumber(const Matrix&);
 	Matrix& pivotColumns(const Matrix&);
+	Matrix& pivotColumnsNumber(const Matrix&);
 	Matrix& span(const Matrix&);
 	Matrix& span(const Matrix&, const Matrix&);
 	double innerProductSpace(const Matrix&);
@@ -23,5 +25,6 @@ public:
 
 private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);
+	Matrix& pivotNumbers(const Matrix&, bool);
 };
 

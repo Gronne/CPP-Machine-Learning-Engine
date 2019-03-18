@@ -56,6 +56,11 @@ Matrix & GetMatrix::pivotRows(const Matrix &matrix)
 	return *returnMatrix;
 }
 
+Matrix & GetMatrix::pivotRowsNumber(const Matrix &matrix)
+{
+	return pivotNumbers(matrix, 1);
+}
+
 Matrix & GetMatrix::pivotColumns(const Matrix &matrix)
 {
 	bool zeroes = true;
@@ -88,6 +93,50 @@ Matrix & GetMatrix::pivotColumns(const Matrix &matrix)
 				else
 					returnMatrix->appendMatrix(matrix.getColumn(col));
 				firstTime = false;
+				break;
+			}
+
+	delete buffer;
+	return *returnMatrix;
+}
+
+Matrix & GetMatrix::pivotColumnsNumber(const Matrix &matrix)
+{
+	return pivotNumbers(matrix, 0);
+}
+
+Matrix & GetMatrix::pivotNumbers(const Matrix &matrix, bool type)
+{
+	bool zeroes = true;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (matrix.getEntry(row, col) != 0)
+			{
+				zeroes = false;
+				break;
+			}
+	if (zeroes)
+		throw std::exception("No Pivots");
+
+	Matrix *returnMatrix = new Matrix(1, 1);
+
+	MatrixRREF RREF;
+	if (RREF.checkForFullDependentMatrix(matrix))
+	{
+		returnMatrix->setEntry(0, 0, 0);
+		return *returnMatrix;
+	}
+
+	BasicMatrixOperations BMO;
+	Matrix *buffer = new Matrix();
+	*buffer = BMO.getEchelonForm(matrix);
+	returnMatrix->setMatrixSize(1, numberOfPivots(matrix));
+
+	for (size_t row = 0, counter = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (buffer->getEntry(row, col) != 0)
+			{
+				returnMatrix->setEntry(0, counter++, ((type) ? row : col));
 				break;
 			}
 
