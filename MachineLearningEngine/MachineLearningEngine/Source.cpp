@@ -26,11 +26,13 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
+	
+
 	try
 	{
 		*matrix = { 1, 2, 3, 
 					4, 5, 6 };
-		matrix->print();
+		std::cout << *matrix;
 	}
 	catch (const std::exception ex)
 	{

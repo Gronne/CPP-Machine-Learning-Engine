@@ -270,11 +270,14 @@ void Matrix::scale(double scaleingsFactor)
 }
 
 
-void Matrix::print() const
+std::string Matrix::print(bool print) const
 {
 	std::vector<int> maxValueInRow = findMaxValueInRow();
 	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + getNumberOfColumns()*3 + 1;
-	printMatrix(maxValueInRow, fullWidth);
+	std::string printString = printMatrix(maxValueInRow, fullWidth);
+	if(print)
+		std::cout << printString << std::endl;
+	return printString;
 }
 
 void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
@@ -449,45 +452,56 @@ void Matrix::operator=(std::vector<double> vectorArray)
 }
 
 
-void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth) const
+std::string Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth) const
 {
+	std::string printString = "";
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 	{
-		printLine(fullWidth);
-		printRow(row, maxValueInRow);
+		printString += printLine(fullWidth);
+		printString += printRow(row, maxValueInRow);
 	}
-	printLine(fullWidth);
+	printString += printLine(fullWidth);
+	return printString;
 }
 
-void Matrix::printLine(int width) const 
+std::string Matrix::printLine(int width) const
 {
+	std::string printString = "";
+
 	for (size_t cursor = 0; cursor < width; cursor++)
-		std::cout << "-";
-	std::cout << std::endl;
+		printString += "-";
+	printString += "\n";
+
+	return printString;
 }
 
-void Matrix::printRow(int row, std::vector<int> maxValueInRow) const
+std::string Matrix::printRow(int row, std::vector<int> maxValueInRow) const
 {
+	std::string printString = "";
+
 	for (size_t column = 0; column < getNumberOfColumns(); column++)
 	{
-		std::cout << "|";
-		printEntry(row, column, maxValueInRow);
+		printString += "|";
+		printString += printEntry(row, column, maxValueInRow);
 	}
-	std::cout << "|" << std::endl;
+	printString +=  "|\n";
+
+	return printString;
 }
 
-void Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow) const
+std::string Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow) const
 {
-	std::cout << " ";
+	std::string printString = " ";
 	size_t space = 0 + unevenSpace(row, column, maxValueInRow);
 
 	for (; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
-		std::cout << " ";
+		printString += " ";
 
-	std::cout << eraseZeros(std::to_string(getEntry(row, column)));
+	printString += eraseZeros(std::to_string(getEntry(row, column)));
 	for (size_t space = 0; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
-		std::cout << " ";
-	std::cout << " ";
+		printString += " ";
+	printString += " ";
+	return printString;
 }
 
 bool Matrix::unevenSpace(int row, int column, std::vector<int>maxValueInRow) const
@@ -531,7 +545,6 @@ std::string Matrix::eraseZeros(std::string string) const
 	if (string[string.size() - (1 + cursor)] == '.')
 		cursor++;
 	return string.substr(0, string.size() - (cursor));
-
 }
 
 Matrix & Matrix::multiplication(const Matrix &obj) const
@@ -589,3 +602,8 @@ void Matrix::resizeMatrix(int rows, int columns)
 	constructMatrix();
 }
 
+std::ostream & operator<<(std::ostream &out, const Matrix &matrix)
+{
+	out << matrix.print(0);
+	return out;
+}

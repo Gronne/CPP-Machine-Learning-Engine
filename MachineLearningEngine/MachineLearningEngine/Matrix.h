@@ -26,7 +26,7 @@ public:
 	void deleteColumn(int);
 	void transpose();
 	void scale(double);
-	void print() const;
+	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);
 
 	void operator=(const Matrix&);
@@ -46,7 +46,7 @@ public:
 	Matrix& operator*(const Matrix&) const;
 	Matrix& operator/(const double);
 	void operator=(std::vector<double>);
-
+	friend std::ostream& operator<<(std::ostream&, const Matrix&);
 
 private:
 	void constructMatrix();
@@ -61,10 +61,10 @@ private:
 	void deleteMatrix();
 	double getWidestNumberInRow(int) const;
 	double numberWidth(double) const;
-	void printMatrix(std::vector<int>, int) const;
-	void printLine(int) const;
-	void printRow(int, std::vector<int>) const;
-	void printEntry(int, int, std::vector<int>) const;
+	std::string printMatrix(std::vector<int>, int) const;
+	std::string printLine(int) const;
+	std::string printRow(int, std::vector<int>) const;
+	std::string printEntry(int, int, std::vector<int>) const;
 	bool unevenSpace(int, int, std::vector<int>) const;
 	double getDiffWidth(int, int, std::vector<int>) const;
 	std::vector<int> findMaxValueInRow() const;
