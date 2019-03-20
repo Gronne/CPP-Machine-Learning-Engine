@@ -28,10 +28,9 @@ int main(int argc, char ** argv) {
 
 	try
 	{
+		*matrix = { 1, 2, 3, 
+					4, 5, 6 };
 		matrix->print();
-		matrix2->print();
-		//std::cout << TM.isInSpan(*matrix, *matrix2) << std::endl;
-		(*matrix * GM.span(*matrix, *matrix2)).print();
 	}
 	catch (const std::exception ex)
 	{

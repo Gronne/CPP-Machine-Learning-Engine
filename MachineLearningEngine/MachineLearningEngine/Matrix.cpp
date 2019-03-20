@@ -440,6 +440,14 @@ Matrix & Matrix::operator/(const double value)
 	return *returnObj;
 }
 
+void Matrix::operator=(std::vector<double> vectorArray)
+{
+	if (vectorArray.size() != getNumberOfRows() * getNumberOfColumns())
+		throw std::exception("Elements isn't equal to number of matrix entries");
+	for (size_t index = 0; index < vectorArray.size(); index++)
+		setEntry((index/getNumberOfColumns()) % getNumberOfRows(), index % getNumberOfColumns(), vectorArray[index]);
+}
+
 
 void Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth) const
 {
