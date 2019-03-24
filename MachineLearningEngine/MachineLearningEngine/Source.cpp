@@ -32,6 +32,7 @@ int main(int argc, char ** argv) {
 	{
 		*matrix = { 1, 2, 3, 
 					4, 5, 6 };
+		
 		std::cout << *matrix;
 	}
 	catch (const std::exception ex)

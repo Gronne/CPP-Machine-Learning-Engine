@@ -231,15 +231,15 @@ double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix)
 	return length;
 }
 
-double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix, bool rows, int row)
+double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix, bool rows, int rowNumber)
 {
-	if (rows == 1 && matrix.getNumberOfColumns() >= row)
+	if (rows == 1 && matrix.getNumberOfRows() <= rowNumber)
 		throw std::exception("the chosen Row is larger than the given matrix");
-	if (rows == 0 && matrix.getNumberOfRows() >= row)
+	if (rows == 0 && matrix.getNumberOfColumns() <= rowNumber)
 		throw std::exception("the chosen Column is larger than the given matrix");
 
 	Matrix *matrixBuffer = new Matrix();
-	*matrixBuffer = (rows) ? matrix.getRow(row) : matrix.getColumn(row);
+	*matrixBuffer = (rows) ? matrix.getRow(rowNumber) : matrix.getColumn(rowNumber);
 
 	double length = lengthOfVector(*matrixBuffer);
 

@@ -82,6 +82,7 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsDotTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h" />
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />

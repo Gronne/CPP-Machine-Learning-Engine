@@ -192,6 +192,9 @@
     <ClInclude Include="VectorEngineTypeMatrixSpanTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
