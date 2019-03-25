@@ -1,0 +1,11 @@
+#pragma once
+#include "VectorEngineGetMatrixFrobeniusProductSpaceTest.h"
+#include "VectorEngineGetMatrixGetBasicVectorsTest.h"
+#include "VectorEngineGetMatrixGetTransformationMatrixTest.h"
+#include "VectorEngineGetMatrixInnerProductSpaceTest.h"
+#include "VectorEngineGetMatrixNumberOfPivotsTest.h"
+#include "VectorEngineGetMatrixPivotColumnsNumberTest.h"
+#include "VectorEngineGetMatrixPivotColumnsTest.h"
+#include "VectorEngineGetMatrixPivotRowsNumberTest.h"
+#include "VectorEngineGetMatrixPivotRowsTest.h"
+#include "VectorEngineGetMatrixSpanTest.h"

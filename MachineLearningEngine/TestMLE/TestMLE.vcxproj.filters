@@ -195,6 +195,42 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixIsInSpanTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixNumberOfPivotsTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixPivotRowsTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixPivotColumnsTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixPivotColumnsNumberTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixPivotRowsNumberTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixSpanTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -217,6 +253,9 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\TypeMatrix">
       <UniqueIdentifier>{3e0ebaeb-3659-4551-9f60-0cebe1201b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\GetMatrix">
+      <UniqueIdentifier>{8516ae6f-8a4e-408d-91ba-d63a19fb250b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

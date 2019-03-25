@@ -72,6 +72,17 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixNumberOfPivotsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixPivotColumnsNumberTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixPivotColumnsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixPivotRowsNumberTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixPivotRowsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixSpanTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h" />
@@ -93,6 +104,7 @@
     <ClInclude Include="VectorEngineTypeMatrixDependentTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixFullRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixIsInSpanTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixSpanTest.h" />

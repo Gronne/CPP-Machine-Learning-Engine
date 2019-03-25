@@ -60,6 +60,22 @@ Matrix& Matrix::getRows(std::vector<int> rows) const
 	return *resultMatrix;
 }
 
+Matrix & Matrix::getRows(const Matrix &matrix) const
+{
+	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
+		throw std::exception("The matrix exceeds the requested number of rows or columns");
+	
+	bool row = false;
+	if (matrix.getNumberOfColumns() < matrix.getNumberOfRows())
+		row = true;
+
+	std::vector<int> vec;
+	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
+		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
+
+	return getRows(vec);
+}
+
 void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
 {
 	if (_transposeFlag == false) resultMatrix->resizeMatrix(rows, _columns);
@@ -98,6 +114,22 @@ Matrix& Matrix::getColumns(std::vector<int> columns) const
 		insertColumn(resultMatrix, columnCounter, columns[columnCounter]);
 
 	return *resultMatrix;
+}
+
+Matrix & Matrix::getColumns(const Matrix &matrix) const
+{
+	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
+		throw std::exception("The matrix exceeds the requested number of rows or columns");
+
+	bool row = false;
+	if (matrix.getNumberOfColumns() < matrix.getNumberOfRows())
+		row = true;
+
+	std::vector<int> vec;
+	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
+		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
+
+	return getColumns(vec);
 }
 
 

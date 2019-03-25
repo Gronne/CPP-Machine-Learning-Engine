@@ -1,6 +1,7 @@
 #pragma once
-#include "VectorEngineDatastructuresMatrixTest.h"
-#include "VectorEngineSimpleMatrixOperationsTest.h"
 #include "VectorEngineBasicMatrixOperationsTest.h"
+#include "VectorEngineDatastructuresMatrixTest.h"
+#include "VectorEngineGetMatrixTest.h"
 #include "VectorEngineMatrixRREFTest.h"
+#include "VectorEngineSimpleMatrixOperationsTest.h"
 #include "VectorEngineTypeMatrixTest.h"

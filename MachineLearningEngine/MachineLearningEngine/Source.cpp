@@ -9,13 +9,7 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix = new Matrix(2, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 5);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 1);
+	Matrix *matrix = new Matrix(2, 2);
 
 	Matrix *matrix2 = new Matrix(2, 1);
 	matrix2->setEntry(0, 0, 20);
@@ -30,10 +24,11 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		*matrix = { 1, 2, 3, 
-					4, 5, 6 };
+		*matrix = { 1, 1,
+				    2, 2 };
 		
 		std::cout << *matrix;
+		std::cout << GM.pivotColumnsNumber(*matrix);
 	}
 	catch (const std::exception ex)
 	{

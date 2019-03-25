@@ -12,8 +12,10 @@ public:
 	int getNumberOfColumns() const;
 	Matrix& getRow(int) const;
 	Matrix& getRows(std::vector<int>) const;
+	Matrix& getRows(const Matrix&) const;
 	Matrix& getColumn(int) const;
 	Matrix& getColumns(std::vector<int>) const;
+	Matrix& getColumns(const Matrix&) const;
 	double getEntry(int, int) const;
 	void setRow(int, const Matrix *);
 	void setColumn(int, const Matrix *);
