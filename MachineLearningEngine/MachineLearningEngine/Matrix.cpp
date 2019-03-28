@@ -244,14 +244,14 @@ double Matrix::getEntry(int row, int column) const
 }
 
 
-void Matrix::setRow(int rowNumber, const Matrix *rowData)
+void Matrix::setRow(int rowNumber, const Matrix &rowData)
 {
-	checkForInvalidRowOrColumn(rowNumber, rowData->getNumberOfColumns() - 1);
-	if (getNumberOfColumns() != rowData->getNumberOfColumns())
+	checkForInvalidRowOrColumn(rowNumber, rowData.getNumberOfColumns() - 1);
+	if (getNumberOfColumns() != rowData.getNumberOfColumns())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
 	for (size_t column = 0; column < getNumberOfColumns(); column++)
-		setEntry(rowNumber, column, rowData->getEntry(0, column));
+		setEntry(rowNumber, column, rowData.getEntry(0, column));
 }
 
 
@@ -266,14 +266,14 @@ void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 }
 
 
-void Matrix::setColumn(int columnNumber, const Matrix *columnData)
+void Matrix::setColumn(int columnNumber, const Matrix &columnData)
 {
-	checkForInvalidRowOrColumn(columnData->getNumberOfRows() - 1, columnNumber);
-	if (getNumberOfRows() != columnData->getNumberOfRows())
+	checkForInvalidRowOrColumn(columnData.getNumberOfRows() - 1, columnNumber);
+	if (getNumberOfRows() != columnData.getNumberOfRows())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
 	for (size_t row = 0; row < getNumberOfRows(); row++)
-		setEntry(row, columnNumber, columnData->getEntry(row, 0));
+		setEntry(row, columnNumber, columnData.getEntry(row, 0));
 }
 
 
@@ -324,17 +324,17 @@ void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 	{
 		newMatrix->setMatrixSize(getNumberOfRows(), getNumberOfColumns() + matrix.getNumberOfColumns());
 		for (size_t col1 = 0; col1 < getNumberOfColumns(); col1++)
-			newMatrix->setColumn(col1, &getColumn(col1));
+			newMatrix->setColumn(col1, getColumn(col1));
 		for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); col2++)
-			newMatrix->setColumn(col2, &matrix.getColumn(col2 - getNumberOfColumns()));
+			newMatrix->setColumn(col2, matrix.getColumn(col2 - getNumberOfColumns()));
 	}
 	else
 	{
 		newMatrix->setMatrixSize(getNumberOfRows()+matrix.getNumberOfRows(), getNumberOfColumns());
 		for (size_t col1 = 0; col1 < getNumberOfRows(); col1++)
-			newMatrix->setRow(col1, &getRow(col1));
+			newMatrix->setRow(col1, getRow(col1));
 		for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); col2++)
-			newMatrix->setRow(col2, &matrix.getRow(col2 - getNumberOfRows()));
+			newMatrix->setRow(col2, matrix.getRow(col2 - getNumberOfRows()));
 	}
 
 	setMatrix(newMatrix);

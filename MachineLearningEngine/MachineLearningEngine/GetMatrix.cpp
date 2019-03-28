@@ -101,15 +101,80 @@ void GetMatrix::sortMatrix(Matrix &matrix)
 
 Matrix & GetMatrix::span(const Matrix &fullMatrix)
 {	
+	if (fullMatrix.getNumberOfColumns() == 1)
+		throw std::exception("Not possible it find the span with no vector to match with");
+
 	BasicMatrixOperations BMO;
 	Matrix *buffer = new Matrix();
+	*buffer = fullMatrix;
 
-	*buffer = BMO.getEchelonForm(fullMatrix);
+	int colLessThanRowFlag = 0;
 
-	if (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0))
+	if (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
+	{
+		Matrix *zeroMatrix = new Matrix(buffer->getNumberOfRows(), 1);
+		for (size_t row = 0; row < buffer->getNumberOfRows(); row++)
+			zeroMatrix->setEntry(row, 0, 0);
+
+		while (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
+		{
+			buffer->appendMatrix(*zeroMatrix);
+			colLessThanRowFlag++;
+		}
+			
+
+		buffer->setColumn(buffer->getNumberOfColumns() - 1, buffer->getColumn(fullMatrix.getNumberOfColumns() - 1));
+		buffer->setColumn(fullMatrix.getNumberOfColumns() - 1, *zeroMatrix);
+		
+		delete zeroMatrix;
+	}
+
+	try
+	{
+		*buffer = BMO.getEchelonForm(*buffer);
+	}
+	catch (const std::exception &ex)
+	{
+		if (ex.what() == "Your matrix is full dependent and can't be reduced")
+			throw ex;
+
+		buffer->setMatrixSize(fullMatrix.getNumberOfColumns() - 1, 1);
+		bool oneTimeFlag = false;
+		for (size_t col = 0; col < fullMatrix.getNumberOfColumns() - 1; col++)
+		{
+			if (fullMatrix.getEntry(0, col) == 0 || oneTimeFlag == true)
+				buffer->setEntry(col, 0, 0);
+			else
+			{
+				double firstValue  = fullMatrix.getEntry(0, fullMatrix.getNumberOfColumns() - 1);
+				double secondValue = fullMatrix.getEntry(0, col);
+
+				buffer->setEntry(col, 0,  firstValue / secondValue );
+				oneTimeFlag = true;
+			}
+		}
+
+		return *buffer;
+	}
+
+	for (size_t col = 0; col < colLessThanRowFlag; col++)
+		buffer->deleteColumn(buffer->getNumberOfColumns() - 2);
+	
+	Matrix *buf = new Matrix();
+	*buf = *buffer;
+	buf->deleteColumn(buf->getNumberOfColumns() - 1);
+
+	TypeMatrix TM;
+	int rankNoResult = TM.rank(*buf);
+	int rankResult = TM.rank(*buffer);
+
+	delete buf;
+
+	if (rankNoResult >= rankResult && (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0)))
 	{
 		Matrix *returnMatrix = new Matrix(fullMatrix.getNumberOfColumns() - 1, 1);
 		Matrix *pivots = new Matrix();
+
 		*pivots = pivotColumnsNumber(*buffer);
 		*buffer = buffer->getColumn(buffer->getNumberOfColumns() - 1);
 
@@ -128,7 +193,11 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 		return *returnMatrix;
 	}
 	else
+	{
+		delete buffer;
 		throw std::exception("The vector isn't in the span");
+	}
+		
 }
 
 Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)
@@ -138,9 +207,10 @@ Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)
 
 	Matrix *returnMatrix = new Matrix();
 	*returnMatrix = spanMatrix;
+
 	if (spanMatrix.getNumberOfRows() == resultMatrix.getNumberOfRows())
 		returnMatrix->appendMatrix(resultMatrix);
-	if (spanMatrix.getNumberOfColumns() == resultMatrix.getNumberOfColumns())
+	else if (spanMatrix.getNumberOfColumns() == resultMatrix.getNumberOfColumns())
 	{
 		returnMatrix->appendMatrix(resultMatrix, 1);
 		returnMatrix->transpose();

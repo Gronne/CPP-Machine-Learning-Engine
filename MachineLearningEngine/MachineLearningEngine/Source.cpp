@@ -9,26 +9,31 @@
 int main(int argc, char ** argv) {
 	std::cout << "hello" << std::endl;
 
-	Matrix *matrix = new Matrix(2, 2);
-
-	Matrix *matrix2 = new Matrix(2, 1);
-	matrix2->setEntry(0, 0, 20);
-	matrix2->setEntry(1, 0, 4);
-
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	
+	Matrix *buffer = new Matrix();
+	Matrix *matrix = new Matrix(3, 4);
+
+	*matrix = { 1, 2, 3, 4,
+				5, 4, 3, 2,
+				5, 4, 3, 2 };
+
+	Matrix *secMat = new Matrix(3, 1);
+	*secMat = { 5,
+				1,
+				5, };
 
 	try
 	{
-		*matrix = { 1, 1,
-				    2, 2 };
-		
-		std::cout << *matrix;
-		std::cout << GM.pivotColumnsNumber(*matrix);
+		Matrix *buffer = new Matrix();
+
+		//std::cout << BMO.determinant(*matrix);
+		//std::cout << TM.dependent(*matrix);
+		*buffer = GM.span(*matrix, *secMat);
+		std::cout << *buffer;
 	}
 	catch (const std::exception ex)
 	{

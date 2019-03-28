@@ -161,7 +161,7 @@ void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<doub
 
 void MatrixRREF::substractRow(Matrix &matrix, int primaryRow, int secondaryRow)
 {
-	matrix.setRow(secondaryRow, &(matrix.getRow(secondaryRow) - matrix.getRow(primaryRow)));
+	matrix.setRow(secondaryRow, (matrix.getRow(secondaryRow) - matrix.getRow(primaryRow)));
 }
 
 
