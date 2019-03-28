@@ -17,9 +17,9 @@ int main(int argc, char ** argv) {
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
-	*matrix = { 1, 2, 3, 4,
-				5, 4, 3, 2,
-				5, 4, 3, 2 };
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
 
 	Matrix *secMat = new Matrix(3, 1);
 	*secMat = { 5,
@@ -32,8 +32,7 @@ int main(int argc, char ** argv) {
 
 		//std::cout << BMO.determinant(*matrix);
 		//std::cout << TM.dependent(*matrix);
-		*buffer = GM.span(*matrix, *secMat);
-		std::cout << *buffer;
+		std::cout << BMO.getEchelonForm(*matrix);
 	}
 	catch (const std::exception ex)
 	{

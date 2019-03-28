@@ -281,3 +281,15 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize5x5)
 	EXPECT_NO_THROW(SMO.determinant(*matrix1));
 	EXPECT_EQ(-16314, SMO.determinant(*matrix1));
 }
+
+TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 1,
+				0, 0, 0,
+				0, 0, 0 };
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(SMO.determinant(*matrix));
+	EXPECT_EQ(0, SMO.determinant(*matrix));
+}

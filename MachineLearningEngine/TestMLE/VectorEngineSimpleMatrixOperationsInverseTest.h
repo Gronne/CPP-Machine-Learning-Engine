@@ -788,3 +788,14 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5Time)
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix1));
 }
+
+TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 1,
+				0, 0, 0,
+				0, 0, 0 };
+
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(SMO.inverse(*matrix), std::exception);
+}

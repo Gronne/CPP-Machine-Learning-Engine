@@ -112,3 +112,15 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase)
 	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
 	EXPECT_EQ(2, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
 }
+
+TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
+	EXPECT_EQ(3, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
+}

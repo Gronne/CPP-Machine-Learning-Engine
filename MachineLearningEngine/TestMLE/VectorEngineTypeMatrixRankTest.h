@@ -217,3 +217,15 @@ TEST(VectorEngineTypeMatrixRank, rankSpecialCase)
 	EXPECT_EQ(2, TM.rank(*matrix));
 }
 
+TEST(VectorEngineTypeMatrixRank, rankSpecialCase2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.rank(*matrix));
+	EXPECT_EQ(1, TM.rank(*matrix));
+}
+

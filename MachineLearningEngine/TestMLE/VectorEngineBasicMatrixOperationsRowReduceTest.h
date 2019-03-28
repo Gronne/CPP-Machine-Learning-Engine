@@ -1323,3 +1323,27 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x6)
 	EXPECT_NEAR(14.04, matrix->getEntry(4, 4), 0.0001);
 	EXPECT_EQ(14.04, matrix->getEntry(4, 5));
 }
+
+
+TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0 ,0, 0 };
+
+	BasicMatrixOperations BMO;
+	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
+	EXPECT_EQ(0, matrix->getEntry(0, 0));
+	EXPECT_EQ(0, matrix->getEntry(0, 1));
+	EXPECT_EQ(0, matrix->getEntry(0, 2));
+	EXPECT_EQ(0, matrix->getEntry(1, 0));
+	EXPECT_EQ(0, matrix->getEntry(1, 1));
+	EXPECT_EQ(0, matrix->getEntry(1, 2));
+	EXPECT_EQ(0, matrix->getEntry(2, 0));
+	EXPECT_EQ(0, matrix->getEntry(2, 1));
+	EXPECT_EQ(0, matrix->getEntry(2, 2));
+	EXPECT_NEAR(1, matrix->getEntry(0, 3), 0.0001);
+	EXPECT_EQ(0, matrix->getEntry(1, 3));
+	EXPECT_EQ(0, matrix->getEntry(2, 3));
+}

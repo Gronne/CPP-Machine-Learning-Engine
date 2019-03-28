@@ -385,3 +385,21 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x2)
 	SimpleMatrixOperations SMO;
 	EXPECT_THROW(*resultVec = SMO.cross(*matrix), std::exception);
 }
+
+TEST(VectorEngineSimpleMatrixOperationsCross, crossVectorspecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	Matrix *resultVec = new Matrix();
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(*resultVec = SMO.cross(*matrix));
+
+	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
+	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
+	resultValue += resultVec->getEntry(0, 2) * matrix->getEntry(0, 2);
+	resultValue += resultVec->getEntry(0, 3) * matrix->getEntry(0, 3);
+	EXPECT_EQ(0, resultValue);
+}

@@ -1,7 +1,7 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-TEST(VectorEngineTypeMatrixCheckSpan, checkSpanNotSpan)
+TEST(VectorEngineTypeMatrixCheckspan, checkSpanNotSpan)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -24,7 +24,7 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanNotSpan)
 	EXPECT_FALSE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanException1)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException1)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -47,7 +47,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanException1)
 	EXPECT_THROW(TM.checkSpan(*matrix, *spanMatrix), std::exception);
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanException2)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException2)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -68,7 +68,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanException2)
 	EXPECT_THROW(TM.checkSpan(*matrix, *spanMatrix), std::exception);
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanRow)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanRow)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -91,7 +91,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanRow)
 	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanCol)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanCol)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -114,7 +114,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanCol)
 	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanMatrixRow)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixRow)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -140,7 +140,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanMatrixRow)
 	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanMatrixCol)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixCol)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	matrix->setEntry(0, 0, 1);
@@ -166,7 +166,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpanMatrixCol)
 	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpan1DimensionTrue)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionTrue)
 {
 	Matrix *matrix = new Matrix(2, 2);
 	matrix->setEntry(0, 0, 1);
@@ -185,7 +185,7 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpan1DimensionTrue)
 	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
 }
 
-TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpan1DimensionFalse)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionFalse)
 {
 	Matrix *matrix = new Matrix(2, 2);
 	matrix->setEntry(0, 0, 1);
@@ -198,6 +198,21 @@ TEST(VectorEngineTypeMatrixCheckpan, checkSpanSpan1DimensionFalse)
 	spanMatrix->setEntry(0, 1, 6);
 	spanMatrix->setEntry(1, 0, 3);
 	spanMatrix->setEntry(1, 1, 8);
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TM.checkSpan(*matrix, *spanMatrix));
+}
+
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpecialCase) 
+{
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 0,
+				0, 0, 0,
+				0, 0, 0 };
+
+	Matrix *spanMatrix = new Matrix(3, 1);
+	*spanMatrix = { 1, 0, 0 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));

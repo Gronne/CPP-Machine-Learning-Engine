@@ -107,3 +107,16 @@ TEST(VectorEngineGetMatrixNumberOfPivots, NOPSpecialCase)
 	EXPECT_NO_THROW(GM.numberOfPivots(*matrix));
 	EXPECT_EQ(2, GM.numberOfPivots(*matrix));
 }
+
+
+TEST(VectorEngineGetMatrixNumberOfPivots, NOPSpecialCase2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(GM.numberOfPivots(*matrix));
+	EXPECT_EQ(1, GM.numberOfPivots(*matrix));
+}

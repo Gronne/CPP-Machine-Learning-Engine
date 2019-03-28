@@ -134,3 +134,15 @@ TEST(VectorEngineTypeMatrixHomogeneous, homogeneousTrue3)
 	EXPECT_NO_THROW(TM.homogeneous(*matrix));
 	EXPECT_TRUE(TM.homogeneous(*matrix));
 }
+
+TEST(VectorEngineTypeMatrixHomogeneous, homogeneousSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.homogeneous(*matrix));
+	EXPECT_FALSE(TM.homogeneous(*matrix));
+}

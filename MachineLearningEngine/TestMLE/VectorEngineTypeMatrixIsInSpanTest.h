@@ -137,3 +137,33 @@ TEST(VectorEngineTypeMatrixIsInSpan, isInSpanSpan1DimensionFalse)
 	EXPECT_NO_THROW(TM.isInSpan(*matrix, *spanMatrix));
 	EXPECT_FALSE(TM.isInSpan(*matrix, *spanMatrix));
 }
+
+TEST(VectorEngineTypeMatrixIsInSpan, isInSpanSpanSpecialCaseRow)
+{
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 0, 
+				0, 0, 0, 
+				0, 0, 0 };
+
+	Matrix *spanMatrix = new Matrix(3, 1);
+	*spanMatrix = { 1, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.isInSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TM.isInSpan(*matrix, *spanMatrix));
+}
+
+TEST(VectorEngineTypeMatrixIsInSpan, isInSpanSpanSpecialCaseCol)
+{
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 0,
+				0, 0, 0,
+				0, 0, 0 };
+
+	Matrix *spanMatrix = new Matrix(1, 3);
+	*spanMatrix = { 1, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.isInSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TM.isInSpan(*matrix, *spanMatrix));
+}

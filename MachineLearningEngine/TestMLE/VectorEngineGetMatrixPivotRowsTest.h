@@ -134,3 +134,18 @@ TEST(VectorEngineGetMatrixPivotRows, pivotRowsSpecialCase)
 	EXPECT_NO_THROW(*matrix = GM.pivotRows(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
+
+TEST(VectorEngineGetMatrixPivotRows, pivotRowsSpecialCase2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	Matrix *matrixResult = new Matrix(1, 4);
+	*matrixResult = { 0, 0, 0, 1 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.pivotRows(*matrix));
+	EXPECT_TRUE(*matrixResult == *matrix);
+}

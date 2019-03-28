@@ -123,3 +123,16 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse5)
 	EXPECT_NO_THROW(TM.basis(*matrix));
 	EXPECT_FALSE(TM.basis(*matrix));
 }
+
+
+TEST(VectorEngineTypeMatrixBasis, basisSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.basis(*matrix));
+	EXPECT_FALSE(TM.basis(*matrix));
+}

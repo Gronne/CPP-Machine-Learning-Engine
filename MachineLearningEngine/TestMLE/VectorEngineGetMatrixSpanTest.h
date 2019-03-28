@@ -768,3 +768,33 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanException3x4Plus1NotSameDimension)
 
 	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
 }
+
+TEST(VectorEngineGetMatrixSpan, SpanSpecialCaseException)
+{
+	GetMatrix GM;
+	Matrix *buffer = new Matrix();
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+}
+
+TEST(VectorEngineGetMatrixSpan, doubleSpanSpecialCaseException)
+{
+	GetMatrix GM;
+	Matrix *buffer = new Matrix();
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 0,
+				0, 0, 0,
+				0, 0, 0 };
+
+	Matrix *secMat = new Matrix(3, 1);
+	*secMat = { 1,
+				0,
+				0, };
+
+	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+}
+

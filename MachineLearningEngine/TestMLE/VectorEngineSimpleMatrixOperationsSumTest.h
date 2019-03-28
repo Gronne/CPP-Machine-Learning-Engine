@@ -315,3 +315,20 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumNoValue)
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
 }
+
+
+//---------Special cases-----------
+
+TEST(VectorEngineSimpleMatrixOperationsSum, sumSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	double sumValue;
+
+	SimpleMatrixOperations SMO;
+	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
+	EXPECT_EQ(1, SMO.sum(*matrix));
+}

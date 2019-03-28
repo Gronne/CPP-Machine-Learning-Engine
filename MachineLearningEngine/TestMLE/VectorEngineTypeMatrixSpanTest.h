@@ -199,5 +199,17 @@ TEST(VectorEngineTypeMatrixSpan, spanZeroSpecial)
 	EXPECT_EQ(3, TM.span(*matrix));
 }
 
+TEST(VectorEngineTypeMatrixSpan, spanSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.span(*matrix));
+	EXPECT_EQ(1, TM.span(*matrix));
+}
+
 
 

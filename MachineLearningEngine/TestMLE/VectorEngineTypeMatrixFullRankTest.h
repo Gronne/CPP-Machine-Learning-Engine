@@ -216,3 +216,15 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankOf4x4Matrix)
 	EXPECT_NO_THROW(TM.fullRank(*matrix));
 	EXPECT_TRUE(TM.fullRank(*matrix));
 }
+
+TEST(VectorEngineTypeMatrixFullRank, fullRankSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.fullRank(*matrix));
+	EXPECT_FALSE(TM.fullRank(*matrix));
+}

@@ -210,3 +210,15 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue4)
 	EXPECT_NO_THROW(TM.orthogonal(*matrix));
 	EXPECT_TRUE(TM.orthogonal(*matrix));
 }
+
+TEST(VectorEngineTypeMatrixOrthogonal, orthogonalSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.orthogonal(*matrix));
+	EXPECT_FALSE(TM.orthogonal(*matrix));
+}

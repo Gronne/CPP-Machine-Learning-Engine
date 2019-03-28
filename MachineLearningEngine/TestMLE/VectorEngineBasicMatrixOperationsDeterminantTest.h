@@ -286,3 +286,15 @@ TEST(VectorEngineBasicMatrixOperationsDeterminant, DetermineSize5x5)
 	EXPECT_NO_THROW(BMO.determinant(*matrix1));
 	EXPECT_EQ(SMO.determinant(*matrix1), BMO.determinant(*matrix1));
 }
+
+TEST(VectorEngineBasicMatrixOperationsDeterminant, DetermineSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0 ,0, 0 };
+
+	BasicMatrixOperations BMO;
+	SimpleMatrixOperations SMO;
+	EXPECT_THROW(BMO.determinant(*matrix), std::exception);
+}

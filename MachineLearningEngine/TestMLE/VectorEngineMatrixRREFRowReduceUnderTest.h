@@ -671,3 +671,17 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder5x6)
 	EXPECT_NEAR(14.04, matrix2->getEntry(4, 4), 0.0001);
 	EXPECT_EQ(14.04, matrix2->getEntry(4, 5));
 }
+
+TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	MatrixRREF RREF;
+	Matrix *resultMatrix = new Matrix();
+	*resultMatrix = RREF.rowReduceUnder(*matrix);
+
+	EXPECT_NO_THROW(*resultMatrix = RREF.rowReduceOver(*resultMatrix));
+}

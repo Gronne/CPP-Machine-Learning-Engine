@@ -112,3 +112,15 @@ TEST(VectorEngineGetMatrixPivotRowsNumber, pivotRowsNumberSpecialCase)
 	EXPECT_EQ(0, GM.pivotRowsNumber(*matrix).getEntry(0, 0));
 	EXPECT_EQ(2, GM.pivotRowsNumber(*matrix).getEntry(0, 1));
 }
+
+TEST(VectorEngineGetMatrixPivotRowsNumber, pivotRowsNumberSpecialCase2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(GM.pivotRowsNumber(*matrix));
+	EXPECT_EQ(0, GM.pivotRowsNumber(*matrix).getEntry(0, 0));
+}

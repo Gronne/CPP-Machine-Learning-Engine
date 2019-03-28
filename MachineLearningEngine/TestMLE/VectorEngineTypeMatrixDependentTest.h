@@ -414,3 +414,19 @@ TEST(VectorEngineTypeMatrixDependent, dependentOtherCase1)
 	EXPECT_NO_THROW(TM.dependent(*matrix));
 	EXPECT_TRUE(TM.dependent(*matrix));
 }
+
+TEST(VectorEngineTypeMatrixDependent, dependentSpecialCase)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 0, 0, 0, 1,
+				0, 0, 0, 0,
+				0, 0, 0, 0 };
+
+	TypeMatrix TM;
+	EXPECT_NO_THROW(TM.dependent(*matrix));
+	EXPECT_TRUE(TM.dependent(*matrix));
+
+	matrix->deleteColumn(3);
+	EXPECT_NO_THROW(TM.dependent(*matrix));
+	EXPECT_TRUE(TM.dependent(*matrix));
+}

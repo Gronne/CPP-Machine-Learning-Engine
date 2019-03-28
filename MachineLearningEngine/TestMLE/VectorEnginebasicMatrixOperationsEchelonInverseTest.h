@@ -787,3 +787,14 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize5x5Time)
 	BasicMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.echelonInverse(*matrix1));
 }
+
+TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSpecialCase)
+{
+	Matrix *matrix1 = new Matrix(3, 4);
+	*matrix1 = { 0, 0, 0, 1,
+				 0, 0, 0, 0,
+				 0, 0 ,0, 0 };
+
+	BasicMatrixOperations SMO;
+	EXPECT_THROW(SMO.echelonInverse(*matrix1), std::exception);
+}
