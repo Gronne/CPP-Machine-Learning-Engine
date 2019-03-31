@@ -230,13 +230,13 @@ double GetMatrix::innerProductSpace(const Matrix &matrix)
 
 	if (matrix.getNumberOfRows() == 2)
 	{
-		*vec1 = matrix.getColumn(0);
-		*vec2 = matrix.getColumn(1);
+		*vec1 = matrix.getRow(0);
+		*vec2 = matrix.getRow(1);
 	}
 	else
 	{
-		*vec1 = matrix.getRow(0);
-		*vec2 = matrix.getRow(1);
+		*vec1 = matrix.getColumn(0);
+		*vec2 = matrix.getColumn(1);
 		vec1->transpose();
 		vec2->transpose();
 	}
@@ -307,9 +307,11 @@ Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix
 double GetMatrix::calculateInnerProductSpace(const Matrix &vectorA, const Matrix &vectorB)
 {
 	SimpleMatrixOperations SMO;
-
 	double dotValue = SMO.dot(vectorA, vectorB);
 	double length = SMO.lengthOfVector(vectorA) * SMO.lengthOfVector(vectorB);
+
+	if (length == 0)
+		throw std::exception("Zero vectors not possible to calculate");
 
 	return acos(dotValue/length);
 }

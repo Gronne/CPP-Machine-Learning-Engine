@@ -15,11 +15,9 @@ int main(int argc, char ** argv) {
 	GetMatrix GM;
 
 	Matrix *buffer = new Matrix();
-	Matrix *matrix = new Matrix(3, 4);
-
-	*matrix = { 0, 0, 0, 1,
-				0, 0, 0, 0,
-				0, 0, 0, 0 };
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 0, 0, 1,
+				0, 0, 1 };
 
 	Matrix *secMat = new Matrix(3, 1);
 	*secMat = { 5,
@@ -28,11 +26,15 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		Matrix *buffer = new Matrix();
+		std::cout << GM.innerProductSpace(*matrix) << std::endl;
+		double value = SMO.lengthOfVector(matrix->getRow(0));
+		double value2 =  SMO.dot(matrix->getRow(0), matrix->getRow(1));
 
-		//std::cout << BMO.determinant(*matrix);
-		//std::cout << TM.dependent(*matrix);
-		std::cout << BMO.getEchelonForm(*matrix);
+		std::cout << value << std::endl;
+		std::cout << value*value << std::endl;
+		std::cout << value2 << std::endl;
+		std::cout << value2 / (value*value) << std::endl;
+		std::cout << acos(value2 / (value*value)) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
