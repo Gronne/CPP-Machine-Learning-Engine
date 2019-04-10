@@ -15,26 +15,19 @@ int main(int argc, char ** argv) {
 	GetMatrix GM;
 
 	Matrix *buffer = new Matrix();
-	Matrix *matrix = new Matrix(2, 3);
-	*matrix = { 0, 0, 1,
-				0, 0, 1 };
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 1, 2, 3,
+				3, 2, 1,
+				2, 3, 1};
 
-	Matrix *secMat = new Matrix(3, 1);
-	*secMat = { 5,
-				1,
-				5, };
+	Matrix *secMat = new Matrix(3, 3);
+	*secMat = { 1, 0, 0,
+				0, 1, 0,
+				0, 0, 1 };
 
 	try
 	{
-		std::cout << GM.innerProductSpace(*matrix) << std::endl;
-		double value = SMO.lengthOfVector(matrix->getRow(0));
-		double value2 =  SMO.dot(matrix->getRow(0), matrix->getRow(1));
-
-		std::cout << value << std::endl;
-		std::cout << value*value << std::endl;
-		std::cout << value2 << std::endl;
-		std::cout << value2 / (value*value) << std::endl;
-		std::cout << acos(value2 / (value*value)) << std::endl;
+		std::cout << *matrix * *secMat;
 	}
 	catch (const std::exception ex)
 	{
