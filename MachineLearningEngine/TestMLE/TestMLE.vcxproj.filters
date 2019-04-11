@@ -231,6 +231,9 @@
     <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixFrobeniusNormTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

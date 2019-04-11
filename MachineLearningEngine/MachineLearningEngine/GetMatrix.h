@@ -20,6 +20,8 @@ public:
 	double innerProductSpace(const Matrix&, const Matrix&);
 	double frobeniusProductSpace(const Matrix&);
 	double frobeniusProductSpace(const Matrix&, const Matrix&);
+	double frobeniusNorm(const Matrix&);
+	double frobeniusNorm(const Matrix&, const Matrix&);
 	Matrix& getBasicVectors(const Matrix&);
 	Matrix& getTransformationMatrix(const Matrix&, const Matrix&);
 

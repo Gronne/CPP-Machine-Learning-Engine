@@ -12,7 +12,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSHolePositive)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.2915*5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -29,7 +29,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSHoleNegative)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.2915*5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -46,7 +46,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSHoleMixed)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.2915*5.2915, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -63,7 +63,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSDecimalPositive)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(6.44205*6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -80,7 +80,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSDecimalNegative)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(6.44205*6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -97,7 +97,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSDecimalMixed)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(6.44205*6.44205, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -114,7 +114,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSMixedPositive)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.89491*5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -131,7 +131,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSMixedNegative)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.89491*5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -148,7 +148,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSMixedMixed)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.89491*5.89491, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -166,7 +166,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes1x3)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(3.74166, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(3.74166*3.74166, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -182,7 +182,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes1x4)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.47723, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.47723*5.47723, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -199,7 +199,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes2x2)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(5.47723, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(5.47723*5.47723, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -216,7 +216,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes2x3)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(9.53939, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(9.53939*9.53939, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -233,7 +233,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes2x4)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(14.2829, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(204, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -251,7 +251,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes3x2)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(9.53939, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(9.53939*9.53939, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -269,7 +269,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes3x3)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(16.8819, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(285, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -287,7 +287,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes3x4)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(25.4951, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(650, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -303,7 +303,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes4x1)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(3.87298, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(3.87298*3.87298, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -322,7 +322,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes4x2)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(14.2829, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(204, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -341,7 +341,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes4x3)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(25.4951, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(650, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));
@@ -360,7 +360,7 @@ TEST(VectorEngineGetMatrixForbeniusProductSpace, FPSSizes4x4)
 
 	//Single
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix));
-	EXPECT_NEAR(38.6782, GM.frobeniusProductSpace(*matrix), 0.0001);
+	EXPECT_NEAR(1496, GM.frobeniusProductSpace(*matrix), 0.0001);
 
 	//Double
 	EXPECT_NO_THROW(GM.frobeniusProductSpace(*matrix, *matrix));

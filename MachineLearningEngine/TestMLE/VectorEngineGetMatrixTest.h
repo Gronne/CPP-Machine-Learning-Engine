@@ -1,4 +1,5 @@
 #pragma once
+#include "VectorEngineGetMatrixFrobeniusNormTest.h"
 #include "VectorEngineGetMatrixFrobeniusProductSpaceTest.h"
 #include "VectorEngineGetMatrixGetBasicVectorsTest.h"
 #include "VectorEngineGetMatrixGetTransformationMatrixTest.h"

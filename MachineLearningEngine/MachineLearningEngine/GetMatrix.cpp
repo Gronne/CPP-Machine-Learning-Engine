@@ -273,15 +273,23 @@ double GetMatrix::innerProductSpace(const Matrix &matrixA, const Matrix &matrixB
 	return returnValue;
 }
 
+double GetMatrix::frobeniusNorm(const Matrix &matrix)
+{
+	return sqrt(frobeniusProductSpace(matrix, matrix));
+}
+
+double GetMatrix::frobeniusNorm(const Matrix &matrixA, const Matrix &matrixB)
+{
+	return sqrt(frobeniusProductSpace(matrixA, matrixB));
+}
+
 double GetMatrix::frobeniusProductSpace(const Matrix &matrix)
 {
-	//<A,A>
-	return sqrt(frobeniusProductSpace(matrix, matrix));
+	return frobeniusProductSpace(matrix, matrix);
 }
 
 double GetMatrix::frobeniusProductSpace(const Matrix &matrixA, const Matrix &matrixB)
 {
-	//<A,B>
 	if (matrixA.getNumberOfRows() != matrixB.getNumberOfRows() || matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns())
 		throw std::exception("The matrix dimensions doesn't match");
 	

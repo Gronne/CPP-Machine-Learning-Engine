@@ -72,6 +72,7 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixFrobeniusNormTest.h" />
     <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h" />
