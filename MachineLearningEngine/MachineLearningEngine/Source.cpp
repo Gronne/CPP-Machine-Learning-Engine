@@ -14,20 +14,14 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *buffer = new Matrix();
-	Matrix *matrix = new Matrix(3, 3);
-	*matrix = { 1, 2, 3,
-				3, 2, 1,
-				2, 3, 1};
-
-	Matrix *secMat = new Matrix(3, 3);
-	*secMat = { 1, 0, 0,
-				0, 1, 0,
-				0, 0, 1 };
+	Matrix *matrix = new Matrix(2, 4);
+	*matrix = { 1, 2, 3, 4,
+				5, 6, 7, 8 };
 
 	try
 	{
-		std::cout << *matrix * *secMat;
+		std::cout << GM.frobeniusProductSpace(*matrix) << std::endl;
+		std::cout << GM.frobeniusProductSpace(*matrix, *matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

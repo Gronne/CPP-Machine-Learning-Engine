@@ -273,13 +273,13 @@ double GetMatrix::innerProductSpace(const Matrix &matrixA, const Matrix &matrixB
 	return returnValue;
 }
 
-double GetMatrix::forbeniusProductSpace(const Matrix &matrix)
+double GetMatrix::frobeniusProductSpace(const Matrix &matrix)
 {
 	//<A,A>
-	return sqrt(forbeniusProductSpace(matrix, matrix));
+	return sqrt(frobeniusProductSpace(matrix, matrix));
 }
 
-double GetMatrix::forbeniusProductSpace(const Matrix &matrixA, const Matrix &matrixB)
+double GetMatrix::frobeniusProductSpace(const Matrix &matrixA, const Matrix &matrixB)
 {
 	//<A,B>
 	if (matrixA.getNumberOfRows() != matrixB.getNumberOfRows() || matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns())
