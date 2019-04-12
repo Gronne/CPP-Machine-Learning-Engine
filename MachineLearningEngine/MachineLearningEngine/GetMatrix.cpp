@@ -309,7 +309,14 @@ Matrix & GetMatrix::getBasicVectors(const Matrix &matrix)
 Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix &result)
 {
 	BasicMatrixOperations BMO;
-	return BMO.getEchelonInverse(argument) * result;
+	Matrix *buffer = new Matrix();
+
+	if (argument.getNumberOfColumns() == argument.getNumberOfRows())
+		*buffer = BMO.getEchelonInverse(argument) * result;
+	//	*buffer = BMO.getEchelonInverse(BMO.getEchelonInverse(result) * argument); - It's not possible to find a normal inverse if the arguemnt isn't square
+	else
+		throw std::exception("The argument matrix needs to be square");
+	return *buffer;
 }
 
 double GetMatrix::calculateInnerProductSpace(const Matrix &vectorA, const Matrix &vectorB)

@@ -455,7 +455,88 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize2x2_2x3)
 }
 
 //Exceptions
+TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException1)
+{
+	Matrix *matrix1 = new Matrix(3, 2);
+	*matrix1 = { 1, 2,
+				 3, 1,
+				 4, 2};
 
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2 = { 1, 2, 3,
+				 3, 2, 4 };
 
+	Matrix *buffer = new Matrix();
+
+	GetMatrix GM;
+	EXPECT_THROW(GM.getTransformationMatrix(*matrix1, *matrix2), std::exception);
+}
+
+TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException2)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	*matrix1 = { 1, 2, 3,
+				 3, 1, 4 };
+
+	Matrix *matrix2 = new Matrix(2, 3);
+	*matrix2 = { 1, 2, 3,
+				 3, 2, 4 };
+
+	Matrix *buffer = new Matrix();
+
+	GetMatrix GM;
+	EXPECT_THROW(GM.getTransformationMatrix(*matrix1, *matrix2), std::exception);
+}
+
+TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException3)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	*matrix1 = { 1, 2, 3,
+				 3, 2, 4 };
+	
+	Matrix *matrix2 = new Matrix(3, 2);
+	*matrix2 = { 1, 2,
+				 3, 1,
+				 4, 2 };
+
+	Matrix *buffer = new Matrix();
+
+	GetMatrix GM;
+	EXPECT_THROW(GM.getTransformationMatrix(*matrix1, *matrix2), std::exception);
+}
+
+TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException4)
+{
+	Matrix *matrix1 = new Matrix(3, 2);
+	*matrix1 = { 1, 2,
+				 3, 1,
+				 4, 2 };
+
+	Matrix *matrix2 = new Matrix(3, 2);
+	*matrix2 = { 1, 2,
+				 3, 1,
+				 4, 2 };
+
+	Matrix *buffer = new Matrix();
+
+	GetMatrix GM;
+	EXPECT_THROW(GM.getTransformationMatrix(*matrix1, *matrix2), std::exception);
+}
+
+TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException5)
+{
+	Matrix *matrix1 = new Matrix(2, 3);
+	*matrix1 = { 1, 2, 3,
+				 3, 2, 4 };
+
+	Matrix *matrix2 = new Matrix(2, 2);
+	*matrix2 = { 1, 2,
+				 3, 1 };
+
+	Matrix *buffer = new Matrix();
+
+	GetMatrix GM;
+	EXPECT_THROW(GM.getTransformationMatrix(*matrix1, *matrix2), std::exception);
+}
 
 //Special cases

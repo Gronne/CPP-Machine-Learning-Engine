@@ -10,6 +10,4 @@ c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\g
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\getmatrix.cpp(182): warning C4018: '<': signed/unsigned mismatch
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\getmatrix.cpp(298): warning C4018: '<': signed/unsigned mismatch
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\getmatrix.cpp(299): warning C4018: '<': signed/unsigned mismatch
-  Source.cpp
-  Generating Code...
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe
