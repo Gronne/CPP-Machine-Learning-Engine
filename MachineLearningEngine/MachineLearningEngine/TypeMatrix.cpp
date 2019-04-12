@@ -214,3 +214,8 @@ bool TypeMatrix::isomorphic(Matrix &, Matrix &) const
 	return false;
 }
 
+bool TypeMatrix::isSquare(const Matrix &matrix) const
+{
+	return matrix.getNumberOfColumns() == matrix.getNumberOfRows();
+}
+

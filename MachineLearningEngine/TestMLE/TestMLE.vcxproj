@@ -106,6 +106,7 @@
     <ClInclude Include="VectorEngineTypeMatrixFullRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixIsInSpanTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixIsSquareTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixRankTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixSpanTest.h" />
