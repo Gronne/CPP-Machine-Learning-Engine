@@ -319,6 +319,15 @@ Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix
 	return *buffer;
 }
 
+Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
+{
+	Matrix *matrix = new Matrix(rows, cols);
+	for (size_t row = 0; row < rows; row++)
+		for (size_t col = 0; col < cols; col++)
+			matrix->setEntry(row, col, 0);
+	return *matrix;
+}
+
 double GetMatrix::calculateInnerProductSpace(const Matrix &vectorA, const Matrix &vectorB)
 {
 	SimpleMatrixOperations SMO;

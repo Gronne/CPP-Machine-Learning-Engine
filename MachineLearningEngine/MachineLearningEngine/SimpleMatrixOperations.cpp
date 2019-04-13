@@ -247,12 +247,48 @@ double SimpleMatrixOperations::lengthOfVector(const Matrix &matrix, bool rows, i
 	return length;
 }
 
+double SimpleMatrixOperations::norm(const Matrix &matrix, bool oneNorm)
+{
+	GetMatrix GM;
+
+	Matrix *results = new Matrix();
+	if(oneNorm)
+		*results = GM.getZeroMatrix(1, matrix.getNumberOfColumns());
+	else
+		*results = GM.getZeroMatrix(1, matrix.getNumberOfRows());
+
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		{
+			double && entryValue = matrix.getEntry(row, col);
+			if (oneNorm == true)
+				results->setEntry(0, col, results->getEntry(0, col) + ((entryValue > 0) ? entryValue : -entryValue));
+			else
+				results->setEntry(0, row, results->getEntry(0, row) + ((entryValue > 0) ? entryValue : -entryValue));
+		}
+
+	double returnValue = findMaxValue(*results);
+
+	delete results;
+	return returnValue;
+}
+
 double SimpleMatrixOperations::sum(Matrix &matrix) const
 {
 	double returnValue = 0.0;
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
 			returnValue += matrix.getEntry(row, col);
+	return returnValue;
+}
+
+double SimpleMatrixOperations::findMaxValue(const Matrix &matrix)
+{
+	double returnValue = 0;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (matrix.getEntry(row, col) > returnValue)
+				returnValue = matrix.getEntry(row, col);
 	return returnValue;
 }
 

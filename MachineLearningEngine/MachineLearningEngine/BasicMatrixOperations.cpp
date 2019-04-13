@@ -96,17 +96,36 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 }
 
 
-Matrix & BasicMatrixOperations::getEigenValues(const Matrix &)
+Matrix & BasicMatrixOperations::getEigenValues(const Matrix &matrix)
 {
-	Matrix *matrix = new Matrix();
-	return *matrix;
+
+	//det(A-tau*I) = 0		//Where tay is a scalar for the Identity matrix
+	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns())
+		throw std::exception("Matrix needs to be square to calculate the eigenValues");
+
+	Matrix *returnMatrix = new Matrix(matrix.getNumberOfRows(), 1);
+
+	if ((int)determinant(matrix) == 0)
+	{
+		for (size_t index = 0; index < matrix.getNumberOfRows(); index++)
+			returnMatrix->setEntry(index, 0, matrix.getEntry(index, index));
+		return *returnMatrix;
+	}
+	else
+		throw std::exception("Not implemented yet, need new architecture to do it easy");
+
+	return *returnMatrix;
 }
 
 
-Matrix & BasicMatrixOperations::getEigenVectors(const Matrix &)
+Matrix & BasicMatrixOperations::getEigenVectors(const Matrix &matrix)
 {
-	Matrix *matrix = new Matrix();
-	return *matrix;
+	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns())
+		throw std::exception("Matrix needs to be square to calculate the eigenVectors");
+	else 
+		throw std::exception("Not implemented yet, need new architecture to do it easy");
+
+	return *(new Matrix());
 }
 
 

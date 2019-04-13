@@ -24,6 +24,7 @@ public:
 	double frobeniusNorm(const Matrix&, const Matrix&);
 	Matrix& getBasicVectors(const Matrix&);
 	Matrix& getTransformationMatrix(const Matrix&, const Matrix&);
+	Matrix& getZeroMatrix(int, int) const;
 
 private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);
