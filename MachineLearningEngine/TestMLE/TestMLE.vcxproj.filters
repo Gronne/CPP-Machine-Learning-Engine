@@ -237,6 +237,18 @@
     <ClInclude Include="VectorEngineTypeMatrixIsSquareTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixLargerOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixSmallerOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixLargerEqualOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixSmallerEqualOperatorTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

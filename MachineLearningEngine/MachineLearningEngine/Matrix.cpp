@@ -369,12 +369,12 @@ bool Matrix::operator>(const Matrix &matrix)
 
 bool Matrix::operator<=(const Matrix &matrix)
 {
-	return (*this < matrix || *this == matrix);
+	return (decideMatrixSize(*this) <= decideMatrixSize(matrix));
 }
 
 bool Matrix::operator>=(const Matrix &matrix)
 {
-	return (*this < matrix || *this == matrix);;
+	return (decideMatrixSize(*this) >= decideMatrixSize(matrix));
 }
 
 bool Matrix::operator!=(const Matrix &obj)
@@ -621,7 +621,7 @@ double Matrix::decideMatrixSize(const Matrix &matrix) const
 	double returnvalue = 0;
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			returnvalue += matrix.getEntry(row, col);
+			returnvalue += (matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col);
 	return returnvalue;
 }
 
