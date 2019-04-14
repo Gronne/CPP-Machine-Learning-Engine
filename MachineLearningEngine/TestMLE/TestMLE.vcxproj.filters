@@ -252,6 +252,12 @@
     <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsNormTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineSimpleMatrixOperationsFindMaxValueTest.h">
+      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

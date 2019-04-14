@@ -1,7 +1,6 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveVector)
 {
 	Matrix *vec1 = new Matrix(1, 3);

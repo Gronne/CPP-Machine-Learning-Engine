@@ -287,7 +287,7 @@ double SimpleMatrixOperations::findMaxValue(const Matrix &matrix)
 	double returnValue = 0;
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			if (matrix.getEntry(row, col) > returnValue)
+			if (((matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col)) > ((returnValue > 0) ? returnValue : -returnValue))
 				returnValue = matrix.getEntry(row, col);
 	return returnValue;
 }
