@@ -33,6 +33,10 @@ public:
 
 	void operator=(const Matrix&);
 	bool operator==(const Matrix&);
+	bool operator<(const Matrix&);
+	bool operator>(const Matrix&);
+	bool operator<=(const Matrix&);
+	bool operator>=(const Matrix&);
 	bool operator!=(const Matrix&);
 	void operator+=(const Matrix&);
 	void operator+=(const double);
@@ -73,6 +77,7 @@ private:
 	std::string eraseZeros(std::string) const;
 	Matrix& multiplication(const Matrix&) const;
 	double vectorMultiplication(Matrix&, Matrix&) const;
+	double decideMatrixSize(const Matrix&) const;
 
 	int _rows = 0;
 	int _columns = 0;

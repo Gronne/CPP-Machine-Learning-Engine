@@ -357,6 +357,26 @@ bool Matrix::operator==(const Matrix &obj)
 	return true;
 }
 
+bool Matrix::operator<(const Matrix &matrix)
+{
+	return (decideMatrixSize(*this) < decideMatrixSize(matrix));
+}
+
+bool Matrix::operator>(const Matrix &matrix)
+{
+	return (decideMatrixSize(*this) > decideMatrixSize(matrix));
+}
+
+bool Matrix::operator<=(const Matrix &matrix)
+{
+	return (*this < matrix || *this == matrix);
+}
+
+bool Matrix::operator>=(const Matrix &matrix)
+{
+	return (*this < matrix || *this == matrix);;
+}
+
 bool Matrix::operator!=(const Matrix &obj)
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
@@ -594,6 +614,15 @@ double Matrix::vectorMultiplication(Matrix &rowMatrix, Matrix &columnMatrix) con
 	for (size_t cursor = 0; cursor < rowMatrix.getNumberOfColumns(); cursor++)
 		result += rowMatrix.getEntry(0, cursor) * columnMatrix.getEntry(cursor, 0);
 	return result;
+}
+
+double Matrix::decideMatrixSize(const Matrix &matrix) const
+{
+	double returnvalue = 0;
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			returnvalue += matrix.getEntry(row, col);
+	return returnvalue;
 }
 
 
