@@ -80,6 +80,7 @@
     <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h" />
     <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixNumberOfPivotsTest.h" />
     <ClInclude Include="VectorEngineGetMatrixPivotColumnsNumberTest.h" />

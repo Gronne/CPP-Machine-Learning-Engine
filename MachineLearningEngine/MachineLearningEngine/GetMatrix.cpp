@@ -321,6 +321,8 @@ Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix
 
 Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 {
+	if (rows <= 0 || cols <= 0)
+		throw std::exception("Both rows and columns needs to be positive");
 	Matrix *matrix = new Matrix(rows, cols);
 	for (size_t row = 0; row < rows; row++)
 		for (size_t col = 0; col < cols; col++)

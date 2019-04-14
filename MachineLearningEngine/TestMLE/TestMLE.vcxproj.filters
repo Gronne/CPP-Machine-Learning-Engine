@@ -249,6 +249,9 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixSmallerEqualOperatorTest.h">
       <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

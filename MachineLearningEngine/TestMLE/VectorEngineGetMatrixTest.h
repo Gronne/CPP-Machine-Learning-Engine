@@ -3,6 +3,7 @@
 #include "VectorEngineGetMatrixFrobeniusProductSpaceTest.h"
 #include "VectorEngineGetMatrixGetBasicVectorsTest.h"
 #include "VectorEngineGetMatrixGetTransformationMatrixTest.h"
+#include "VectorEngineGetMatrixGetZeroMatrixTest.h"
 #include "VectorEngineGetMatrixInnerProductSpaceTest.h"
 #include "VectorEngineGetMatrixNumberOfPivotsTest.h"
 #include "VectorEngineGetMatrixPivotColumnsNumberTest.h"
