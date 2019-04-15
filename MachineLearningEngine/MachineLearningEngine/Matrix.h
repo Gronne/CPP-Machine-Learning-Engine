@@ -31,7 +31,7 @@ public:
 	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);
 
-	void operator=(const Matrix&);
+	const Matrix& operator=(const Matrix&);
 	bool operator==(const Matrix&);
 	bool operator<(const Matrix&);
 	bool operator>(const Matrix&);

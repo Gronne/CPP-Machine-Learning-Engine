@@ -341,9 +341,10 @@ void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 	delete newMatrix;
 }
 
-void Matrix::operator=(const Matrix & obj)
+const Matrix & Matrix::operator=(const Matrix & obj)
 {
-		this->setMatrix(&obj);
+	this->setMatrix(&obj);
+	return obj;
 }
 
 bool Matrix::operator==(const Matrix &obj)

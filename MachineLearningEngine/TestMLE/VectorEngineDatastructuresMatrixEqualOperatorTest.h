@@ -4,12 +4,8 @@
 TEST(VectorEngineDatastructurMatrixEqualOperator, equalOperatorSameSize)
 {
 	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	*matrix1 = { 1, 2, 3,
+				 4, 5, 6 };
 
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix1;
@@ -216,4 +212,57 @@ TEST(VectorEngineDatastructurMatrixEqualOperator, equalOperatorDoubleTypes)
 	EXPECT_EQ(matrix->getEntry(0, 0), -1.5);
 	EXPECT_EQ(matrix->getEntry(0, 1), -2);
 	EXPECT_EQ(matrix->getEntry(0, 2), 3.5);
+}
+
+//------Chain------
+
+TEST(VectorEngineDatastructurMatrixEqualOperator, equalOperatorChainSquare)
+{
+	Matrix *matrix1 = new Matrix(3, 3);
+	*matrix1 = { 1, 2, 3,
+				 4, 5, 6,
+				 7, 8, 9 };
+
+	Matrix *matrix2 = new Matrix();
+	Matrix *matrix3 = new Matrix();
+	Matrix *matrix4 = new Matrix();
+	EXPECT_NO_THROW(*matrix4 = *matrix3 = *matrix2 = *matrix1);
+
+	EXPECT_TRUE(*matrix1 == *matrix2);
+	EXPECT_TRUE(*matrix1 == *matrix3);
+	EXPECT_TRUE(*matrix1 == *matrix4);
+}
+
+TEST(VectorEngineDatastructurMatrixEqualOperator, equalOperatorChainRows)
+{
+	Matrix *matrix1 = new Matrix(4, 2);
+	*matrix1 = { 1, 2,
+				 4, 5,
+				 7, 8,
+				 9, 8 };
+
+	Matrix *matrix2 = new Matrix();
+	Matrix *matrix3 = new Matrix();
+	Matrix *matrix4 = new Matrix();
+	EXPECT_NO_THROW(*matrix4 = *matrix3 = *matrix2 = *matrix1);
+
+	EXPECT_TRUE(*matrix1 == *matrix2);
+	EXPECT_TRUE(*matrix1 == *matrix3);
+	EXPECT_TRUE(*matrix1 == *matrix4);
+}
+
+TEST(VectorEngineDatastructurMatrixEqualOperator, equalOperatorChainColumns)
+{
+	Matrix *matrix1 = new Matrix(2, 4);
+	*matrix1 = { 1, 2, 3, 4,
+				 4, 5, 6, 8 };
+
+	Matrix *matrix2 = new Matrix();
+	Matrix *matrix3 = new Matrix();
+	Matrix *matrix4 = new Matrix();
+	EXPECT_NO_THROW(*matrix4 = *matrix3 = *matrix2 = *matrix1);
+
+	EXPECT_TRUE(*matrix1 == *matrix2);
+	EXPECT_TRUE(*matrix1 == *matrix3);
+	EXPECT_TRUE(*matrix1 == *matrix4);
 }
