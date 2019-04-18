@@ -17,15 +17,14 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(3, 3);
-	*matrix = {  2, -2,  1,
-				-1,  3, -1,
-				 2, -4,  1 };
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1.5, 2.5, 3.5,
+				1.5, 3.5, 1.5 };
 
 	try
 	{
 		std::cout << *matrix << std::endl;
-		std::cout << SMO.norm(*matrix, 0) << std::endl;
+		std::cout << SMO.cross(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

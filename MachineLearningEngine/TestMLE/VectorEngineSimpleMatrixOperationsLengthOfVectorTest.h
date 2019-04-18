@@ -244,10 +244,8 @@ TEST(VectorEngineSimpleMatrixOperationsLengthOfVector, LOVDifferentLengthsRowTyp
 	EXPECT_NEAR(5, SMO.lengthOfVector(*matrix, 1, 1), 0.00001);
 
 	matrix->setMatrixSize(2, 2);
-	matrix->setEntry(0, 0, 3);
-	matrix->setEntry(0, 1, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 4);
+	*matrix = { 3, 4, 
+				3, 4 };
 	EXPECT_NO_THROW(SMO.lengthOfVector(*matrix, 1, 1));
 	EXPECT_NEAR(5, SMO.lengthOfVector(*matrix, 1, 1), 0.00001);
 
@@ -282,10 +280,8 @@ TEST(VectorEngineSimpleMatrixOperationsLengthOfVector, LOVDifferentLengthsColumn
 	EXPECT_NEAR(5, SMO.lengthOfVector(*matrix, 0, 1), 0.00001);
 
 	matrix->setMatrixSize(2, 2);
-	matrix->setEntry(0, 0, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(0, 1, 3);
-	matrix->setEntry(1, 1, 4);
+	*matrix = { 3, 3, 
+				4, 4 };
 	EXPECT_NO_THROW(SMO.lengthOfVector(*matrix, 0, 1));
 	EXPECT_NEAR(5, SMO.lengthOfVector(*matrix, 0, 1), 0.00001);
 

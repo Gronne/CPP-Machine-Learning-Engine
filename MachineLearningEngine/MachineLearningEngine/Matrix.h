@@ -32,6 +32,7 @@ public:
 	void appendMatrix(const Matrix&, bool = 0);
 
 	const Matrix& operator=(const Matrix&);
+	const Matrix& operator=(std::vector<double>);
 	bool operator==(const Matrix&);
 	bool operator<(const Matrix&);
 	bool operator>(const Matrix&);
@@ -51,7 +52,7 @@ public:
 	Matrix& operator*(const double);
 	Matrix& operator*(const Matrix&) const;
 	Matrix& operator/(const double);
-	void operator=(std::vector<double>);
+
 	friend std::ostream& operator<<(std::ostream&, const Matrix&);
 
 private:

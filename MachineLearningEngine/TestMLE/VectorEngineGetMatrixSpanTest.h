@@ -362,7 +362,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHolePositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -384,7 +384,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -406,7 +406,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -428,7 +428,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalPositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -450,7 +450,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -472,7 +472,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -494,7 +494,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedPositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -516,7 +516,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -538,7 +538,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -560,7 +560,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanZero)
 				0,
 				0, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -585,7 +585,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1)
 				8,
 				6, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -607,7 +607,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1_2)
 				17,
 				19, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -629,7 +629,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x3Plus1)
 				1,
 				4, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -651,7 +651,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x4Plus1)
 				1,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -671,7 +671,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x4Plus1)
 	secMat->setEntry(0, 0, 4);
 	secMat->setEntry(1, 0, 2);
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -690,7 +690,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x2Plus1)
 	secMat->setEntry(0, 0, 3);
 	secMat->setEntry(1, 0, 2);
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);

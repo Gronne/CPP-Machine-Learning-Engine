@@ -5,180 +5,108 @@
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 7);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 9);
-
-	double sumValue;
+	*matrix = { 1, 2, 3, 
+				4, 5, 6, 
+				7, 8, 9 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(45, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(45, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(1, 0, -4);
-	matrix->setEntry(1, 1, -5);
-	matrix->setEntry(1, 2, -6);
-	matrix->setEntry(2, 0, -7);
-	matrix->setEntry(2, 1, -8);
-	matrix->setEntry(2, 2, -9);
-
-	double sumValue;
+	*matrix = { -1, -2, -3,
+				-4, -5, -6,
+				-7, -8, -9 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(-45, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(-45, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, -5);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, -7);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, -9);
-
-	double sumValue;
+	*matrix = { -1,  2, -3,
+				 4, -5,  6,
+				-7,  8, -9 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(-5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(-5, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalPositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, 4.5);
-	matrix->setEntry(1, 1, 5.5);
-	matrix->setEntry(1, 2, 6.5);
-	matrix->setEntry(2, 0, 7.5);
-	matrix->setEntry(2, 1, 8.5);
-	matrix->setEntry(2, 2, 9.5);
-
-	double sumValue;
+	*matrix = { 1.5, 2.5, 3.5,
+				4.5, 5.5, 6.5,
+				7.5, 8.5, 9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(49.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(49.5, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(1, 0, -4.5);
-	matrix->setEntry(1, 1, -5.5);
-	matrix->setEntry(1, 2, -6.5);
-	matrix->setEntry(2, 0, -7.5);
-	matrix->setEntry(2, 1, -8.5);
-	matrix->setEntry(2, 2, -9.5);
-
-	double sumValue;
+	*matrix = { -1.5, -2.5, -3.5,
+				-4.5, -5.5, -6.5,
+				-7.5, -8.5, -9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(-49.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(-49.5, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(1, 0, 4.5);
-	matrix->setEntry(1, 1, -5.5);
-	matrix->setEntry(1, 2, 6.5);
-	matrix->setEntry(2, 0, -7.5);
-	matrix->setEntry(2, 1, 8.5);
-	matrix->setEntry(2, 2, -9.5);
-
-	double sumValue;
+	*matrix = { -1.5,  2.5, -3.5,
+				 4.5, -5.5,  6.5,
+				-7.5,  8.5, -9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(-5.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(-5.5, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedPositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5.5);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 7.5);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 9.5);
-
-	double sumValue;
+	*matrix = { 1.5, 2,   3.5, 
+				4,   5.5, 6, 
+				7.5, 8,   9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(47.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(47.5, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(1, 0, -4);
-	matrix->setEntry(1, 1, -5.5);
-	matrix->setEntry(1, 2, -6);
-	matrix->setEntry(2, 0, -7.5);
-	matrix->setEntry(2, 1, -8);
-	matrix->setEntry(2, 2, -9.5);
-
-	double sumValue;
+	*matrix = { -1.5, -2,   -3.5,
+				-4,   -5.5, -6,
+				-7.5, -8,   -9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(-47.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(-47.5, SMO.sum(*matrix));
 }
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, -4);
-	matrix->setEntry(1, 1, 5.5);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, -7.5);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 9.5);
-
-	double sumValue;
+	*matrix = { -1.5, 2,   3.5,
+				-4,   5.5, 6,
+				-7.5, 8,   9.5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(21.5, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(21.5, SMO.sum(*matrix));
 }
 
 //-----Different sizes-----
@@ -187,121 +115,68 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	double sumValue;
-
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(1, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(1, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive1x5)
 {
 	Matrix *matrix = new Matrix(1, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-
-	double sumValue;
+	*matrix = { 1, 2, 3, 4, 5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(15, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(15, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x1)
 {
 	Matrix *matrix = new Matrix(5, 1);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(3, 0, 4);
-	matrix->setEntry(4, 0, 5);
-
-	double sumValue;
+	*matrix = { 1, 2, 3, 4, 5 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(15, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(15, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x5)
 {
 	Matrix *matrix = new Matrix(5, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(1, 0, 6);
-	matrix->setEntry(1, 1, 7);
-	matrix->setEntry(1, 2, 8);
-	matrix->setEntry(1, 3, 9);
-	matrix->setEntry(1, 4, 10); 
-	matrix->setEntry(2, 0, 11);
-	matrix->setEntry(2, 1, 12);
-	matrix->setEntry(2, 2, 13);
-	matrix->setEntry(2, 3, 14); 
-	matrix->setEntry(2, 4, 15);
-	matrix->setEntry(3, 0, 16);
-	matrix->setEntry(3, 1, 17);
-	matrix->setEntry(3, 2, 18);
-	matrix->setEntry(3, 3, 19);
-	matrix->setEntry(3, 4, 20);
-	matrix->setEntry(4, 0, 21);
-	matrix->setEntry(4, 1, 22);
-	matrix->setEntry(4, 2, 23);
-	matrix->setEntry(4, 3, 24);
-	matrix->setEntry(4, 4, 25);
-
-	double sumValue;
+	*matrix = {  1,  2,  3,  4,  5,
+				 6,  7,  8,  9, 10, 
+				11, 12, 13, 14, 15, 
+				16, 17, 18, 19, 20, 
+				21, 22, 23, 24, 25 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(325, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(325, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive2x5)
 {
 	Matrix *matrix = new Matrix(2, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(1, 0, 6);
-	matrix->setEntry(1, 1, 7);
-	matrix->setEntry(1, 2, 8);
-	matrix->setEntry(1, 3, 9);
-	matrix->setEntry(1, 4, 10);
-
-	double sumValue;
+	*matrix = { 1, 2, 3, 4, 5, 
+				6, 7, 8, 9, 10 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(55, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(55, SMO.sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x2)
 {
 	Matrix *matrix = new Matrix(5, 2);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(3, 0, 4);
-	matrix->setEntry(4, 0, 5);
-	matrix->setEntry(0, 1, 6);
-	matrix->setEntry(1, 1, 7);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(3, 1, 9);
-	matrix->setEntry(4, 1, 10);
-
-	double sumValue;
+	*matrix = { 1, 2,
+				3, 4,
+				5, 6,
+				7, 8,
+				9, 10 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
-	EXPECT_EQ(55, sumValue);
+	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_EQ(55, SMO.sum(*matrix));
 }
 
 //--------No Values--------
@@ -309,11 +184,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x2)
 TEST(VectorEngineSimpleMatrixOperationsSum, sumNoValue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-
-	double sumValue;
-
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
+	EXPECT_NO_THROW(SMO.sum(*matrix));
 }
 
 
@@ -326,9 +198,7 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	double sumValue;
-
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(sumValue = SMO.sum(*matrix));
+	EXPECT_NO_THROW(SMO.sum(*matrix));
 	EXPECT_EQ(1, SMO.sum(*matrix));
 }

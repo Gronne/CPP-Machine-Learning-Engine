@@ -3,160 +3,114 @@
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueHolePositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { 2,  4,  6,
+				8, 10, 12 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(*matrix1, 2));
-	EXPECT_EQ(2, matrix2->getEntry(0, 0));
-	EXPECT_EQ(4, matrix2->getEntry(0, 1));
-	EXPECT_EQ(6, matrix2->getEntry(0, 2));
-	EXPECT_EQ(8, matrix2->getEntry(1, 0));
-	EXPECT_EQ(10, matrix2->getEntry(1, 1));
-	EXPECT_EQ(12, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(*matrix, 2));
+	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueHoleNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { -2,  -4,  -6,
+				-8, -10, -12 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(*matrix1, -2));
-	EXPECT_EQ(-2, matrix2->getEntry(0, 0));
-	EXPECT_EQ(-4, matrix2->getEntry(0, 1));
-	EXPECT_EQ(-6, matrix2->getEntry(0, 2));
-	EXPECT_EQ(-8, matrix2->getEntry(1, 0));
-	EXPECT_EQ(-10, matrix2->getEntry(1, 1));
-	EXPECT_EQ(-12, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(*matrix, -2));
+	EXPECT_TRUE(*result == SMO.multiplication(*matrix, -2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecimalPositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = {  2.5,  5,    7.5,
+				10,   12.5, 15   };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(*matrix1, 2.5));
-	EXPECT_EQ(2.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(7.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(10, matrix2->getEntry(1, 0));
-	EXPECT_EQ(12.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(15, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(*matrix, 2.5));
+	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecimalNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = {  -2.5,  -5,    -7.5,
+				-10,   -12.5, -15   };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(*matrix1, -2.5));
-	EXPECT_EQ(-2.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(-5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(-7.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(-10, matrix2->getEntry(1, 0));
-	EXPECT_EQ(-12.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(-15, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(*matrix, -2.5));
+	EXPECT_TRUE(*result == SMO.multiplication(*matrix, -2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueZero)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { 0, 0, 0, 
+				0, 0, 0 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(*matrix1, 0));
-	EXPECT_EQ(0, matrix2->getEntry(0, 0));
-	EXPECT_EQ(0, matrix2->getEntry(0, 1));
-	EXPECT_EQ(0, matrix2->getEntry(0, 2));
-	EXPECT_EQ(0, matrix2->getEntry(1, 0));
-	EXPECT_EQ(0, matrix2->getEntry(1, 1));
-	EXPECT_EQ(0, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(*matrix, 0));
+	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueTwoTimes)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = {  4,  8, 12, 
+				16, 20, 24 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*matrix2 = SMO.multiplication(SMO.multiplication(*matrix1, 2), 2));
-	EXPECT_EQ(4, matrix2->getEntry(0, 0));
-	EXPECT_EQ(8, matrix2->getEntry(0, 1));
-	EXPECT_EQ(12, matrix2->getEntry(0, 2));
-	EXPECT_EQ(16, matrix2->getEntry(1, 0));
-	EXPECT_EQ(20, matrix2->getEntry(1, 1));
-	EXPECT_EQ(24, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(SMO.multiplication(SMO.multiplication(*matrix, 2), 2));
+	EXPECT_TRUE(*result == SMO.multiplication(SMO.multiplication(*matrix, 2), 2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHolePositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
 	Matrix *resultMatrix = new Matrix();
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *matrix2));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *result));
 	EXPECT_EQ(14, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(32, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(32, resultMatrix->getEntry(1, 0));
 	EXPECT_EQ(77, resultMatrix->getEntry(1, 1));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix2, *matrix1));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*result, *matrix));
 	EXPECT_EQ(17, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(22, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(27, resultMatrix->getEntry(0, 2));
@@ -167,7 +121,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleP
 	EXPECT_EQ(36, resultMatrix->getEntry(2, 1));
 	EXPECT_EQ(45, resultMatrix->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *resultMatrix));
 	EXPECT_EQ(142, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(188, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(234, resultMatrix->getEntry(0, 2));
@@ -178,27 +132,23 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleP
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, -1);
-	matrix1->setEntry(0, 1, -2);
-	matrix1->setEntry(0, 2, -3);
-	matrix1->setEntry(1, 0, -4);
-	matrix1->setEntry(1, 1, -5);
-	matrix1->setEntry(1, 2, -6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1, -2, -3, 
+				-4, -5, -6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
 	Matrix *resultMatrix = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *matrix2));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *result));
 	EXPECT_EQ(14, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(32, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(32, resultMatrix->getEntry(1, 0));
 	EXPECT_EQ(77, resultMatrix->getEntry(1, 1));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix2, *matrix1));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*result, *matrix));
 	EXPECT_EQ(17, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(22, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(27, resultMatrix->getEntry(0, 2));
@@ -209,7 +159,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleN
 	EXPECT_EQ(36, resultMatrix->getEntry(2, 1));
 	EXPECT_EQ(45, resultMatrix->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *resultMatrix));
 	EXPECT_EQ(-142, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(-188, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(-234, resultMatrix->getEntry(0, 2));
@@ -220,27 +170,23 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleN
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecimalPositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1.5);
-	matrix1->setEntry(0, 1, 2.5);
-	matrix1->setEntry(0, 2, 3.5);
-	matrix1->setEntry(1, 0, 4.5);
-	matrix1->setEntry(1, 1, 5.5);
-	matrix1->setEntry(1, 2, 6.5);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1.5, 2.5, 3.5, 
+				4.5, 5.5, 6.5 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
 	Matrix *resultMatrix = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *matrix2));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *result));
 	EXPECT_EQ(20.75, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(43.25, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(43.25, resultMatrix->getEntry(1, 0));
 	EXPECT_EQ(92.75, resultMatrix->getEntry(1, 1));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix2, *matrix1));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*result, *matrix));
 	EXPECT_EQ(22.5, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(28.5, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(34.5, resultMatrix->getEntry(0, 2));
@@ -251,7 +197,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 	EXPECT_EQ(44.5, resultMatrix->getEntry(2, 1));
 	EXPECT_EQ(54.5, resultMatrix->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *resultMatrix));
 	EXPECT_EQ(225.75, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(289.75, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(353.75, resultMatrix->getEntry(0, 2));
@@ -262,27 +208,23 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecimalNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, -1.5);
-	matrix1->setEntry(0, 1, -2.5);
-	matrix1->setEntry(0, 2, -3.5);
-	matrix1->setEntry(1, 0, -4.5);
-	matrix1->setEntry(1, 1, -5.5);
-	matrix1->setEntry(1, 2, -6.5);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1.5, -2.5, -3.5,
+				-4.5, -5.5, -6.5 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
 	Matrix *resultMatrix = new Matrix();
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *matrix2));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *result));
 	EXPECT_EQ(20.75, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(43.25, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(43.25, resultMatrix->getEntry(1, 0));
 	EXPECT_EQ(92.75, resultMatrix->getEntry(1, 1));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix2, *matrix1));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*result, *matrix));
 	EXPECT_EQ(22.5, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(28.5, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(34.5, resultMatrix->getEntry(0, 2));
@@ -293,7 +235,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 	EXPECT_EQ(44.5, resultMatrix->getEntry(2, 1));
 	EXPECT_EQ(54.5, resultMatrix->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix1, *resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(*matrix, *resultMatrix));
 	EXPECT_EQ(-225.75, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(-289.75, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(-353.75, resultMatrix->getEntry(0, 2));
@@ -304,22 +246,18 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixTwoTimes)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, -1);
-	matrix1->setEntry(0, 1, -2);
-	matrix1->setEntry(0, 2, -3);
-	matrix1->setEntry(1, 0, -4);
-	matrix1->setEntry(1, 1, -5);
-	matrix1->setEntry(1, 2, -6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1, -2, -3, 
+				-4, -5, -6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
 	Matrix *resultMatrix = new Matrix();
 	SimpleMatrixOperations SMO;
 
-	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(SMO.multiplication(*matrix1, *matrix2), *matrix1));
+	EXPECT_NO_THROW(*resultMatrix = SMO.multiplication(SMO.multiplication(*matrix, *result), *matrix));
 	EXPECT_EQ(-142, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(-188, resultMatrix->getEntry(0, 1));
 	EXPECT_EQ(-234, resultMatrix->getEntry(0, 2));
@@ -330,35 +268,33 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixTwoTi
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixExceptionMissMatch)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
+	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix();
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
+	*result = *matrix;
 
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
 
-	matrix1->transpose();
-	matrix2->transpose();
-	EXPECT_THROW(SMO.multiplication(*matrix1, *matrix2), std::exception);
+	matrix->transpose();
+	result->transpose();
+	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixExceptionLarge)
 {
-	Matrix *matrix1 = new Matrix(3, 3);
-
-	Matrix *matrix2 = new Matrix(4, 4);
+	Matrix *matrix = new Matrix(3, 3);
+	Matrix *result = new Matrix(4, 4);
 
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationOperator, multiplicationMatrixExceptionSmall)
 {
-	Matrix *matrix1 = new Matrix(3, 3);
-
-	Matrix *matrix2 = new Matrix(2, 2);
+	Matrix *matrix = new Matrix(3, 3);
+	Matrix *result = new Matrix(2, 2);
 
 	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
 }
