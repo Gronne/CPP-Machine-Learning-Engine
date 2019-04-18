@@ -4,21 +4,11 @@
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -39,18 +29,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHolePositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4,
+				3, 1, 5, 6,
+				5, 1, 6, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -71,21 +52,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHolePositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1, -2, -3, -4,
+				-3, -1, -5, -6,
+				-5, -1, -6, -2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -106,18 +77,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1, -2, -3, -4,
+				-3, -1, -5, -6,
+				-5, -1, -6, -2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -138,21 +100,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { 1, -2, 3, -4, 
+				3, -1, 5, -6, 
+				5, -1, 6, -2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -173,18 +125,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { 1, -2, 3, -4,
+				3, -1, 5, -6,
+				5, -1, 6, -2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -205,21 +148,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2.5);
+	*matrix = { 1.5, 2.5, 3.5, 4.5,
+				3.5, 1.5, 5.5, 6.5,
+				5.5, 1.5, 6.5, 2.5 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -240,18 +173,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalPositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2.5);
+	*matrix = { 1.5, 2.5, 3.5, 4.5,
+				3.5, 1.5, 5.5, 6.5,
+				5.5, 1.5, 6.5, 2.5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -272,21 +196,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalPositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { -1.5, -2.5, -3.5, -4.5,
+				-3.5, -1.5, -5.5, -6.5,
+				-5.5, -1.5, -6.5, -2.5 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -307,18 +221,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { -1.5, -2.5, -3.5, -4.5,
+				-3.5, -1.5, -5.5, -6.5,
+				-5.5, -1.5, -6.5, -2.5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -339,21 +244,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { 1.5, -2.5, 3.5, -4.5,
+				3.5, -1.5, 5.5, -6.5,
+				5.5, -1.5, 6.5, -2.5 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -374,18 +269,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { 1.5, -2.5, 3.5, -4.5,
+				3.5, -1.5, 5.5, -6.5,
+				5.5, -1.5, 6.5, -2.5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -406,21 +292,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1.5, 2, 3.5, 4,
+				3.5, 1, 5.5, 6,
+				5.5, 1, 6.5, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -441,18 +317,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedPositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1.5, 2, 3.5, 4,
+				3.5, 1, 5.5, 6,
+				5.5, 1, 6.5, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -473,21 +340,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedPositive)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1.5, -2, -3.5, -4,
+				-3.5, -1, -5.5, -6,
+				-5.5, -1, -6.5, -2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -508,18 +365,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1.5, -2, -3.5, -4,
+				-3.5, -1, -5.5, -6,
+				-5.5, -1, -6.5, -2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -540,21 +388,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedNegative)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { -1.5, 2, 3.5, -4,
+				3.5, 1, -5.5, 6,
+				5.5, -1, 6.5, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -575,18 +413,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { -1.5, 2, 3.5, -4,
+				3.5, 1, -5.5, 6,
+				5.5, -1, 6.5, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -608,24 +437,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedMixed)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5)
 {
 	Matrix *matrix = new Matrix(3, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
+	*matrix = { 1, 2, 3, 4, 4, 
+				3, 1, 5, 6, 6,
+				5, 1, 6, 2, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 5);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -646,21 +462,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x5)
 {
 	Matrix *matrix = new Matrix(3, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
+	*matrix = { 1, 2, 3, 4, 4, 
+				3, 1, 5, 6, 6,
+				5, 1, 6, 2, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -684,21 +488,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x5)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5_2)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -719,18 +513,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5_2)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4,
+				3, 1, 5, 6,
+				5, 1, 6, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -751,18 +536,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x3)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6 };
 
 	Matrix *matrix2 = new Matrix(3, 3);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -780,15 +558,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x3)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -805,21 +577,12 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x3)
 {
 	Matrix *matrix = new Matrix(4, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 2);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 5);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6, 
+				2, 1, 5 };
 
 	Matrix *matrix2 = new Matrix(4, 3);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -840,18 +603,10 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x3)
 {
 	Matrix *matrix = new Matrix(4, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 3);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
+	*matrix = { 1, 2, 3,
+				3, 1, 5,
+				5, 1, 6,
+				2, 1, 5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -871,21 +626,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x3)
 {
 	Matrix *matrix = new Matrix(5, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 2);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 5);
-	matrix->setEntry(4, 0, 1);
-	matrix->setEntry(4, 1, 1);
-	matrix->setEntry(4, 2, 1);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6, 
+				2, 1, 5, 
+				1, 1, 1 };
 
 	Matrix *matrix2 = new Matrix(5, 3);
 	*matrix2 = *matrix;
@@ -912,21 +657,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x3)
 {
 	Matrix *matrix = new Matrix(5, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 2);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 5);
-	matrix->setEntry(4, 0, 1);
-	matrix->setEntry(4, 1, 1);
-	matrix->setEntry(4, 2, 1);
+	*matrix = { 1, 2, 3,
+				3, 1, 5,
+				5, 1, 6,
+				2, 1, 5,
+				1, 1, 1 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -979,12 +714,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce1x2)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce2x3)
 {
 	Matrix *matrix = new Matrix(2, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5 };
 
 	Matrix *matrix2 = new Matrix(2, 3);
 	*matrix2 = *matrix;
@@ -1002,12 +733,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce2x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce2x3)
 {
 	Matrix *matrix = new Matrix(2, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
+	*matrix = { 1, 2, 3,
+				3, 1, 5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -1022,18 +749,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce2x3)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x4)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
 	*matrix2 = *matrix;
@@ -1057,18 +775,9 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x4)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4_2)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4,
+				3, 1, 5, 6,
+				5, 1, 6, 2 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -1089,29 +798,12 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4_2)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x5)
 {
 	Matrix *matrix = new Matrix(4, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
+	*matrix = { 1, 2, 3, 4, 5,
+				3, 1, 5, 6, 2,
+				5, 1, 6, 2, 2,
+				5, 1, 6, 2, 3 };
 
 	Matrix *matrix2 = new Matrix(4, 5);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -1140,26 +832,10 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x5)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x5)
 {
 	Matrix *matrix = new Matrix(4, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
+	*matrix = { 1, 2, 3, 4, 5,
+				3, 1, 5, 6, 2,
+				5, 1, 6, 2, 2,
+				5, 1, 6, 2, 3 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
@@ -1188,39 +864,13 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x5)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x6)
 {
 	Matrix *matrix = new Matrix(5, 6);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(0, 5, 6);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(1, 5, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(2, 5, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
-	matrix->setEntry(3, 5, 3);
-	matrix->setEntry(4, 0, 5);
-	matrix->setEntry(4, 1, 6);
-	matrix->setEntry(4, 2, 4);
-	matrix->setEntry(4, 3, 2);
-	matrix->setEntry(4, 4, 1);
-	matrix->setEntry(4, 5, 5);
+	*matrix = { 1, 2, 3, 4, 5, 6, 
+				3, 1, 5, 6, 2, 2, 
+				5, 1, 6, 2, 2, 2, 
+				5, 1, 6, 2, 3, 3, 
+				5, 6, 4, 2, 1, 5 };
 
 	Matrix *matrix2 = new Matrix(5, 6);
-	*matrix2 = *matrix;
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(*matrix2 = BMO.getRowReduction(*matrix));
@@ -1259,36 +909,11 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x6)
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x6)
 {
 	Matrix *matrix = new Matrix(5, 6);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(0, 5, 6);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(1, 5, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(2, 5, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
-	matrix->setEntry(3, 5, 3);
-	matrix->setEntry(4, 0, 5);
-	matrix->setEntry(4, 1, 6);
-	matrix->setEntry(4, 2, 4);
-	matrix->setEntry(4, 3, 2);
-	matrix->setEntry(4, 4, 1);
-	matrix->setEntry(4, 5, 5);
+	*matrix = { 1, 2, 3, 4, 5, 6,
+				3, 1, 5, 6, 2, 2,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 3,
+				5, 6, 4, 2, 1, 5 };
 
 	BasicMatrixOperations BMO;
 	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
