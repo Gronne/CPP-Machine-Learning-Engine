@@ -5,18 +5,9 @@
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -40,18 +31,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHolePositive)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1, -2, -3, -4,
+				-3, -1, -5, -6,
+				-5, -1, -6, -2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -75,18 +57,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleNegative)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { 1, -2, 3, -4,
+				3, -1, 5, -6,
+				5, -1, 6, -2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -110,18 +83,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleMixed)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2.5);
+	*matrix = { 1.5, 2.5, 3.5, 4.5,
+				3.5, 1.5, 5.5, 6.5,
+				5.5, 1.5, 6.5, 2.5 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -145,18 +109,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalPositive)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { -1.5, -2.5, -3.5, -4.5,
+				-3.5, -1.5, -5.5, -6.5,
+				-5.5, -1.5, -6.5, -2.5 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -180,18 +135,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalNegative)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4.5);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, -1.5);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, -6.5);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1.5);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, -2.5);
+	*matrix = { 1.5, -2.5, 3.5, -4.5,
+				3.5, -1.5, 5.5, -6.5,
+				5.5, -1.5, 6.5, -2.5 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -215,18 +161,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalMixed)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedPositive)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1.5, 2, 3.5, 4,
+				3.5, 1, 5.5, 6,
+				5.5, 1, 6.5, 2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -250,18 +187,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedPositive)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedNegative)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, -3.5);
-	matrix->setEntry(1, 1, -1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, -6);
-	matrix->setEntry(2, 0, -5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, -6.5);
-	matrix->setEntry(2, 3, -2);
+	*matrix = { -1.5, -2, -3.5, -4,
+				-3.5, -1, -5.5, -6,
+				-5.5, -1, -6.5, -2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -285,18 +213,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedNegative)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedMixed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(0, 3, -4);
-	matrix->setEntry(1, 0, 3.5);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, -5.5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5.5);
-	matrix->setEntry(2, 1, -1);
-	matrix->setEntry(2, 2, 6.5);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { -1.5,  2,  3.5, -4,
+				 3.5,  1, -5.5,  6,
+				 5.5, -1,  6.5,  2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -321,21 +240,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedMixed)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x5)
 {
 	Matrix *matrix = new Matrix(3, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
+	*matrix = { 1, 2, 3, 4, 4, 
+				3, 1, 5, 6, 6, 
+				5, 1, 6, 2, 2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -362,18 +269,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x5)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -397,15 +295,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x3)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -426,18 +318,10 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x3)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x3)
 {
 	Matrix *matrix = new Matrix(4, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 3);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6, 
+				3, 1, 6 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -461,21 +345,11 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x3)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x3)
 {
 	Matrix *matrix = new Matrix(5, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(3, 0, 2);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 5);
-	matrix->setEntry(4, 0, 1);
-	matrix->setEntry(4, 1, 1);
-	matrix->setEntry(4, 2, 1);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5, 
+				5, 1, 6, 
+				2, 1, 5, 
+				1, 1, 1 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -518,12 +392,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver1x2)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver2x3)
 {
 	Matrix *matrix = new Matrix(2, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
+	*matrix = { 1, 2, 3, 
+				3, 1, 5 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -541,18 +411,9 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver2x3)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4_2)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 5, 6, 
+				5, 1, 6, 2 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -576,26 +437,10 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4_2)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x5)
 {
 	Matrix *matrix = new Matrix(4, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
+	*matrix = { 1, 2, 3, 4, 5, 
+				3, 1, 5, 6, 2, 
+				5, 1, 6, 2, 2, 
+				5, 1, 6, 2, 3 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
@@ -627,36 +472,11 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x5)
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x6)
 {
 	Matrix *matrix = new Matrix(5, 6);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(0, 4, 5);
-	matrix->setEntry(0, 5, 6);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 5);
-	matrix->setEntry(1, 3, 6);
-	matrix->setEntry(1, 4, 2);
-	matrix->setEntry(1, 5, 2);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 6);
-	matrix->setEntry(2, 3, 2);
-	matrix->setEntry(2, 4, 2);
-	matrix->setEntry(2, 5, 2);
-	matrix->setEntry(3, 0, 5);
-	matrix->setEntry(3, 1, 1);
-	matrix->setEntry(3, 2, 6);
-	matrix->setEntry(3, 3, 2);
-	matrix->setEntry(3, 4, 3);
-	matrix->setEntry(3, 5, 3);
-	matrix->setEntry(4, 0, 5);
-	matrix->setEntry(4, 1, 6);
-	matrix->setEntry(4, 2, 4);
-	matrix->setEntry(4, 3, 2);
-	matrix->setEntry(4, 4, 1);
-	matrix->setEntry(4, 5, 5);
+	*matrix = { 1, 2, 3, 4, 5, 6,
+				3, 1, 5, 6, 2, 2,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 3,
+				5, 6, 4, 2, 1, 5 };
 
 	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 

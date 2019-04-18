@@ -77,15 +77,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleMixedFalse)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, 1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3.5);
-	matrix->setEntry(2, 0, 1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3.5);
+	*matrix = { 1.5, 2.5, 3.5,
+				1.5, 2.5, 3.5, 
+				1.5, 2.5, 3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -95,15 +89,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveTrue
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 2.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, 1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3.5);
-	matrix->setEntry(2, 0, 1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3.5);
+	*matrix = { 2.5, 2.5, 3.5, 
+				1.5, 2.5, 3.5, 
+				1.5, 2.5, 3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -113,15 +101,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveFals
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, -2.5);
-	matrix->setEntry(1, 2, -3.5);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, -2.5);
-	matrix->setEntry(2, 2, -3.5);
+	*matrix = { -1.5, -2.5, -3.5, 
+				-1.5, -2.5, -3.5, 
+				-1.5, -2.5, -3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -131,15 +113,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeTrue
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -2.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3.5);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, -2.5);
-	matrix->setEntry(1, 2, -3.5);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, -2.5);
-	matrix->setEntry(2, 2, -3.5);
+	*matrix = { -2.5, -2.5, -3.5, 
+				-1.5, -2.5, -3.5, 
+				-1.5, -2.5, -3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -149,15 +125,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeFals
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3.5);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3.5);
+	*matrix = { -1.5, 2.5, 3.5, 
+				-1.5, 2.5, 3.5, 
+				-1.5, 2.5, 3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -167,15 +137,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedTrue)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -2.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3.5);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3.5);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3.5);
+	*matrix = { -2.5, 2.5, 3.5, 
+				-1.5, 2.5, 3.5, 
+				-1.5, 2.5, 3.5 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -185,15 +149,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedFalse)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(2, 0, 1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3);
+	*matrix = { 1.5, 2.5, 3, 
+				1.5, 2.5, 3, 
+				1.5, 2.5, 3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -203,15 +161,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveTrue)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 2.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(2, 0, 1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3);
+	*matrix = { 2.5, 2.5, 3,
+				1.5, 2.5, 3,
+				1.5, 2.5, 3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -221,15 +173,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveFalse)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, -2.5);
-	matrix->setEntry(1, 2, -3);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, -2.5);
-	matrix->setEntry(2, 2, -3);
+	*matrix = { -1.5, -2.5, -3,
+				-1.5, -2.5, -3,
+				-1.5, -2.5, -3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -239,15 +185,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeTrue)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -2.5);
-	matrix->setEntry(0, 1, -2.5);
-	matrix->setEntry(0, 2, -3);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, -2.5);
-	matrix->setEntry(1, 2, -3);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, -2.5);
-	matrix->setEntry(2, 2, -3);
+	*matrix = { -2.5, -2.5, -3,
+				-1.5, -2.5, -3,
+				-1.5, -2.5, -3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -257,15 +197,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeFalse)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedTrue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -1.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3);
+	*matrix = { -1.5, 2.5, 3,
+				-1.5, 2.5, 3,
+				-1.5, 2.5, 3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -275,15 +209,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedTrue)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedFalse)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, -2.5);
-	matrix->setEntry(0, 1, 2.5);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, -1.5);
-	matrix->setEntry(1, 1, 2.5);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(2, 0, -1.5);
-	matrix->setEntry(2, 1, 2.5);
-	matrix->setEntry(2, 2, 3);
+	*matrix = { -2.5, 2.5, 3,
+				-1.5, 2.5, 3,
+				-1.5, 2.5, 3 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -294,15 +222,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedFalse)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize1)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(2, 1, 6);
-	matrix->setEntry(2, 2, 9);
+	*matrix = { 1, 2, 3, 
+				2, 4, 6, 
+				3, 6, 9 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
@@ -312,15 +234,9 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize1)
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize2)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, -1);
-	matrix->setEntry(1, 1, -2);
-	matrix->setEntry(1, 2, -3);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 12);
+	*matrix = {  1,  2,  3, 
+				-1, -2, -3, 
+				 4,  8, 12 };
 
 	MatrixRREF RREF;
 	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
