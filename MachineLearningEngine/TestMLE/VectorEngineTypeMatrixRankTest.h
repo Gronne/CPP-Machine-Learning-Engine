@@ -5,18 +5,9 @@
 TEST(VectorEngineTypeMatrixRank, rankFullDependent)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 1);
-	matrix->setEntry(1, 1, 2);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(1, 3, 4);
-	matrix->setEntry(2, 0, 1);
-	matrix->setEntry(2, 1, 2);
-	matrix->setEntry(2, 2, 3);
-	matrix->setEntry(2, 3, 4);
+	*matrix = { 1, 2, 3, 4, 
+				1, 2, 3, 4, 
+				1, 2, 3, 4 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -26,18 +17,9 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependent)
 TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(1, 3, 8);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 12);
-	matrix->setEntry(2, 3, 16);
+	*matrix = { 1, 2,  3,  4, 
+				2, 4,  6,  8, 
+				4, 8, 12, 16 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -47,18 +29,9 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
 TEST(VectorEngineTypeMatrixRank, rankZeroes)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 0);
-	matrix->setEntry(0, 1, 0);
-	matrix->setEntry(0, 2, 0);
-	matrix->setEntry(0, 3, 0);
-	matrix->setEntry(1, 0, 0);
-	matrix->setEntry(1, 1, 0);
-	matrix->setEntry(1, 2, 0);
-	matrix->setEntry(1, 3, 0);
-	matrix->setEntry(2, 0, 0);
-	matrix->setEntry(2, 1, 0);
-	matrix->setEntry(2, 2, 0);
-	matrix->setEntry(2, 3, 0);
+	*matrix = { 0, 0, 0, 0, 
+				0, 0, 0, 0, 
+				0, 0, 0, 0 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -68,18 +41,9 @@ TEST(VectorEngineTypeMatrixRank, rankZeroes)
 TEST(VectorEngineTypeMatrixRank, rankOf2)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 4);
-	matrix->setEntry(1, 3, 1);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 4);
-	matrix->setEntry(2, 3, 1);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 4, 1, 
+				3, 1, 4, 1 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -89,18 +53,9 @@ TEST(VectorEngineTypeMatrixRank, rankOf2)
 TEST(VectorEngineTypeMatrixRank, rankOf2_2)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 1);
-	matrix->setEntry(1, 1, 2);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(1, 3, 4);
-	matrix->setEntry(2, 0, 3);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 4);
-	matrix->setEntry(2, 3, 1);
+	*matrix = { 1, 2, 3, 4, 
+				1, 2, 3, 4, 
+				3, 1, 4, 1 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -110,18 +65,9 @@ TEST(VectorEngineTypeMatrixRank, rankOf2_2)
 TEST(VectorEngineTypeMatrixRank, rankOf3)
 {
 	Matrix *matrix = new Matrix(3, 4);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(0, 3, 4);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(1, 3, 1);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 2);
-	matrix->setEntry(2, 3, 6);
+	*matrix = { 1, 2, 3, 4, 
+				3, 1, 3, 1, 
+				5, 1, 2, 6 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -131,15 +77,9 @@ TEST(VectorEngineTypeMatrixRank, rankOf3)
 TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 3);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 3);
-	matrix->setEntry(2, 0, 5);
-	matrix->setEntry(2, 1, 1);
-	matrix->setEntry(2, 2, 2);
+	*matrix = { 1, 2, 3, 
+				3, 1, 3, 
+				5, 1, 2 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -149,21 +89,9 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
 TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
 {
 	Matrix *matrix = new Matrix(3, 5);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 0);
-	matrix->setEntry(0, 2, 0);
-	matrix->setEntry(0, 3, 0);
-	matrix->setEntry(0, 4, 0);
-	matrix->setEntry(1, 0, 0);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 0);
-	matrix->setEntry(1, 3, 0);
-	matrix->setEntry(1, 4, 0);
-	matrix->setEntry(2, 0, 0);
-	matrix->setEntry(2, 1, 0);
-	matrix->setEntry(2, 2, 0);
-	matrix->setEntry(2, 3, 1);
-	matrix->setEntry(2, 4, 0);
+	*matrix = { 1, 0, 0, 0, 0,
+				0, 1, 0, 0, 0,
+				0, 0, 0, 1, 0 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -173,26 +101,10 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
 TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
 {
 	Matrix *matrix = new Matrix(4, 5);
-	matrix->setEntry(0, 0, 0);
-	matrix->setEntry(0, 1, 0);
-	matrix->setEntry(0, 2, 0);
-	matrix->setEntry(0, 3, 0);
-	matrix->setEntry(0, 4, 0);
-	matrix->setEntry(1, 0, 0);
-	matrix->setEntry(1, 1, 1);
-	matrix->setEntry(1, 2, 0);
-	matrix->setEntry(1, 3, 0);
-	matrix->setEntry(1, 4, 0);
-	matrix->setEntry(2, 0, 0);
-	matrix->setEntry(2, 1, 0);
-	matrix->setEntry(2, 2, 0);
-	matrix->setEntry(2, 3, 1);
-	matrix->setEntry(2, 4, 0);
-	matrix->setEntry(3, 0, 0);
-	matrix->setEntry(3, 1, 0);
-	matrix->setEntry(3, 2, 0);
-	matrix->setEntry(3, 3, 0);
-	matrix->setEntry(3, 4, 1);
+	*matrix = { 0, 0, 0, 0, 0, 
+				0, 1, 0, 0, 0, 
+				0, 0, 0, 1, 0, 
+				0, 0, 0, 0, 1 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));
@@ -202,15 +114,9 @@ TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
 TEST(VectorEngineTypeMatrixRank, rankSpecialCase)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 0);
-	matrix->setEntry(1, 1, 0);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 0);
-	matrix->setEntry(2, 1, 0);
-	matrix->setEntry(2, 2, 6);
+	*matrix = { 1, 2, 3, 
+				0, 0, 6, 
+				0, 0, 6 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.rank(*matrix));

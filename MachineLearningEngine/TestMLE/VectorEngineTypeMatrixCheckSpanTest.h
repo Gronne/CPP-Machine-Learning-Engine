@@ -1,23 +1,15 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-TEST(VectorEngineTypeMatrixCheckspan, checkSpanNotSpan)
+TEST(VectorEngineTypeMatrixCheckSpan, checkSpanNotSpan)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 4, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(3, 1);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(2, 0, 5);
+	*spanMatrix = { 1, 3, 5 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -27,21 +19,12 @@ TEST(VectorEngineTypeMatrixCheckspan, checkSpanNotSpan)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException1)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(4, 1);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(2, 0, 5);
-	spanMatrix->setEntry(3, 0, 5);
+	*spanMatrix = { 1, 3, 5, 5 };
 
 	TypeMatrix TM;
 	EXPECT_THROW(TM.checkSpan(*matrix, *spanMatrix), std::exception);
@@ -50,15 +33,9 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException1)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException2)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(2, 1);
 	spanMatrix->setEntry(0, 0, 1);
@@ -71,20 +48,12 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException2)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanRow)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(3, 1);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(2, 0, 5);
+	*spanMatrix = { 1, 3, 5 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -94,20 +63,12 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanRow)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanCol)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(1, 3);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(0, 1, 3);
-	spanMatrix->setEntry(0, 2, 5);
+	*spanMatrix = { 1, 3, 5 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -117,23 +78,13 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanCol)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixRow)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(2, 3);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(0, 1, 3);
-	spanMatrix->setEntry(0, 2, 5);
-	spanMatrix->setEntry(1, 0, 1);
-	spanMatrix->setEntry(1, 1, 3);
-	spanMatrix->setEntry(1, 2, 5);
+	*spanMatrix = { 1, 3, 5, 
+					1, 3, 5 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -143,23 +94,14 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixRow)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixCol)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 3);
-	matrix->setEntry(1, 2, 6);
-	matrix->setEntry(2, 0, 4);
-	matrix->setEntry(2, 1, 8);
-	matrix->setEntry(2, 2, 1);
+	*matrix = { 1, 2, 3, 
+				2, 3, 6, 
+				4, 8, 1 };
 
 	Matrix *spanMatrix = new Matrix(3, 2);
-	spanMatrix->setEntry(0, 0, 1);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(2, 0, 5);
-	spanMatrix->setEntry(0, 1, 1);
-	spanMatrix->setEntry(1, 1, 3);
-	spanMatrix->setEntry(2, 1, 5);
+	*spanMatrix = { 1, 3, 
+					5, 1, 
+					3, 5 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -169,16 +111,12 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixCol)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionTrue)
 {
 	Matrix *matrix = new Matrix(2, 2);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
+	*matrix = { 1, 2, 
+				2, 4 };
 
 	Matrix *spanMatrix = new Matrix(2, 2);
-	spanMatrix->setEntry(0, 0, 3);
-	spanMatrix->setEntry(0, 1, 6);
-	spanMatrix->setEntry(1, 0, 4);
-	spanMatrix->setEntry(1, 1, 8);
+	*spanMatrix = { 3, 6, 
+					4, 8 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
@@ -188,16 +126,12 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionTrue)
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionFalse)
 {
 	Matrix *matrix = new Matrix(2, 2);
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(1, 0, 2);
-	matrix->setEntry(1, 1, 4);
+	*matrix = { 1, 2, 
+				2, 4 };
 
 	Matrix *spanMatrix = new Matrix(2, 2);
-	spanMatrix->setEntry(0, 0, 3);
-	spanMatrix->setEntry(0, 1, 6);
-	spanMatrix->setEntry(1, 0, 3);
-	spanMatrix->setEntry(1, 1, 8);
+	*spanMatrix = { 3, 6, 
+					3, 8 };
 
 	TypeMatrix TM;
 	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
