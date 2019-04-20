@@ -18,13 +18,12 @@ int main(int argc, char ** argv) {
 	GetMatrix GM;
 
 	Matrix *matrix = new Matrix(2, 3);
-	*matrix = { 1.5, 2.5, 3.5,
-				1.5, 3.5, 1.5 };
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
 	try
 	{
-		std::cout << *matrix << std::endl;
-		std::cout << SMO.cross(*matrix) << std::endl;
+		std::cout << *matrix / 2.5 << std::endl;
 	}
 	catch (const std::exception ex)
 	{

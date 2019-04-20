@@ -181,3 +181,44 @@ TEST(VectorEngineDatastructurMatrixSetEntry, setEntryExceptionTransposedRowAndCo
 	matrix->transpose();
 	EXPECT_THROW(matrix->setEntry(3, -1, 5), std::exception);
 }
+
+TEST(VectorEngineDatastructurMatrixSetEntry, setEntryExceptions)
+{
+	Matrix *matrix = new Matrix(2, 3);
+
+	//To Small Row
+	EXPECT_THROW(matrix->setEntry(-1, 1, 0), std::exception);
+	//To Small Row
+	EXPECT_THROW(matrix->setEntry(-2, 1, 0), std::exception);
+	//To Large Row
+	EXPECT_THROW(matrix->setEntry(2, 1, 0), std::exception);
+	//To Large Row
+	EXPECT_THROW(matrix->setEntry(3, 1, 0), std::exception);
+
+
+	//To Small Col
+	EXPECT_THROW(matrix->setEntry(1, -1, 0), std::exception);
+	//To Small Col
+	EXPECT_THROW(matrix->setEntry(1, -2, 0), std::exception);
+	//To Large Col
+	EXPECT_THROW(matrix->setEntry(1, 3, 0), std::exception);
+	//To Large Col
+	EXPECT_THROW(matrix->setEntry(1, 4, 0), std::exception);
+
+
+	//To Small
+	EXPECT_THROW(matrix->setEntry(2, 3, 0), std::exception);
+	//To Small 
+	EXPECT_THROW(matrix->setEntry(3, 4, 0), std::exception);
+
+
+	//To Large 
+	EXPECT_THROW(matrix->setEntry(-1, -1, 0), std::exception);
+	//To Large 
+	EXPECT_THROW(matrix->setEntry(-2, -2, 0), std::exception);
+
+	//Mixed 
+	EXPECT_THROW(matrix->setEntry(-1, 3, 0), std::exception);
+	//Mixed
+	EXPECT_THROW(matrix->setEntry(3, -1, 0), std::exception);
+}
