@@ -3,137 +3,91 @@
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowNoException)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	EXPECT_NO_THROW(matrix1->getRow(1));
-	EXPECT_EQ(4, matrix1->getRow(1).getEntry(0, 0));
-	EXPECT_EQ(5, matrix1->getRow(1).getEntry(0, 1));
-	EXPECT_EQ(6, matrix1->getRow(1).getEntry(0, 2));
+	Matrix *result = new Matrix(1, 3);
+	*result = { 4, 5, 6 };
+
+
+	EXPECT_NO_THROW(matrix->getRow(1));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowException)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
 
-	EXPECT_THROW(matrix1->getRow(-1), std::exception);
+	EXPECT_THROW(matrix->getRow(-1), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowEqualNoException)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *result = new Matrix(1, 3);
 
-	*matrix2 = matrix1->getRow(0);
-	EXPECT_EQ(matrix1->getEntry(0, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(0, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(0, 2), matrix2->getEntry(0, 2));
+	*result = { 1, 2, 3 };
+	EXPECT_NO_THROW(matrix->getRow(0));
+	EXPECT_TRUE(*result == matrix->getRow(0));
 
-	*matrix2 = matrix1->getRow(1);
-	EXPECT_EQ(matrix1->getEntry(1, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(1, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(1, 2), matrix2->getEntry(0, 2));
+	*result = { 4, 5, 6 };
+	EXPECT_NO_THROW(matrix->getRow(1));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowEqualExceptionMinusIndex)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
 
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
-
-	EXPECT_THROW(matrix1->getRow(-1), std::exception);
+	EXPECT_THROW(matrix->getRow(-1), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowEqualExceptionToLargeIndex)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
 
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
-
-	EXPECT_THROW(matrix1->getRow(2), std::exception);
+	EXPECT_THROW(matrix->getRow(2), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowEqualNoExceptionEmptyGet)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix();
 
-	*matrix2 = matrix1->getRow(1);
-	EXPECT_EQ(matrix1->getEntry(0, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(0, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(0, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(*result = matrix->getRow(1));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 
-	*matrix2 = matrix1->getRow(1);
-	EXPECT_EQ(matrix1->getEntry(1, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(1, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(1, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(*result = matrix->getRow(1));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowSetNoExceptionEmptyGet)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix();
 
-	matrix2->setMatrix(&matrix1->getRow(0));
-	EXPECT_EQ(matrix1->getEntry(0, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(0, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(0, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(0)));
+	EXPECT_TRUE(*result == matrix->getRow(0));
 
-	matrix2->setMatrix(&matrix1->getRow(1));
-	EXPECT_EQ(matrix1->getEntry(1, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(1, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(1, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(1)));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRow, getRowSetNoException)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	Matrix *matrix2 = new Matrix();
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *result = new Matrix();
 
-	matrix2->setMatrix(&matrix1->getRow(0));
-	EXPECT_EQ(matrix1->getEntry(0, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(0, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(0, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(0)));
+	EXPECT_TRUE(*result == matrix->getRow(0));
 
-	matrix2->setMatrix(&matrix1->getRow(1));
-	EXPECT_EQ(matrix1->getEntry(1, 0), matrix2->getEntry(0, 0));
-	EXPECT_EQ(matrix1->getEntry(1, 1), matrix2->getEntry(0, 1));
-	EXPECT_EQ(matrix1->getEntry(1, 2), matrix2->getEntry(0, 2));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(1)));
+	EXPECT_TRUE(*result == matrix->getRow(1));
 }
