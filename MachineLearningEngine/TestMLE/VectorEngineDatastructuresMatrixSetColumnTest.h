@@ -4,191 +4,143 @@
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixHolePositiveMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, 4);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1, 3, 
+				4, 4, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixHoleNegativeMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, -1);
 	matrixColumn->setEntry(1, 0, -4);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1, 3, 
+				4, -4, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixDecimalPositiveMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, 1.4);
 	matrixColumn->setEntry(1, 0, 4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1.4, 3, 
+				4, 4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixDecimalNegativeMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, -1.4);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1.4, 3, 
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedPositiveMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, 4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1, 3,
+				4, 4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedNegativeMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, -1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1,   3,
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedMixedMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1,  1,   3,
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixNotSetColumnMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	Matrix *matrixColumn = new Matrix(2, 1);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, matrixColumn->getEntry(0, 0), 3,
+				4, matrixColumn->getEntry(1, 0), 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(matrixColumn->getEntry(0,0), matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(matrixColumn->getEntry(1, 0), matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHolePositiveMatrix)
@@ -199,13 +151,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHolePositiveM
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, 4);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), 4, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHoleNegativeMatrix)
@@ -216,13 +167,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHoleNegativeM
 	matrixColumn->setEntry(0, 0, -1);
 	matrixColumn->setEntry(1, 0, -4);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalPositiveMatrix)
@@ -233,13 +183,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalPositi
 	matrixColumn->setEntry(0, 0, 1.4);
 	matrixColumn->setEntry(1, 0, 4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1.4, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), 4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalNegativeMatrix)
@@ -250,28 +199,25 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalNegati
 	matrixColumn->setEntry(0, 0, -1.4);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1.4, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixNotSetColumnMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
 	Matrix *matrixColumn = new Matrix(2, 1);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), matrixColumn->getEntry(0, 0), matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), matrixColumn->getEntry(1, 0), matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(matrixColumn->getEntry(0,0), matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(matrixColumn->getEntry(1,0), matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedPositiveMatrix)
@@ -282,13 +228,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedPositive
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, 4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), 4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedNegativeMatrix)
@@ -299,13 +244,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedNegative
 	matrixColumn->setEntry(0, 0, -1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedMixedMatrix)
@@ -316,36 +260,28 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedMixedMat
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHolePositiveMatrixTransposed)
 {
 	Matrix *matrix = new Matrix(3, 3);
-
 	Matrix *matrixRow = new Matrix(1, 3);
-	matrixRow->setEntry(0, 0, 1);
-	matrixRow->setEntry(0, 1, 2);
-	matrixRow->setEntry(0, 2, 3);
-
+	*matrixRow = { 1, 2, 3 };
 	matrixRow->transpose();
 
+	Matrix *result = new Matrix(3, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), 2, matrix->getEntry(1, 2),
+				matrix->getEntry(2, 0), 3, matrix->getEntry(2, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixRow));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(2, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
-	EXPECT_EQ(matrix->getEntry(2, 0), matrix->getEntry(2, 0));
-	EXPECT_EQ(3, matrix->getEntry(2, 1));
-	EXPECT_EQ(matrix->getEntry(2, 2), matrix->getEntry(2, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorOverwritten)
@@ -356,25 +292,23 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorOverwri
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
+
 
 	Matrix *matrixColumn2 = new Matrix(2, 1);
 	matrixColumn2->setEntry(0, 0, -1);
 	matrixColumn2->setEntry(1, 0, 4.6);
 
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), 4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn2));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorNewColumn)
@@ -385,25 +319,23 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorNewColu
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
+
 
 	Matrix *matrixColumn2 = new Matrix(2, 1);
 	matrixColumn2->setEntry(0, 0, -1);
 	matrixColumn2->setEntry(1, 0, 4.6);
 
+	*result = { -1,    1,   matrix->getEntry(0, 2),
+				 4.6, -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(0, *matrixColumn2));
-	EXPECT_EQ(-1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixNewColumnTransposed)
@@ -414,27 +346,22 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixNewColu
 	matrixColumn->setEntry(0, 0, 1);
 	matrixColumn->setEntry(1, 0, -4.6);
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(0, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, *matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 
 	Matrix *matrixColumn2 = new Matrix(3, 1);
-	matrixColumn2->setEntry(0, 0, -1);
-	matrixColumn2->setEntry(1, 0, 4.6);
-	matrixColumn2->setEntry(2, 0, 8);
+	*matrixColumn2 = { -1, 4.6, 8 };
 	matrixColumn2->transpose();
 
+	*result = { -1,                      4.6, 8,
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setRow(0, *matrixColumn2));
-	EXPECT_EQ(-1, matrix->getEntry(0, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(0, 1));
-	EXPECT_EQ(8, matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnExceptionNegativeColumnNumberMatrix)
@@ -474,9 +401,7 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnExceptionTooLargeColumnMa
 	Matrix *matrix = new Matrix(2, 3);
 
 	Matrix *matrixColumn = new Matrix(3, 1);
-	matrixColumn->setEntry(0, 0, 1);
-	matrixColumn->setEntry(1, 0, 4);
-	matrixColumn->setEntry(2, 0, 8);
+	*matrixColumn = { 1, 4, 8 };
 
 	EXPECT_THROW(matrix->setColumn(1, *matrixColumn), std::exception);
 }
@@ -484,155 +409,113 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnExceptionTooLargeColumnMa
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixHolePositiveVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { 1, 4 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1, 3, 
+				4, 4, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixHoleNegativeVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { -1, -4 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1, 3,
+				4, -4, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixDecimalPositiveVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { 1.4, 4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1.4, 3,
+				4, 4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixDecimalNegativeVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { -1.4, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1.4, 3,
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedPositiveVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { 1, 4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 1,   3,
+				4, 4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedNegativeVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { -1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, -1,   3,
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnSetMatrixMixedMixedVector)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
-	matrix->setEntry(0, 0, 1);
-	matrix->setEntry(0, 1, 2);
-	matrix->setEntry(0, 2, 3);
-	matrix->setEntry(1, 0, 4);
-	matrix->setEntry(1, 1, 5);
-	matrix->setEntry(1, 2, 6);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
 	std::vector<double> matrixColumn = { 1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1,  1,   3,
+				4, -4.6, 6 };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(3, matrix->getEntry(0, 2));
-	EXPECT_EQ(4, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(6, matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHolePositiveVector)
@@ -641,13 +524,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHolePositiveV
 
 	std::vector<double> matrixColumn = { 1, 4 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), 4, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHoleNegativeVector)
@@ -656,13 +538,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixHoleNegativeV
 
 	std::vector<double> matrixColumn = { -1, -4 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalPositiveVector)
@@ -671,13 +552,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalPositi
 
 	std::vector<double> matrixColumn = { 1.4, 4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1.4, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), 4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalNegativeVector)
@@ -686,13 +566,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixDecimalNegati
 
 	std::vector<double> matrixColumn = { -1.4, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1.4, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1.4, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedPositiveVector)
@@ -701,13 +580,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedPositive
 
 	std::vector<double> matrixColumn = { 1, 4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), 4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedNegativeVector)
@@ -716,13 +594,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedNegative
 
 	std::vector<double> matrixColumn = { -1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedMixedVector)
@@ -731,13 +608,12 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMixedMixedVec
 
 	std::vector<double> matrixColumn = { 1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixOverwritten)
@@ -746,23 +622,20 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixOverwri
 
 	std::vector<double> matrixColumn = { 1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 
 	std::vector<double> matrixColumn2 = { -1, 4.6 };
 
+	*result = { matrix->getEntry(0, 0), -1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0),  4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn2));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(-1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixNewColumn)
@@ -771,23 +644,20 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixMatrixNewColu
 
 	std::vector<double> matrixColumn = { 1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 
 	std::vector<double> matrixColumn2 = { -1, 4.6 };
 
+	*result = { -1,    1,   matrix->getEntry(1, 2),
+				 4.6, -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(0, matrixColumn2));
-	EXPECT_EQ(-1, matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(4.6, matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorNewColumnTransposed)
@@ -796,23 +666,20 @@ TEST(VectorEngineDatastructurMatrixSetColumn, setColumnNotSetMatrixVectorNewColu
 
 	std::vector<double> matrixColumn = { 1, -4.6 };
 
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 1, matrix->getEntry(1, 2),
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setColumn(1, matrixColumn));
-	EXPECT_EQ(matrix->getEntry(0, 0), matrix->getEntry(0, 0));
-	EXPECT_EQ(1, matrix->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 
 	std::vector<double> matrixRow = { -1, 4.6, 8 };
 
+	*result = { -1,						 4.6, 8,
+				matrix->getEntry(1, 0), -4.6, matrix->getEntry(1, 2) };
+
 	EXPECT_NO_THROW(matrix->setRow(0, matrixRow));
-	EXPECT_EQ(-1, matrix->getEntry(0, 0));
-	EXPECT_EQ(4.6, matrix->getEntry(0, 1));
-	EXPECT_EQ(8, matrix->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), matrix->getEntry(1, 0));
-	EXPECT_EQ(-4.6, matrix->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), matrix->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetColumn, setColumnExceptionNegativeColumnNumberVector)

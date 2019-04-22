@@ -4,37 +4,57 @@
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionHolePositive)
 {
 	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 5,	matrix->getEntry(0, 2),
+				5,						5,	5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, 5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, 5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, 5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 2, 5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionDecimalPositive)
 {
 	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), 5.5,	matrix->getEntry(0, 2),
+				5.5,					5.5,	5.5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 2, 5.5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionHoleNegative)
 {
 	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -5,	matrix->getEntry(0, 2),
+				-5,						-5,	-5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, -5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, -5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, -5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 2, -5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionDecimalNegative)
 {
 	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
+	*result = { matrix->getEntry(0, 0), -5.5,	matrix->getEntry(0, 2),
+				-5.5,					-5.5,	-5.5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 2, -5.5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 
@@ -42,40 +62,68 @@ TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionTransposedHolePo
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
+
+	Matrix *result = new Matrix(3, 2);
+	*result = { matrix->getEntry(0, 0), 5,
+				5,						5,
+				matrix->getEntry(2, 0),	5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, 5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, 5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, 5));
 	EXPECT_NO_THROW(matrix->setEntry(2, 1, 5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionTransposedDecimalPositive)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
+
+	Matrix *result = new Matrix(3, 2);
+	*result = { matrix->getEntry(0, 0), 5.5,
+				5.5,					5.5,
+				matrix->getEntry(2, 0),	5.5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, 5.5));
 	EXPECT_NO_THROW(matrix->setEntry(2, 1, 5.5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionTransposedHoleNegative)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
+
+	Matrix *result = new Matrix(3, 2);
+	*result = { matrix->getEntry(0, 0), -5,
+				-5,						-5,
+				matrix->getEntry(2, 0),	-5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, -5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, -5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, -5));
 	EXPECT_NO_THROW(matrix->setEntry(2, 1, -5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryNoExceptionTransposedDecimalNegative)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
+
+	Matrix *result = new Matrix(3, 2);
+	*result = { matrix->getEntry(0, 0), -5.5,
+				-5.5,					-5.5,
+				matrix->getEntry(2, 0),	-5.5 };
+
 	EXPECT_NO_THROW(matrix->setEntry(1, 1, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(0, 1, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(1, 0, -5.5));
 	EXPECT_NO_THROW(matrix->setEntry(2, 1, -5.5));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetEntry, setEntryExceptionRowPostive)

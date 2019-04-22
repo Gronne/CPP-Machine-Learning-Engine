@@ -3,348 +3,264 @@
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueHolePositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = { 2,  4,  6, 
+				8, 10, 12 };
 
-	EXPECT_NO_THROW(*matrix2 *= 2);
-	EXPECT_EQ(2, matrix2->getEntry(0, 0));
-	EXPECT_EQ(4, matrix2->getEntry(0, 1));
-	EXPECT_EQ(6, matrix2->getEntry(0, 2));
-	EXPECT_EQ(8, matrix2->getEntry(1, 0));
-	EXPECT_EQ(10, matrix2->getEntry(1, 1));
-	EXPECT_EQ(12, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= 2);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueHoleNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = { -2,  -4,  -6,
+				-8, -10, -12 };
 
-	EXPECT_NO_THROW(*matrix2 *= -2);
-	EXPECT_EQ(-2, matrix2->getEntry(0, 0));
-	EXPECT_EQ(-4, matrix2->getEntry(0, 1));
-	EXPECT_EQ(-6, matrix2->getEntry(0, 2));
-	EXPECT_EQ(-8, matrix2->getEntry(1, 0));
-	EXPECT_EQ(-10, matrix2->getEntry(1, 1));
-	EXPECT_EQ(-12, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= -2);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueDecimalPositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = {  2.5,  5,    7.5,
+				10,   12.5, 15 };
 
-	EXPECT_NO_THROW(*matrix2 *= 2.5);
-	EXPECT_EQ(2.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(7.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(10, matrix2->getEntry(1, 0));
-	EXPECT_EQ(12.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(15, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= 2.5);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueDecimalNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = { -2.5,  -5,    -7.5,
+				-10,   -12.5, -15 };
 
-	EXPECT_NO_THROW(*matrix2 *= -2.5);
-	EXPECT_EQ(-2.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(-5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(-7.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(-10, matrix2->getEntry(1, 0));
-	EXPECT_EQ(-12.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(-15, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= -2.5);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueZero)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = { 0, 0, 0, 
+				0, 0, 0 };
 
-	EXPECT_NO_THROW(*matrix2 *= 0);
-	EXPECT_EQ(0, matrix2->getEntry(0, 0));
-	EXPECT_EQ(0, matrix2->getEntry(0, 1));
-	EXPECT_EQ(0, matrix2->getEntry(0, 2));
-	EXPECT_EQ(0, matrix2->getEntry(1, 0));
-	EXPECT_EQ(0, matrix2->getEntry(1, 1));
-	EXPECT_EQ(0, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= 0);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorValueTwoTimes)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix(2, 3);
-	*matrix2 = *matrix1;
+	Matrix *result = new Matrix(2, 3);
+	*result = {  4,  8, 12,
+				16, 20, 24 };
 
-	EXPECT_NO_THROW(*matrix2 *= 2 * 2);
-	EXPECT_EQ(4, matrix2->getEntry(0, 0));
-	EXPECT_EQ(8, matrix2->getEntry(0, 1));
-	EXPECT_EQ(12, matrix2->getEntry(0, 2));
-	EXPECT_EQ(16, matrix2->getEntry(1, 0));
-	EXPECT_EQ(20, matrix2->getEntry(1, 1));
-	EXPECT_EQ(24, matrix2->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= 2 * 2);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixHolePositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *tMatrix = new Matrix(2, 3);
+	*tMatrix = *matrix;
+	tMatrix->transpose();
 
-	EXPECT_NO_THROW(*matrix2 *= *matrix1);
-	EXPECT_EQ(17, matrix2->getEntry(0, 0));
-	EXPECT_EQ(22, matrix2->getEntry(0, 1));
-	EXPECT_EQ(27, matrix2->getEntry(0, 2));
-	EXPECT_EQ(22, matrix2->getEntry(1, 0));
-	EXPECT_EQ(29, matrix2->getEntry(1, 1));
-	EXPECT_EQ(36, matrix2->getEntry(1, 2));
-	EXPECT_EQ(27, matrix2->getEntry(2, 0));
-	EXPECT_EQ(36, matrix2->getEntry(2, 1));
-	EXPECT_EQ(45, matrix2->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*matrix1 *= *matrix2);
-	EXPECT_EQ(142, matrix1->getEntry(0, 0));
-	EXPECT_EQ(188, matrix1->getEntry(0, 1));
-	EXPECT_EQ(234, matrix1->getEntry(0, 2));
-	EXPECT_EQ(340, matrix1->getEntry(1, 0));
-	EXPECT_EQ(449, matrix1->getEntry(1, 1));
-	EXPECT_EQ(558, matrix1->getEntry(1, 2));
+	Matrix *result = new Matrix(3, 3);
+	*result = { 17, 22, 27,
+				22, 29, 36,
+				27, 36, 45 };
+
+	EXPECT_NO_THROW(*tMatrix *= *matrix);
+	EXPECT_TRUE(*result == *tMatrix);
+
+
+	result->setMatrixSize(2, 3);
+	*result = { 142, 188, 234,
+				340, 449, 558 };
+
+	EXPECT_NO_THROW(*matrix *= *tMatrix);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixHoleNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, -1);
-	matrix1->setEntry(0, 1, -2);
-	matrix1->setEntry(0, 2, -3);
-	matrix1->setEntry(1, 0, -4);
-	matrix1->setEntry(1, 1, -5);
-	matrix1->setEntry(1, 2, -6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1, -2, -3,
+				-4, -5, -6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *tMatrix = new Matrix(2, 3);
+	*tMatrix = *matrix;
+	tMatrix->transpose();
 
-	EXPECT_NO_THROW(*matrix2 *= *matrix1);
-	EXPECT_EQ(17, matrix2->getEntry(0, 0));
-	EXPECT_EQ(22, matrix2->getEntry(0, 1));
-	EXPECT_EQ(27, matrix2->getEntry(0, 2));
-	EXPECT_EQ(22, matrix2->getEntry(1, 0));
-	EXPECT_EQ(29, matrix2->getEntry(1, 1));
-	EXPECT_EQ(36, matrix2->getEntry(1, 2));
-	EXPECT_EQ(27, matrix2->getEntry(2, 0));
-	EXPECT_EQ(36, matrix2->getEntry(2, 1));
-	EXPECT_EQ(45, matrix2->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*matrix1 *= *matrix2);
-	EXPECT_EQ(-142, matrix1->getEntry(0, 0));
-	EXPECT_EQ(-188, matrix1->getEntry(0, 1));
-	EXPECT_EQ(-234, matrix1->getEntry(0, 2));
-	EXPECT_EQ(-340, matrix1->getEntry(1, 0));
-	EXPECT_EQ(-449, matrix1->getEntry(1, 1));
-	EXPECT_EQ(-558, matrix1->getEntry(1, 2));
+	Matrix *result = new Matrix(3, 3);
+	*result = { 17, 22, 27,
+				22, 29, 36,
+				27, 36, 45 };
+
+	EXPECT_NO_THROW(*tMatrix *= *matrix);
+	EXPECT_TRUE(*result == *tMatrix);
+
+
+	result->setMatrixSize(2, 3);
+	*result = { -142, -188, -234,
+				-340, -449, -558 };
+
+	EXPECT_NO_THROW(*matrix *= *tMatrix);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixDecimalPositive)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1.5);
-	matrix1->setEntry(0, 1, 2.5);
-	matrix1->setEntry(0, 2, 3.5);
-	matrix1->setEntry(1, 0, 4.5);
-	matrix1->setEntry(1, 1, 5.5);
-	matrix1->setEntry(1, 2, 6.5);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1.5, 2.5, 3.5,
+				4.5, 5.5, 6.5 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *tMatrix = new Matrix(2, 3);
+	*tMatrix = *matrix;
+	tMatrix->transpose();
 
-	EXPECT_NO_THROW(*matrix2 *= *matrix1);
-	EXPECT_EQ(22.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(28.5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(34.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(28.5, matrix2->getEntry(1, 0));
-	EXPECT_EQ(36.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(44.5, matrix2->getEntry(1, 2));
-	EXPECT_EQ(34.5, matrix2->getEntry(2, 0));
-	EXPECT_EQ(44.5, matrix2->getEntry(2, 1));
-	EXPECT_EQ(54.5, matrix2->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*matrix1 *= *matrix2);
-	EXPECT_EQ(225.75, matrix1->getEntry(0, 0));
-	EXPECT_EQ(289.75, matrix1->getEntry(0, 1));
-	EXPECT_EQ(353.75, matrix1->getEntry(0, 2));
-	EXPECT_EQ(482.25, matrix1->getEntry(1, 0));
-	EXPECT_EQ(618.25, matrix1->getEntry(1, 1));
-	EXPECT_EQ(754.25, matrix1->getEntry(1, 2));
+	Matrix *result = new Matrix(3, 3);
+	*result = { 22.5, 28.5, 34.5,
+				28.5, 36.5, 44.5,
+				34.5, 44.5, 54.5 };
+
+	EXPECT_NO_THROW(*tMatrix *= *matrix);
+	EXPECT_TRUE(*result == *tMatrix);
+
+
+	result->setMatrixSize(2, 3);
+	*result = { 225.75, 289.75, 353.75,
+				482.25, 618.25, 754.25 };
+
+	EXPECT_NO_THROW(*matrix *= *tMatrix);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixDecimalNegative)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, -1.5);
-	matrix1->setEntry(0, 1, -2.5);
-	matrix1->setEntry(0, 2, -3.5);
-	matrix1->setEntry(1, 0, -4.5);
-	matrix1->setEntry(1, 1, -5.5);
-	matrix1->setEntry(1, 2, -6.5);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1.5, -2.5, -3.5,
+				-4.5, -5.5, -6.5 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *tMatrix = new Matrix(2, 3);
+	*tMatrix = *matrix;
+	tMatrix->transpose();
 
-	EXPECT_NO_THROW(*matrix2 *= *matrix1);
-	EXPECT_EQ(22.5, matrix2->getEntry(0, 0));
-	EXPECT_EQ(28.5, matrix2->getEntry(0, 1));
-	EXPECT_EQ(34.5, matrix2->getEntry(0, 2));
-	EXPECT_EQ(28.5, matrix2->getEntry(1, 0));
-	EXPECT_EQ(36.5, matrix2->getEntry(1, 1));
-	EXPECT_EQ(44.5, matrix2->getEntry(1, 2));
-	EXPECT_EQ(34.5, matrix2->getEntry(2, 0));
-	EXPECT_EQ(44.5, matrix2->getEntry(2, 1));
-	EXPECT_EQ(54.5, matrix2->getEntry(2, 2));
 
-	EXPECT_NO_THROW(*matrix1 *= *matrix2);
-	EXPECT_EQ(-225.75, matrix1->getEntry(0, 0));
-	EXPECT_EQ(-289.75, matrix1->getEntry(0, 1));
-	EXPECT_EQ(-353.75, matrix1->getEntry(0, 2));
-	EXPECT_EQ(-482.25, matrix1->getEntry(1, 0));
-	EXPECT_EQ(-618.25, matrix1->getEntry(1, 1));
-	EXPECT_EQ(-754.25, matrix1->getEntry(1, 2));
+	Matrix *result = new Matrix(3, 3);
+	*result = { 22.5, 28.5, 34.5,
+				28.5, 36.5, 44.5,
+				34.5, 44.5, 54.5 };
+
+	EXPECT_NO_THROW(*tMatrix *= *matrix);
+	EXPECT_TRUE(*result == *tMatrix);
+
+
+	result->setMatrixSize(2, 3);
+	*result = { -225.75, -289.75, -353.75,
+				-482.25, -618.25, -754.25 };
+
+	EXPECT_NO_THROW(*matrix *= *tMatrix);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixTwoTimes)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
-	EXPECT_NO_THROW(*matrix1 *= *matrix2 * *matrix1);
-	EXPECT_EQ(142, matrix1->getEntry(0, 0));
-	EXPECT_EQ(188, matrix1->getEntry(0, 1));
-	EXPECT_EQ(234, matrix1->getEntry(0, 2));
-	EXPECT_EQ(340, matrix1->getEntry(1, 0));
-	EXPECT_EQ(449, matrix1->getEntry(1, 1));
-	EXPECT_EQ(558, matrix1->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= *result * *matrix);
+	EXPECT_EQ(142, matrix->getEntry(0, 0));
+	EXPECT_EQ(188, matrix->getEntry(0, 1));
+	EXPECT_EQ(234, matrix->getEntry(0, 2));
+	EXPECT_EQ(340, matrix->getEntry(1, 0));
+	EXPECT_EQ(449, matrix->getEntry(1, 1));
+	EXPECT_EQ(558, matrix->getEntry(1, 2));
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixTwoTimes2)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
-	matrix1->setEntry(0, 0, 1);
-	matrix1->setEntry(0, 1, 2);
-	matrix1->setEntry(0, 2, 3);
-	matrix1->setEntry(1, 0, 4);
-	matrix1->setEntry(1, 1, 5);
-	matrix1->setEntry(1, 2, 6);
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
-	matrix2->transpose();
+	Matrix *result = new Matrix();
+	*result = *matrix;
+	result->transpose();
 
-	EXPECT_NO_THROW(*matrix1 *= (*matrix2 * *matrix1));
-	EXPECT_EQ(142, matrix1->getEntry(0, 0));
-	EXPECT_EQ(188, matrix1->getEntry(0, 1));
-	EXPECT_EQ(234, matrix1->getEntry(0, 2));
-	EXPECT_EQ(340, matrix1->getEntry(1, 0));
-	EXPECT_EQ(449, matrix1->getEntry(1, 1));
-	EXPECT_EQ(558, matrix1->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= (*result * *matrix));
+	EXPECT_EQ(142, matrix->getEntry(0, 0));
+	EXPECT_EQ(188, matrix->getEntry(0, 1));
+	EXPECT_EQ(234, matrix->getEntry(0, 2));
+	EXPECT_EQ(340, matrix->getEntry(1, 0));
+	EXPECT_EQ(449, matrix->getEntry(1, 1));
+	EXPECT_EQ(558, matrix->getEntry(1, 2));
 }
 
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixExceptionMissMatch)
 {
-	Matrix *matrix1 = new Matrix(2, 3);
+	Matrix *matrix = new Matrix(2, 3);
+	Matrix *result = new Matrix(2, 3);
 
-	Matrix *matrix2 = new Matrix();
-	*matrix2 = *matrix1;
+	EXPECT_THROW(*matrix * *result, std::exception);
 
-	EXPECT_THROW(*matrix1 * *matrix2, std::exception);
-
-	matrix1->transpose();
-	matrix2->transpose();
-	EXPECT_THROW(*matrix1 *= *matrix2, std::exception);
+	matrix->transpose();
+	result->transpose();
+	EXPECT_THROW(*matrix *= *result, std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixExceptionLarge)
 {
-	Matrix *matrix1 = new Matrix(3, 3);
+	Matrix *matrix = new Matrix(3, 3);
+	Matrix *result = new Matrix(4, 4);
 
-	Matrix *matrix2 = new Matrix(4, 4);
-
-	EXPECT_THROW(*matrix1 *= *matrix2, std::exception);
+	EXPECT_THROW(*matrix *= *result, std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixExceptionSmall)
 {
-	Matrix *matrix1 = new Matrix(3, 3);
+	Matrix *matrix = new Matrix(3, 3);
+	Matrix *result = new Matrix(2, 2);
 
-	Matrix *matrix2 = new Matrix(2, 2);
-
-	EXPECT_THROW(*matrix1 *= *matrix2, std::exception);
+	EXPECT_THROW(*matrix *= *result, std::exception);
 }
