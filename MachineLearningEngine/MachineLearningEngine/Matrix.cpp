@@ -288,9 +288,19 @@ void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 }
 
 
-void Matrix::transpose()
+Matrix & Matrix::transpose(bool copyFlag)
 {
-	_transposeFlag = !_transposeFlag;
+	if (!copyFlag)
+	{
+		_transposeFlag = !_transposeFlag;
+		return *this;
+	}
+	else
+	{
+		Matrix *copy = new Matrix();
+		*copy = *this;
+		return copy->transpose();
+	}
 }
 
 

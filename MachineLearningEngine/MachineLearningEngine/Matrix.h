@@ -26,7 +26,7 @@ public:
 	void setMatrix(const Matrix*);
 	void deleteRow(int);
 	void deleteColumn(int);
-	void transpose();
+	Matrix& transpose(bool = 0);
 	void scale(double);
 	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);

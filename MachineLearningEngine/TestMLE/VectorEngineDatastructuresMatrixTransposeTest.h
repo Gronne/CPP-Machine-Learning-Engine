@@ -68,3 +68,26 @@ TEST(VectorEngineDatastructuresMatrixTranspose, transposeSetTransposeRowAndColum
 	EXPECT_EQ(5, matrix->getNumberOfRows());
 	EXPECT_EQ(3, matrix->getNumberOfColumns());
 }
+
+//---------------return transposed matrix------------------
+
+
+TEST(VectorEngineDatastructuresMatrixTranspose, transposedReturnEQSize0)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_EQ(3, matrix->getNumberOfColumns());
+
+	EXPECT_EQ(matrix->getNumberOfColumns(), matrix->transpose().getNumberOfColumns());
+	EXPECT_EQ(matrix->getNumberOfRows(), matrix->transpose().getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructuresMatrixTranspose, transposedReturnEQSize1)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_EQ(3, matrix->getNumberOfColumns());
+
+	EXPECT_EQ(matrix->getNumberOfRows(), matrix->transpose(true).getNumberOfColumns());
+	EXPECT_EQ(matrix->getNumberOfColumns(), matrix->transpose(true).getNumberOfRows());
+}
