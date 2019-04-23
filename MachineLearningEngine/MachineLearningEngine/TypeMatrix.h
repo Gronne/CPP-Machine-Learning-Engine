@@ -27,6 +27,7 @@ public:
 	bool checkSpan(const Matrix&, const Matrix&);
 	bool isomorphic(Matrix&, Matrix&) const;
 	bool isSquare(const Matrix&) const;
+	bool isEqual(const Matrix&, const Matrix&, double = 0) const;
 
 private:
 

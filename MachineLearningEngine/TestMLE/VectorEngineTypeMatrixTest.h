@@ -5,6 +5,7 @@
 #include "VectorEngineTypeMatrixDependentTest.h"
 #include "VectorEngineTypeMatrixFullRankTest.h"
 #include "VectorEngineTypeMatrixHomogeneousTest.h"
+#include "VectorEngineTypeMatrixIsEqualTest.h"
 #include "VectorEngineTypeMatrixIsInSpanTest.h"
 #include "VectorEngineTypeMatrixIsSquareTest.h"
 #include "VectorEngineTypeMatrixOrthogonalTest.h"

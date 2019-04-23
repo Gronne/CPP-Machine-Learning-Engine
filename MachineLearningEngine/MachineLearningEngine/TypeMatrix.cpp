@@ -219,3 +219,22 @@ bool TypeMatrix::isSquare(const Matrix &matrix) const
 	return matrix.getNumberOfColumns() == matrix.getNumberOfRows();
 }
 
+bool TypeMatrix::isEqual(const Matrix &matrixA, const Matrix &matrixB, double precision) const
+{
+	if (precision < 0)
+		throw std::exception("Precision needs to be 0 or positive");
+
+	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
+		return false;
+
+	for (size_t row = 0; row < matrixA.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrixA.getNumberOfColumns(); col++)
+		{
+			if (matrixA.getEntry(row, col) + precision < matrixB.getEntry(row, col))
+				return false;
+			else if (matrixA.getEntry(row, col) - precision > matrixB.getEntry(row, col))
+				return false;
+		}	
+	return true;
+}
+
