@@ -79,6 +79,7 @@
     <ClInclude Include="VectorEngineGetMatrixFrobeniusNormTest.h" />
     <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixGetIdentityMatrixTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h" />
     <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h" />
     <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h" />
@@ -101,7 +102,6 @@
     <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsNormTest.h" />
     <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />

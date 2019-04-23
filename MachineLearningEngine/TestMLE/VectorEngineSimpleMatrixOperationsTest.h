@@ -7,7 +7,6 @@
 #include "VectorEngineSimpleMatrixOperationsHadamardTest.h"
 #include "VectorEngineSimpleMatrixOperationsInverseTest.h"
 #include "VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h"
-#include "VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h"
 #include "VectorEngineSimpleMatrixOperationsMultiplicationTest.h"
 #include "VectorEngineSimpleMatrixOperationsNormTest.h"
 #include "VectorEngineSimpleMatrixOperationsSubstractionTest.h"

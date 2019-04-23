@@ -28,8 +28,6 @@ public:
 	double sum(Matrix&) const;
 	double findMaxValue(const Matrix&);
 
-	Matrix& makeIdentityMatrix(int);
-
 private:
 	void setDeterminantMatrix(const Matrix&, Matrix&, int, int);
 	void setInverseMatrix(const Matrix&, Matrix&);

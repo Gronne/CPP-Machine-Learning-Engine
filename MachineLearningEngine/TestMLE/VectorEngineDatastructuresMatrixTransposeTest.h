@@ -1,28 +1,28 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeGetNormalRowAndColumn)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeGetNormalRowAndColumn)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	EXPECT_EQ(2, matrix->getNumberOfRows());
 	EXPECT_EQ(3, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposedRow)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeGetTransposedRow)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
 	EXPECT_EQ(2, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposedColumns)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeGetTransposedColumns)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
 	EXPECT_EQ(2, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposedRowAndColumn)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeGetTransposedRowAndColumn)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
@@ -30,7 +30,7 @@ TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposedRowAndColumn
 	EXPECT_EQ(2, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposed2RowAndColumn)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeGetTransposed2RowAndColumn)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
@@ -39,7 +39,7 @@ TEST(VectorEngineDatastructurTransposeMatrix, transposeGetTransposed2RowAndColum
 	EXPECT_EQ(3, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeSetTransposeRow)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeSetTransposeRow)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
@@ -48,7 +48,7 @@ TEST(VectorEngineDatastructurTransposeMatrix, transposeSetTransposeRow)
 	EXPECT_EQ(3, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeSetTransposeColumn)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeSetTransposeColumn)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();
@@ -57,7 +57,7 @@ TEST(VectorEngineDatastructurTransposeMatrix, transposeSetTransposeColumn)
 	EXPECT_EQ(4, matrix->getNumberOfColumns());
 }
 
-TEST(VectorEngineDatastructurTransposeMatrix, transposeSetTransposeRowAndColumn)
+TEST(VectorEngineDatastructuresMatrixTranspose, transposeSetTransposeRowAndColumn)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	matrix->transpose();

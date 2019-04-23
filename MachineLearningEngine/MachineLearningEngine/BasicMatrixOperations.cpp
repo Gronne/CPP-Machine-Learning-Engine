@@ -64,8 +64,8 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	SimpleMatrixOperations SMO;
-	resultMatrix->appendMatrix(SMO.makeIdentityMatrix(matrix.getNumberOfRows()));
+	GetMatrix GM;
+	resultMatrix->appendMatrix(GM.getIdentityMatrix(matrix.getNumberOfRows()));
 	echelonForm(*resultMatrix);
 	std::vector<int> columns;
 	for (int col = matrix.getNumberOfColumns(); col < resultMatrix->getNumberOfColumns(); col++)

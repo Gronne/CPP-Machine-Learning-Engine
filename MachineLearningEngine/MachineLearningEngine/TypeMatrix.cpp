@@ -87,7 +87,7 @@ bool TypeMatrix::orthogonal(const Matrix &matrix)
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows() || RREF.checkForFullDependentMatrix(matrix))
 		return false;
 
-	SimpleMatrixOperations SMO;
+	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	*buffer = matrix;
 
@@ -95,7 +95,7 @@ bool TypeMatrix::orthogonal(const Matrix &matrix)
 	*buffer = matrix * *buffer;
 
 	bool returnState = false;
-	if (*buffer == SMO.makeIdentityMatrix(matrix.getNumberOfRows()))
+	if (*buffer == GM.getIdentityMatrix(matrix.getNumberOfRows()))
 		returnState = true;
 
 	delete buffer;

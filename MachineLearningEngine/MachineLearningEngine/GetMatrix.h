@@ -25,6 +25,9 @@ public:
 	Matrix& getBasicVectors(const Matrix&);
 	Matrix& getTransformationMatrix(const Matrix&, const Matrix&);
 	Matrix& getZeroMatrix(int, int) const;
+	Matrix& getZeroMatrix(int) const;
+	Matrix& getIdentityMatrix(int, int) const;
+	Matrix& getIdentityMatrix(int) const;
 
 private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);

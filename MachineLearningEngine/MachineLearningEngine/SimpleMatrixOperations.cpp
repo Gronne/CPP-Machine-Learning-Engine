@@ -292,15 +292,6 @@ double SimpleMatrixOperations::findMaxValue(const Matrix &matrix)
 	return returnValue;
 }
 
-Matrix & SimpleMatrixOperations::makeIdentityMatrix(int size)
-{
-	Matrix *Imatrix = new Matrix(size, size);
-	for (size_t row = 0; row < size; row++)
-		for (size_t col = 0; col < size; col++)
-			(col == row) ? Imatrix->setEntry(row, col, 1) : Imatrix->setEntry(row, col, 0);
-	return *Imatrix;
-}
-
 void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &copyMatrix, int row, int column)
 {
 	int copyRow = 0;

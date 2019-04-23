@@ -330,6 +330,25 @@ Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 	return *matrix;
 }
 
+Matrix & GetMatrix::getZeroMatrix(int size) const
+{
+	return getZeroMatrix(size, size);
+}
+
+Matrix & GetMatrix::getIdentityMatrix(int rows, int columns) const
+{
+	Matrix *Imatrix = new Matrix(rows, columns);
+	for (size_t row = 0; row < rows; row++)
+		for (size_t col = 0; col < columns; col++)
+			(col == row) ? Imatrix->setEntry(row, col, 1) : Imatrix->setEntry(row, col, 0);
+	return *Imatrix;
+}
+
+Matrix & GetMatrix::getIdentityMatrix(int size) const
+{
+	return getIdentityMatrix(size, size);
+}
+
 double GetMatrix::calculateInnerProductSpace(const Matrix &vectorA, const Matrix &vectorB)
 {
 	SimpleMatrixOperations SMO;

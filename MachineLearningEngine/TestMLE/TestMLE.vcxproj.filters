@@ -117,9 +117,6 @@
     <ClInclude Include="VectorEngineBasicMatrixOperationsTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsMakeIdentityMatrixTest.h">
-      <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonInverseTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
     </ClInclude>
@@ -257,6 +254,9 @@
     </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsFindMaxValueTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineGetMatrixGetIdentityMatrixTest.h">
+      <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

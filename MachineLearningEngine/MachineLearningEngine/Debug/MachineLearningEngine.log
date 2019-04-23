@@ -1,2 +1,12 @@
-﻿  Source.cpp
+﻿  BasicMatrixOperations.cpp
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\basicmatrixoperations.cpp(91): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\basicmatrixoperations.cpp(110): warning C4018: '<': signed/unsigned mismatch
+  TypeMatrix.cpp
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(62): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(109): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(110): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(128): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\typematrix.cpp(129): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

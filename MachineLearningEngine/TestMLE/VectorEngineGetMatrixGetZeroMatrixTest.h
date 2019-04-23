@@ -214,3 +214,70 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_bothMinus)
 	GetMatrix GM;
 	EXPECT_THROW(*matrix = GM.getZeroMatrix(rows, cols), std::exception);
 }
+
+//-----------------
+
+TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle1x1)
+{
+	Matrix *matrix = new Matrix();
+	int size = 1;
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+
+	for (size_t row = 0; row < size; row++)
+		for (size_t col = 0; col < size; col++)
+			EXPECT_EQ(0, matrix->getEntry(row, col));
+}
+
+TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle2x2)
+{
+	Matrix *matrix = new Matrix();
+	int size = 2;
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+
+	for (size_t row = 0; row < size; row++)
+		for (size_t col = 0; col < size; col++)
+			EXPECT_EQ(0, matrix->getEntry(row, col));
+}
+
+TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle3x3)
+{
+	Matrix *matrix = new Matrix();
+	int size = 3;
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+
+	for (size_t row = 0; row < size; row++)
+		for (size_t col = 0; col < size; col++)
+			EXPECT_EQ(0, matrix->getEntry(row, col));
+}
+
+TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle4x4)
+{
+	Matrix *matrix = new Matrix();
+	int size = 4;
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+
+	for (size_t row = 0; row < size; row++)
+		for (size_t col = 0; col < size; col++)
+			EXPECT_EQ(0, matrix->getEntry(row, col));
+}
+
+TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle5x5)
+{
+	Matrix *matrix = new Matrix();
+	int size = 5;
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+
+	for (size_t row = 0; row < size; row++)
+		for (size_t col = 0; col < size; col++)
+			EXPECT_EQ(0, matrix->getEntry(row, col));
+}
