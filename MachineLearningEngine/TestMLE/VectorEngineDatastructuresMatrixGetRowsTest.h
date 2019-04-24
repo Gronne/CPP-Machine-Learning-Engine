@@ -74,7 +74,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoExceptionEmptyGet)
 
 	std::vector<int> rowVector = { 0, 1 };
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(rowVector)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(rowVector)));
 	EXPECT_TRUE(*result == matrix->getRow(rowVector));
 }
 
@@ -90,7 +90,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoException)
 
 	std::vector<int> rowVector = { 0, 1 };
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(rowVector)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(rowVector)));
 	EXPECT_TRUE(*result == matrix->getRow(rowVector));
 }
 

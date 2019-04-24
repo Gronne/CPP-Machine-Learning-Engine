@@ -70,10 +70,10 @@ TEST(VectorEngineDatastructurMatrixGetRow, getRowSetNoExceptionEmptyGet)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(0)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(0)));
 	EXPECT_TRUE(*result == matrix->getRow(0));
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(1)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(1)));
 	EXPECT_TRUE(*result == matrix->getRow(1));
 }
 
@@ -85,9 +85,9 @@ TEST(VectorEngineDatastructurMatrixGetRow, getRowSetNoException)
 
 	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(0)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(0)));
 	EXPECT_TRUE(*result == matrix->getRow(0));
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(1)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getRow(1)));
 	EXPECT_TRUE(*result == matrix->getRow(1));
 }

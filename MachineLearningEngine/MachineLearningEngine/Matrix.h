@@ -23,7 +23,7 @@ public:
 	void setColumn(int, std::vector<double>);
 	void setMatrixSize(int, int);
 	void setEntry(int, int, double);
-	void setMatrix(const Matrix*);
+	void setMatrix(const Matrix&);
 	void deleteRow(int);
 	void deleteRow(std::vector<int>);
 	void deleteRow(const Matrix&);

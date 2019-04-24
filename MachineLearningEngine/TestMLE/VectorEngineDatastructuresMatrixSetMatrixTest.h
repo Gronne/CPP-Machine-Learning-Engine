@@ -9,7 +9,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizePositiveHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -21,7 +21,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizePositiveDecimal)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -33,7 +33,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeNegativeHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -45,7 +45,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeNegativeDecimal)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -57,7 +57,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeMixedHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -69,7 +69,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeMixedDecimal)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -81,7 +81,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeMixedPositive)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -93,7 +93,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeMixedNegative)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -105,7 +105,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSameSizeMixedMixed)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -118,7 +118,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargePositiveHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -131,7 +131,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargePositiveDecim
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -144,7 +144,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeNegativeHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -157,7 +157,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeNegativeDecim
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -170,7 +170,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeMixedHole)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -183,7 +183,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeMixedDecimal)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -196,7 +196,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeMixedPositive
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -209,7 +209,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeMixedNegative
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -222,7 +222,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixSmallToLargeMixedMixed)
 
 	Matrix *result = new Matrix(2, 3);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -234,7 +234,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallPositiveHole)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -246,7 +246,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallPositiveDecim
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -258,7 +258,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallNegativeHole)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -270,7 +270,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallNegativeDecim
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -282,7 +282,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallMixedHole)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -294,7 +294,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallMixedDecimal)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -306,7 +306,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallMixedPositve)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -318,7 +318,7 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallMixedNegative
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -330,12 +330,12 @@ TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixLargeToSmallMixedMixed)
 
 	Matrix *result = new Matrix(3, 4);
 
-	EXPECT_NO_THROW(result->setMatrix(matrix));
+	EXPECT_NO_THROW(result->setMatrix(*matrix));
 	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixSetMatrix, setMatrixExceptionSameMatrix)
 {
 	Matrix *matrix = new Matrix(2, 3);
-	EXPECT_THROW(matrix->setMatrix(matrix), std::exception);
+	EXPECT_THROW(matrix->setMatrix(*matrix), std::exception);
 }

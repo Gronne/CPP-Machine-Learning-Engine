@@ -51,11 +51,11 @@ TEST(VectorEngineDatastructurMatrixGetColumn, getColSetNoExceptionEmptyGet)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getColumn(0)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getColumn(0)));
 	EXPECT_EQ(matrix->getEntry(0, 0), result->getEntry(0, 0));
 	EXPECT_EQ(matrix->getEntry(1, 0), result->getEntry(1, 0));
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getColumn(0)));
+	EXPECT_NO_THROW(result->setMatrix(matrix->getColumn(0)));
 	EXPECT_EQ(matrix->getEntry(0, 1), result->getEntry(0, 0));
 	EXPECT_EQ(matrix->getEntry(1, 1), result->getEntry(1, 0));
 }
@@ -68,11 +68,11 @@ TEST(VectorEngineDatastructurMatrixGetColumn, getColSetNoException)
 
 	Matrix *result = new Matrix();
 
-	result->setMatrix(&matrix->getColumn(0));
+	result->setMatrix(matrix->getColumn(0));
 	EXPECT_EQ(matrix->getEntry(0, 0), result->getEntry(0, 0));
 	EXPECT_EQ(matrix->getEntry(1, 0), result->getEntry(1, 0));
 
-	result->setMatrix(&matrix->getColumn(1));
+	result->setMatrix(matrix->getColumn(1));
 	EXPECT_EQ(matrix->getEntry(0, 1), result->getEntry(0, 0));
 	EXPECT_EQ(matrix->getEntry(1, 1), result->getEntry(1, 0));
 }

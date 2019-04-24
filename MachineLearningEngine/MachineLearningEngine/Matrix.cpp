@@ -179,16 +179,16 @@ void Matrix::setEntry(int row, int column, double value)
 }
 
 
-void Matrix::setMatrix(const Matrix *newMatrix)
+void Matrix::setMatrix(const Matrix &newMatrix)
 {
-	if (_matrix == newMatrix->_matrix)
+	if (_matrix == newMatrix._matrix)
 		throw std::exception("Can not be set to it self");
 
-	setMatrixSize(newMatrix->getNumberOfRows(), newMatrix->getNumberOfColumns());
+	setMatrixSize(newMatrix.getNumberOfRows(), newMatrix.getNumberOfColumns());
 
-	for (size_t row = 0; row < newMatrix->getNumberOfRows(); row++)
-		for (size_t column = 0; column < newMatrix->getNumberOfColumns(); column++)
-			setEntry(row, column, newMatrix->getEntry(row, column));
+	for (size_t row = 0; row < newMatrix.getNumberOfRows(); row++)
+		for (size_t column = 0; column < newMatrix.getNumberOfColumns(); column++)
+			setEntry(row, column, newMatrix.getEntry(row, column));
 }
 
 void Matrix::deleteRow(int row)
@@ -202,7 +202,7 @@ void Matrix::deleteRow(int row)
 			if (internalRow != row)
 				matrix->setEntry(matrixRow++, internalCol, getEntry(internalRow, internalCol));
 
-	setMatrix(matrix);
+	setMatrix(*matrix);
 	delete matrix;
 }
 
@@ -242,7 +242,7 @@ void Matrix::deleteColumn(int col)
 			if (internalCol != col)
 				matrix->setEntry(internalRow, matrixCol++, getEntry(internalRow, internalCol));
 
-	setMatrix(matrix);
+	setMatrix(*matrix);
 	delete matrix;
 }
 
@@ -397,13 +397,13 @@ void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 			newMatrix->setRow(col2, matrix.getRow(col2 - getNumberOfRows()));
 	}
 
-	setMatrix(newMatrix);
+	setMatrix(*newMatrix);
 	delete newMatrix;
 }
 
 const Matrix & Matrix::operator=(const Matrix & obj)
 {
-	this->setMatrix(&obj);
+	this->setMatrix(obj);
 	return obj;
 }
 
