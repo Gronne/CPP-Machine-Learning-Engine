@@ -9,6 +9,16 @@ Matrix::Matrix(int rows, int columns)
 	resizeMatrix(rows, columns);
 }
 
+Matrix::Matrix(const Matrix &copy)
+{
+	*this = copy;
+}
+
+Matrix::Matrix(const Matrix *copy)
+{
+	*this = *copy;
+}
+
 
 Matrix::~Matrix()
 {

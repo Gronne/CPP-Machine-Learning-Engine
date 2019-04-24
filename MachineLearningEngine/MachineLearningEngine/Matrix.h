@@ -7,6 +7,8 @@ class Matrix
 {
 public:
 	Matrix(int=1, int=1);
+	Matrix(const Matrix&);
+	Matrix(const Matrix*);
 	~Matrix();
 	int getNumberOfRows() const;
 	int getNumberOfColumns() const;

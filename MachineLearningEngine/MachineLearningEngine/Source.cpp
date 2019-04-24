@@ -25,6 +25,7 @@ int main(int argc, char ** argv) {
 	*rows = { 0, 2, 3 };
 
 
+
 	try
 	{
 		matrixA->deleteColumn(*rows);
@@ -37,6 +38,7 @@ int main(int argc, char ** argv) {
 	
 
 	delete matrixA;
+
 
 	exit(0);
 }

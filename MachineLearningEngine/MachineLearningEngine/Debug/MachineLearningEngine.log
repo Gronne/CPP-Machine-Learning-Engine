@@ -1,4 +1,2 @@
-﻿  BasicMatrixOperations.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\basicmatrixoperations.cpp(91): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\basicmatrixoperations.cpp(110): warning C4018: '<': signed/unsigned mismatch
+﻿  Source.cpp
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe
