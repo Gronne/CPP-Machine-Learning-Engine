@@ -19,7 +19,7 @@ int GetMatrix::numberOfPivots(const Matrix &matrix)
 
 Matrix & GetMatrix::pivotRows(const Matrix &matrix)
 {
-	return matrix.getRows(pivotRowsNumber(matrix));
+	return matrix.getRow(pivotRowsNumber(matrix));
 }
 
 Matrix & GetMatrix::pivotRowsNumber(const Matrix &matrix)
@@ -29,7 +29,7 @@ Matrix & GetMatrix::pivotRowsNumber(const Matrix &matrix)
 
 Matrix & GetMatrix::pivotColumns(const Matrix &matrix)
 {
-	return matrix.getColumns(pivotColumnsNumber(matrix));
+	return matrix.getColumn(pivotColumnsNumber(matrix));
 }
 
 Matrix & GetMatrix::pivotColumnsNumber(const Matrix &matrix)

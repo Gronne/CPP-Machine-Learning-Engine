@@ -70,7 +70,7 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	std::vector<int> columns;
 	for (int col = matrix.getNumberOfColumns(); col < resultMatrix->getNumberOfColumns(); col++)
 		columns.push_back(col);
-	resultMatrix->setMatrix(&resultMatrix->getColumns(columns));
+	resultMatrix->setMatrix(&resultMatrix->getColumn(columns));
 	return *resultMatrix;
 }
 

@@ -17,17 +17,18 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrixA = new Matrix(2, 3);
-	*matrixA = { -1, 2, -3,
-				 4, -5, 6 };
+	Matrix *matrixA = new Matrix(2, 4);
+	*matrixA = { 1, 2, 3, 4,
+				4, 5, 6, 7 };
 
-	Matrix *matrixB = new Matrix(2, 3);
-	*matrixB = { -0.9999, 2, -3,
-				 4, -5, 6 };
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { 0, 2, 3 };
+
 
 	try
 	{
-		std::cout << TM.isEqual(*matrixA, *matrixB, 1) << std::endl;
+		matrixA->deleteColumn(*rows);
+		std::cout << *matrixA;
 	}
 	catch (const std::exception ex)
 	{
@@ -36,7 +37,6 @@ int main(int argc, char ** argv) {
 	
 
 	delete matrixA;
-	delete matrixB;
 
 	exit(0);
 }

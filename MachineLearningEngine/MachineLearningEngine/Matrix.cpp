@@ -46,7 +46,7 @@ Matrix& Matrix::getRow(int row) const
 }
 
 
-Matrix& Matrix::getRows(std::vector<int> rows) const 
+Matrix& Matrix::getRow(std::vector<int> rows) const 
 {
 	for (size_t row : rows)
 		checkForInvalidRowOrColumn(row, 0);
@@ -60,7 +60,7 @@ Matrix& Matrix::getRows(std::vector<int> rows) const
 	return *resultMatrix;
 }
 
-Matrix & Matrix::getRows(const Matrix &matrix) const
+Matrix & Matrix::getRow(const Matrix &matrix) const
 {
 	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
@@ -73,7 +73,7 @@ Matrix & Matrix::getRows(const Matrix &matrix) const
 	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
 		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
 
-	return getRows(vec);
+	return getRow(vec);
 }
 
 void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
@@ -102,7 +102,7 @@ Matrix& Matrix::getColumn(int column) const
 }
 
 
-Matrix& Matrix::getColumns(std::vector<int> columns) const 
+Matrix& Matrix::getColumn(std::vector<int> columns) const 
 {
 	for (size_t column : columns)
 		checkForInvalidRowOrColumn(0, column);
@@ -116,7 +116,7 @@ Matrix& Matrix::getColumns(std::vector<int> columns) const
 	return *resultMatrix;
 }
 
-Matrix & Matrix::getColumns(const Matrix &matrix) const
+Matrix & Matrix::getColumn(const Matrix &matrix) const
 {
 	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
@@ -129,7 +129,7 @@ Matrix & Matrix::getColumns(const Matrix &matrix) const
 	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
 		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
 
-	return getColumns(vec);
+	return getColumn(vec);
 }
 
 
@@ -206,10 +206,35 @@ void Matrix::deleteRow(int row)
 	delete matrix;
 }
 
+void Matrix::deleteRow(std::vector<int> rows)
+{
+	for (size_t index = 0; index < rows.size(); index++)
+		if (rows[(rows.size() - 1) - index] < 0 || rows[(rows.size() - 1) - index] >= getNumberOfRows())
+			throw std::exception("Can't delete a rows, that doesn't exist");
+
+	for (size_t index = 0; index < rows.size(); index++)
+		deleteRow(rows[(rows.size() - 1) - index]);
+}
+
+void Matrix::deleteRow(const Matrix &rows)
+{
+	if (rows.getNumberOfColumns() != 1 && rows.getNumberOfRows() != 1)
+		throw std::exception("Matrix needs to be a vector, when deleting");
+
+	for (size_t col = 0; col < rows.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < rows.getNumberOfRows(); row++)
+			if (rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col) < 0 || rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col) >= getNumberOfRows())
+				throw std::exception("Can't delete a row, that doesn't exist");
+
+	for (size_t col = 0; col < rows.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < rows.getNumberOfRows(); row++)
+			deleteRow(rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col));
+}
+
 void Matrix::deleteColumn(int col)
 {
 	if (col < 0 || col >= getNumberOfColumns())
-		throw std::exception("Can't delete an row that doesn't exist");
+		throw std::exception("Can't delete an column that doesn't exist");
 
 	Matrix *matrix = new Matrix(getNumberOfRows(), getNumberOfColumns()-1);
 	for (size_t internalRow = 0; internalRow < getNumberOfRows(); internalRow++)
@@ -219,6 +244,31 @@ void Matrix::deleteColumn(int col)
 
 	setMatrix(matrix);
 	delete matrix;
+}
+
+void Matrix::deleteColumn(std::vector<int> columnVec)
+{
+	for (size_t index = 0; index < columnVec.size(); index++)
+		if (columnVec[(columnVec.size()-1)-index] < 0 || columnVec[(columnVec.size() - 1) - index] >= getNumberOfColumns())
+			throw std::exception("Can't delete a columns, that doesn't exist");
+
+	for (size_t index = 0; index < columnVec.size(); index++)
+		deleteColumn(columnVec[(columnVec.size() - 1) - index]);
+}
+
+void Matrix::deleteColumn(const Matrix &columnMat)
+{
+	if (columnMat.getNumberOfColumns() != 1 && columnMat.getNumberOfRows() != 1)
+		throw std::exception("Matrix needs to be a vector, when deleting");
+
+	for (size_t col = 0; col < columnMat.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < columnMat.getNumberOfRows(); row++)
+			if (columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns()-1)-col) < 0 || columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns() - 1) - col) >= getNumberOfColumns())
+				throw std::exception("Can't delete a column, that doesn't exist");
+
+	for (size_t col = 0; col < columnMat.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < columnMat.getNumberOfRows(); row++)
+			deleteColumn(columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns() - 1) - col));
 }
 
 

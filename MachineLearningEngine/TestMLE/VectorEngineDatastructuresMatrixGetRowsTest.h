@@ -8,7 +8,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsExceptionOneMinus)
 				4, 5, 6 };
 
 	std::vector<int> rowVector = { -1, 1 };
-	EXPECT_THROW(matrix->getRows(rowVector), std::exception);
+	EXPECT_THROW(matrix->getRow(rowVector), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsExceptionTwoMinus)
@@ -18,7 +18,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsExceptionTwoMinus)
 				4, 5, 6 };
 
 	std::vector<int> rowVector = { -1, -2 };
-	EXPECT_THROW(matrix->getRows(rowVector), std::exception);
+	EXPECT_THROW(matrix->getRow(rowVector), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualNoException)
@@ -32,8 +32,8 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualNoException)
 				4, 5, 6 };
 
 	std::vector<int> rowVector = { 0, 1 };
-	EXPECT_NO_THROW(matrix->getRows(rowVector));
-	EXPECT_TRUE(*result == matrix->getRows(rowVector));
+	EXPECT_NO_THROW(matrix->getRow(rowVector));
+	EXPECT_TRUE(*result == matrix->getRow(rowVector));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualExceptionToLargeIndexOne)
@@ -41,7 +41,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualExceptionToLargeIndexOne
 	Matrix *matrix = new Matrix(2, 3);
 
 	std::vector<int> rowVector = { 2, 1 };
-	EXPECT_THROW(matrix->getRows(rowVector), std::exception);
+	EXPECT_THROW(matrix->getRow(rowVector), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualExceptionToLargeIndexTwo)
@@ -49,7 +49,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualExceptionToLargeIndexTwo
 	Matrix *matrix = new Matrix(2, 3);
 
 	std::vector<int> rowVector = { 2, 3 };
-	EXPECT_THROW(matrix->getRows(rowVector), std::exception);
+	EXPECT_THROW(matrix->getRow(rowVector), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualNoExceptionEmptyGet)
@@ -58,7 +58,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualNoExceptionEmptyGet)
 	Matrix *result = new Matrix();
 
 	std::vector<int> rowVector = { 0, 1 };
-	EXPECT_NO_THROW(*result = matrix->getRows(rowVector));
+	EXPECT_NO_THROW(*result = matrix->getRow(rowVector));
 	EXPECT_EQ(matrix->getEntry(0, 0), result->getEntry(0, 0));
 	EXPECT_EQ(matrix->getEntry(0, 1), result->getEntry(0, 1));
 	EXPECT_EQ(matrix->getEntry(0, 2), result->getEntry(0, 2));
@@ -74,8 +74,8 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoExceptionEmptyGet)
 
 	std::vector<int> rowVector = { 0, 1 };
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRows(rowVector)));
-	EXPECT_TRUE(*result == matrix->getRows(rowVector));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(rowVector)));
+	EXPECT_TRUE(*result == matrix->getRow(rowVector));
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoException)
@@ -90,8 +90,8 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoException)
 
 	std::vector<int> rowVector = { 0, 1 };
 
-	EXPECT_NO_THROW(result->setMatrix(&matrix->getRows(rowVector)));
-	EXPECT_TRUE(*result == matrix->getRows(rowVector));
+	EXPECT_NO_THROW(result->setMatrix(&matrix->getRow(rowVector)));
+	EXPECT_TRUE(*result == matrix->getRow(rowVector));
 }
 
 //---------------Matrix----------------
@@ -106,12 +106,12 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixExceptionOneMinus)
 	Matrix *vec = new Matrix(1, 2);
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(0, 1,  1);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(1, 0, 1);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixExceptionTwoMinus)
@@ -123,12 +123,12 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixExceptionTwoMinus)
 	Matrix *vec = new Matrix(1, 2);
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(0, 1, -2);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(1, 0, -2);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualNoException)
@@ -140,13 +140,13 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualNoException)
 	Matrix *vec = new Matrix(1, 2);
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(0, 1, 1);
-	EXPECT_NO_THROW(*vec = matrix->getRows(*vec));
+	EXPECT_NO_THROW(*vec = matrix->getRow(*vec));
 	EXPECT_TRUE(*vec == *matrix);
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(1, 0, 1);
-	EXPECT_NO_THROW(*vec = matrix->getRows(*vec));
+	EXPECT_NO_THROW(*vec = matrix->getRow(*vec));
 	EXPECT_TRUE(*vec == *matrix);
 }
 
@@ -159,12 +159,12 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualExceptionToLargeIn
 	Matrix *vec = new Matrix(1, 2);
 	vec->setEntry(0, 0, 2);
 	vec->setEntry(0, 1, 1);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, 2);
 	vec->setEntry(1, 0, 1);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualExceptionToLargeIndexTwo)
@@ -176,12 +176,12 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualExceptionToLargeIn
 	Matrix *vec = new Matrix(1, 2);
 	vec->setEntry(0, 0, 2);
 	vec->setEntry(0, 1, 3);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, 2);
 	vec->setEntry(1, 0, 3);
-	EXPECT_THROW(matrix->getRows(*vec), std::exception);
+	EXPECT_THROW(matrix->getRow(*vec), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualNoExceptionEmptyGet)
@@ -193,7 +193,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualNoExceptionEmptyGe
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(0, 1, 1);
 
-	EXPECT_NO_THROW(*result = matrix->getRows(*vec));
+	EXPECT_NO_THROW(*result = matrix->getRow(*vec));
 	EXPECT_TRUE(*result == *matrix);
 
 
@@ -201,7 +201,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrixEqualNoExceptionEmptyGe
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(1, 0, 1);
 
-	EXPECT_NO_THROW(*result = matrix->getRows(*vec));
+	EXPECT_NO_THROW(*result = matrix->getRow(*vec));
 	EXPECT_TRUE(*result == *matrix);
 }
 
@@ -222,14 +222,14 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrix5x5M3P)
 			 2, 4, 6, 7, 2,
 			 4, 4, 4, 1, 7 };
 
-	EXPECT_NO_THROW(matrix->getRows(*vec));
-	EXPECT_TRUE(*buf == matrix->getRows(*vec));
+	EXPECT_NO_THROW(matrix->getRow(*vec));
+	EXPECT_TRUE(*buf == matrix->getRow(*vec));
 
 
 	vec->setMatrixSize(3, 1);
 	*vec = { 0, 2, 4 };
-	EXPECT_NO_THROW(matrix->getRows(*vec));
-	EXPECT_TRUE(*buf == matrix->getRows(*vec));
+	EXPECT_NO_THROW(matrix->getRow(*vec));
+	EXPECT_TRUE(*buf == matrix->getRow(*vec));
 }
 
 

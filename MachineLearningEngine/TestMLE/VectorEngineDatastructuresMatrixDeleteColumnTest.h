@@ -1,7 +1,7 @@
 #pragma once
 #include "VectorEngineDatastructureHeader.h"
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHolePositive)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 1, 2, 3, 
@@ -19,7 +19,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHolePositive)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleNegative)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSHoleNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1, -2, -3,
@@ -37,7 +37,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleNegative)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleMixed)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSHoleMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1,  2, -3,
@@ -55,7 +55,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleMixed)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoublePositive)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSDoublePositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 1.5, 2.5, 3.5,
@@ -73,7 +73,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoublePositive)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleNegative)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSDoubleNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1.5, -2.5, -3.5,
@@ -91,7 +91,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleNegative)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleMixed)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSDoubleMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1.5,  2.5, -3.5,
@@ -109,7 +109,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleMixed)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedPositive)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSMixedPositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 1.5, 2,   3.5,
@@ -127,7 +127,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedPositive)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedNegative)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSMixedNegative)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1.5, -2,   -3.5,
@@ -145,7 +145,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedNegative)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedMixed)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSMixedMixed)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { -1.5,  2,    3.5,
@@ -165,7 +165,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnMixedMixed)
 
 //-------
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleZero)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSHoleZero)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 0, 0, 0, 
@@ -183,7 +183,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnHoleZero)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDecimalZero)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSDecimalZero)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 0.0, 0.0, 0.0,
@@ -203,7 +203,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDecimalZero)
 
 //------------
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleDelete)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSDoubleDelete)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 1, 2, 3, 
@@ -220,7 +220,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnDoubleDelete)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnTripleDelete)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSTripleDelete)
 {
 	Matrix *matrix = new Matrix(3, 4);
 	*matrix = { 1, 2, 3, 4,
@@ -240,21 +240,21 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnTripleDelete)
 
 //-------------
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnException1)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSException1)
 {
 	Matrix *matrix = new Matrix(3, 3);
 
 	EXPECT_THROW(matrix->deleteColumn(-1), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnException2)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSException2)
 {
 	Matrix *matrix = new Matrix(3, 3);
 
 	EXPECT_THROW(matrix->deleteColumn(matrix->getNumberOfColumns()), std::exception);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnExceptionDeleteMatrix)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCSExceptionDeleteMatrix)
 {
 	Matrix *matrix = new Matrix(3, 1);
 
@@ -263,7 +263,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumnExceptionDeleteMatr
 
 //-----------
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn2x3)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCS2x3)
 {
 	Matrix *matrix = new Matrix(2, 3);
 	*matrix = { 1, 2, 3,
@@ -279,7 +279,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn2x3)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn3x2)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCS3x2)
 {
 	Matrix *matrix = new Matrix(3, 2);
 	*matrix = { 1, 2, 
@@ -295,7 +295,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn3x2)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn2x4)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCS2x4)
 {
 	Matrix *matrix = new Matrix(2, 4);
 	*matrix = { 1, 2, 3, 4, 
@@ -311,7 +311,7 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn2x4)
 	EXPECT_TRUE(*result == *matrix);
 }
 
-TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn4x2)
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCS4x2)
 {
 	Matrix *matrix = new Matrix(4, 2);
 	*matrix = { 1, 2,
@@ -327,3 +327,358 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, deleteColumn4x2)
 	EXPECT_EQ(result->getNumberOfColumns(), matrix->getNumberOfColumns());
 	EXPECT_TRUE(*result == *matrix);
 }
+
+//-----------Delete with vectors--------------
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_1)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3, 
+				4, 5, 6 };
+
+	Matrix *result = new Matrix(2, 2);
+	*result = { 1, 3, 
+				4, 6 };
+
+	std::vector<int> rows = { 1 };
+
+	EXPECT_NO_THROW(matrix->deleteColumn(rows));
+	EXPECT_EQ(2, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_2)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 1);
+	result->setEntry(1, 0, 4);
+
+	std::vector<int> rows = { 1, 2 };
+
+	EXPECT_NO_THROW(matrix->deleteColumn(rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_3)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	*matrix = { 1, 2, 3, 4,
+				5, 6, 7, 8 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 2);
+	result->setEntry(1, 0, 6);
+
+	std::vector<int> rows = { 0, 2, 3 };
+
+	EXPECT_NO_THROW(matrix->deleteColumn(rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+//----exception----
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception1)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { 4 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception2)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { -1 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception3)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { -1, 0, 1 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception4)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { 0, 1, 4 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception5)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { 4, 0, 1 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCV_Exception6)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	std::vector<int> rows = { 0, 1, -1 };
+
+	EXPECT_THROW(matrix->deleteColumn(rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+
+
+
+//-----------Delete with matrixs--------------
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_1)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
+
+	Matrix *result = new Matrix(2, 2);
+	*result = { 1, 3,
+				4, 6 };
+
+	Matrix *rows = new Matrix();
+	rows->setEntry(0, 0, 1);
+
+	EXPECT_NO_THROW(matrix->deleteColumn(*rows));
+	EXPECT_EQ(2, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_2_r)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 1);
+	result->setEntry(1, 0, 4);
+
+	Matrix *rows = new Matrix(2, 1);
+	rows->setEntry(0, 0, 1);
+	rows->setEntry(1, 0, 2);
+
+	EXPECT_NO_THROW(matrix->deleteColumn(*rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_2_c)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { 1, 2, 3,
+				4, 5, 6 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 1);
+	result->setEntry(1, 0, 4);
+
+	Matrix *rows = new Matrix(1, 2);
+	rows->setEntry(0, 0, 1);
+	rows->setEntry(0, 1, 2);
+
+	EXPECT_NO_THROW(matrix->deleteColumn(*rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_3_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	*matrix = { 1, 2, 3, 4,
+				5, 6, 7, 8 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 2);
+	result->setEntry(1, 0, 6);
+
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { 0, 2, 3 };
+
+	EXPECT_NO_THROW(matrix->deleteColumn(*rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_3_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+	*matrix = { 1, 2, 3, 4,
+				5, 6, 7, 8 };
+
+	Matrix *result = new Matrix(2, 1);
+	result->setEntry(0, 0, 2);
+	result->setEntry(1, 0, 6);
+
+	Matrix *rows = new Matrix(1, 3);
+	*rows = { 0, 2, 3 };
+
+	EXPECT_NO_THROW(matrix->deleteColumn(*rows));
+	EXPECT_EQ(1, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_TRUE(*result == *matrix);
+}
+
+//----exception----
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception1)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix();
+	rows->setEntry(0, 0, 4);
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception2)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix();
+	rows->setEntry(0, 0, -1);
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { 1, 2, 4 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(1, 3);
+	*rows = { 1, 2, 4 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { -1, 1, 2 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(1, 3);
+	*rows = { -1, 1, 2 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { 1, 2, -1 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(1, 3);
+	*rows = { 1, 2, -1 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(3, 1);
+	*rows = { 4, 2, 3 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(1, 3);
+	*rows = { 4, 2, 3 };
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception7_r)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(3, 2);
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception7_c)
+{
+	Matrix *matrix = new Matrix(2, 4);
+
+	Matrix *rows = new Matrix(2, 3);
+
+	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
+	EXPECT_EQ(4, matrix->getNumberOfColumns());
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+}
+
+
+
