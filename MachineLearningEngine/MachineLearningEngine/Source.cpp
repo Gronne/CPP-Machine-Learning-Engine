@@ -17,10 +17,11 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(3, 4);
-	*matrix = { 1.5, -2.5, 3.5, -4.5,
-				3.5, -1.5, 5.5, -6.5,
-				5.5, -1.5, 6.5, -2.5 };
+	Matrix *matrix = new Matrix(4, 5);
+	*matrix = { 1, 2, 3, 4, 5,
+				3, 1, 5, 6, 2,
+				5, 1, 6, 2, 2,
+				5, 1, 6, 2, 3 };
 
 	Matrix *result = new Matrix(3, 4);
 	*result = { 1, 0, 0,  4.14285,
@@ -30,8 +31,8 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		std::cout << BMO.getEchelonForm(*matrix) << std::endl;
-		TM.isEqual(BMO.getEchelonForm(*matrix), *result, 0.0001);
+		BMO.rowReduce(*matrix);
+		std::cout << *matrix << std::endl;
 	}
 	catch (const std::exception ex)
 	{
