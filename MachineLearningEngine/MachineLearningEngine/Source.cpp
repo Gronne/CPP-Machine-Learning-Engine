@@ -17,19 +17,21 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrixA = new Matrix(2, 4);
-	*matrixA = { 1, 2, 3, 4,
-				4, 5, 6, 7 };
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 1.5, -2.5, 3.5, -4.5,
+				3.5, -1.5, 5.5, -6.5,
+				5.5, -1.5, 6.5, -2.5 };
 
-	Matrix *rows = new Matrix(3, 1);
-	*rows = { 0, 2, 3 };
-
+	Matrix *result = new Matrix(3, 4);
+	*result = { 1, 0, 0,  4.14285,
+				0, 1, 0, -1.71428,
+				0, 0, 1, -4.285714 };
 
 
 	try
 	{
-		matrixA->deleteColumn(*rows);
-		std::cout << *matrixA;
+		std::cout << BMO.getEchelonForm(*matrix) << std::endl;
+		TM.isEqual(BMO.getEchelonForm(*matrix), *result, 0.0001);
 	}
 	catch (const std::exception ex)
 	{
@@ -37,8 +39,7 @@ int main(int argc, char ** argv) {
 	}
 	
 
-	delete matrixA;
-
+	delete matrix;
 
 	exit(0);
 }

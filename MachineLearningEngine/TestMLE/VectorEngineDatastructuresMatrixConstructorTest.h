@@ -12,6 +12,13 @@ TEST(VectorEngineDatastructurMatrixConstructor, constructionNoNullPtrNoParameter
 	EXPECT_NE(nullptr, matrix);
 }
 
+TEST(VectorEngineDatastructurMatrixConstructor, constructorStack)
+{
+	EXPECT_NO_THROW(Matrix matrixA);
+	EXPECT_NO_THROW(Matrix matrixB(1, 2));
+}
+
+
 TEST(VectorEngineDatastructurMatrixConstructor, constructionNoExceptionParameters)
 {
 	EXPECT_NO_THROW(new Matrix(1, 1));
