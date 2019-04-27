@@ -59,12 +59,7 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsEqualNoExceptionEmptyGet)
 
 	std::vector<int> rowVector = { 0, 1 };
 	EXPECT_NO_THROW(*result = matrix->getRow(rowVector));
-	EXPECT_EQ(matrix->getEntry(0, 0), result->getEntry(0, 0));
-	EXPECT_EQ(matrix->getEntry(0, 1), result->getEntry(0, 1));
-	EXPECT_EQ(matrix->getEntry(0, 2), result->getEntry(0, 2));
-	EXPECT_EQ(matrix->getEntry(1, 0), result->getEntry(1, 0));
-	EXPECT_EQ(matrix->getEntry(1, 1), result->getEntry(1, 1));
-	EXPECT_EQ(matrix->getEntry(1, 2), result->getEntry(1, 2));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixGetRows, getRowsSetNoExceptionEmptyGet)
@@ -231,5 +226,3 @@ TEST(VectorEngineDatastructurMatrixGetRows, getRowsMatrix5x5M3P)
 	EXPECT_NO_THROW(matrix->getRow(*vec));
 	EXPECT_TRUE(*buf == matrix->getRow(*vec));
 }
-
-

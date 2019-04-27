@@ -545,7 +545,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_3_c)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception1)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix();
 	rows->setEntry(0, 0, 4);
 
@@ -555,7 +554,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception1)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception2)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix();
 	rows->setEntry(0, 0, -1);
 
@@ -565,7 +563,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception2)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_r)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(3, 1);
 	*rows = { 1, 2, 4 };
 
@@ -577,7 +574,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_r)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_c)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(1, 3);
 	*rows = { 1, 2, 4 };
 
@@ -589,7 +585,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception3_c)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_r)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(3, 1);
 	*rows = { -1, 1, 2 };
 
@@ -601,7 +596,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_r)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_c)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(1, 3);
 	*rows = { -1, 1, 2 };
 
@@ -613,7 +607,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception4_c)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_r)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(3, 1);
 	*rows = { 1, 2, -1 };
 
@@ -625,7 +618,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_r)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_c)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(1, 3);
 	*rows = { 1, 2, -1 };
 
@@ -637,7 +629,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception5_c)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_r)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(3, 1);
 	*rows = { 4, 2, 3 };
 
@@ -649,7 +640,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_r)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_c)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(1, 3);
 	*rows = { 4, 2, 3 };
 
@@ -661,7 +651,6 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception6_c)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception7_r)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(3, 2);
 
 	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
@@ -672,13 +661,9 @@ TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception7_r)
 TEST(VectorEngineDatastructurMatrixDeleteColumn, DCM_Exception7_c)
 {
 	Matrix *matrix = new Matrix(2, 4);
-
 	Matrix *rows = new Matrix(2, 3);
 
 	EXPECT_THROW(matrix->deleteColumn(*rows), std::exception);
 	EXPECT_EQ(4, matrix->getNumberOfColumns());
 	EXPECT_EQ(2, matrix->getNumberOfRows());
 }
-
-
-

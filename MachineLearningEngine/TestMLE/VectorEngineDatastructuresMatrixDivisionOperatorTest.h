@@ -39,13 +39,9 @@ TEST(VectorEngineDatastructurMatrixDivisionOperator, divisionOperatorValueDecima
 	*result = { 0.4, 0.8, 1.2, 
 				1.6, 2.0, 2.4 };
 
+	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix / 2.5);
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 0), (*matrix / 2.5).getEntry(0, 0));
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 1), (*matrix / 2.5).getEntry(0, 1));
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 2), (*matrix / 2.5).getEntry(0, 2));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 0), (*matrix / 2.5).getEntry(1, 0));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 1), (*matrix / 2.5).getEntry(1, 1));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 2), (*matrix / 2.5).getEntry(1, 2));
+	EXPECT_TRUE(TM.isEqual(*result, *matrix / 2.5, 0.001));
 }
 
 TEST(VectorEngineDatastructurMatrixDivisionOperator, divisionOperatorValueDecimalNegative)
@@ -58,13 +54,9 @@ TEST(VectorEngineDatastructurMatrixDivisionOperator, divisionOperatorValueDecima
 	*result = { -0.4, -0.8, -1.2,
 				-1.6, -2.0, -2.4 };
 
+	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix / -2.5);
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 0), (*matrix / -2.5).getEntry(0, 0));
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 1), (*matrix / -2.5).getEntry(0, 1));
-	EXPECT_DOUBLE_EQ(result->getEntry(0, 2), (*matrix / -2.5).getEntry(0, 2));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 0), (*matrix / -2.5).getEntry(1, 0));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 1), (*matrix / -2.5).getEntry(1, 1));
-	EXPECT_DOUBLE_EQ(result->getEntry(1, 2), (*matrix / -2.5).getEntry(1, 2));
+	EXPECT_TRUE(TM.isEqual(*result, *matrix / -2.5, 0.001));
 }
 
 TEST(VectorEngineDatastructurMatrixDivisionOperator, divisionOperatorValueZero)

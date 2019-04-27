@@ -564,7 +564,7 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm2x3)
 
 	TypeMatrix TM;
 	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*result = BMO.getEchelonForm(*matrix));
+	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
 	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
 }
 
@@ -631,8 +631,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x5)
 	Matrix *result = new Matrix(4, 5);
 	*result = { 1, 0, 0, -4,  0,
 				0, 1, 0, -2,  0,
-				0, 1, 0,  4,  0, 
-				0, 0, 1,  0, -1.8 };
+				0, 0, 1,  4,  0, 
+				0, 0, 0,  0, -1.8 };
 
 	TypeMatrix TM;
 	BasicMatrixOperations BMO;

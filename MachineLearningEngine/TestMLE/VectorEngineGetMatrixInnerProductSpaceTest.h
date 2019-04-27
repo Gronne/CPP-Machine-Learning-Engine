@@ -203,6 +203,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedMixedColumn)
 	*matrix = { -1.5, -3,
 				2,    -2.5,
 				3.5,   1 };
+
 	GetMatrix GM;
 	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
 	EXPECT_NEAR(1.3969, GM.innerProductSpace(*matrix), 0.0001);

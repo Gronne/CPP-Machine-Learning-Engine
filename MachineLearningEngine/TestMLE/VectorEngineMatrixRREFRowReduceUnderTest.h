@@ -61,22 +61,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderDecimalPositive)
 				3.5, 1.5, 5.5, 6.5,
 				5.5, 1.5, 6.5, 2.5 };
 
-	MatrixRREF RREF; 
-	Matrix *result = new Matrix();
+	Matrix *result = new Matrix(3, 4);
+	*result = { 1.5,  2.5,      3.5,      4.5,
+				0,   -4.33333, -2.66666, -4,
+				0,    0,       -1.61538, -6.92307 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(1.5, result->getEntry(0, 0));
-	EXPECT_EQ(2.5, result->getEntry(0, 1));
-	EXPECT_EQ(3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(-4.33333, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(-2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(-1.615385, result->getEntry(2, 2), 0.0001);
-	EXPECT_EQ(4.5, result->getEntry(0, 3));
-	EXPECT_EQ(-4, result->getEntry(1, 3));
-	EXPECT_NEAR(-6.923077, result->getEntry(2, 3), 0.0001);
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderDecimalNegative)
@@ -86,22 +79,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderDecimalNegative)
 				-3.5, -1.5, -5.5, -6.5,
 				-5.5, -1.5, -6.5, -2.5 };
 
-	MatrixRREF RREF; 
-	Matrix *result = new Matrix();
+	Matrix *result = new Matrix(3, 4);
+	*result = { -1.5, -2.5,     -3.5,     -4.5,
+				 0,    4.33333,  2.66666,  4,
+				 0,    0,        1.61538,  6.92307 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(-1.5, result->getEntry(0, 0));
-	EXPECT_EQ(-2.5, result->getEntry(0, 1));
-	EXPECT_EQ(-3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(4.33333, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(1.615385, result->getEntry(2, 2), 0.0001);
-	EXPECT_EQ(-4.5, result->getEntry(0, 3));
-	EXPECT_EQ(4, result->getEntry(1, 3));
-	EXPECT_NEAR(6.923077, result->getEntry(2, 3), 0.0001);
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderDecimalMixed)
@@ -111,20 +97,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderDecimalMixed)
 				3.5, -1.5, 5.5, -6.5,
 				5.5, -1.5, 6.5, -2.5 };
 
-	MatrixRREF RREF; Matrix *result = new Matrix();
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(1.5, result->getEntry(0, 0));
-	EXPECT_EQ(-2.5, result->getEntry(0, 1));
-	EXPECT_EQ(3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(4.33333, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(-2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(-1.615385, result->getEntry(2, 2), 0.0001);
-	EXPECT_EQ(-4.5, result->getEntry(0, 3));
-	EXPECT_EQ(4, result->getEntry(1, 3));
-	EXPECT_NEAR(6.923077, result->getEntry(2, 3), 0.0001);
+	Matrix *result = new Matrix(3, 4);
+	*result = { 1.5, -2.5,      3.5,     -4.5,
+				0,    4.33333, -2.66666,  4,
+				0,    0,       -1.61538,  6.92307 };
+
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedPositive)
@@ -134,22 +115,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedPositive)
 				3.5, 1, 5.5, 6,
 				5.5, 1, 6.5, 2 };
 
-	MatrixRREF RREF; 
-	Matrix *result = new Matrix();
+	Matrix *result = new Matrix(3, 4);
+	*result = { 1.5,  2,        3.5,      4,
+				0,   -3.66666, -2.66666, -3.33333,
+				0,    0,       -1.72727, -6.90909 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(1.5, result->getEntry(0, 0));
-	EXPECT_EQ(2, result->getEntry(0, 1));
-	EXPECT_EQ(3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(-3.66666, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(-2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(-1.72727, result->getEntry(2, 2), 0.001);
-	EXPECT_EQ(4, result->getEntry(0, 3));
-	EXPECT_NEAR(-3.33333, result->getEntry(1, 3), 0.0001);
-	EXPECT_NEAR(-6.90909, result->getEntry(2, 3), 0.0001);
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedNegative)
@@ -159,22 +133,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedNegative)
 				-3.5, -1, -5.5, -6,
 				-5.5, -1, -6.5, -2 };
 
-	MatrixRREF RREF; 
-	Matrix *result = new Matrix();
+	Matrix *result = new Matrix(3, 4);
+	*result = { -1.5, -2,       -3.5,     -4,
+				 0,    3.66666,  2.66666,  3.33333,
+				 0,    0,        1.72727,  6.90909 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(-1.5, result->getEntry(0, 0));
-	EXPECT_EQ(-2, result->getEntry(0, 1));
-	EXPECT_EQ(-3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(3.66666, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(1.72727, result->getEntry(2, 2), 0.001);
-	EXPECT_EQ(-4, result->getEntry(0, 3));
-	EXPECT_NEAR(3.33333, result->getEntry(1, 3), 0.0001);
-	EXPECT_NEAR(6.90909, result->getEntry(2, 3), 0.0001);
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedMixed)
@@ -184,20 +151,15 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderMixedMixed)
 				 3.5,  1, -5.5,  6,
 				 5.5, -1,  6.5,  2 };
 
-	MatrixRREF RREF; Matrix *result = new Matrix();
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(-1.5, result->getEntry(0, 0));
-	EXPECT_EQ(2, result->getEntry(0, 1));
-	EXPECT_EQ(3.5, result->getEntry(0, 2));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_NEAR(5.66666, result->getEntry(1, 1), 0.0001);
-	EXPECT_NEAR(2.66666, result->getEntry(1, 2), 0.0001);
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_NEAR(16.35294, result->getEntry(2, 2), 0.0001);
-	EXPECT_EQ(-4, result->getEntry(0, 3));
-	EXPECT_NEAR(-3.33333, result->getEntry(1, 3), 0.0001);
-	EXPECT_NEAR(-8.941176, result->getEntry(2, 3), 0.0001);
+	Matrix *result = new Matrix(3, 4);
+	*result = { -1.5, 2,        3.5,     -4,
+				 0,   5.66666,  2.66666, -3.33333,
+				 0,   0,       16.35294, -8.94117 };
+
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 //-----------Different dimensions------------
@@ -347,30 +309,16 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder4x5)
 				5, 1, 6, 2, 2, 
 				5, 1, 6, 2, 3 };
 
-	MatrixRREF RREF; 
 	Matrix *result = new Matrix(4, 5);
+	*result = { 1,  2,  3,    4,     5,
+				0, -5, -4,   -6,   -13,
+				0,  0, -1.8, -7.2,   0.4,
+				0,  0,  0,    0,    -1.79999 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(1, result->getEntry(0, 0));
-	EXPECT_EQ(2, result->getEntry(0, 1));
-	EXPECT_EQ(3, result->getEntry(0, 2));
-	EXPECT_EQ(4, result->getEntry(0, 3));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_EQ(-5, result->getEntry(1, 1));
-	EXPECT_EQ(-4, result->getEntry(1, 2));
-	EXPECT_EQ(-6, result->getEntry(1, 3));
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_EQ(-1.8, result->getEntry(2, 2));
-	EXPECT_EQ(-7.2, result->getEntry(2, 3));
-	EXPECT_EQ(0, result->getEntry(3, 0));
-	EXPECT_EQ(0, result->getEntry(3, 1));
-	EXPECT_EQ(0, result->getEntry(3, 2));
-	EXPECT_EQ(0, result->getEntry(3, 3));
-	EXPECT_EQ(5, result->getEntry(0, 4));
-	EXPECT_EQ(-13, result->getEntry(1, 4));
-	EXPECT_EQ(0.4, result->getEntry(2, 4));
-	EXPECT_NEAR(-1.79999, result->getEntry(3, 4), 0.0001);
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder5x6)
@@ -382,40 +330,17 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder5x6)
 				5, 1, 6, 2, 3, 3,
 				5, 6, 4, 2, 1, 5 };
 
-	MatrixRREF RREF; 
-	Matrix *result = new Matrix();
+	Matrix *result = new Matrix(5, 6);
+	*result = { 1,  2,  3,    4,     5,         6,
+				0, -5, -4,   -6,   -13,       -16,
+				0,  0, -1.8, -7.2,   0.4,       0.8,
+				0,  0,  0,   -18,   29.37333,  29.70666,
+				0,  0,  0,     0,   14.04,     14.04 };
 
-	EXPECT_NO_THROW(*result = RREF.rowReduceUnder(*matrix));
-	EXPECT_EQ(1, result->getEntry(0, 0));
-	EXPECT_EQ(2, result->getEntry(0, 1));
-	EXPECT_EQ(3, result->getEntry(0, 2));
-	EXPECT_EQ(4, result->getEntry(0, 3));
-	EXPECT_EQ(5, result->getEntry(0, 4));
-	EXPECT_EQ(6, result->getEntry(0, 5));
-	EXPECT_EQ(0, result->getEntry(1, 0));
-	EXPECT_EQ(-5, result->getEntry(1, 1));
-	EXPECT_EQ(-4, result->getEntry(1, 2));
-	EXPECT_EQ(-6, result->getEntry(1, 3));
-	EXPECT_EQ(-13, result->getEntry(1, 4));
-	EXPECT_EQ(-16, result->getEntry(1, 5));
-	EXPECT_EQ(0, result->getEntry(2, 0));
-	EXPECT_EQ(0, result->getEntry(2, 1));
-	EXPECT_EQ(-1.8, result->getEntry(2, 2));
-	EXPECT_EQ(-7.2, result->getEntry(2, 3));
-	EXPECT_EQ(0.4, result->getEntry(2, 4));
-	EXPECT_EQ(0.8, result->getEntry(2, 5));
-	EXPECT_EQ(0, result->getEntry(3, 0));
-	EXPECT_EQ(0, result->getEntry(3, 1));
-	EXPECT_EQ(0, result->getEntry(3, 2));
-	EXPECT_EQ(-18, result->getEntry(3, 3));
-	EXPECT_NEAR(29.37333, result->getEntry(3, 4), 0.0001);
-	EXPECT_NEAR(29.70666, result->getEntry(3, 5), 0.0001);
-	EXPECT_EQ(0, result->getEntry(4, 0));
-	EXPECT_EQ(0, result->getEntry(4, 1));
-	EXPECT_EQ(0, result->getEntry(4, 2));
-	EXPECT_EQ(0, result->getEntry(4, 3));
-	EXPECT_NEAR(14.04, result->getEntry(4, 4), 0.0001);
-	EXPECT_EQ(14.04, result->getEntry(4, 5));
+	TypeMatrix TM;
+	MatrixRREF RREF;
+	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnderSpecialCase)

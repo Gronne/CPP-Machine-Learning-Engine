@@ -668,14 +668,12 @@ TEST(VectorEngineDatastructurMatrixAppendMatrix, appendMatrixHolePositiveTranspo
 	Matrix *matrix2 = new Matrix(2, 2);
 	*matrix2 = { 2, 2, 
 				 2, 2 };
-	matrix2->transpose();
 
 	Matrix *result = new Matrix(2, 4);
 	*result = { 1, 1, 2, 2,
 				1, 1, 2, 2 };
 
-
-	EXPECT_NO_THROW(matrix->appendMatrix(*matrix2, 0));
+	EXPECT_NO_THROW(matrix->appendMatrix(matrix2->transpose(), 0));
 	EXPECT_EQ(result->getNumberOfColumns(), matrix->getNumberOfColumns());
 	EXPECT_EQ(result->getNumberOfRows(), matrix->getNumberOfRows());
 	EXPECT_TRUE(*result == *matrix);
@@ -690,7 +688,6 @@ TEST(VectorEngineDatastructurMatrixAppendMatrix, appendMatrixHolePositiveTranspo
 	Matrix *matrix2 = new Matrix(2, 2);
 	*matrix2 = { 2, 2,
 				 2, 2 };
-	matrix2->transpose();
 
 	Matrix *result = new Matrix(4, 2);
 	*result = { 1, 1, 
@@ -698,8 +695,7 @@ TEST(VectorEngineDatastructurMatrixAppendMatrix, appendMatrixHolePositiveTranspo
 				2, 2,
 				2, 2 };
 
-
-	EXPECT_NO_THROW(matrix->appendMatrix(*matrix2, 1));
+	EXPECT_NO_THROW(matrix->appendMatrix(matrix2->transpose(), 1));
 	EXPECT_EQ(result->getNumberOfColumns(), matrix->getNumberOfColumns());
 	EXPECT_EQ(result->getNumberOfRows(), matrix->getNumberOfRows());
 	EXPECT_TRUE(*result == *matrix);

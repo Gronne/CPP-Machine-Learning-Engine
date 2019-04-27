@@ -93,6 +93,7 @@ TEST(VectorEngineDatastructurMatrixGetColumns, getColumnsMatrixExceptionOneMinus
 				4, 5, 6 };
 
 	Matrix *vec = new Matrix(1, 2);
+
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(0, 1, 1);
 	EXPECT_THROW(matrix->getColumn(*vec), std::exception);
@@ -110,6 +111,7 @@ TEST(VectorEngineDatastructurMatrixGetColumns, getColumnsMatrixExceptionTwoMinus
 				4, 5, 6 };
 
 	Matrix *vec = new Matrix(1, 2);
+
 	vec->setEntry(0, 0, -1);
 	vec->setEntry(0, 1, -2);
 	EXPECT_THROW(matrix->getColumn(*vec), std::exception);
@@ -127,6 +129,7 @@ TEST(VectorEngineDatastructurMatrixGetColumns, getColumnsMatrixEqualNoException)
 				4, 5, 6 };
 
 	Matrix *vec = new Matrix(1, 2);
+
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(0, 1, 1);
 	EXPECT_NO_THROW(*vec = matrix->getColumn(*vec));
@@ -148,6 +151,7 @@ TEST(VectorEngineDatastructurMatrixGetColumns, getColumnsMatrixEqualExceptionToL
 				4, 5, 6 };
 
 	Matrix *vec = new Matrix(1, 2);
+
 	vec->setEntry(0, 0, 3);
 	vec->setEntry(0, 1, 1);
 	EXPECT_THROW(matrix->getColumn(*vec), std::exception);
@@ -165,6 +169,7 @@ TEST(VectorEngineDatastructurMatrixGetColumns, getColumnsMatrixEqualExceptionToL
 				4, 5, 6 };
 
 	Matrix *vec = new Matrix(1, 2);
+
 	vec->setEntry(0, 0, 3);
 	vec->setEntry(0, 1, 4);
 	EXPECT_THROW(matrix->getColumn(*vec), std::exception);

@@ -93,9 +93,7 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 				4, 5, 6 };
 
 	Matrix *tMatrix = new Matrix(2, 3);
-	*tMatrix = *matrix;
-	tMatrix->transpose();
-
+	*tMatrix = matrix->transpose(1);
 
 	Matrix *result = new Matrix(3, 3);
 	*result = { 17, 22, 27,
@@ -121,9 +119,7 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 				-4, -5, -6 };
 
 	Matrix *tMatrix = new Matrix(2, 3);
-	*tMatrix = *matrix;
-	tMatrix->transpose();
-
+	*tMatrix = matrix->transpose(1);
 
 	Matrix *result = new Matrix(3, 3);
 	*result = { 17, 22, 27,
@@ -149,9 +145,7 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 				4.5, 5.5, 6.5 };
 
 	Matrix *tMatrix = new Matrix(2, 3);
-	*tMatrix = *matrix;
-	tMatrix->transpose();
-
+	*tMatrix = matrix->transpose(1);
 
 	Matrix *result = new Matrix(3, 3);
 	*result = { 22.5, 28.5, 34.5,
@@ -177,9 +171,7 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 				-4.5, -5.5, -6.5 };
 
 	Matrix *tMatrix = new Matrix(2, 3);
-	*tMatrix = *matrix;
-	tMatrix->transpose();
-
+	*tMatrix = matrix->transpose(1);
 
 	Matrix *result = new Matrix(3, 3);
 	*result = { 22.5, 28.5, 34.5,
@@ -201,20 +193,15 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixTwoTimes)
 {
 	Matrix *matrix = new Matrix(2, 3);
-	*matrix = { 1, 2, 3, 
+	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	Matrix *result = new Matrix();
-	*result = *matrix;
-	result->transpose();
+	Matrix *result = new Matrix(2, 3);
+	*result = { 142, 188, 234,
+				340, 449, 558 };
 
-	EXPECT_NO_THROW(*matrix *= *result * *matrix);
-	EXPECT_EQ(142, matrix->getEntry(0, 0));
-	EXPECT_EQ(188, matrix->getEntry(0, 1));
-	EXPECT_EQ(234, matrix->getEntry(0, 2));
-	EXPECT_EQ(340, matrix->getEntry(1, 0));
-	EXPECT_EQ(449, matrix->getEntry(1, 1));
-	EXPECT_EQ(558, matrix->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= matrix->transpose(1) * *matrix);
+	EXPECT_TRUE(*result == *matrix);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixTwoTimes2)
@@ -223,17 +210,12 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	Matrix *result = new Matrix();
-	*result = *matrix;
-	result->transpose();
+	Matrix *result = new Matrix(2, 3);
+	*result = { 142, 188, 234,
+				340, 449, 558 };
 
-	EXPECT_NO_THROW(*matrix *= (*result * *matrix));
-	EXPECT_EQ(142, matrix->getEntry(0, 0));
-	EXPECT_EQ(188, matrix->getEntry(0, 1));
-	EXPECT_EQ(234, matrix->getEntry(0, 2));
-	EXPECT_EQ(340, matrix->getEntry(1, 0));
-	EXPECT_EQ(449, matrix->getEntry(1, 1));
-	EXPECT_EQ(558, matrix->getEntry(1, 2));
+	EXPECT_NO_THROW(*matrix *= (matrix->transpose(1) * *matrix));
+	EXPECT_TRUE(*result == *matrix);
 }
 
 
@@ -243,10 +225,7 @@ TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOp
 	Matrix *result = new Matrix(2, 3);
 
 	EXPECT_THROW(*matrix * *result, std::exception);
-
-	matrix->transpose();
-	result->transpose();
-	EXPECT_THROW(*matrix *= *result, std::exception);
+	EXPECT_THROW(matrix->transpose() *= result->transpose(), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationEqualOperator, multiplicationOperatorMatrixExceptionLarge)

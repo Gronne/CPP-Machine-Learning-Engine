@@ -17,22 +17,19 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(4, 5);
-	*matrix = { 1, 2, 3, 4, 5,
-				3, 1, 5, 6, 2,
-				5, 1, 6, 2, 2,
-				5, 1, 6, 2, 3 };
+	Matrix *matrix = new Matrix(2, 3);
+	*matrix = { -1.5, -2.5, -3.5,
+				-4.5, -5.5, -6.5 };
 
-	Matrix *result = new Matrix(3, 4);
-	*result = { 1, 0, 0,  4.14285,
-				0, 1, 0, -1.71428,
-				0, 0, 1, -4.285714 };
+	Matrix *matrix2 = new Matrix(3, 3);
+	*matrix2 = { 4.5, 5.5, 3.5,
+				 3.5, 2.5, 4.5,
+				 4.5, 2.5, 7.5 };
 
 
 	try
 	{
-		BMO.rowReduce(*matrix);
-		std::cout << *matrix << std::endl;
+		std::cout << SMO.multiplication(*matrix, matrix->transpose(1) * *matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
