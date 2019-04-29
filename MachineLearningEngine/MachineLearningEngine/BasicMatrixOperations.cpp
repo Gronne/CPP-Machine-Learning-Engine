@@ -49,29 +49,24 @@ void BasicMatrixOperations::echelonInverse(Matrix &matrix)
 
 Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Ned square matrix for inverse");
+	inverseExceptions(matrix);
+	
 	if (matrix.getNumberOfColumns() == 1)
 	{
 		Matrix *resultMatrix = new Matrix(1, 1);
 		resultMatrix->setEntry(0, 0, 1 / matrix.getEntry(0, 0));
 		return *resultMatrix;
 	}
-	if (rref.checkForFullDependentMatrix(matrix))
-		throw std::exception("When finding Inverse, the matrix can't be full dependent");
-
 
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
 	GetMatrix GM;
 	resultMatrix->appendMatrix(GM.getIdentityMatrix(matrix.getNumberOfRows()));
+
 	echelonForm(*resultMatrix);
-	std::vector<int> columns;
-	for (int col = matrix.getNumberOfColumns(); col < resultMatrix->getNumberOfColumns(); col++)
-		columns.push_back(col);
-	resultMatrix->setMatrix(resultMatrix->getColumn(columns));
-	return *resultMatrix;
+
+	return resultMatrix->getColumn(GM.numberSequence(matrix.getNumberOfColumns(), resultMatrix->getNumberOfColumns() - 1));
 }
 
 double BasicMatrixOperations::determinant(const Matrix &matrix)
@@ -140,5 +135,14 @@ Matrix & BasicMatrixOperations::getOrthonormal(const Matrix &)
 {
 	Matrix *matrix = new Matrix();
 	return *matrix;
+}
+
+void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
+{
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Ned square matrix for inverse");
+
+	if (rref.checkForFullDependentMatrix(matrix))
+		throw std::exception("When finding Inverse, the matrix can't be full dependent");
 }
 

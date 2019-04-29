@@ -7,6 +7,7 @@
 #include "VectorEngineGetMatrixGetZeroMatrixTest.h"
 #include "VectorEngineGetMatrixInnerProductSpaceTest.h"
 #include "VectorEngineGetMatrixNumberOfPivotsTest.h"
+#include "VectorEngineGetMatrixNumberSequenceTest.h"
 #include "VectorEngineGetMatrixPivotColumnsNumberTest.h"
 #include "VectorEngineGetMatrixPivotColumnsTest.h"
 #include "VectorEngineGetMatrixPivotRowsNumberTest.h"

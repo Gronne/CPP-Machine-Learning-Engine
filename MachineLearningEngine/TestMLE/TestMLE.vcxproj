@@ -84,6 +84,7 @@
     <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h" />
     <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixNumberOfPivotsTest.h" />
+    <ClInclude Include="VectorEngineGetMatrixNumberSequenceTest.h" />
     <ClInclude Include="VectorEngineGetMatrixPivotColumnsNumberTest.h" />
     <ClInclude Include="VectorEngineGetMatrixPivotColumnsTest.h" />
     <ClInclude Include="VectorEngineGetMatrixPivotRowsNumberTest.h" />

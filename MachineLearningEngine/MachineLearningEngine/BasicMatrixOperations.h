@@ -22,5 +22,7 @@ public:
 	Matrix& getOrthonormal(const Matrix&);
 
 private:
+	void inverseExceptions(const Matrix &matrix);
+
 	MatrixRREF rref;
 };

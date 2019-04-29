@@ -376,7 +376,7 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseExceptionNot
 }
 
 
-TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize1x1)
+TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize1x1_1)
 {
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
@@ -385,6 +385,17 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize1x1)
 	BasicMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.echelonInverse(*matrix));
 	EXPECT_EQ(1, matrix->getEntry(0, 0));
+}
+
+TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize1x1_2)
+{
+	Matrix *matrix = new Matrix(1, 1);
+	matrix->setEntry(0, 0, 5);
+
+	TypeMatrix TM;
+	BasicMatrixOperations SMO;
+	EXPECT_NO_THROW(SMO.echelonInverse(*matrix));
+	EXPECT_EQ(0.2, matrix->getEntry(0, 0));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize2x2)

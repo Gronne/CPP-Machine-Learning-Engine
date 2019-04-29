@@ -17,9 +17,10 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(2, 3);
-	*matrix = { -1.5, -2.5, -3.5,
-				-4.5, -5.5, -6.5 };
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { -1.5,  2.5, -3.5,
+				 4.5, -5.5,  6.5,
+				-7.5,  8.5, -1.5 };
 
 	Matrix *matrix2 = new Matrix(3, 3);
 	*matrix2 = { 4.5, 5.5, 3.5,
@@ -29,7 +30,7 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		std::cout << SMO.multiplication(*matrix, matrix->transpose(1) * *matrix) << std::endl;
+		std::cout << GM.numberSequence(1.1, 3.3, 1.1) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

@@ -349,6 +349,24 @@ Matrix & GetMatrix::getIdentityMatrix(int size) const
 	return getIdentityMatrix(size, size);
 }
 
+Matrix & GetMatrix::numberSequence(double from, double to, double stepSize) const
+{
+	if (stepSize <= 0)
+		throw std::exception("StepSize can't be less or equal to zero");
+
+	
+	double steps = (((from < to) ? to - from : from - to) / stepSize);
+	steps =  (steps - (int)steps > 0.99) ? steps+1 : steps;					//Correct for decimal errors
+
+	Matrix *returnMatrix = new Matrix(1, (int)steps + 1);
+	
+	returnMatrix->setEntry(0, 0, from);
+	for (size_t col = 1; col < returnMatrix->getNumberOfColumns(); col++)
+		returnMatrix->setEntry(0, col, from + ((from < to) ? stepSize : -stepSize) * col);
+
+	return *returnMatrix;
+}
+
 double GetMatrix::calculateInnerProductSpace(const Matrix &vectorA, const Matrix &vectorB)
 {
 	SimpleMatrixOperations SMO;

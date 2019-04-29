@@ -28,6 +28,7 @@ public:
 	Matrix& getZeroMatrix(int) const;
 	Matrix& getIdentityMatrix(int, int) const;
 	Matrix& getIdentityMatrix(int) const;
+	Matrix& numberSequence(double, double, double = 1) const;
 
 private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);
