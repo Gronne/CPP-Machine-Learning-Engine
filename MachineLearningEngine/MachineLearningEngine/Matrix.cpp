@@ -220,12 +220,15 @@ void Matrix::deleteRow(int row)
 
 void Matrix::deleteRow(std::vector<int> rows)
 {
-	for (size_t index = 0; index < rows.size(); ++index)
-		if (rows[(rows.size() - 1) - index] < 0 || rows[(rows.size() - 1) - index] >= getNumberOfRows())
-			throw std::exception("Can't delete a rows, that doesn't exist");
+	if (rows.size() == 0) return;
 
-	for (size_t index = 0; index < rows.size(); ++index)
-		deleteRow(rows[(rows.size() - 1) - index]);
+	Matrix *matrix = new Matrix(rows.size(), 1);
+
+	for (size_t row = 0; row < rows.size(); row++)
+		matrix->setEntry(row, 0, rows[row]);
+
+	deleteRow(*matrix);
+	delete matrix;
 }
 
 void Matrix::deleteRow(const Matrix &rows)
@@ -254,12 +257,15 @@ void Matrix::deleteColumn(int col)
 
 void Matrix::deleteColumn(std::vector<int> columnVec)
 {
-	for (size_t index = 0; index < columnVec.size(); ++index)
-		if (columnVec[(columnVec.size()-1)-index] < 0 || columnVec[(columnVec.size() - 1) - index] >= getNumberOfColumns())
-			throw std::exception("Can't delete a columns, that doesn't exist");
+	if (columnVec.size() == 0) return;
 
-	for (size_t index = 0; index < columnVec.size(); ++index)
-		deleteColumn(columnVec[(columnVec.size() - 1) - index]);
+	Matrix *matrix = new Matrix(columnVec.size(), 1);
+
+	for (size_t row = 0; row < columnVec.size(); row++)
+		matrix->setEntry(row, 0, columnVec[row]);
+
+	deleteColumn(*matrix);
+	delete matrix;
 }
 
 void Matrix::deleteColumn(const Matrix &columnMat)
