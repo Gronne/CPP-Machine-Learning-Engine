@@ -52,11 +52,7 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	inverseExceptions(matrix);
 	
 	if (matrix.getNumberOfColumns() == 1)
-	{
-		Matrix *resultMatrix = new Matrix(1, 1);
-		resultMatrix->setEntry(0, 0, 1 / matrix.getEntry(0, 0));
-		return *resultMatrix;
-	}
+		return singleValueInverse(matrix);
 
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
@@ -71,20 +67,17 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 
 double BasicMatrixOperations::determinant(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Matrix need to be square to find the determinant");
+	determinantExceptions(matrix);
+
 	if (matrix.getNumberOfColumns() == 1)
 		return matrix.getEntry(0, 0);
-
 	if (rref.checkForFullDependentMatrix(matrix))
 		return 0;
 
 	Matrix *bufferMatrix = new Matrix();
 	*bufferMatrix = getRowReduction(matrix);
 
-	double returnValue = 1.0;
-	for (size_t row = 0; row < bufferMatrix->getNumberOfRows(); row++)
-		returnValue *= bufferMatrix->getEntry(row, row);
+	double returnValue = diagonalProduct(*bufferMatrix);
 
 	delete bufferMatrix;
 	return returnValue;
@@ -93,7 +86,6 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 
 Matrix & BasicMatrixOperations::getEigenValues(const Matrix &matrix)
 {
-
 	//det(A-tau*I) = 0		//Where tay is a scalar for the Identity matrix
 	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns())
 		throw std::exception("Matrix needs to be square to calculate the eigenValues");
@@ -101,11 +93,7 @@ Matrix & BasicMatrixOperations::getEigenValues(const Matrix &matrix)
 	Matrix *returnMatrix = new Matrix(matrix.getNumberOfRows(), 1);
 
 	if ((int)determinant(matrix) == 0)
-	{
-		for (size_t index = 0; index < matrix.getNumberOfRows(); index++)
-			returnMatrix->setEntry(index, 0, matrix.getEntry(index, index));
-		return *returnMatrix;
-	}
+		throw std::exception("Not implemented yet, need new architecture to do it easy");
 	else
 		throw std::exception("Not implemented yet, need new architecture to do it easy");
 
@@ -130,12 +118,12 @@ MatrixResult & BasicMatrixOperations::findSolution(const Matrix &)
 	return *matrix;
 }
 
-
 Matrix & BasicMatrixOperations::getOrthonormal(const Matrix &)
 {
 	Matrix *matrix = new Matrix();
 	return *matrix;
 }
+
 
 void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
 {
@@ -144,5 +132,28 @@ void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
 
 	if (rref.checkForFullDependentMatrix(matrix))
 		throw std::exception("When finding Inverse, the matrix can't be full dependent");
+}
+
+void BasicMatrixOperations::determinantExceptions(const Matrix &matrix)
+{
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Matrix need to be square to find the determinant");
+}
+
+Matrix & BasicMatrixOperations::singleValueInverse(const Matrix &matrix)
+{
+	Matrix *resultMatrix = new Matrix(1, 1);
+	resultMatrix->setEntry(0, 0, 1 / matrix.getEntry(0, 0));
+	return *resultMatrix;
+}
+
+double BasicMatrixOperations::diagonalProduct(const Matrix &matrix)
+{
+	double product = 1.0;
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		product *= matrix.getEntry(row, row);
+
+	return product;
 }
 

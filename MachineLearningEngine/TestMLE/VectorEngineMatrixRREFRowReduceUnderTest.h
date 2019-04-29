@@ -229,8 +229,9 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder4x3)
 				0,  0, -1.8,
 				0,  0,  0 };
 
+	TypeMatrix TM;
 	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
-	EXPECT_TRUE(*result == RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder5x3)
@@ -250,8 +251,9 @@ TEST(VectorEngineMatrixRREFRowReduceUnder, rowReduceUnder5x3)
 				0,  0,  0,
 				0,  0,  0 };
 
+	TypeMatrix TM;
 	EXPECT_NO_THROW(RREF.rowReduceUnder(*matrix));
-	EXPECT_TRUE(*result == RREF.rowReduceUnder(*matrix));
+	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceUnder(*matrix), 0.0001));
 }
 
 //----------Different sizes-----------

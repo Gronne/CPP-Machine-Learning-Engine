@@ -1,5 +1,6 @@
 #pragma once
 #include "Matrix.h"
+
 class MatrixRREF
 {
 public:
@@ -19,8 +20,12 @@ private:
 	void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
 	void substractRow(Matrix&, int, int);
 	void minimizeRow(Matrix&, int, double);
-	void checkForZeroRow(Matrix&, int);
-	void checkForZeroRowOver(Matrix&, int);
+	void correctForZeroRow(Matrix&, int);
+	void correctForZeroRowOver(Matrix&, int);
 	void checkForFreePivot(Matrix&, int);
+
+	bool checkIfAllRowsIsEqual(Matrix&);
+	bool checkIfPreColsIsAllZero(Matrix&, int, int);
+	double columnProduct(Matrix&, int, int, int);
 };
 

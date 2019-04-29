@@ -182,7 +182,7 @@ TEST(VectorEngineBasicMatrixOperationsDeterminant, DetermineSize5x5)
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(BMO.determinant(*matrix));
-	EXPECT_EQ(SMO.determinant(*matrix), BMO.determinant(*matrix));
+	EXPECT_NEAR(SMO.determinant(*matrix), BMO.determinant(*matrix), 0.0001);
 }
 
 TEST(VectorEngineBasicMatrixOperationsDeterminant, DetermineSpecialCase)

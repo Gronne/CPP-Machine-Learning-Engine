@@ -22,7 +22,10 @@ public:
 	Matrix& getOrthonormal(const Matrix&);
 
 private:
-	void inverseExceptions(const Matrix &matrix);
+	void inverseExceptions(const Matrix &);
+	void determinantExceptions(const Matrix&);
+	Matrix& singleValueInverse(const Matrix&);
+	double diagonalProduct(const Matrix&);
 
 	MatrixRREF rref;
 };
