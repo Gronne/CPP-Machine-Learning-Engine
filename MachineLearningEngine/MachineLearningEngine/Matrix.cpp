@@ -43,6 +43,16 @@ int Matrix::getNumberOfColumns() const
 		return _columns;
 }
 
+int Matrix::getSmallestSize() const
+{
+	return ((getNumberOfColumns() < getNumberOfRows()) ? getNumberOfColumns() : getNumberOfRows());
+}
+
+int Matrix::getLargestSize() const
+{
+	return ((getNumberOfColumns() > getNumberOfRows()) ? getNumberOfColumns() : getNumberOfRows());;
+}
+
 
 Matrix& Matrix::getRow(int row) const
 {
@@ -75,9 +85,7 @@ Matrix & Matrix::getRow(const Matrix &matrix) const
 	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
 	
-	bool row = false;
-	if (matrix.getNumberOfColumns() < matrix.getNumberOfRows())
-		row = true;
+	bool row = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? true : false;
 
 	std::vector<int> vec;
 	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)

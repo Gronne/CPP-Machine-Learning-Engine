@@ -55,10 +55,12 @@
     <ClInclude Include="VectorEngineDatastructuresMatrixGetColumnsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetColumnTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetEntryTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixGetLargestSizeTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfColumnsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfRowsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowsTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixGetRowTest.h" />
+    <ClInclude Include="VectorEngineDatastructuresMatrixGetSmallestSizeTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixLargerEqualOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixLargerOperatorTest.h" />
     <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationEqualOperatorTest.h" />

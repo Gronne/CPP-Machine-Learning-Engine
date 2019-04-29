@@ -12,6 +12,8 @@ public:
 	~Matrix();
 	int getNumberOfRows() const;
 	int getNumberOfColumns() const;
+	int getSmallestSize() const;
+	int getLargestSize() const;
 	Matrix& getRow(int) const;
 	Matrix& getRow(std::vector<int>) const;
 	Matrix& getRow(const Matrix&) const;

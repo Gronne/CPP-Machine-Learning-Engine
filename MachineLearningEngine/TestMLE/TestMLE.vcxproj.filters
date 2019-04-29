@@ -264,6 +264,12 @@
     <ClInclude Include="VectorEngineGetMatrixNumberSequenceTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixGetSmallestSizeTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineDatastructuresMatrixGetLargestSizeTest.h">
+      <Filter>VectorEngineDatastructures\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
