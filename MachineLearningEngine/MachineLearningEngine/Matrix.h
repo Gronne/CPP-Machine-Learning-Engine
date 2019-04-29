@@ -39,6 +39,7 @@ public:
 	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);
 	Matrix& sort(int = 0, bool = 0, int = 0);
+	Matrix& sort(int = 0, bool = 0, int = 0) const;
 
 	const Matrix& operator=(const Matrix&);
 	const Matrix& operator=(std::vector<double>);

@@ -232,9 +232,12 @@ void Matrix::deleteRow(const Matrix &rows)
 {
 	deleteExceptions(rows, 0);
 
+	Matrix *buffer = new Matrix();
+	*buffer = rows.sort(1, ((rows.getNumberOfRows() == 1) ? false : true), 0);
+
 	for (size_t col = 0; col < rows.getNumberOfColumns(); ++col)
 		for (size_t row = 0; row < rows.getNumberOfRows(); ++row)
-			deleteRow(rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col));
+			deleteRow(buffer->getEntry(row, col));
 }
 
 void Matrix::deleteColumn(int col)
@@ -263,9 +266,12 @@ void Matrix::deleteColumn(const Matrix &columnMat)
 {
 	deleteExceptions(columnMat, 1);
 
+	Matrix *buffer = new Matrix();
+	*buffer = columnMat.sort(1, ((columnMat.getNumberOfRows() == 1) ? false : true), 0);
+
 	for (size_t col = 0; col < columnMat.getNumberOfColumns(); ++col)
 		for (size_t row = 0; row < columnMat.getNumberOfRows(); ++row)
-			deleteColumn(columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns() - 1) - col));
+			deleteColumn(buffer->getEntry(row, col));
 }
 
 
@@ -408,6 +414,15 @@ Matrix & Matrix::sort(int sortType, bool flag, int valueType)
 	default: throw std::exception("No Sort of that type");
 	}
 	return *this;
+}
+
+Matrix & Matrix::sort(int sortType, bool flag, int valueType) const
+{
+	Matrix *buffer = new Matrix();
+	*buffer = *this;
+
+	buffer->sort(sortType, flag, valueType);
+	return *buffer;
 }
 
 const Matrix & Matrix::operator=(const Matrix & obj)

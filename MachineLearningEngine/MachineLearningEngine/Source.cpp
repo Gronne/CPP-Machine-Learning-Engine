@@ -17,14 +17,15 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(2, 3);
-	*matrix = { 1, 3, 2,
-				5, 4, 3 };
+	Matrix *matrix = new Matrix(1, 3);
+	*matrix = { 1, 3, 2 };
+
+	const Matrix matrix2 = *matrix;
 
 
 	try
 	{
-		std::cout << matrix->sort(0, 0, 2) << std::endl;
+		std::cout << matrix2.sort(1, 0, 0) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
