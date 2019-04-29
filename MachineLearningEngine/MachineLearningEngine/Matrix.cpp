@@ -74,7 +74,7 @@ Matrix& Matrix::getRow(std::vector<int> rows) const
 	Matrix *resultMatrix = new Matrix();
 	constructRowMatrix(resultMatrix, rows.size());
 	
-	for (size_t rowCounter = 0; rowCounter < rows.size(); rowCounter++)
+	for (size_t rowCounter = 0; rowCounter < rows.size(); ++rowCounter)
 		insertRow(resultMatrix, rowCounter, rows[rowCounter]);
 
 	return *resultMatrix;
@@ -88,7 +88,7 @@ Matrix & Matrix::getRow(const Matrix &matrix) const
 	bool row = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? true : false;
 
 	std::vector<int> vec;
-	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
+	for (size_t index = 0; index < matrix.getLargestSize(); ++index)
 		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
 
 	return getRow(vec);
@@ -103,7 +103,7 @@ void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
 
 void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow) const
 {
-	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); column++)
+	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); ++column)
 		setMatrix->setEntry(setMatrixRow, column, getEntry(getMatrixRow, column));
 }
 
@@ -128,7 +128,7 @@ Matrix& Matrix::getColumn(std::vector<int> columns) const
 	Matrix *resultMatrix = new Matrix();
 	constructColumnMatrix(resultMatrix, columns.size());
 
-	for (size_t columnCounter = 0; columnCounter < columns.size(); columnCounter++)
+	for (size_t columnCounter = 0; columnCounter < columns.size(); ++columnCounter)
 		insertColumn(resultMatrix, columnCounter, columns[columnCounter]);
 
 	return *resultMatrix;
@@ -144,7 +144,7 @@ Matrix & Matrix::getColumn(const Matrix &matrix) const
 		row = true;
 
 	std::vector<int> vec;
-	for (size_t index = 0; index < ((row) ? matrix.getNumberOfRows() : matrix.getNumberOfColumns()); index++)
+	for (size_t index = 0; index < matrix.getLargestSize(); ++index)
 		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
 
 	return getColumn(vec);
@@ -176,7 +176,7 @@ void Matrix::deleteMatrix()
 {
 	try
 	{
-		for (size_t cursor = 0; cursor < _rows; cursor++)
+		for (size_t cursor = 0; cursor < _rows; ++cursor)
 			delete[] _matrix[cursor];
 		delete[] _matrix;
 	}
@@ -203,62 +203,47 @@ void Matrix::setMatrix(const Matrix &newMatrix)
 		throw std::exception("Can not be set to it self");
 
 	setMatrixSize(newMatrix.getNumberOfRows(), newMatrix.getNumberOfColumns());
-
-	for (size_t row = 0; row < newMatrix.getNumberOfRows(); row++)
-		for (size_t column = 0; column < newMatrix.getNumberOfColumns(); column++)
-			setEntry(row, column, newMatrix.getEntry(row, column));
+	transferEntries(newMatrix);
 }
 
 void Matrix::deleteRow(int row)
 {
-	if (row < 0 || row >= getNumberOfRows())
-		throw std::exception("Can't delete an row that doesn't exist");
+	checkForInvalidRowOrColumn(row, 0);
 
 	Matrix *matrix = new Matrix(getNumberOfRows() - 1, getNumberOfColumns());
-	for (size_t internalCol = 0; internalCol < getNumberOfColumns(); internalCol++)
-		for (size_t internalRow = 0, matrixRow = 0; internalRow < getNumberOfRows(); internalRow++)
-			if (internalRow != row)
-				matrix->setEntry(matrixRow++, internalCol, getEntry(internalRow, internalCol));
 
-	setMatrix(*matrix);
+	transferEntriesBesideRow(*matrix, row);
+
+	*this = *matrix;
 	delete matrix;
 }
 
 void Matrix::deleteRow(std::vector<int> rows)
 {
-	for (size_t index = 0; index < rows.size(); index++)
+	for (size_t index = 0; index < rows.size(); ++index)
 		if (rows[(rows.size() - 1) - index] < 0 || rows[(rows.size() - 1) - index] >= getNumberOfRows())
 			throw std::exception("Can't delete a rows, that doesn't exist");
 
-	for (size_t index = 0; index < rows.size(); index++)
+	for (size_t index = 0; index < rows.size(); ++index)
 		deleteRow(rows[(rows.size() - 1) - index]);
 }
 
 void Matrix::deleteRow(const Matrix &rows)
 {
-	if (rows.getNumberOfColumns() != 1 && rows.getNumberOfRows() != 1)
-		throw std::exception("Matrix needs to be a vector, when deleting");
+	deleteExceptions(rows, 0);
 
-	for (size_t col = 0; col < rows.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < rows.getNumberOfRows(); row++)
-			if (rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col) < 0 || rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col) >= getNumberOfRows())
-				throw std::exception("Can't delete a row, that doesn't exist");
-
-	for (size_t col = 0; col < rows.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < rows.getNumberOfRows(); row++)
+	for (size_t col = 0; col < rows.getNumberOfColumns(); ++col)
+		for (size_t row = 0; row < rows.getNumberOfRows(); ++row)
 			deleteRow(rows.getEntry((rows.getNumberOfRows() - 1) - row, (rows.getNumberOfColumns() - 1) - col));
 }
 
 void Matrix::deleteColumn(int col)
 {
-	if (col < 0 || col >= getNumberOfColumns())
-		throw std::exception("Can't delete an column that doesn't exist");
+	checkForInvalidRowOrColumn(0, col);
 
 	Matrix *matrix = new Matrix(getNumberOfRows(), getNumberOfColumns()-1);
-	for (size_t internalRow = 0; internalRow < getNumberOfRows(); internalRow++)
-		for (size_t internalCol = 0, matrixCol = 0; internalCol < getNumberOfColumns(); internalCol++)
-			if (internalCol != col)
-				matrix->setEntry(internalRow, matrixCol++, getEntry(internalRow, internalCol));
+	
+	transferEntriesBesideCol(*matrix, col);
 
 	setMatrix(*matrix);
 	delete matrix;
@@ -266,26 +251,20 @@ void Matrix::deleteColumn(int col)
 
 void Matrix::deleteColumn(std::vector<int> columnVec)
 {
-	for (size_t index = 0; index < columnVec.size(); index++)
+	for (size_t index = 0; index < columnVec.size(); ++index)
 		if (columnVec[(columnVec.size()-1)-index] < 0 || columnVec[(columnVec.size() - 1) - index] >= getNumberOfColumns())
 			throw std::exception("Can't delete a columns, that doesn't exist");
 
-	for (size_t index = 0; index < columnVec.size(); index++)
+	for (size_t index = 0; index < columnVec.size(); ++index)
 		deleteColumn(columnVec[(columnVec.size() - 1) - index]);
 }
 
 void Matrix::deleteColumn(const Matrix &columnMat)
 {
-	if (columnMat.getNumberOfColumns() != 1 && columnMat.getNumberOfRows() != 1)
-		throw std::exception("Matrix needs to be a vector, when deleting");
+	deleteExceptions(columnMat, 1);
 
-	for (size_t col = 0; col < columnMat.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < columnMat.getNumberOfRows(); row++)
-			if (columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns()-1)-col) < 0 || columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns() - 1) - col) >= getNumberOfColumns())
-				throw std::exception("Can't delete a column, that doesn't exist");
-
-	for (size_t col = 0; col < columnMat.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < columnMat.getNumberOfRows(); row++)
+	for (size_t col = 0; col < columnMat.getNumberOfColumns(); ++col)
+		for (size_t row = 0; row < columnMat.getNumberOfRows(); ++row)
 			deleteColumn(columnMat.getEntry((columnMat.getNumberOfRows() - 1) - row, (columnMat.getNumberOfColumns() - 1) - col));
 }
 
@@ -417,6 +396,18 @@ void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 
 	setMatrix(*newMatrix);
 	delete newMatrix;
+}
+
+Matrix & Matrix::sort(int sortType, bool flag, int valueType)
+{
+	//0 = low to high, 1 = high to low
+	switch (sortType)
+	{
+	case 0:  sortLowHigh(flag, valueType); break;
+	case 1:  sortHighLow(flag, valueType); break;
+	default: throw std::exception("No Sort of that type");
+	}
+	return *this;
 }
 
 const Matrix & Matrix::operator=(const Matrix & obj)
@@ -703,6 +694,162 @@ double Matrix::decideMatrixSize(const Matrix &matrix) const
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
 			returnvalue += (matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col);
 	return returnvalue;
+}
+
+void Matrix::transferEntries(const Matrix &newMatrix)
+{
+	for (size_t row = 0; row < newMatrix.getNumberOfRows(); row++)
+		for (size_t column = 0; column < newMatrix.getNumberOfColumns(); column++)
+			setEntry(row, column, newMatrix.getEntry(row, column));
+}
+
+void Matrix::transferEntriesBesideRow(Matrix &matrix, int row)
+{
+	for (size_t internalCol = 0; internalCol < getNumberOfColumns(); internalCol++)
+		for (size_t internalRow = 0, matrixRow = 0; internalRow < getNumberOfRows(); internalRow++)
+			if (internalRow != row)
+				matrix.setEntry(matrixRow++, internalCol, getEntry(internalRow, internalCol));
+}
+
+void Matrix::transferEntriesBesideCol(Matrix &matrix, int col)
+{
+	for (size_t internalRow = 0; internalRow < getNumberOfRows(); internalRow++)
+		for (size_t internalCol = 0, matrixCol = 0; internalCol < getNumberOfColumns(); internalCol++)
+			if (internalCol != col)
+				matrix.setEntry(internalRow, matrixCol++, getEntry(internalRow, internalCol));
+}
+
+void Matrix::deleteExceptions(const Matrix &matrix, bool colFlag)
+{
+	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
+		throw std::exception("Matrix needs to be a vector, when deleting");
+
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+			if (matrix.getEntry(row, col) < 0 || matrix.getEntry(row, col) >= ((colFlag) ? getNumberOfColumns() : getNumberOfRows()))
+				throw std::exception("Can't delete a row/column, that doesn't exist");
+}
+
+void Matrix::sortHighLow(bool flag, int valueType)
+{
+	if (((flag) ? getNumberOfRows() : getNumberOfColumns()) == 1)
+		return;
+
+	Matrix *buffer = new Matrix();
+
+	bool sortedFlag = false;
+	int collection = 1;
+
+	while (!sortedFlag)
+	{
+		sortedFlag = true;
+		for (size_t collection = 1; collection < ((flag) ? getNumberOfRows() : getNumberOfColumns()); collection++)
+		{
+			if (flag == 0)		//Row
+				if (sortValue(getColumn(collection), valueType) > sortValue(getColumn(collection - 1), valueType))
+				{
+					*buffer = getColumn(collection);
+					setColumn(collection, getColumn(collection - 1));
+					setColumn(collection - 1, *buffer);
+					sortedFlag = false;
+				}
+			if (flag == 1)		//Col
+				if (sortValue(getRow(collection), valueType) > sortValue(getRow(collection - 1), valueType))
+				{
+					*buffer = getRow(collection);
+					setRow(collection, getRow(collection - 1));
+					setRow(collection - 1, *buffer);
+					sortedFlag = false;
+				}
+		}
+	}
+
+	delete buffer;
+}
+
+void Matrix::sortLowHigh(bool flag, int valueType)
+{
+	if (((flag) ? getNumberOfRows() : getNumberOfColumns()) == 1)
+		return;
+
+	Matrix *buffer = new Matrix();
+
+	bool sortedFlag = false;
+	int collection = 1;
+
+	while (!sortedFlag)
+	{
+		sortedFlag = true;
+		for (size_t collection = 1; collection < ((flag) ? getNumberOfRows() : getNumberOfColumns()); collection++)
+		{
+			if (flag == 0)		//Row
+				if (sortValue(getColumn(collection), valueType) < sortValue(getColumn(collection - 1), valueType))
+				{
+					*buffer = getColumn(collection);
+					setColumn(collection, getColumn(collection - 1));
+					setColumn(collection - 1, *buffer);
+					sortedFlag = false;
+				}
+			if (flag == 1)		//Col
+				if (sortValue(getRow(collection), valueType) < sortValue(getRow(collection - 1), valueType))
+				{
+					*buffer = getRow(collection);
+					setRow(collection, getRow(collection - 1));
+					setRow(collection - 1, *buffer);
+					sortedFlag = false;
+				}
+		}
+	}
+
+	delete buffer;
+}
+
+double Matrix::sortValue(Matrix &matrix, int valueType)
+{
+	double value = 0;
+	switch (valueType)
+	{
+	case 0: value = sortValueSum(matrix); break;
+	case 1: value = sortValueMax(matrix); break;
+	case 2: value = sortValueMin(matrix); break;
+	default: throw std::exception("Not possible to sort matrix with the given value sorting type");
+	}
+	return value;
+}
+
+double Matrix::sortValueSum(Matrix &matrix)
+{
+	double sum = 0;
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			sum += matrix.getEntry(row, col);
+
+	return sum;
+}
+
+double Matrix::sortValueMax(Matrix &matrix)
+{
+	double largestValue = matrix.getEntry(0, 0);
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (largestValue < matrix.getEntry(row, col))
+				largestValue = matrix.getEntry(row, col);
+
+	return largestValue;
+}
+
+double Matrix::sortValueMin(Matrix &matrix)
+{
+	double smallestValue = matrix.getEntry(0, 0);
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (smallestValue > matrix.getEntry(row, col))
+				smallestValue = matrix.getEntry(row, col);
+
+	return smallestValue;
 }
 
 

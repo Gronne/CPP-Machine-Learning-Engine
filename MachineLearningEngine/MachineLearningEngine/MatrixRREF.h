@@ -24,8 +24,8 @@ private:
 	void correctForZeroRowOver(Matrix&, int);
 	void checkForFreePivot(Matrix&, int);
 
-	bool checkIfAllRowsIsEqual(Matrix&);
-	bool checkIfPreColsIsAllZero(Matrix&, int, int);
-	double columnProduct(Matrix&, int, int, int);
+	bool checkIfAllRowsIsEqual(const Matrix&);
+	bool checkIfPreColsIsAllZero(const Matrix&, int, int);
+	double columnProduct(const Matrix&, int, int, int);
 };
 

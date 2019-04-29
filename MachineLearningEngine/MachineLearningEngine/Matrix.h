@@ -38,6 +38,7 @@ public:
 	void scale(double);
 	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);
+	Matrix& sort(int = 0, bool = 0, int = 0);
 
 	const Matrix& operator=(const Matrix&);
 	const Matrix& operator=(std::vector<double>);
@@ -87,6 +88,19 @@ private:
 	Matrix& multiplication(const Matrix&) const;
 	double vectorMultiplication(Matrix&, Matrix&) const;
 	double decideMatrixSize(const Matrix&) const;
+
+	void transferEntries(const Matrix&);
+	void transferEntriesBesideRow(Matrix&, int);
+	void transferEntriesBesideCol(Matrix&, int);
+
+	void deleteExceptions(const Matrix&, bool = 0);
+
+	void sortHighLow(bool = 0, int = 0);
+	void sortLowHigh(bool = 0, int = 0);
+	double sortValue(Matrix&, int = 0);
+	double sortValueSum(Matrix&);
+	double sortValueMax(Matrix&);
+	double sortValueMin(Matrix&);
 
 	int _rows = 0;
 	int _columns = 0;

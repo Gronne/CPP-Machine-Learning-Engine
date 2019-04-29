@@ -67,7 +67,7 @@ bool MatrixRREF::checkForFullDependentMatrix(const Matrix &matrix)
 	return returnBool;
 }
 
-bool MatrixRREF::checkIfAllRowsIsEqual(Matrix &matrix)
+bool MatrixRREF::checkIfAllRowsIsEqual(const Matrix &matrix)
 {
 	bool returnBool = true;
 
@@ -128,7 +128,7 @@ void MatrixRREF::correctForZeroRowOver(Matrix &matrix, int presentRow)
 					substractRow(matrix, previousRow, presentRow);
 }
 
-bool MatrixRREF::checkIfPreColsIsAllZero(Matrix &matrix, int presentRow, int previousRow)
+bool MatrixRREF::checkIfPreColsIsAllZero(const Matrix &matrix, int presentRow, int previousRow)
 {
 	bool zeros = true;
 
@@ -155,7 +155,7 @@ void MatrixRREF::sameSizeColumnUnder(Matrix &matrix, int column, std::vector<dou
 			divideVector.push_back(1);
 }
 
-double MatrixRREF::columnProduct(Matrix &matrix, int column, int rowFrom, int rowTo)
+double MatrixRREF::columnProduct(const Matrix &matrix, int column, int rowFrom, int rowTo)
 {
 	double product = 1;
 
