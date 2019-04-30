@@ -19,13 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5c09689d-f39f-4a6a-9b2b-3b296237f886}</ProjectGuid>
+    <ProjectGuid>{389acecb-b6d2-41a6-945f-f4e7d27f9178}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <ProjectName>TestMLE</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -34,59 +33,51 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="MatrixGetsGetColumnsTest.h" />
+    <ClInclude Include="MatrixGetsGetColumnTest.h" />
+    <ClInclude Include="MatrixGetsGetEntryTest.h" />
+    <ClInclude Include="MatrixGetsGetLargestSizeTest.h" />
+    <ClInclude Include="MatrixGetsGetNumberOfColumnsTest.h" />
+    <ClInclude Include="MatrixGetsGetNumberOfRowsTest.h" />
+    <ClInclude Include="MatrixGetsGetRowsTest.h" />
+    <ClInclude Include="MatrixGetsGetRowTest.h" />
+    <ClInclude Include="MatrixGetsGetSmallestSizeTest.h" />
+    <ClInclude Include="MatrixOperatorAdditionEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorAdditionOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorEqualEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorLargerEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorLargerOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorMultiplicationEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorMultiplicationOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorNotEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorSmallerEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorSmallerOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorSubstractionEqualOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorSubstractionOperatorTest.h" />
+    <ClInclude Include="MatrixOthersConstructorTest.h" />
+    <ClInclude Include="MatrixOthersDeconstructorTest.h" />
+    <ClInclude Include="MatrixOthersDivisionOperatorTest.h" />
+    <ClInclude Include="MatrixOthersScaleTest.h" />
+    <ClInclude Include="MatrixOthersSortTest1.h" />
+    <ClInclude Include="MatrixOthersSortTest2.h" />
+    <ClInclude Include="MatrixSetsSetColumnTest.h" />
+    <ClInclude Include="MatrixSetsSetEntryTest.h" />
+    <ClInclude Include="MatrixSetsSetMatrixSizeTest.h" />
+    <ClInclude Include="MatrixSetsSetMatrixTest.h" />
+    <ClInclude Include="MatrixSetsSetRowTest.h" />
+    <ClInclude Include="MatrixSizeAppendMatrixTest.h" />
+    <ClInclude Include="MatrixSizeDeleteColumnTest.h" />
+    <ClInclude Include="MatrixSizeDeleteRowTest.h" />
+    <ClInclude Include="MatrixSizeTransposeTest.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="VectorEngine.h" />
-    <ClInclude Include="VectorEngineBasicMatrixOperationsDeterminantTest.h" />
-    <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonFormTest.h" />
-    <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonInverseTest.h" />
-    <ClInclude Include="VectorEngineBasicMatrixOperationsRowReduceTest.h" />
-    <ClInclude Include="VectorEngineBasicMatrixOperationsTest.h" />
-    <ClInclude Include="VectorEngineDatastructureHeader.h" />
-    <ClInclude Include="VectorEngineGetMatrixFrobeniusNormTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixFrobeniusProductSpaceTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixGetBasicVectorsTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixGetIdentityMatrixTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixGetTransformationMatrixTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixInnerProductSpaceTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixNumberOfPivotsTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixNumberSequenceTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixPivotColumnsNumberTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixPivotColumnsTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixPivotRowsNumberTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixPivotRowsTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixSpanTest.h" />
-    <ClInclude Include="VectorEngineGetMatrixTest.h" />
-    <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h" />
-    <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h" />
-    <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h" />
-    <ClInclude Include="VectorEngineMatrixRREFTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsAdditionTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsCrossTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsDeterminantTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsDotTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsFindMaxValueTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsHadamardTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsInverseTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsLengthOfVectorTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsMultiplicationTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsNormTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsSubstractionTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsSumTest.h" />
-    <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixBasisTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixCheckSpanTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixDependentTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixFullRankTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixIsEqualTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixIsInSpanTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixIsSquareTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixRankTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixSpanTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixTest.h" />
-    <ClInclude Include="VectorEngineTypeMatrixTrivialTest.h" />
+    <ClInclude Include="VectorEngineMatrix.h" />
+    <ClInclude Include="VectorEngineHeaders.h" />
+    <ClInclude Include="VectorEngineMatrixGets.h" />
+    <ClInclude Include="VectorEngineMatrixOperators.h" />
+    <ClInclude Include="VectorEngineMatrixOthers.h" />
+    <ClInclude Include="VectorEngineMatrixSets.h" />
+    <ClInclude Include="VectorEngineMatrixSize.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
@@ -98,6 +89,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MachineLearningEngine\MachineLearningEngine.vcxproj">
+      <Project>{221d1ffa-607f-4171-af64-83146884d1c4}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemDefinitionGroup />
@@ -107,10 +103,10 @@
   </ImportGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>

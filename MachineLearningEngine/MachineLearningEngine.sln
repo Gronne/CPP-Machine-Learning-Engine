@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MachineLearningEngine", "Ma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestMLE", "TestMLE\TestMLE.vcxproj", "{5C09689D-F39F-4A6A-9B2B-3B296237F886}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestVectorEngineDatastructures", "TestVectorEngineDatastructures\TestVectorEngineDatastructures.vcxproj", "{389ACECB-B6D2-41A6-945F-F4E7D27F9178}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{5C09689D-F39F-4A6A-9B2B-3B296237F886}.Release|x64.Build.0 = Release|x64
 		{5C09689D-F39F-4A6A-9B2B-3B296237F886}.Release|x86.ActiveCfg = Release|Win32
 		{5C09689D-F39F-4A6A-9B2B-3B296237F886}.Release|x86.Build.0 = Release|Win32
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Debug|x64.ActiveCfg = Debug|x64
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Debug|x64.Build.0 = Debug|x64
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Debug|x86.ActiveCfg = Debug|Win32
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Debug|x86.Build.0 = Debug|Win32
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Release|x64.ActiveCfg = Release|x64
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Release|x64.Build.0 = Release|x64
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Release|x86.ActiveCfg = Release|Win32
+		{389ACECB-B6D2-41A6-945F-F4E7D27F9178}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

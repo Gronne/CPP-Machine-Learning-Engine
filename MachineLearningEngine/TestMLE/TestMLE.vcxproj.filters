@@ -6,71 +6,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="VectorEngineDatastructuresMatrixConstructorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixDeconstructorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfColumnsTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetNumberOfRowsTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixResizeMatrixTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixTransposeTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSetEntryTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetEntryTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSetMatrixTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetRowTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetRowsTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetColumnTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetColumnsTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineDatastructureHeader.h">
       <Filter>VectorEngineDatastructures</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixScaleTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSetRowTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSetColumnTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixAdditionOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixDivisionOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsAdditionTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
@@ -99,14 +36,8 @@
     <ClInclude Include="VectorEngine.h">
       <Filter>VectorEngineDatastructures</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineSimpleMatrixOperationsTest.h">
       <Filter>VectorEngineDatastructures\SimpleMatrixOperations</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixAppendMatrixTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineBasicMatrixOperationsRowReduceTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
@@ -119,21 +50,6 @@
     </ClInclude>
     <ClInclude Include="VectorEnginebasicMatrixOperationsEchelonInverseTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixEqualEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixNotEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixAdditionEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSubstractionEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixMultiplicationEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineMatrixRREFTest.h">
       <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
@@ -152,12 +68,6 @@
     </ClInclude>
     <ClInclude Include="VectorEngineBasicMatrixOperationsDeterminantTest.h">
       <Filter>VectorEngineDatastructures\BasicMatrixOperations</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteRowTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixDeleteColumnTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineTypeMatrixTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
@@ -234,18 +144,6 @@
     <ClInclude Include="VectorEngineTypeMatrixIsSquareTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixLargerOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSmallerOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixLargerEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixSmallerEqualOperatorTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineGetMatrixGetZeroMatrixTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
@@ -264,12 +162,6 @@
     <ClInclude Include="VectorEngineGetMatrixNumberSequenceTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetSmallestSizeTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="VectorEngineDatastructuresMatrixGetLargestSizeTest.h">
-      <Filter>VectorEngineDatastructures\Matrix</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -277,9 +169,6 @@
   <ItemGroup>
     <Filter Include="VectorEngineDatastructures">
       <UniqueIdentifier>{c8d5a646-c7d2-4ce0-a533-04ef6511a094}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="VectorEngineDatastructures\Matrix">
-      <UniqueIdentifier>{89c99148-c509-489c-9f74-836525426db1}</UniqueIdentifier>
     </Filter>
     <Filter Include="VectorEngineDatastructures\SimpleMatrixOperations">
       <UniqueIdentifier>{9d20c9ad-3428-4f91-85d3-41336b850f66}</UniqueIdentifier>

@@ -1,0 +1,15 @@
+#pragma once
+
+#include "MatrixOperatorAdditionEqualOperatorTest.h"
+#include "MatrixOperatorAdditionOperatorTest.h"
+#include "MatrixOperatorEqualEqualOperatorTest.h"
+#include "MatrixOperatorEqualOperatorTest.h"
+#include "MatrixOperatorLargerEqualOperatorTest.h"
+#include "MatrixOperatorLargerOperatorTest.h"
+#include "MatrixOperatorMultiplicationEqualOperatorTest.h"
+#include "MatrixOperatorMultiplicationOperatorTest.h"
+#include "MatrixOperatorNotEqualOperatorTest.h"
+#include "MatrixOperatorSmallerEqualOperatorTest.h"
+#include "MatrixOperatorSmallerOperatorTest.h"
+#include "MatrixOperatorSubstractionEqualOperatorTest.h"
+#include "MatrixOperatorSubstractionOperatorTest.h"

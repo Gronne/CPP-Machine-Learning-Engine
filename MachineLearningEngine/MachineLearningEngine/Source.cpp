@@ -17,15 +17,21 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(1, 3);
-	*matrix = { 1, 3, 2 };
+	Matrix *matrix1 = new Matrix(2, 5);
+	*matrix1 = { 5,   3.5, 1, 2.5, 4,
+				 4.5, 5.5, 4, 2.5, 3.5 };
 
-	const Matrix matrix2 = *matrix;
-
+	Matrix *matrix2 = new Matrix(5, 2);
+	*matrix2 = { 5  , 4.5,
+				 3.5, 5.5,
+				 1,   4,
+				 2.5, 2.5,
+				 4,   3.5 };
 
 	try
 	{
-		std::cout << matrix2.sort(1, 0, 0) << std::endl;
+		std::cout << matrix1->sort(1, 1, 0) << std::endl;
+		std::cout << matrix2->sort(1, 1, 0) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
@@ -33,7 +39,6 @@ int main(int argc, char ** argv) {
 	}
 	
 
-	delete matrix;
 
 	exit(0);
 }

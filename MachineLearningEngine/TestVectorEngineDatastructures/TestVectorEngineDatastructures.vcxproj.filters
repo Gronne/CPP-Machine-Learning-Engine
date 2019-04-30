@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="VectorEngineHeaders.h" />
+    <ClInclude Include="VectorEngineMatrixGets.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixOthers.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixOperators.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixSets.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrix.h">
+      <Filter>Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorAdditionEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorAdditionOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorEqualEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorLargerEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorLargerOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorMultiplicationEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorMultiplicationOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorNotEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorSmallerEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorSmallerOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorSubstractionEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorSubstractionOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetColumnsTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetColumnTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetEntryTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetLargestSizeTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetNumberOfColumnsTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetNumberOfRowsTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetRowsTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetRowTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixGetsGetSmallestSizeTest.h">
+      <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSetsSetColumnTest.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSetsSetEntryTest.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSetsSetMatrixTest.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSetsSetRowTest.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSetsSetMatrixSizeTest.h">
+      <Filter>Matrix\Sets</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineMatrixSize.h">
+      <Filter>Matrix\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSizeAppendMatrixTest.h">
+      <Filter>Matrix\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSizeDeleteColumnTest.h">
+      <Filter>Matrix\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSizeDeleteRowTest.h">
+      <Filter>Matrix\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixSizeTransposeTest.h">
+      <Filter>Matrix\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersConstructorTest.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersDeconstructorTest.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersDivisionOperatorTest.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersScaleTest.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersSortTest1.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOthersSortTest2.h">
+      <Filter>Matrix\Others</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Matrix">
+      <UniqueIdentifier>{3c630816-f66f-4fdc-b80f-8b081c47d42a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix\Sets">
+      <UniqueIdentifier>{0f4dea39-fef3-42b3-ab7e-0cca983c8079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix\Gets">
+      <UniqueIdentifier>{ddb9bff9-bf38-4af1-a0ce-69f1ddf206cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix\Operators">
+      <UniqueIdentifier>{96ce0044-69f5-4cad-a32c-94096b27eba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix\Others">
+      <UniqueIdentifier>{1d89da60-19af-4117-9170-4b3fc1bb129b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Matrix\Size">
+      <UniqueIdentifier>{5cccd3c1-4a5b-42fd-a2bc-3bf975cf234a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
