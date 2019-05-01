@@ -62,6 +62,7 @@ public:
 	Matrix& operator*(const double);
 	Matrix& operator*(const Matrix&) const;
 	Matrix& operator/(const double);
+	//Matrix& operator ~();  //Inverte
 
 	friend std::ostream& operator<<(std::ostream&, const Matrix&);
 
@@ -78,23 +79,26 @@ private:
 	void deleteMatrix();
 	double getWidestNumberInRow(int) const;
 	double numberWidth(double) const;
-	std::string printMatrix(std::vector<int>, int) const;
+	std::string matrixToString(std::vector<int>, int) const;
 	std::string printLine(int) const;
 	std::string printRow(int, std::vector<int>) const;
 	std::string printEntry(int, int, std::vector<int>) const;
 	bool unevenSpace(int, int, std::vector<int>) const;
 	double getDiffWidth(int, int, std::vector<int>) const;
-	std::vector<int> findMaxValueInRow() const;
+	std::vector<int> findMaxValueInEachColumn() const;
 	std::string eraseZeros(std::string) const;
 	Matrix& multiplication(const Matrix&) const;
 	double vectorMultiplication(Matrix&, Matrix&) const;
 	double decideMatrixSize(const Matrix&) const;
+	void appendRight(const Matrix&, Matrix&);
+	void appendUnder(const Matrix&, Matrix&);
 
 	void transferEntries(const Matrix&);
 	void transferEntriesBesideRow(Matrix&, int);
 	void transferEntriesBesideCol(Matrix&, int);
 
 	void deleteExceptions(const Matrix&, bool = 0);
+	void appendExceptions(const Matrix&, bool);
 
 	void sortHighLow(bool = 0, int = 0);
 	void sortLowHigh(bool = 0, int = 0);

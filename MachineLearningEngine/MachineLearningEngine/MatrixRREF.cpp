@@ -14,17 +14,13 @@ MatrixRREF::~MatrixRREF()
 
 Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 {
-	if (checkForFullDependentMatrix(matrix) == true)
+	if (checkForFullDependentMatrix(matrix))
 		throw std::exception("Your matrix is full dependent and can't be reduced");
 
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	int smallestSize = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
-	for (size_t col = 0; col < smallestSize; ++col)
-		reduceColumnUnder(*resultMatrix, col, smallestSize);
-
-	return *resultMatrix;
+	return reduceRowsUnder(*resultMatrix);
 }
 
 
@@ -33,14 +29,10 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	int smallestSize = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
-	for (size_t col = smallestSize-1; col > 0; --col)
-		reduceColumnOver(*resultMatrix, col);
+	reduceRowsOver(*resultMatrix);
+	minimizeAllRows(*resultMatrix);
+	checkForFreePivot(*resultMatrix, resultMatrix->getSmallestSize());
 
-	for (size_t row = 0; row < smallestSize; ++row)
-		minimizeRow(*resultMatrix, row, resultMatrix->getEntry(row, row));
-
-	checkForFreePivot(*resultMatrix, smallestSize);
 	return *resultMatrix;
 }
 
@@ -76,6 +68,22 @@ bool MatrixRREF::checkIfAllRowsIsEqual(const Matrix &matrix)
 			returnBool = false;
 
 	return returnBool;
+}
+
+Matrix & MatrixRREF::reduceRowsUnder(Matrix &matrix)
+{
+	int smallestSize = matrix.getSmallestSize();
+	for (size_t col = 0; col < smallestSize; ++col)
+		reduceColumnUnder(matrix, col, smallestSize);
+
+	return matrix;
+}
+
+Matrix & MatrixRREF::reduceRowsOver(Matrix &matrix)
+{
+	for (size_t col = matrix.getSmallestSize() - 1; col > 0; --col)
+		reduceColumnOver(matrix, col);
+	return matrix;
 }
 
 void MatrixRREF::reduceColumnUnder(Matrix &matrix, int column, int smallestValue)
@@ -174,6 +182,7 @@ void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<doub
 		if (matrix.getEntry(row, column) != 0)
 		{
 			double multiplicationValue = multiplicationMaxValue / matrix.getEntry(row, column);
+			
 			divideVector.push_back(multiplicationValue);
 			matrix.setRow(row, matrix.getRow(row) * multiplicationValue);
 		}
@@ -183,6 +192,13 @@ void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<doub
 void MatrixRREF::substractRow(Matrix &matrix, int primaryRow, int secondaryRow)
 {
 	matrix.setRow(secondaryRow, (matrix.getRow(secondaryRow) - matrix.getRow(primaryRow)));
+}
+
+Matrix & MatrixRREF::minimizeAllRows(Matrix &matrix)
+{
+	for (size_t row = 0; row < matrix.getSmallestSize(); ++row)
+		minimizeRow(matrix, row, matrix.getEntry(row, row));
+	return matrix;
 }
 
 

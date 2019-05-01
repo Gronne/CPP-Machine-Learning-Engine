@@ -13,12 +13,15 @@ public:
 	bool checkForFullDependentMatrix(const Matrix&);
 
 private:
+	Matrix& reduceRowsUnder(Matrix&);
+	Matrix& reduceRowsOver(Matrix&);
 	void reduceColumnUnder(Matrix&, int, int);
 	void reduceColumnOver(Matrix&, int);
 
 	void sameSizeColumnUnder(Matrix&, int, std::vector<double>&);
 	void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
 	void substractRow(Matrix&, int, int);
+	Matrix& minimizeAllRows(Matrix&);
 	void minimizeRow(Matrix&, int, double);
 	void correctForZeroRow(Matrix&, int);
 	void correctForZeroRowOver(Matrix&, int);

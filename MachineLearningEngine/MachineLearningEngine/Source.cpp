@@ -30,8 +30,7 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		std::cout << matrix1->sort(1, 1, 0) << std::endl;
-		std::cout << matrix2->sort(1, 1, 0) << std::endl;
+		std::cout << matrix1->print() << std::endl;
 	}
 	catch (const std::exception ex)
 	{

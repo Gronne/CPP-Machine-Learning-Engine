@@ -28,7 +28,7 @@ Matrix::~Matrix()
 
 int Matrix::getNumberOfRows() const
 {
-	if (_transposeFlag == false)
+	if (!_transposeFlag)
 		return _rows;
 	else
 		return _columns;
@@ -37,7 +37,7 @@ int Matrix::getNumberOfRows() const
 
 int Matrix::getNumberOfColumns() const 
 {
-	if (_transposeFlag == true)
+	if (_transposeFlag)
 		return _rows;
 	else
 		return _columns;
@@ -80,24 +80,25 @@ Matrix& Matrix::getRow(std::vector<int> rows) const
 	return *resultMatrix;
 }
 
-Matrix & Matrix::getRow(const Matrix &matrix) const
+Matrix & Matrix::getRow(const Matrix &rowsToGet) const
 {
-	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
+	if (rowsToGet.getNumberOfColumns() != 1 && rowsToGet.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
 	
-	bool row = (matrix.getNumberOfColumns() < matrix.getNumberOfRows()) ? true : false;
-
 	std::vector<int> vec;
-	for (size_t index = 0; index < matrix.getLargestSize(); ++index)
-		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
+	for (size_t row = 0; row < rowsToGet.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < rowsToGet.getNumberOfColumns(); ++col)
+			vec.push_back(rowsToGet.getEntry(row, col));
 
 	return getRow(vec);
 }
 
 void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
 {
-	if (_transposeFlag == false) resultMatrix->resizeMatrix(rows, _columns);
-	else resultMatrix->resizeMatrix(rows, _rows);
+	if (!_transposeFlag) 
+		resultMatrix->resizeMatrix(rows, _columns);
+	else 
+		resultMatrix->resizeMatrix(rows, _rows);
 }
 
 
@@ -134,18 +135,15 @@ Matrix& Matrix::getColumn(std::vector<int> columns) const
 	return *resultMatrix;
 }
 
-Matrix & Matrix::getColumn(const Matrix &matrix) const
+Matrix & Matrix::getColumn(const Matrix &columnToGet) const
 {
-	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
+	if (columnToGet.getNumberOfColumns() != 1 && columnToGet.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
 
-	bool row = false;
-	if (matrix.getNumberOfColumns() < matrix.getNumberOfRows())
-		row = true;
-
 	std::vector<int> vec;
-	for (size_t index = 0; index < matrix.getLargestSize(); ++index)
-		vec.push_back(((row) ? matrix.getEntry(index, 0) : matrix.getEntry(0, index)));
+	for (size_t row = 0; row < columnToGet.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < columnToGet.getNumberOfColumns(); ++col)
+			vec.push_back(columnToGet.getEntry(row, col));
 
 	return getColumn(vec);
 }
@@ -153,8 +151,10 @@ Matrix & Matrix::getColumn(const Matrix &matrix) const
 
 void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns) const 
 {
-	if (_transposeFlag == false) resultMatrix->resizeMatrix(_rows, columns);
-	else resultMatrix->resizeMatrix(_columns, columns);
+	if (!_transposeFlag) 
+		resultMatrix->resizeMatrix(_rows, columns);
+	else 
+		resultMatrix->resizeMatrix(_columns, columns);
 }
 
 
@@ -283,7 +283,7 @@ void Matrix::deleteColumn(const Matrix &columnMat)
 
 void Matrix::checkForInvalidRowOrColumn(int row, int column) const
 {
-	if (_transposeFlag == false) 
+	if (!_transposeFlag) 
 	{
 		if ((row < 0 || _rows <= row) || (column < 0 || _columns <= column))
 			throw std::exception("Out of range");
@@ -299,13 +299,14 @@ void Matrix::checkForInvalidRowOrColumn(int row, int column) const
 double Matrix::getEntry(int row, int column) const
 {
 	checkForInvalidRowOrColumn(row, column);
-	return (_transposeFlag == false) ? _matrix[row][column] : _matrix[column][row];
+	return (!_transposeFlag) ? _matrix[row][column] : _matrix[column][row];
 }
 
 
 void Matrix::setRow(int rowNumber, const Matrix &rowData)
 {
 	checkForInvalidRowOrColumn(rowNumber, rowData.getNumberOfColumns() - 1);
+
 	if (getNumberOfColumns() != rowData.getNumberOfColumns())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
@@ -317,6 +318,7 @@ void Matrix::setRow(int rowNumber, const Matrix &rowData)
 void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 {
 	checkForInvalidRowOrColumn(rowNumber, rowData.size() - 1);
+
 	if (getNumberOfColumns() != rowData.size())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
@@ -328,6 +330,7 @@ void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 void Matrix::setColumn(int columnNumber, const Matrix &columnData)
 {
 	checkForInvalidRowOrColumn(columnData.getNumberOfRows() - 1, columnNumber);
+
 	if (getNumberOfRows() != columnData.getNumberOfRows())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
@@ -339,6 +342,7 @@ void Matrix::setColumn(int columnNumber, const Matrix &columnData)
 void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 {
 	checkForInvalidRowOrColumn(columnData.size() - 1, columnNumber);
+
 	if (getNumberOfRows() != columnData.size())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
@@ -373,38 +377,28 @@ void Matrix::scale(double scaleingsFactor)
 
 std::string Matrix::print(bool print) const
 {
-	std::vector<int> maxValueInRow = findMaxValueInRow();
-	int fullWidth = std::accumulate(maxValueInRow.begin(), maxValueInRow.end(), 0) + getNumberOfColumns()*3 + 1;
-	std::string printString = printMatrix(maxValueInRow, fullWidth);
+	std::vector<int> maxValues = findMaxValueInEachColumn();
+
+	int fullWidth = std::accumulate(maxValues.begin(), maxValues.end(), 0) + getNumberOfColumns()*3 + 1;
+	
+	std::string printString = matrixToString(maxValues, fullWidth);
+	
 	if(print)
 		std::cout << printString << std::endl;
+	
 	return printString;
 }
 
 void Matrix::appendMatrix(const Matrix &matrix, bool appendPosition)
 {
-	if (appendPosition == 0 && getNumberOfRows() != matrix.getNumberOfRows())
-		throw std::exception("Rows of the two matrixs must be the same");
-	else if(appendPosition == 1 && getNumberOfColumns() != matrix.getNumberOfColumns())
-		throw std::exception("Columns of the two matrixs must be the same");
+	appendExceptions(matrix, appendPosition);
 
 	Matrix *newMatrix = new Matrix();
-	if (appendPosition == 0)
-	{
-		newMatrix->setMatrixSize(getNumberOfRows(), getNumberOfColumns() + matrix.getNumberOfColumns());
-		for (size_t col1 = 0; col1 < getNumberOfColumns(); col1++)
-			newMatrix->setColumn(col1, getColumn(col1));
-		for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); col2++)
-			newMatrix->setColumn(col2, matrix.getColumn(col2 - getNumberOfColumns()));
-	}
+
+	if (!appendPosition)
+		appendRight(matrix, *newMatrix);
 	else
-	{
-		newMatrix->setMatrixSize(getNumberOfRows()+matrix.getNumberOfRows(), getNumberOfColumns());
-		for (size_t col1 = 0; col1 < getNumberOfRows(); col1++)
-			newMatrix->setRow(col1, getRow(col1));
-		for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); col2++)
-			newMatrix->setRow(col2, matrix.getRow(col2 - getNumberOfRows()));
-	}
+		appendUnder(matrix, *newMatrix);
 
 	setMatrix(*newMatrix);
 	delete newMatrix;
@@ -415,9 +409,9 @@ Matrix & Matrix::sort(int sortType, bool flag, int valueType)
 	//0 = low to high, 1 = high to low
 	switch (sortType)
 	{
-	case 0:  sortLowHigh(flag, valueType); break;
-	case 1:  sortHighLow(flag, valueType); break;
-	default: throw std::exception("No Sort of that type");
+		case 0:  sortLowHigh(flag, valueType); break;
+		case 1:  sortHighLow(flag, valueType); break;
+		default: throw std::exception("No Sort of that type");
 	}
 	return *this;
 }
@@ -441,6 +435,7 @@ bool Matrix::operator==(const Matrix &obj)
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return false;
+
 	for (size_t row = 0; row < getNumberOfRows(); row++)
 		for (size_t col = 0; col < getNumberOfColumns(); col++)
 			if (getEntry(row, col) != obj.getEntry(row, col))
@@ -596,7 +591,7 @@ const Matrix & Matrix::operator=(std::vector<double> vectorArray)
 }
 
 
-std::string Matrix::printMatrix(std::vector<int> maxValueInRow, int fullWidth) const
+std::string Matrix::matrixToString(std::vector<int> maxValueInRow, int fullWidth) const
 {
 	std::string printString = "";
 	for (size_t row = 0; row < getNumberOfRows(); row++)
@@ -658,7 +653,7 @@ double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow) 
 	return (maxValueInRow[column] - numberWidth(getEntry(row, column)));
 }
 
-std::vector<int> Matrix::findMaxValueInRow() const
+std::vector<int> Matrix::findMaxValueInEachColumn() const
 {
 	std::vector<int> maxValueInRow;
 	for (size_t column = 0; column < getNumberOfColumns(); column++)
@@ -717,6 +712,28 @@ double Matrix::decideMatrixSize(const Matrix &matrix) const
 	return returnvalue;
 }
 
+void Matrix::appendRight(const Matrix &matrix, Matrix &newMatrix)
+{
+	newMatrix.setMatrixSize(getNumberOfRows(), getNumberOfColumns() + matrix.getNumberOfColumns());
+	
+	for (size_t col1 = 0; col1 < getNumberOfColumns(); col1++)
+		newMatrix.setColumn(col1, getColumn(col1));
+	
+	for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); col2++)
+		newMatrix.setColumn(col2, matrix.getColumn(col2 - getNumberOfColumns()));
+}
+
+void Matrix::appendUnder(const Matrix &matrix, Matrix &newMatrix)
+{
+	newMatrix.setMatrixSize(getNumberOfRows() + matrix.getNumberOfRows(), getNumberOfColumns());
+	
+	for (size_t col1 = 0; col1 < getNumberOfRows(); col1++)
+		newMatrix.setRow(col1, getRow(col1));
+	
+	for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); col2++)
+		newMatrix.setRow(col2, matrix.getRow(col2 - getNumberOfRows()));
+}
+
 void Matrix::transferEntries(const Matrix &newMatrix)
 {
 	for (size_t row = 0; row < newMatrix.getNumberOfRows(); row++)
@@ -749,6 +766,14 @@ void Matrix::deleteExceptions(const Matrix &matrix, bool colFlag)
 		for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 			if (matrix.getEntry(row, col) < 0 || matrix.getEntry(row, col) >= ((colFlag) ? getNumberOfColumns() : getNumberOfRows()))
 				throw std::exception("Can't delete a row/column, that doesn't exist");
+}
+
+void Matrix::appendExceptions(const Matrix &matrix, bool appendPosition)
+{
+	if (appendPosition == 0 && getNumberOfRows() != matrix.getNumberOfRows())
+		throw std::exception("Rows of the two matrixs must be the same");
+	else if (appendPosition == 1 && getNumberOfColumns() != matrix.getNumberOfColumns())
+		throw std::exception("Columns of the two matrixs must be the same");
 }
 
 void Matrix::sortHighLow(bool flag, int valueType)
