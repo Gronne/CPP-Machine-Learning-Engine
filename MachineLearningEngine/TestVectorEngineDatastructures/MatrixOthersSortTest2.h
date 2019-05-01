@@ -950,12 +950,206 @@ TEST(MatrixOthersSort2, Sort_1_1_0_MM_2x5)
 }
 
 
-
 //-------------Different sizes-------------
+TEST(MatrixOtherssort2, Sort_Size_1x1)
+{
+	Matrix *matrix1 = new Matrix(1, 1);
+	matrix1->setEntry(0, 0, 5);
+
+	Matrix *matrix2 = new Matrix(1, 1);
+	matrix2->setEntry(0, 0, 5);
+
+	Matrix *result1 = new Matrix(1, 1);
+	result1->setEntry(0, 0, 5);
+
+	Matrix *result2 = new Matrix(1, 1);
+	result2->setEntry(0, 0, 5);
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 0, 0));
+	EXPECT_NO_THROW(matrix2->sort(0, 1, 0));
+	EXPECT_TRUE(*matrix1 == *result1);
+	EXPECT_TRUE(*matrix2 == *result2);
+}
+
+TEST(MatrixOtherssort2, Sort_Size_2x2)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+	*matrix1 = { 1, 2,
+				 4, 1 };
+
+	Matrix *matrix2 = new Matrix(2, 2);
+	*matrix2 = { 1, 2,
+				 4, 1 };
+
+	Matrix *result1 = new Matrix(2, 2);
+	*result1 = { 2, 1,
+				 1, 4 };
+
+	Matrix *result2 = new Matrix(2, 2);
+	*result2 = { 1, 2,
+				 4, 1 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 0, 0));
+	EXPECT_NO_THROW(matrix2->sort(0, 1, 0));
+	EXPECT_TRUE(*matrix1 == *result1);
+	EXPECT_TRUE(*matrix2 == *result2);
+}
+
+TEST(MatrixOtherssort2, Sort_Size_3x3)
+{
+	Matrix *matrix1 = new Matrix(3, 3);
+	*matrix1 = { 1, 2, 0,
+				 4, 1, 2,
+				 2, 6, 3 };
+
+	Matrix *matrix2 = new Matrix(3, 3);
+	*matrix2 = { 1, 2, 0,
+				 4, 1, 2,
+				 2, 6, 3 };
+
+	Matrix *result1 = new Matrix(3, 3);
+	*result1 = { 0, 1, 2,
+				 2, 4, 1,
+				 3, 2, 6 };
+
+	Matrix *result2 = new Matrix(3, 3);
+	*result2 = { 1, 2, 0,
+				 4, 1, 2,
+				 2, 6, 3 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 0, 0));
+	EXPECT_NO_THROW(matrix2->sort(0, 1, 0));
+	EXPECT_TRUE(*matrix1 == *result1);
+	EXPECT_TRUE(*matrix2 == *result2);
+}
+
+TEST(MatrixOtherssort2, Sort_Size_4x4)
+{
+	Matrix *matrix1 = new Matrix(4, 4);
+	*matrix1 = { 1, 2, 0, 2,
+				 4, 1, 2, 6,
+				 2, 6, 3, 4,
+				 6, 2, 5, 7 };
+
+	Matrix *matrix2 = new Matrix(4, 4);
+	*matrix2 = { 1, 2, 0, 2,
+				 4, 1, 2, 6,
+				 2, 6, 3, 4,
+				 6, 2, 5, 7 };
+
+	Matrix *result1 = new Matrix(4, 4);
+	*result1 = { 0, 2, 1, 2,
+				 2, 1, 4, 6,
+				 3, 6, 2, 4,
+				 5, 2, 6, 7 };
+
+	Matrix *result2 = new Matrix(4, 4);
+	*result2 = { 1, 2, 0, 2,
+				 4, 1, 2, 6,
+				 2, 6, 3, 4,
+				 6, 2, 5, 7 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 0, 0));
+	EXPECT_NO_THROW(matrix2->sort(0, 1, 0));
+	EXPECT_TRUE(*matrix1 == *result1);
+	EXPECT_TRUE(*matrix2 == *result2);
+}
 
 
 //--------Different initializations--------
+TEST(MatrixOtherssort2, Sort_init_non)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+	*matrix1 = { 1, 2,
+				 4, 1 };
 
+	Matrix *result1 = new Matrix(2, 2);
+	*result1 = { 2, 1,
+				 1, 4 };
+
+
+	EXPECT_NO_THROW(matrix1->sort());
+	EXPECT_TRUE(*matrix1 == *result1);
+}
+
+TEST(MatrixOtherssort2, Sort_init_1_Param)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+	*matrix1 = { 1, 2,
+				 4, 1 };
+
+	Matrix *result1 = new Matrix(2, 2);
+	*result1 = { 1, 2,
+				 4, 1 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(1));
+	EXPECT_TRUE(*matrix1 == *result1);
+}
+
+TEST(MatrixOtherssort2, Sort_init_2_Param)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+	*matrix1 = { 1, 2,
+				 4, 1 };
+
+	Matrix *result1 = new Matrix(2, 2);
+	*result1 = { 1, 2,
+				 4, 1 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 1));
+	EXPECT_TRUE(*matrix1 == *result1);
+}
+
+TEST(MatrixOtherssort2, Sort_init_3_Param)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+	*matrix1 = { 1, 2,
+				 4, 1 };
+
+	Matrix *result1 = new Matrix(2, 2);
+	*result1 = { 2, 1,
+				 1, 4 };
+
+
+	EXPECT_NO_THROW(matrix1->sort(0, 0, 1));
+	EXPECT_TRUE(*matrix1 == *result1);
+}
 
 //--------------- Exception ---------------
+
+TEST(MatrixOtherssort2, Sort_Except_valueType_large)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+
+	EXPECT_THROW(matrix1->sort(0, 0, 3), std::exception);
+}
+
+TEST(MatrixOtherssort2, Sort_Except_valueType_minus)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+
+	EXPECT_THROW(matrix1->sort(0, 0, -1), std::exception);
+}
+
+TEST(MatrixOtherssort2, Sort_Except_sortType_large)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+
+	EXPECT_THROW(matrix1->sort(2, 0, 0), std::exception);
+}
+
+TEST(MatrixOtherssort2, Sort_Except_sortType_minus)
+{
+	Matrix *matrix1 = new Matrix(2, 2);
+
+	EXPECT_THROW(matrix1->sort(-1, 0, 0), std::exception);
+}
+
+
 
