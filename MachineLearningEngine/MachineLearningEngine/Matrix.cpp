@@ -160,7 +160,7 @@ void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns) const
 
 void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixColumn) const 
 {
-	for (size_t row = 0; row < setMatrix->getNumberOfRows(); row++)
+	for (size_t row = 0; row < setMatrix->getNumberOfRows(); ++row)
 		setMatrix->setEntry(row, setMatrixColumn, getEntry(row, getMatrixColumn));
 }
 
@@ -224,7 +224,7 @@ void Matrix::deleteRow(std::vector<int> rows)
 
 	Matrix *matrix = new Matrix(rows.size(), 1);
 
-	for (size_t row = 0; row < rows.size(); row++)
+	for (size_t row = 0; row < rows.size(); ++row)
 		matrix->setEntry(row, 0, rows[row]);
 
 	deleteRow(*matrix);
@@ -261,7 +261,7 @@ void Matrix::deleteColumn(std::vector<int> columnVec)
 
 	Matrix *matrix = new Matrix(columnVec.size(), 1);
 
-	for (size_t row = 0; row < columnVec.size(); row++)
+	for (size_t row = 0; row < columnVec.size(); ++row)
 		matrix->setEntry(row, 0, columnVec[row]);
 
 	deleteColumn(*matrix);
@@ -310,7 +310,7 @@ void Matrix::setRow(int rowNumber, const Matrix &rowData)
 	if (getNumberOfColumns() != rowData.getNumberOfColumns())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
-	for (size_t column = 0; column < getNumberOfColumns(); column++)
+	for (size_t column = 0; column < getNumberOfColumns(); ++column)
 		setEntry(rowNumber, column, rowData.getEntry(0, column));
 }
 
@@ -322,7 +322,7 @@ void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 	if (getNumberOfColumns() != rowData.size())
 		throw std::exception("Number of columns does not match the matrixs dimensions");
 
-	for (size_t column = 0; column < getNumberOfColumns(); column++)
+	for (size_t column = 0; column < getNumberOfColumns(); ++column)
 		setEntry(rowNumber, column, rowData[column]);
 }
 
@@ -334,7 +334,7 @@ void Matrix::setColumn(int columnNumber, const Matrix &columnData)
 	if (getNumberOfRows() != columnData.getNumberOfRows())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
-	for (size_t row = 0; row < getNumberOfRows(); row++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
 		setEntry(row, columnNumber, columnData.getEntry(row, 0));
 }
 
@@ -346,7 +346,7 @@ void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 	if (getNumberOfRows() != columnData.size())
 		throw std::exception("Number of rows does not match the matrixs dimensions");
 
-	for (size_t row = 0; row < getNumberOfRows(); row++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
 		setEntry(row, columnNumber, columnData[row]);
 }
 
@@ -369,8 +369,8 @@ Matrix & Matrix::transpose(bool copyFlag)
 
 void Matrix::scale(double scaleingsFactor)
 {
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t column = 0; column < getNumberOfColumns(); column++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
 			setEntry(row, column, scaleingsFactor * getEntry(row, column));
 }
 
@@ -436,8 +436,8 @@ bool Matrix::operator==(const Matrix &obj)
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return false;
 
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t col = 0; col < getNumberOfColumns(); col++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t col = 0; col < getNumberOfColumns(); ++col)
 			if (getEntry(row, col) != obj.getEntry(row, col))
 				return false;
 	return true;
@@ -467,8 +467,9 @@ bool Matrix::operator!=(const Matrix &obj)
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return true;
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t col = 0; col < getNumberOfColumns(); col++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t col = 0; col < getNumberOfColumns(); ++col)
 			if (getEntry(row, col) != obj.getEntry(row, col))
 				return true;
 	return false;
@@ -478,15 +479,16 @@ void Matrix::operator+=(const Matrix &obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
 		throw std::exception("Matrix dimensions does not comply");
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t column = 0; column < getNumberOfColumns(); column++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
 			setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
 }
 
 void Matrix::operator+=(const double value)
 {
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t col = 0; col < getNumberOfColumns(); col++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t col = 0; col < getNumberOfColumns(); ++col)
 			setEntry(row, col, getEntry(row, col) + value);
 }
 
@@ -494,15 +496,16 @@ void Matrix::operator-=(const Matrix &obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
 		throw std::exception("Matrix dimensions does not comply");
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t column = 0; column < getNumberOfColumns(); column++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
 			setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
 }
 
 void Matrix::operator-=(const double value)
 {
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t col = 0; col < getNumberOfColumns(); col++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t col = 0; col < getNumberOfColumns(); ++col)
 			setEntry(row, col, getEntry(row, col) - value);
 }
 
@@ -510,6 +513,7 @@ void Matrix::operator*=(const Matrix &obj)
 {
 	if (getNumberOfColumns() != obj.getNumberOfRows())
 		throw std::exception("Matrix Dimensions does not comply");
+
 	*this = multiplication(obj);
 }
 
@@ -522,9 +526,11 @@ Matrix & Matrix::operator+(const Matrix & obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
 		throw std::exception("Matrix dimensions does not comply");
+
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t column = 0; column < getNumberOfColumns(); column++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
 			returnObj->setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
 	return *returnObj;
 }
@@ -532,8 +538,9 @@ Matrix & Matrix::operator+(const Matrix & obj)
 Matrix & Matrix::operator+(const double value)
 {
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-	for (size_t row = 0; row < returnObj->getNumberOfRows(); row++)
-		for (size_t col = 0; col < returnObj->getNumberOfColumns(); col++)
+
+	for (size_t row = 0; row < returnObj->getNumberOfRows(); ++row)
+		for (size_t col = 0; col < returnObj->getNumberOfColumns(); ++col)
 			returnObj->setEntry(row, col, getEntry(row, col) + value);
 	return *returnObj;
 }
@@ -542,9 +549,11 @@ Matrix & Matrix::operator-(const Matrix & obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
 		throw std::exception("Matrix dimensions does not comply");
+
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-	for (size_t row = 0; row < getNumberOfRows(); row++)
-		for (size_t column = 0; column < getNumberOfColumns(); column++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
 			returnObj->setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
 	return *returnObj;
 }
@@ -552,8 +561,9 @@ Matrix & Matrix::operator-(const Matrix & obj)
 Matrix & Matrix::operator-(const double value)
 {
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-	for (size_t row = 0; row < returnObj->getNumberOfRows(); row++)
-		for (size_t col = 0; col < returnObj->getNumberOfColumns(); col++)
+
+	for (size_t row = 0; row < returnObj->getNumberOfRows(); ++row)
+		for (size_t col = 0; col < returnObj->getNumberOfColumns(); ++col)
 			returnObj->setEntry(row, col, getEntry(row, col) - value);
 	return *returnObj;
 }
@@ -561,8 +571,10 @@ Matrix & Matrix::operator-(const double value)
 Matrix & Matrix::operator*(const double value)
 {
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+
 	*returnObj = *this;
 	returnObj->scale(value);
+
 	return *returnObj;
 }
 
@@ -570,14 +582,17 @@ Matrix & Matrix::operator*(const Matrix &obj) const
 {
 	if (getNumberOfColumns() != obj.getNumberOfRows())
 		throw std::exception("Matrix Dimensions does not comply");
+
 	return multiplication(obj);
 }
 
 Matrix & Matrix::operator/(const double value)
 {
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+
 	*returnObj = *this;
 	returnObj->scale(1/value);
+
 	return *returnObj;
 }
 
@@ -585,7 +600,8 @@ const Matrix & Matrix::operator=(std::vector<double> vectorArray)
 {
 	if (vectorArray.size() != getNumberOfRows() * getNumberOfColumns())
 		throw std::exception("Elements isn't equal to number of matrix entries");
-	for (size_t index = 0; index < vectorArray.size(); index++)
+
+	for (size_t index = 0; index < vectorArray.size(); ++index)
 		setEntry((index/getNumberOfColumns()) % getNumberOfRows(), index % getNumberOfColumns(), vectorArray[index]);
 	return *this;
 }
@@ -594,7 +610,7 @@ const Matrix & Matrix::operator=(std::vector<double> vectorArray)
 std::string Matrix::matrixToString(std::vector<int> maxValueInRow, int fullWidth) const
 {
 	std::string printString = "";
-	for (size_t row = 0; row < getNumberOfRows(); row++)
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
 	{
 		printString += printLine(fullWidth);
 		printString += printRow(row, maxValueInRow);
@@ -607,8 +623,7 @@ std::string Matrix::printLine(int width) const
 {
 	std::string printString = "";
 
-	for (size_t cursor = 0; cursor < width; cursor++)
-		printString += "-";
+	for (; printString.size() < width; printString += "-");
 	printString += "\n";
 
 	return printString;
@@ -618,7 +633,7 @@ std::string Matrix::printRow(int row, std::vector<int> maxValueInRow) const
 {
 	std::string printString = "";
 
-	for (size_t column = 0; column < getNumberOfColumns(); column++)
+	for (size_t column = 0; column < getNumberOfColumns(); ++column)
 	{
 		printString += "|";
 		printString += printEntry(row, column, maxValueInRow);
@@ -631,15 +646,18 @@ std::string Matrix::printRow(int row, std::vector<int> maxValueInRow) const
 std::string Matrix::printEntry(int row, int column, std::vector<int>maxValueInRow) const
 {
 	std::string printString = " ";
-	size_t space = 0 + unevenSpace(row, column, maxValueInRow);
+	size_t space = unevenSpace(row, column, maxValueInRow);
 
-	for (; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
+	for (; space < getDiffWidth(row, column, maxValueInRow) / 2; ++space)
 		printString += " ";
 
 	printString += eraseZeros(std::to_string(getEntry(row, column)));
-	for (size_t space = 0; space < getDiffWidth(row, column, maxValueInRow) / 2; space++)
+
+	for (space = 0; space < getDiffWidth(row, column, maxValueInRow) / 2; ++space)
 		printString += " ";
+
 	printString += " ";
+
 	return printString;
 }
 
@@ -656,17 +674,21 @@ double Matrix::getDiffWidth(int row, int column, std::vector<int>maxValueInRow) 
 std::vector<int> Matrix::findMaxValueInEachColumn() const
 {
 	std::vector<int> maxValueInRow;
-	for (size_t column = 0; column < getNumberOfColumns(); column++)
+
+	for (size_t column = 0; column < getNumberOfColumns(); ++column)
 		maxValueInRow.push_back(getWidestNumberInRow(column));
+
 	return maxValueInRow;
 }
 
 double Matrix::getWidestNumberInRow(int column) const
 {
 	double widestValue = 0;
-	for (size_t row = 0; row < getNumberOfRows(); row++)
+
+	for (size_t row = 0; row < getNumberOfRows(); ++row)
 		if (numberWidth(widestValue) < numberWidth(getEntry(row, column)))
 			widestValue = getEntry(row, column);
+
 	return numberWidth(widestValue);
 }
 
@@ -680,35 +702,43 @@ std::string Matrix::eraseZeros(std::string string) const
 {
 	int cursor = 0;
 	if (string.find(".") != std::string::npos)
-		for (; string[string.size() - (1 + cursor)] == '0'; cursor++);
+		for (; string[string.size() - (1 + cursor)] == '0'; ++cursor);
+
 	if (string[string.size() - (1 + cursor)] == '.')
 		cursor++;
+
 	return string.substr(0, string.size() - (cursor));
 }
 
 Matrix & Matrix::multiplication(const Matrix &obj) const
 {
 	Matrix *returnMatrix = new Matrix(getNumberOfRows(), obj.getNumberOfColumns());
-	for (size_t row = 0; row < returnMatrix->getNumberOfRows(); row++)
-		for (size_t column = 0; column < returnMatrix->getNumberOfColumns(); column++)
+
+	for (size_t row = 0; row < returnMatrix->getNumberOfRows(); ++row)
+		for (size_t column = 0; column < returnMatrix->getNumberOfColumns(); ++column)
 			returnMatrix->setEntry(row, column, vectorMultiplication(getRow(row), obj.getColumn(column)));
+	
 	return *returnMatrix;
 }
 
 double Matrix::vectorMultiplication(Matrix &rowMatrix, Matrix &columnMatrix) const
 {
 	double result = 0;
-	for (size_t cursor = 0; cursor < rowMatrix.getNumberOfColumns(); cursor++)
+
+	for (size_t cursor = 0; cursor < rowMatrix.getNumberOfColumns(); ++cursor)
 		result += rowMatrix.getEntry(0, cursor) * columnMatrix.getEntry(cursor, 0);
+
 	return result;
 }
 
 double Matrix::decideMatrixSize(const Matrix &matrix) const
 {
 	double returnvalue = 0;
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			returnvalue += (matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col);
+	
 	return returnvalue;
 }
 
@@ -716,10 +746,10 @@ void Matrix::appendRight(const Matrix &matrix, Matrix &newMatrix)
 {
 	newMatrix.setMatrixSize(getNumberOfRows(), getNumberOfColumns() + matrix.getNumberOfColumns());
 	
-	for (size_t col1 = 0; col1 < getNumberOfColumns(); col1++)
+	for (size_t col1 = 0; col1 < getNumberOfColumns(); ++col1)
 		newMatrix.setColumn(col1, getColumn(col1));
 	
-	for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); col2++)
+	for (size_t col2 = getNumberOfColumns(); col2 < getNumberOfColumns() + matrix.getNumberOfColumns(); ++col2)
 		newMatrix.setColumn(col2, matrix.getColumn(col2 - getNumberOfColumns()));
 }
 
@@ -727,32 +757,32 @@ void Matrix::appendUnder(const Matrix &matrix, Matrix &newMatrix)
 {
 	newMatrix.setMatrixSize(getNumberOfRows() + matrix.getNumberOfRows(), getNumberOfColumns());
 	
-	for (size_t col1 = 0; col1 < getNumberOfRows(); col1++)
+	for (size_t col1 = 0; col1 < getNumberOfRows(); ++col1)
 		newMatrix.setRow(col1, getRow(col1));
 	
-	for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); col2++)
+	for (size_t col2 = getNumberOfRows(); col2 < getNumberOfRows() + matrix.getNumberOfRows(); ++col2)
 		newMatrix.setRow(col2, matrix.getRow(col2 - getNumberOfRows()));
 }
 
 void Matrix::transferEntries(const Matrix &newMatrix)
 {
-	for (size_t row = 0; row < newMatrix.getNumberOfRows(); row++)
-		for (size_t column = 0; column < newMatrix.getNumberOfColumns(); column++)
+	for (size_t row = 0; row < newMatrix.getNumberOfRows(); ++row)
+		for (size_t column = 0; column < newMatrix.getNumberOfColumns(); ++column)
 			setEntry(row, column, newMatrix.getEntry(row, column));
 }
 
 void Matrix::transferEntriesBesideRow(Matrix &matrix, int row)
 {
-	for (size_t internalCol = 0; internalCol < getNumberOfColumns(); internalCol++)
-		for (size_t internalRow = 0, matrixRow = 0; internalRow < getNumberOfRows(); internalRow++)
+	for (size_t internalCol = 0; internalCol < getNumberOfColumns(); ++internalCol)
+		for (size_t internalRow = 0, matrixRow = 0; internalRow < getNumberOfRows(); ++internalRow)
 			if (internalRow != row)
 				matrix.setEntry(matrixRow++, internalCol, getEntry(internalRow, internalCol));
 }
 
 void Matrix::transferEntriesBesideCol(Matrix &matrix, int col)
 {
-	for (size_t internalRow = 0; internalRow < getNumberOfRows(); internalRow++)
-		for (size_t internalCol = 0, matrixCol = 0; internalCol < getNumberOfColumns(); internalCol++)
+	for (size_t internalRow = 0; internalRow < getNumberOfRows(); ++internalRow)
+		for (size_t internalCol = 0, matrixCol = 0; internalCol < getNumberOfColumns(); ++internalCol)
 			if (internalCol != col)
 				matrix.setEntry(internalRow, matrixCol++, getEntry(internalRow, internalCol));
 }
@@ -762,8 +792,8 @@ void Matrix::deleteExceptions(const Matrix &matrix, bool colFlag)
 	if (matrix.getNumberOfColumns() != 1 && matrix.getNumberOfRows() != 1)
 		throw std::exception("Matrix needs to be a vector, when deleting");
 
-	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
+		for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 			if (matrix.getEntry(row, col) < 0 || matrix.getEntry(row, col) >= ((colFlag) ? getNumberOfColumns() : getNumberOfRows()))
 				throw std::exception("Can't delete a row/column, that doesn't exist");
 }
@@ -781,73 +811,27 @@ void Matrix::sortHighLow(bool flag, int valueType)
 	if (((flag) ? getNumberOfRows() : getNumberOfColumns()) == 1)
 		return;
 
-	Matrix *buffer = new Matrix();
-
-	bool sortedFlag = false;
-	int collection = 1;
-
-	while (!sortedFlag)
-	{
-		sortedFlag = true;
-		for (size_t collection = 1; collection < ((flag) ? getNumberOfRows() : getNumberOfColumns()); collection++)
-		{
-			if (flag == 0)		//Row
-				if (sortValue(getColumn(collection), valueType) > sortValue(getColumn(collection - 1), valueType))
-				{
-					*buffer = getColumn(collection);
-					setColumn(collection, getColumn(collection - 1));
-					setColumn(collection - 1, *buffer);
-					sortedFlag = false;
-				}
-			if (flag == 1)		//Col
-				if (sortValue(getRow(collection), valueType) > sortValue(getRow(collection - 1), valueType))
-				{
-					*buffer = getRow(collection);
-					setRow(collection, getRow(collection - 1));
-					setRow(collection - 1, *buffer);
-					sortedFlag = false;
-				}
-		}
-	}
-
-	delete buffer;
+	while (!bubbleSortOneIteration(flag, false, valueType));
 }
 
 void Matrix::sortLowHigh(bool flag, int valueType)
 {
-	if (((flag) ? getNumberOfRows() : getNumberOfColumns()) == 1)
+	if (((flag) ? getNumberOfRows() : getNumberOfColumns()) == 1) 
 		return;
 
-	Matrix *buffer = new Matrix();
+	while (!bubbleSortOneIteration(flag, true, valueType));
+}
 
-	bool sortedFlag = false;
-	int collection = 1;
+bool Matrix::bubbleSortOneIteration(bool rotationFlag, bool sortType, int valueType)
+{
+	bool sortedFlag = true;
+	int elementsToSort = (rotationFlag) ? getNumberOfRows() : getNumberOfColumns();
 
-	while (!sortedFlag)
-	{
-		sortedFlag = true;
-		for (size_t collection = 1; collection < ((flag) ? getNumberOfRows() : getNumberOfColumns()); collection++)
-		{
-			if (flag == 0)		//Row
-				if (sortValue(getColumn(collection), valueType) < sortValue(getColumn(collection - 1), valueType))
-				{
-					*buffer = getColumn(collection);
-					setColumn(collection, getColumn(collection - 1));
-					setColumn(collection - 1, *buffer);
-					sortedFlag = false;
-				}
-			if (flag == 1)		//Col
-				if (sortValue(getRow(collection), valueType) < sortValue(getRow(collection - 1), valueType))
-				{
-					*buffer = getRow(collection);
-					setRow(collection, getRow(collection - 1));
-					setRow(collection - 1, *buffer);
-					sortedFlag = false;
-				}
-		}
-	}
+	for (size_t lineNr = 1; lineNr < elementsToSort; ++lineNr)
+		if (!((rotationFlag) ? bubbleSortCol(lineNr, sortType, valueType) : bubbleSortRow(lineNr, sortType, valueType)))
+			sortedFlag = false;
 
-	delete buffer;
+	return sortedFlag;
 }
 
 double Matrix::sortValue(Matrix &matrix, int valueType)
@@ -855,10 +839,10 @@ double Matrix::sortValue(Matrix &matrix, int valueType)
 	double value = 0;
 	switch (valueType)
 	{
-	case 0: value = sortValueSum(matrix); break;
-	case 1: value = sortValueMax(matrix); break;
-	case 2: value = sortValueMin(matrix); break;
-	default: throw std::exception("Not possible to sort matrix with the given value sorting type");
+		case 0: value = sortValueSum(matrix); break;
+		case 1: value = sortValueMax(matrix); break;
+		case 2: value = sortValueMin(matrix); break;
+		default: throw std::exception("Not possible to sort matrix with the given value sorting type");
 	}
 	return value;
 }
@@ -867,8 +851,8 @@ double Matrix::sortValueSum(Matrix &matrix)
 {
 	double sum = 0;
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			sum += matrix.getEntry(row, col);
 
 	return sum;
@@ -878,8 +862,8 @@ double Matrix::sortValueMax(Matrix &matrix)
 {
 	double largestValue = matrix.getEntry(0, 0);
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			if (largestValue < matrix.getEntry(row, col))
 				largestValue = matrix.getEntry(row, col);
 
@@ -890,12 +874,60 @@ double Matrix::sortValueMin(Matrix &matrix)
 {
 	double smallestValue = matrix.getEntry(0, 0);
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			if (smallestValue > matrix.getEntry(row, col))
 				smallestValue = matrix.getEntry(row, col);
 
 	return smallestValue;
+}
+
+bool Matrix::bubbleSortRow(int columnNr, bool sortType, int valueType)
+{
+	double col1Value = sortValue(getColumn(columnNr), valueType);
+	double col2Value = sortValue(getColumn(columnNr - 1), valueType);
+
+	if ((!sortType && col1Value > col2Value) || (sortType && col1Value < col2Value))
+	{
+		shiftColumns(columnNr, columnNr - 1);
+		return false;
+	}
+	return true;
+}
+
+bool Matrix::bubbleSortCol(int rowNr, bool sortType, int valueType)
+{
+	double row1Value = sortValue(getRow(rowNr), valueType);
+	double row2Value = sortValue(getRow(rowNr - 1), valueType);
+
+	if ((!sortType && row1Value > row2Value) || (sortType && row1Value < row2Value))
+	{
+		shiftRows(rowNr, rowNr - 1);
+		return false;
+	}
+	return true;
+}
+
+void Matrix::shiftColumns(int columnA, int columnB)
+{
+	Matrix *buffer = new Matrix();
+
+	*buffer = getColumn(columnA);
+	setColumn(columnA, getColumn(columnB));
+	setColumn(columnB, *buffer);
+
+	delete buffer;
+}
+
+void Matrix::shiftRows(int rowA, int rowB)
+{
+	Matrix *buffer = new Matrix();
+
+	*buffer = getRow(rowA);
+	setRow(rowA, getRow(rowB));
+	setRow(rowB, *buffer);
+
+	delete buffer;
 }
 
 
@@ -912,7 +944,7 @@ void Matrix::constructMatrix()
 
 void Matrix::setRows(int rows)
 {
-	if(_transposeFlag == false)
+	if(!_transposeFlag)
 		(rows > 0) ? _rows = rows : throw std::exception("Not possible with minus rows");
 	else
 		(rows > 0) ? _columns = rows : throw std::exception("Not possible with minus columns");
@@ -922,7 +954,7 @@ void Matrix::setRows(int rows)
 
 void Matrix::setColumns(int columns)
 {
-	if(_transposeFlag == false)
+	if(!_transposeFlag)
 		(columns > 0) ? _columns = columns : throw std::exception("Not possible with minus columns");
 	else
 		(columns > 0) ? _rows = columns : throw std::exception("Not possible with minus rows");

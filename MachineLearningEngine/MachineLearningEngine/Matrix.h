@@ -102,10 +102,15 @@ private:
 
 	void sortHighLow(bool = 0, int = 0);
 	void sortLowHigh(bool = 0, int = 0);
+	bool bubbleSortOneIteration(bool, bool, int);
 	double sortValue(Matrix&, int = 0);
 	double sortValueSum(Matrix&);
 	double sortValueMax(Matrix&);
 	double sortValueMin(Matrix&);
+	bool bubbleSortRow(int, bool, int);
+	bool bubbleSortCol(int, bool, int);
+	void shiftColumns(int, int);
+	void shiftRows(int, int);
 
 	int _rows = 0;
 	int _columns = 0;
