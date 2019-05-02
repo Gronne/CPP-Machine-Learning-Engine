@@ -39,15 +39,7 @@ Matrix & GetMatrix::pivotColumnsNumber(const Matrix &matrix)
 
 Matrix & GetMatrix::pivotNumbers(const Matrix &matrix, bool type)
 {
-	bool zeroes = true;
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			if (matrix.getEntry(row, col) != 0)
-			{
-				zeroes = false;
-				break;
-			}
-	if (zeroes)
+	if (matrix == getZeroMatrix(matrix))
 		throw std::exception("No Pivots");
 
 	Matrix *returnMatrix = new Matrix(1, 1);
@@ -319,6 +311,11 @@ Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix
 	return *buffer;
 }
 
+Matrix & GetMatrix::getZeroMatrix(const Matrix &matrix) const
+{
+	return getZeroMatrix(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
+}
+
 Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 {
 	if (rows <= 0 || cols <= 0)
@@ -333,6 +330,11 @@ Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 Matrix & GetMatrix::getZeroMatrix(int size) const
 {
 	return getZeroMatrix(size, size);
+}
+
+Matrix & GetMatrix::getIdentityMatrix(const Matrix &matrix) const
+{
+	return getIdentityMatrix(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
 }
 
 Matrix & GetMatrix::getIdentityMatrix(int rows, int columns) const

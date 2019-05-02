@@ -24,10 +24,12 @@ public:
 	double frobeniusNorm(const Matrix&, const Matrix&);
 	Matrix& getBasicVectors(const Matrix&);
 	Matrix& getTransformationMatrix(const Matrix&, const Matrix&);
-	Matrix& getZeroMatrix(int, int) const;
 	Matrix& getZeroMatrix(int) const;
-	Matrix& getIdentityMatrix(int, int) const;
+	Matrix& getZeroMatrix(int, int) const;
+	Matrix& getZeroMatrix(const Matrix&) const;
 	Matrix& getIdentityMatrix(int) const;
+	Matrix& getIdentityMatrix(int, int) const;
+	Matrix& getIdentityMatrix(const Matrix&) const;
 	Matrix& numberSequence(double, double, double = 1) const;
 
 private:

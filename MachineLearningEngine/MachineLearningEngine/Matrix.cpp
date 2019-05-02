@@ -431,7 +431,7 @@ const Matrix & Matrix::operator=(const Matrix & obj)
 	return obj;
 }
 
-bool Matrix::operator==(const Matrix &obj)
+bool Matrix::operator==(const Matrix &obj) const
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return false;
@@ -443,27 +443,27 @@ bool Matrix::operator==(const Matrix &obj)
 	return true;
 }
 
-bool Matrix::operator<(const Matrix &matrix)
+bool Matrix::operator<(const Matrix &matrix) const
 {
 	return (decideMatrixSize(*this) < decideMatrixSize(matrix));
 }
 
-bool Matrix::operator>(const Matrix &matrix)
+bool Matrix::operator>(const Matrix &matrix) const
 {
 	return (decideMatrixSize(*this) > decideMatrixSize(matrix));
 }
 
-bool Matrix::operator<=(const Matrix &matrix)
+bool Matrix::operator<=(const Matrix &matrix) const 
 {
 	return (decideMatrixSize(*this) <= decideMatrixSize(matrix));
 }
 
-bool Matrix::operator>=(const Matrix &matrix)
+bool Matrix::operator>=(const Matrix &matrix) const
 {
 	return (decideMatrixSize(*this) >= decideMatrixSize(matrix));
 }
 
-bool Matrix::operator!=(const Matrix &obj)
+bool Matrix::operator!=(const Matrix &obj) const
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
 		return true;

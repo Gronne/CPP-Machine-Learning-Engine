@@ -43,12 +43,12 @@ public:
 
 	const Matrix& operator=(const Matrix&);
 	const Matrix& operator=(std::vector<double>);
-	bool operator==(const Matrix&);
-	bool operator<(const Matrix&);
-	bool operator>(const Matrix&);
-	bool operator<=(const Matrix&);
-	bool operator>=(const Matrix&);
-	bool operator!=(const Matrix&);
+	bool operator==(const Matrix&) const;
+	bool operator<(const Matrix&) const;
+	bool operator>(const Matrix&) const;
+	bool operator<=(const Matrix&) const;
+	bool operator>=(const Matrix&) const;
+	bool operator!=(const Matrix&) const;
 	void operator+=(const Matrix&);
 	void operator+=(const double);
 	void operator-=(const Matrix&);
