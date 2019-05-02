@@ -35,7 +35,7 @@ public:
 private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);
 	Matrix& pivotNumbers(const Matrix&, bool);
-	void sortMatrix(Matrix&);
+	Matrix& extractPivots(const Matrix&, bool);
 	
 };
 

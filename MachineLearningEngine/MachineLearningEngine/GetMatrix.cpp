@@ -42,53 +42,32 @@ Matrix & GetMatrix::pivotNumbers(const Matrix &matrix, bool type)
 	if (matrix == getZeroMatrix(matrix))
 		throw std::exception("No Pivots");
 
-	Matrix *returnMatrix = new Matrix(1, 1);
-
+	BasicMatrixOperations BMO;
 	MatrixRREF RREF;
+
 	if (RREF.checkForFullDependentMatrix(matrix))
 	{
+		Matrix *returnMatrix = new Matrix();
 		returnMatrix->setEntry(0, 0, 0);
 		return *returnMatrix;
 	}
 
-	BasicMatrixOperations BMO;
-	Matrix *buffer = new Matrix();
-	*buffer = BMO.getEchelonForm(matrix);
-	returnMatrix->setMatrixSize(1, numberOfPivots(matrix));
+	return extractPivots(BMO.getEchelonForm(matrix), type).sort();
+}
+
+Matrix& GetMatrix::extractPivots(const Matrix &matrix, bool type)
+{
+	Matrix *returnMatrix = new Matrix(1, numberOfPivots(matrix));
 
 	for (size_t row = 0, counter = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			if (buffer->getEntry(row, col) != 0)
+			if (matrix.getEntry(row, col) != 0)
 			{
 				returnMatrix->setEntry(0, counter++, ((type) ? row : col));
 				break;
 			}
 
-	sortMatrix(*returnMatrix);
-
-	delete buffer;
 	return *returnMatrix;
-}
-
-void GetMatrix::sortMatrix(Matrix &matrix)
-{
-	double buffer;
-	bool shiftChecker = true;
-	int counter = 0;
-	while (shiftChecker)
-	{
-		shiftChecker = false;
-		for (size_t index = 0; index < matrix.getNumberOfColumns() - 1; index++)
-		{
-			if (matrix.getEntry(0, index) > matrix.getEntry(0, index + 1))
-			{
-				shiftChecker = true;
-				buffer = matrix.getEntry(0, index + 1);
-				matrix.setEntry(0, index + 1, matrix.getEntry(0, index));
-				matrix.setEntry(0, index, buffer);
-			}
-		}
-	}
 }
 
 Matrix & GetMatrix::span(const Matrix &fullMatrix)
