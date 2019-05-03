@@ -271,3 +271,167 @@ TEST(VectorEngineGetMatrixGetIdentityMatrix, GIMDoubleexception6)
 	GetMatrix GM;
 	EXPECT_THROW(GM.getIdentityMatrix(-1, -3), std::exception);
 }
+
+//--------Matrix as Input------------
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_1x1)
+{
+	Matrix *matrix = new Matrix(1, 1);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(1, 1);
+	result->setEntry(0, 0, 1);
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_2x2)
+{
+	Matrix *matrix = new Matrix(2, 2);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(2, 2);
+	*result = { 1, 0,
+				0, 1 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_3x3)
+{
+	Matrix *matrix = new Matrix(3, 3);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(3, 3);
+	*result = { 1, 0, 0,
+				0, 1, 0,
+				0, 0, 1 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_4x4)
+{
+	Matrix *matrix = new Matrix(4, 4);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(4, 4);
+	*result = { 1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_1x3)
+{
+	Matrix *matrix = new Matrix(1, 3);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(1, 3);
+	*result = { 1, 0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_3x1)
+{
+	Matrix *matrix = new Matrix(3, 1);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(3, 1);
+	*result = { 1, 0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_2x3)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(2, 3);
+	*result = { 1, 0, 0,
+				0, 1, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_3x2)
+{
+	Matrix *matrix = new Matrix(3, 2);
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix(3, 2);
+	*result = { 1, 0,
+				0, 1, 
+				0, 0 };
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
+
+TEST(VectorEngineGetMatrixGetIdentityMatrix, GIM_MatrixI_No)
+{
+	Matrix *matrix = new Matrix();
+	int rows = matrix->getNumberOfRows();
+	int cols = matrix->getNumberOfColumns();
+
+	Matrix *result = new Matrix();
+	result->setEntry(0, 0, 1);
+
+	GetMatrix GM;
+	EXPECT_NO_THROW(*matrix = GM.getIdentityMatrix(*matrix));
+	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
+	EXPECT_EQ(matrix->getNumberOfRows(), rows);
+
+	EXPECT_TRUE(*result == *matrix);
+}
