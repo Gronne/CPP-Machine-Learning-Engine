@@ -45,5 +45,9 @@ private:
 	void extractMultipleSpanValues(Matrix&, const Matrix&);
 	bool pivotColumn(const Matrix&, const Matrix &, int, int);
 	void fillResultSpan(const Matrix&, const Matrix&, const Matrix&, Matrix&);
+	Matrix& mergeMatrixes(const Matrix&, const Matrix&);
+	void splitMatrixIntoVectors(const Matrix&, Matrix&, Matrix&);
+	void innerProductExceptions(const Matrix&, const Matrix&);
+	void fillSequenceMatrix(Matrix&, double, double, double) const;
 };
 
