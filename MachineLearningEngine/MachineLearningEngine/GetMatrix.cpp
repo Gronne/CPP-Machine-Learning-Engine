@@ -70,36 +70,135 @@ Matrix& GetMatrix::extractPivots(const Matrix &matrix, bool type)
 	return *returnMatrix;
 }
 
+Matrix & GetMatrix::makeMatrixHorizontal(const Matrix &matrix)
+{
+	Matrix *buffer = new Matrix();
+	*buffer = matrix;
+
+	if (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
+	{
+		*buffer = getZeroMatrix(matrix.getNumberOfRows(), matrix.getNumberOfRows() + 1);
+
+		for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; col++)
+			buffer->setColumn(col, matrix.getColumn(col));
+
+		//Setting last column in Matrix to last column in Buffer
+		buffer->setColumn(buffer->getNumberOfColumns() - 1, matrix.getColumn(matrix.getNumberOfColumns() - 1));
+	}
+
+	return *buffer;
+}
+
+void GetMatrix::deleteInsertedZeroRows(Matrix &buffer, const Matrix &matrix)
+{
+	int insertedColumns = matrix.getNumberOfRows() - matrix.getNumberOfColumns();
+	for (size_t col = 0; col < (insertedColumns + 1); col++)
+		buffer.deleteColumn(buffer.getNumberOfColumns() - 2);
+}
+
+Matrix & GetMatrix::calcSpanOnePivot(Matrix &buffer, const Matrix &matrix)
+{
+	//The reason it needs to me one smaller, is because the last column is the result row
+	buffer = getZeroMatrix(matrix.getNumberOfColumns() - 1, 1);
+
+	for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; col++)
+		if (matrix.getEntry(0, col) != 0)
+		{
+			double resultValue = matrix.getEntry(0, matrix.getNumberOfColumns() - 1);
+			double argumentValue = matrix.getEntry(0, col);
+
+			buffer.setEntry(col, 0, resultValue / argumentValue);
+			break;
+		}
+
+	return buffer;
+}
+
+bool GetMatrix::checkPosibilityForSpan(Matrix &matrix)
+{
+	Matrix *argument = new Matrix();
+	*argument = matrix;
+
+	argument->deleteColumn(argument->getNumberOfColumns() - 1);
+
+	TypeMatrix TM;
+	int rankDifference = TM.rank(*argument) - TM.rank(matrix);
+
+	delete argument;
+
+	return (rankDifference == 0 && checkIfValidResult(matrix));
+}
+
+bool GetMatrix::checkIfValidResult(Matrix &matrix)
+{
+	bool lastArgumentZero = (matrix.getEntry(matrix.getNumberOfRows() - 1, matrix.getNumberOfColumns() - 2) == 0);
+	bool lastResultZero = (matrix.getEntry(matrix.getNumberOfRows() - 1, matrix.getNumberOfColumns() - 1) == 0);
+	
+	return (!lastArgumentZero || (lastArgumentZero && lastResultZero));
+}
+
+Matrix & GetMatrix::findSpanVector(const Matrix &orginalMatrix, Matrix &mutatedMatrix)
+{
+	if (orginalMatrix.getNumberOfColumns() <= orginalMatrix.getNumberOfRows())
+		deleteInsertedZeroRows(mutatedMatrix, orginalMatrix);
+
+	if (checkPosibilityForSpan(mutatedMatrix))
+	{
+		extractMultipleSpanValues(mutatedMatrix, orginalMatrix);
+		return mutatedMatrix;
+	}
+	else
+	{
+		delete &mutatedMatrix;
+		throw std::exception("The vector isn't in the span");
+	}
+}
+
+void GetMatrix::extractMultipleSpanValues(Matrix &buffer, const Matrix &matrix)
+{
+	Matrix *returnMatrix = new Matrix(matrix.getNumberOfColumns() - 1, 1);
+	Matrix *pivots = new Matrix();
+
+	*pivots = pivotColumnsNumber(buffer);
+	buffer = buffer.getColumn(buffer.getNumberOfColumns() - 1);
+
+	fillResultSpan(matrix, buffer, *pivots, *returnMatrix);
+	buffer = *returnMatrix;
+
+	delete pivots;
+	delete returnMatrix;
+}
+
+bool GetMatrix::pivotColumn(const Matrix &pivots, const Matrix &matrix, int row, int pivotsCounter)
+{
+	if (pivotsCounter < pivots.getNumberOfColumns())
+		if (row == pivots.getEntry(0, pivotsCounter))
+			if (pivots.getEntry(0, pivotsCounter) != matrix.getNumberOfColumns() - 1)
+				return true;
+	return false;
+}
+
+void GetMatrix::fillResultSpan(const Matrix &matrix, const Matrix &buffer, const Matrix &pivots, Matrix &resultMatrix)
+{
+	int pivotsCounter = 0;
+	for (size_t row = 0; row < resultMatrix.getNumberOfRows(); row++)
+	{
+		if (pivotColumn(pivots, matrix, row, pivotsCounter))
+			resultMatrix.setEntry(row, 0, buffer.getEntry(pivotsCounter++, 0));
+		else
+			resultMatrix.setEntry(row, 0, 0);
+	}
+}
+
 Matrix & GetMatrix::span(const Matrix &fullMatrix)
 {	
 	if (fullMatrix.getNumberOfColumns() == 1)
 		throw std::exception("Not possible it find the span with no vector to match with");
+	
+	Matrix *buffer = new Matrix();
+	*buffer = makeMatrixHorizontal(fullMatrix);
 
 	BasicMatrixOperations BMO;
-	Matrix *buffer = new Matrix();
-	*buffer = fullMatrix;
-
-	int colLessThanRowFlag = 0;
-
-	if (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
-	{
-		Matrix *zeroMatrix = new Matrix(buffer->getNumberOfRows(), 1);
-		for (size_t row = 0; row < buffer->getNumberOfRows(); row++)
-			zeroMatrix->setEntry(row, 0, 0);
-
-		while (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
-		{
-			buffer->appendMatrix(*zeroMatrix);
-			colLessThanRowFlag++;
-		}
-			
-
-		buffer->setColumn(buffer->getNumberOfColumns() - 1, buffer->getColumn(fullMatrix.getNumberOfColumns() - 1));
-		buffer->setColumn(fullMatrix.getNumberOfColumns() - 1, *zeroMatrix);
-		
-		delete zeroMatrix;
-	}
-
 	try
 	{
 		*buffer = BMO.getEchelonForm(*buffer);
@@ -108,67 +207,10 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 	{
 		if (ex.what() == "Your matrix is full dependent and can't be reduced")
 			throw ex;
-
-		buffer->setMatrixSize(fullMatrix.getNumberOfColumns() - 1, 1);
-		bool oneTimeFlag = false;
-		for (size_t col = 0; col < fullMatrix.getNumberOfColumns() - 1; col++)
-		{
-			if (fullMatrix.getEntry(0, col) == 0 || oneTimeFlag == true)
-				buffer->setEntry(col, 0, 0);
-			else
-			{
-				double firstValue  = fullMatrix.getEntry(0, fullMatrix.getNumberOfColumns() - 1);
-				double secondValue = fullMatrix.getEntry(0, col);
-
-				buffer->setEntry(col, 0,  firstValue / secondValue );
-				oneTimeFlag = true;
-			}
-		}
-
-		return *buffer;
+		return calcSpanOnePivot(*buffer, fullMatrix);
 	}
 
-	for (size_t col = 0; col < colLessThanRowFlag; col++)
-		buffer->deleteColumn(buffer->getNumberOfColumns() - 2);
-	
-	Matrix *buf = new Matrix();
-	*buf = *buffer;
-	buf->deleteColumn(buf->getNumberOfColumns() - 1);
-
-	TypeMatrix TM;
-	int rankNoResult = TM.rank(*buf);
-	int rankResult = TM.rank(*buffer);
-
-	delete buf;
-
-	if (rankNoResult >= rankResult && (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) != 0 || (buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 2) == 0 && buffer->getEntry(buffer->getNumberOfRows() - 1, buffer->getNumberOfColumns() - 1) == 0)))
-	{
-		Matrix *returnMatrix = new Matrix(fullMatrix.getNumberOfColumns() - 1, 1);
-		Matrix *pivots = new Matrix();
-
-		*pivots = pivotColumnsNumber(*buffer);
-		*buffer = buffer->getColumn(buffer->getNumberOfColumns() - 1);
-
-		int pivotsCounter = 0;
-		for (size_t row = 0; row < returnMatrix->getNumberOfRows(); row++)
-		{
-			if (pivotsCounter < pivots->getNumberOfColumns() && row == pivots->getEntry(0, pivotsCounter) && pivots->getEntry(0, pivotsCounter) != fullMatrix.getNumberOfColumns() - 1)
-				returnMatrix->setEntry(row, 0, buffer->getEntry(pivotsCounter++, 0));
-			else 
-				returnMatrix->setEntry(row, 0, 0);
-		}
-
-		delete pivots;
-		delete buffer;
-
-		return *returnMatrix;
-	}
-	else
-	{
-		delete buffer;
-		throw std::exception("The vector isn't in the span");
-	}
-		
+	return findSpanVector(fullMatrix, *buffer);
 }
 
 Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)

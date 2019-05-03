@@ -36,6 +36,14 @@ private:
 	double calculateInnerProductSpace(const Matrix&, const Matrix&);
 	Matrix& pivotNumbers(const Matrix&, bool);
 	Matrix& extractPivots(const Matrix&, bool);
-	
+	Matrix& makeMatrixHorizontal(const Matrix&);
+	void deleteInsertedZeroRows(Matrix&, const Matrix&);
+	Matrix& calcSpanOnePivot(Matrix&, const Matrix&);
+	bool checkPosibilityForSpan(Matrix&);
+	bool checkIfValidResult(Matrix&);
+	Matrix& findSpanVector(const Matrix&, Matrix&);
+	void extractMultipleSpanValues(Matrix&, const Matrix&);
+	bool pivotColumn(const Matrix&, const Matrix &, int, int);
+	void fillResultSpan(const Matrix&, const Matrix&, const Matrix&, Matrix&);
 };
 
