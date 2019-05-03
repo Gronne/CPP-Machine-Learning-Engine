@@ -39,7 +39,7 @@ private:
 	Matrix& makeMatrixHorizontal(const Matrix&);
 	void deleteInsertedZeroRows(Matrix&, const Matrix&);
 	Matrix& calcSpanOnePivot(Matrix&, const Matrix&);
-	bool checkPosibilityForSpan(Matrix&);
+	bool checkPossibilityForSpan(Matrix&);
 	bool checkIfValidResult(Matrix&);
 	Matrix& findSpanVector(const Matrix&, Matrix&);
 	void extractMultipleSpanValues(Matrix&, const Matrix&);

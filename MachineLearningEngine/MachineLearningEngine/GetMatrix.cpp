@@ -114,7 +114,7 @@ Matrix & GetMatrix::calcSpanOnePivot(Matrix &buffer, const Matrix &matrix)
 	return buffer;
 }
 
-bool GetMatrix::checkPosibilityForSpan(Matrix &matrix)
+bool GetMatrix::checkPossibilityForSpan(Matrix &matrix)
 {
 	Matrix *argument = new Matrix();
 	*argument = matrix;
@@ -142,7 +142,7 @@ Matrix & GetMatrix::findSpanVector(const Matrix &orginalMatrix, Matrix &mutatedM
 	if (orginalMatrix.getNumberOfColumns() <= orginalMatrix.getNumberOfRows())
 		deleteInsertedZeroRows(mutatedMatrix, orginalMatrix);
 
-	if (checkPosibilityForSpan(mutatedMatrix))
+	if (checkPossibilityForSpan(mutatedMatrix))
 	{
 		extractMultipleSpanValues(mutatedMatrix, orginalMatrix);
 		return mutatedMatrix;
