@@ -350,6 +350,11 @@ void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 		setEntry(row, columnNumber, columnData[row]);
 }
 
+void Matrix::setMatrixSize(const Matrix &matrix)
+{
+	setMatrixSize(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
+}
+
 
 Matrix & Matrix::transpose(bool copyFlag)
 {

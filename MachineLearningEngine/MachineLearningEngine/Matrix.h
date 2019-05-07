@@ -25,6 +25,7 @@ public:
 	void setColumn(int, const Matrix&);
 	void setRow(int, std::vector<double>);
 	void setColumn(int, std::vector<double>);
+	void setMatrixSize(const Matrix&);
 	void setMatrixSize(int, int);
 	void setEntry(int, int, double);
 	void setMatrix(const Matrix&);

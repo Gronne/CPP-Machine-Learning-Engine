@@ -45,35 +45,30 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB) cons
 {
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		throw std::exception("Matrix dimensions do not comply");
+
 	Matrix *returnMatrix = new Matrix(matrixA.getNumberOfRows(), matrixA.getNumberOfColumns());
+
 	for (size_t row = 0; row < matrixA.getNumberOfRows(); row++)
 		for (size_t column = 0; column < matrixA.getNumberOfColumns(); column++)
 			returnMatrix->setEntry(row, column, matrixA.getEntry(row, column) * matrixB.getEntry(row, column));
+
 	return *returnMatrix;
 }
 
 Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Matrix need to be square to find the inverse");
+	double det = determinant(matrix);
 
-	Matrix *inverseMatrix = new Matrix();
-	*inverseMatrix = matrix;
+	inverseExceptions(matrix, det);
 
 	if (matrix.getNumberOfColumns() == 1)
+	{
+		Matrix *inverseMatrix = new Matrix();
+		*inverseMatrix = matrix;
 		return *inverseMatrix;
-
-	setInverseMatrix(matrix, *inverseMatrix);
-
-	for (size_t row = 0; row < inverseMatrix->getNumberOfRows(); row++)
-		for (size_t col = 0; col < inverseMatrix->getNumberOfColumns(); col++)
-			inverseMatrix->setEntry(row, col, inverseMatrix->getEntry(row, col) * (((row + col) % 2) ? -1 : 1));
+	}	
 	
-	double det = determinant(matrix);
-	if (det == 0)
-		throw std::exception("Not possible to invert");
-
-	return *inverseMatrix * (1/det);
+	return calculateInverse(matrix, det);
 }
 
 void SimpleMatrixOperations::inverse(Matrix &matrix) 
@@ -84,23 +79,11 @@ void SimpleMatrixOperations::inverse(Matrix &matrix)
 void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inverseMatrix)
 {
 	if (inverseMatrix.getNumberOfColumns() == 2)
-	{
-		inverseMatrix.setEntry(0, 0, matrix.getEntry(1, 1));
-		inverseMatrix.setEntry(0, 1, matrix.getEntry(0, 1));
-		inverseMatrix.setEntry(1, 0, matrix.getEntry(1, 0));
-		inverseMatrix.setEntry(1, 1, matrix.getEntry(0, 0));
-	}
+		setInverseMatrix2x2(matrix, inverseMatrix);
 	else
-	{
-		Matrix *detMatrix = new Matrix(inverseMatrix.getNumberOfRows() - 1, inverseMatrix.getNumberOfColumns() - 1);
 		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); row++)
 			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); col++)
-			{
-				setDeterminantMatrix(matrix, *detMatrix, row, col);
-				inverseMatrix.setEntry(col, row, determinant(*detMatrix));
-			}
-		delete detMatrix;
-	}
+				setDeterminantEntry(matrix, inverseMatrix, row, col);
 }
 
 double SimpleMatrixOperations::determinant(const Matrix &matrix)
@@ -192,9 +175,57 @@ double SimpleMatrixOperations::calculateDotProduct(const Matrix &vec1, const Mat
 double SimpleMatrixOperations::calculateVectorLength(const Matrix &matrix)
 {
 	double buffer = 0;
+
 	for (size_t column = 0; column < matrix.getNumberOfColumns(); column++)
 		buffer += matrix.getEntry(0, column) * matrix.getEntry(0, column);
+
 	return sqrt(buffer);
+}
+
+void SimpleMatrixOperations::shiftInverseEntries(Matrix &inverseMatrix)
+{
+	for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); col++)
+			inverseMatrix.setEntry(row, col, inverseMatrix.getEntry(row, col) * (((row + col) % 2) ? -1 : 1));
+}
+
+Matrix& SimpleMatrixOperations::calculateInverse(const Matrix &matrix, double det)
+{
+	Matrix *inverseMatrix = new Matrix();
+	*inverseMatrix = matrix;
+
+	setInverseMatrix(matrix, *inverseMatrix);
+	shiftInverseEntries(*inverseMatrix);
+
+	*inverseMatrix *= (1 / det);
+	return *inverseMatrix;
+}
+
+void SimpleMatrixOperations::inverseExceptions(const Matrix &matrix, double det)
+{
+	if (det == 0)
+		throw std::exception("Not possible to invert");
+
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Matrix need to be square to find the inverse");
+}
+
+void SimpleMatrixOperations::setInverseMatrix2x2(const Matrix &matrix, Matrix &inverseMatrix)
+{
+	inverseMatrix.setEntry(0, 0, matrix.getEntry(1, 1));
+	inverseMatrix.setEntry(0, 1, matrix.getEntry(0, 1));
+	inverseMatrix.setEntry(1, 0, matrix.getEntry(1, 0));
+	inverseMatrix.setEntry(1, 1, matrix.getEntry(0, 0));
+}
+
+void SimpleMatrixOperations::setDeterminantEntry(const Matrix &matrix, Matrix &inverseMatrix, int row, int col)
+{
+	Matrix *detMatrix = new Matrix(inverseMatrix.getNumberOfRows() - 1, inverseMatrix.getNumberOfColumns() - 1);
+
+	setDeterminantMatrix(matrix, *detMatrix, row, col);
+	inverseMatrix.setEntry(col, row, determinant(*detMatrix));
+
+	delete detMatrix;
 }
 
 double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, bool transposed)
@@ -276,19 +307,23 @@ double SimpleMatrixOperations::norm(const Matrix &matrix, bool oneNorm)
 double SimpleMatrixOperations::sum(Matrix &matrix) const
 {
 	double returnValue = 0.0;
+
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
 			returnValue += matrix.getEntry(row, col);
+
 	return returnValue;
 }
 
 double SimpleMatrixOperations::findMaxValue(const Matrix &matrix)
 {
 	double returnValue = 0;
+
 	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
 			if (((matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col)) > ((returnValue > 0) ? returnValue : -returnValue))
 				returnValue = matrix.getEntry(row, col);
+	
 	return returnValue;
 }
 
@@ -296,6 +331,7 @@ void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &
 {
 	int copyRow = 0;
 	int copyCol = 0;
+
 	for (size_t rowSet = 0; rowSet < matrix.getNumberOfRows(); rowSet++)
 		for (size_t columnSet = 0; columnSet < matrix.getNumberOfColumns(); columnSet++)
 			if (rowSet != row && columnSet != column)

@@ -17,18 +17,16 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix1 = new Matrix(2, 5);
-	*matrix1 = { 5,   3.5, 1, 2.5, 4,
-				 4.5, 5.5, 4, 2.5, 3.5 };
+	Matrix *matrix = new Matrix();
+	Matrix *resizeMatrix = new Matrix();
 
-	Matrix *matrix2 = new Matrix(3, 4);
-	*matrix2 = { 1, 2, 3, 4,
-				 1, 2, 3, 4,
-				 1, 2, 3, 4 };
+	
 
 	try
 	{
-		std::cout << GM.span(*matrix2) << std::endl;
+		resizeMatrix->setMatrixSize(1, 1);
+		matrix->setMatrixSize(*resizeMatrix);
+		std::cout << matrix->getNumberOfRows() << std::endl;
 	}
 	catch (const std::exception ex)
 	{

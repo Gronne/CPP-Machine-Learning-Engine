@@ -33,6 +33,11 @@ private:
 	void setInverseMatrix(const Matrix&, Matrix&);
 	double calculateDotProduct(const Matrix&, const Matrix&);
 	double calculateVectorLength(const Matrix&);
+	void shiftInverseEntries(Matrix&);
+	Matrix& calculateInverse(const Matrix&, double);
+	void inverseExceptions(const Matrix&, double);
+	void setInverseMatrix2x2(const Matrix&, Matrix&);
+	void setDeterminantEntry(const Matrix&, Matrix&, int, int);
 };
 
 #endif
