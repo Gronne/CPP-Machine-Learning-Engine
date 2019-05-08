@@ -9,9 +9,8 @@ TEST(VectorEngineTypeMatrixBasis, basisTrue1)
 				3, 1, 3, 
 				5, 2, 4 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_TRUE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_TRUE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisTrue2)
@@ -20,9 +19,8 @@ TEST(VectorEngineTypeMatrixBasis, basisTrue2)
 	*matrix = { 1, 0, 
 				0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_TRUE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_TRUE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisFalse1)
@@ -32,9 +30,8 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse1)
 				3, 1, 3, 
 				1, 2, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisFalse2)
@@ -44,9 +41,8 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse2)
 				1, 2, 3, 
 				4, 2, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisFalse3)
@@ -56,9 +52,8 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse3)
 				3, 1, 3, 1, 
 				4, 2, 6, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisFalse4)
@@ -67,9 +62,8 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse4)
 	*matrix = { 1, 2, 3, 3, 
 				3, 1, 3, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixBasis, basisFalse5)
@@ -80,9 +74,8 @@ TEST(VectorEngineTypeMatrixBasis, basisFalse5)
 				3, 7, 
 				4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }
 
 
@@ -93,7 +86,6 @@ TEST(VectorEngineTypeMatrixBasis, basisSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.basis(*matrix));
-	EXPECT_FALSE(TM.basis(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::basis(*matrix));
+	EXPECT_FALSE(TypeMatrix::basis(*matrix));
 }

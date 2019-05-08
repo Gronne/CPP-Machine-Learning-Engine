@@ -8,7 +8,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM1x1)
 	int cols = 1;
 
 	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -23,8 +23,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM2x2)
 	int rows = 2;
 	int cols = 2;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -39,8 +38,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM3x3)
 	int rows = 3;
 	int cols = 3;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -55,8 +53,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM4x4)
 	int rows = 4;
 	int cols = 4;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -71,8 +68,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM5x5)
 	int rows = 5;
 	int cols = 5;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -87,8 +83,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM1x3)
 	int rows = 1;
 	int cols = 3;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -103,8 +98,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM3x1)
 	int rows = 3;
 	int cols = 1;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -119,8 +113,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM3x2)
 	int rows = 3;
 	int cols = 2;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -135,8 +128,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM2x3)
 	int rows = 2;
 	int cols = 3;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -151,8 +143,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM4x7)
 	int rows = 4;
 	int cols = 7;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -167,8 +158,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM7x4)
 	int rows = 7;
 	int cols = 4;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -183,8 +173,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM1x7)
 	int rows = 1;
 	int cols = 7;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -199,8 +188,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM7x1)
 	int rows = 7;
 	int cols = 1;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(rows, cols));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -217,8 +205,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_rowMinus)
 	int rows = -1;
 	int cols = 1;
 
-	GetMatrix GM;
-	EXPECT_THROW(*matrix = GM.getZeroMatrix(rows, cols), std::exception);
+	EXPECT_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_colMinus)
@@ -227,8 +214,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_colMinus)
 	int rows = 1;
 	int cols = -1;
 
-	GetMatrix GM;
-	EXPECT_THROW(*matrix = GM.getZeroMatrix(rows, cols), std::exception);
+	EXPECT_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_bothMinus)
@@ -237,8 +223,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_Exception_bothMinus)
 	int rows = -1;
 	int cols = -1;
 
-	GetMatrix GM;
-	EXPECT_THROW(*matrix = GM.getZeroMatrix(rows, cols), std::exception);
+	EXPECT_THROW(*matrix = GetMatrix::getZeroMatrix(rows, cols), std::exception);
 }
 
 //-----------------
@@ -248,8 +233,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle1x1)
 	Matrix *matrix = new Matrix();
 	int size = 1;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(size));
 	EXPECT_EQ(matrix->getNumberOfColumns(), size);
 	EXPECT_EQ(matrix->getNumberOfRows(), size);
 
@@ -263,8 +247,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle2x2)
 	Matrix *matrix = new Matrix();
 	int size = 2;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(size));
 	EXPECT_EQ(matrix->getNumberOfColumns(), size);
 	EXPECT_EQ(matrix->getNumberOfRows(), size);
 
@@ -278,8 +261,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle3x3)
 	Matrix *matrix = new Matrix();
 	int size = 3;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(size));
 	EXPECT_EQ(matrix->getNumberOfColumns(), size);
 	EXPECT_EQ(matrix->getNumberOfRows(), size);
 
@@ -293,8 +275,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle4x4)
 	Matrix *matrix = new Matrix();
 	int size = 4;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(size));
 	EXPECT_EQ(matrix->getNumberOfColumns(), size);
 	EXPECT_EQ(matrix->getNumberOfRows(), size);
 
@@ -308,8 +289,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZMSingle5x5)
 	Matrix *matrix = new Matrix();
 	int size = 5;
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(size));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(size));
 	EXPECT_EQ(matrix->getNumberOfColumns(), size);
 	EXPECT_EQ(matrix->getNumberOfRows(), size);
 
@@ -326,8 +306,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_1x1)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -342,8 +321,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_2x2)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -358,8 +336,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_3x3)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -374,8 +351,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_4x4)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -390,8 +366,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_1x3)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -406,8 +381,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_3x1)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -422,8 +396,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_2x3)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -438,8 +411,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_3x2)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 
@@ -454,8 +426,7 @@ TEST(VectorEngineGetMatrixGetZeroMatrix, GZM_MatrixI_No)
 	int rows = matrix->getNumberOfRows();
 	int cols = matrix->getNumberOfColumns();
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getZeroMatrix(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getZeroMatrix(*matrix));
 	EXPECT_EQ(matrix->getNumberOfColumns(), cols);
 	EXPECT_EQ(matrix->getNumberOfRows(), rows);
 

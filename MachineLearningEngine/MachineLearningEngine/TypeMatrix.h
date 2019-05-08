@@ -29,6 +29,6 @@ public:
 
 private:
 	static int findRankFromRREF(Matrix&);
-	static bool isEqualEntry(double, double, double) const;
+	static bool isEqualEntry(double, double, double);
 };
 

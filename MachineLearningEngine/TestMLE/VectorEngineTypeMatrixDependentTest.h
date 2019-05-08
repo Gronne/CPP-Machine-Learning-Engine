@@ -10,8 +10,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHolePositiveDependent)
 				1, 2, 3 };
 
 	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentHolePositiveIndependent)
@@ -21,9 +21,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHolePositiveIndependent)
 				2, 2, 3, 
 				3, 2, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentHoleNegativeDependent)
@@ -33,9 +32,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHoleNegativeDependent)
 				-1, -2, -3, 
 				-1, -2, -3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentHoleNegativeIndependent)
@@ -45,9 +43,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHoleNegativeIndependent)
 				-2, -2, -3, 
 				-3, -2, -1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentHoleMixedDependent)
@@ -57,9 +54,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHoleMixedDependent)
 				-1, 2, 3, 
 				-1, 2, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentHoleMixedIndependent)
@@ -69,9 +65,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHoleMixedIndependent)
 				 1, -2,   3, 
 				 1,  2,  -3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalPositiveDependent)
@@ -81,9 +76,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalPositiveDependent)
 				1.5, 2.5, 3.5, 
 				1.5, 2.5, 3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalPositiveIndependent)
@@ -93,9 +87,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalPositiveIndependent)
 				2.5, 2.5, 3.5, 
 				3.5, 2.5, 1.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalNegativeDependent)
@@ -105,9 +98,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalNegativeDependent)
 				-1.5, -2.5, -3.5, 
 				-1.5, -2.5, -3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalNegativeIndependent)
@@ -117,9 +109,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalNegativeIndependent)
 				-2.5, -2.5, -3.5, 
 				-3.5, -2.5, -1.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalMixedDependent)
@@ -129,9 +120,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalMixedDependent)
 				-1.5, 2.5, 3.5, 
 				-1.5, 2.5, 3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalMixedIndependent)
@@ -141,9 +131,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalMixedIndependent)
 				 1.5, -2.5,  3.5, 
 				 1.5,  2.5, -3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedPositiveDependent)
@@ -153,9 +142,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedPositiveDependent)
 				1.5, 2, 3.5, 
 				1.5, 2, 3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedPositiveIndependent)
@@ -165,9 +153,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedPositiveIndependent)
 				2.5, 2, 3.5, 
 				3.5, 2, 1.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedNegativeDependent)
@@ -177,9 +164,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedNegativeDependent)
 				-1.5, -2, -3.5,
 				-1.5, -2, -3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedNegativeIndependent)
@@ -189,9 +175,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedNegativeIndependent)
 				-2.5, -2, -3.5,
 				-3.5, -2, -1.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedMixedDependent)
@@ -201,9 +186,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedMixedDependent)
 				-1.5, 2, 3.5, 
 				-1.5, 2, 3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentMixedMixedIndependent)
@@ -213,9 +197,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentMixedMixedIndependent)
 				 1.5, -2,  3.5, 
 				 1.5,  2, -3.5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_FALSE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_FALSE(TypeMatrix::dependent(*matrix));
 }
 
 //-------------
@@ -227,9 +210,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentHoleZeroDependent)
 				0, 0, 0, 
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentDecimalZeroDependent)
@@ -239,9 +221,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentDecimalZeroDependent)
 				0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 //---------------
@@ -252,9 +233,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentException1)
 	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix), std::exception);
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix), std::exception);
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentException2)
@@ -264,9 +244,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentException2)
 				3, 4, 
 				5, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix), std::exception);
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix), std::exception);
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 //----------
@@ -277,9 +256,8 @@ TEST(VectorEngineTypeMatrixDependent, dependentOtherCase1)
 				2, 2, 3, 
 				1, 2, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixDependent, dependentSpecialCase)
@@ -289,11 +267,10 @@ TEST(VectorEngineTypeMatrixDependent, dependentSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 
 	matrix->deleteColumn(3);
-	EXPECT_NO_THROW(TM.dependent(*matrix));
-	EXPECT_TRUE(TM.dependent(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::dependent(*matrix));
+	EXPECT_TRUE(TypeMatrix::dependent(*matrix));
 }

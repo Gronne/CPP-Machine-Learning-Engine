@@ -19,10 +19,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHolePositive)
 				 1.7500,  2.7500, 0.4167,
 				 0.2500,  0.2500, 0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleNegative)
@@ -42,10 +40,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleNegative)
 				 1.7500,  2.7500, 0.4167,
 				 0.2500,  0.2500, 0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleNegative_2)
@@ -65,10 +61,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleNegative_2)
 				-1.7500, -2.7500, -0.4167,
 				-0.2500, -0.2500, -0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleMixed)
@@ -88,10 +82,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMHoleMixed)
 				-0.2500,  3.0833,  3.0833,
 				 1.7500, -0.5833, -0.0833 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //----------------------------
@@ -113,10 +105,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalPositive)
 				 1.6000,  2.6000,  0.2666,
 				 0.2500,  0.2500,  0.4166 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalNegative)
@@ -136,10 +126,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalNegative)
 				 1.6000,  2.6000,  0.2667,
 				 0.2500,  0.2500,  0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalNegative_2)
@@ -159,10 +147,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalNegative_2)
 				-1.6000, -2.6000, -0.2667,
 				-0.2500, -0.2500, -0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalMixed)
@@ -182,10 +168,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMDecimalMixed)
 				-0.2000,  3.2667,  3.4667,
 				 2.0000, -0.6667, -0.1667 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //-------------------------------------------------------------
@@ -207,10 +191,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedPositive)
 				 1.7778,  2.3889, 0.0556,
 				 0.4722,  0.7361, 0.3194 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedNegative)
@@ -230,10 +212,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedNegative)
 				 1.7778,  2.3889, 0.0556,
 				 0.4722,  0.7361, 0.3194 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedNegative_2)
@@ -253,10 +233,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedNegative_2)
 				-1.7778,  -2.3889, -0.0556,
 				-0.4722,  -0.7361, -0.3194 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedMixed)
@@ -276,10 +254,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMMixedMixed)
 				16.0000, 13.5000, 15.5000,
 				18.2500, 16.6250, 15.1250 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 
@@ -294,8 +270,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize1x1)
 	Matrix *matrix2 = new Matrix();
 	matrix2->setEntry(0, 0, 5);
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
 	EXPECT_NEAR(5, matrix->getEntry(0, 0), 0.0001);
 }
 
@@ -313,10 +288,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize2x2)
 	*result = { -0.5000, -1.5000,
 				 2.2500,  3.2500 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize3x3)
@@ -336,10 +309,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize3x3)
 				 1.7500,  2.7500, 0.4167,
 				 0.2500,  0.2500, 0.4167 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize4x4)
@@ -362,10 +333,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize4x4)
 				 0.9444, -0.1667, 0.2778,  3.1667,
 				-0.8333,  0.5000, 0.1667, -4.5000 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize2x2_2x3)
@@ -382,10 +351,8 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMSize2x2_2x3)
 	*result = { 1.0000, 0.4000, 1.0000,
 				0.0000, 0.8000, 1.0000 };
 
-	TypeMatrix TM;
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getTransformationMatrix(*matrix, *matrix2));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getTransformationMatrix(*matrix, *matrix2));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //Exceptions
@@ -394,8 +361,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException1)
 	Matrix *matrix = new Matrix(3, 2);
 	Matrix *matrix2 = new Matrix(2, 3);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getTransformationMatrix(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::getTransformationMatrix(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException2)
@@ -403,8 +369,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException2)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *matrix2 = new Matrix(2, 3);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getTransformationMatrix(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::getTransformationMatrix(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException3)
@@ -412,8 +377,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException3)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *matrix2 = new Matrix(3, 2);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getTransformationMatrix(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::getTransformationMatrix(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException4)
@@ -421,8 +385,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException4)
 	Matrix *matrix = new Matrix(3, 2);
 	Matrix *matrix2 = new Matrix(3, 2);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getTransformationMatrix(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::getTransformationMatrix(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException5)
@@ -430,8 +393,7 @@ TEST(VectorEngineGetMatrixGetTransformationMatrix, GTMException5)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *matrix2 = new Matrix(2, 2);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getTransformationMatrix(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::getTransformationMatrix(*matrix, *matrix2), std::exception);
 }
 
 //Special cases

@@ -8,8 +8,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV0P2x2M)
 	*matrix = { 0, 0,
 				0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getBasicVectors(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::getBasicVectors(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetBasicVectors, GBV1P2x2M)
@@ -22,8 +21,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV1P2x2M)
 	matrixResult->setEntry(0, 0, 1);
 	matrixResult->setEntry(0, 1, 1);
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -37,8 +35,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV2P2x2M)
 	*matrixResult = { 1, 2,
 					  5, 4 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -49,8 +46,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV0P3x3M)
 				0, 0, 0,
 				0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.getBasicVectors(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::getBasicVectors(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixGetBasicVectors, GBV1P3x3M)
@@ -63,8 +59,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV1P3x3M)
 	Matrix *matrixResult = new Matrix(1, 3);
 	*matrixResult = { 1, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -79,8 +74,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV2P3x3M)
 	*matrixResult = { 1, 0, 0,
 					  0, 1, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -96,8 +90,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBV3P3x3M)
 					  0, 1, 0,
 					  0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -114,8 +107,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBVZeroSpecial)
 					  0, 0, 0, 1, 0,
 					  0, 0, 0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -130,8 +122,7 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBVSpecialCase)
 	*matrixResult = { 1, 2, 3,
 					  0, 0, 6 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }
 
@@ -145,7 +136,6 @@ TEST(VectorEngineGetMatrixGetBasicVectors, GBVSpecialCase2)
 	Matrix *matrixResult = new Matrix(1, 4);
 	*matrixResult = { 0, 0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(*matrix = GM.getBasicVectors(*matrix));
+	EXPECT_NO_THROW(*matrix = GetMatrix::getBasicVectors(*matrix));
 	EXPECT_TRUE(*matrixResult == *matrix);
 }

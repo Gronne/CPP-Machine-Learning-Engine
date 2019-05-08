@@ -13,10 +13,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHolePositive)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHolePositive)
@@ -31,10 +29,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHolePositive)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleNegative)
@@ -49,10 +45,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleNegative)
 				 0,  5,  4,    6,
 				 0,  0,  1.8,  7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleNegative)
@@ -67,10 +61,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleNegative)
 				 0,  5,  4,    6,
 				 0,  0,  1.8,  7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleMixed)
@@ -85,10 +77,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceHoleMixed)
 				0,  5, -4,    6,
 				0,  0, -1.8,  7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleMixed)
@@ -103,10 +93,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceHoleMixed)
 				0,  5, -4,    6,
 				0,  0, -1.8,  7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalPositive)
@@ -121,10 +109,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalPositive)
 				0,   -4.33333, -2.66666,  -4,
 				0,    0,       -1.615385, -6.923077 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalPositive)
@@ -139,10 +125,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalPositive)
 				0,   -4.33333, -2.666666, -4,
 				0,    0,       -1.615385, -6.923077 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalNegative)
@@ -157,10 +141,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalNegative)
 				 0,    4.33333,  2.66666,   4,
 				 0,    0,        1.615385,  6.923077 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalNegative)
@@ -175,10 +157,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalNegative)
 				 0,    4.33333,  2.66666,   4,
 				 0,    0,        1.615385,  6.923077 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalMixed)
@@ -193,10 +173,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceDecimalMixed)
 				0,    4.33333, -2.66666,  4,
 				0,    0,       -1.61538,  6.92307 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalMixed)
@@ -211,10 +189,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceDecimalMixed)
 				0,    4.33333, -2.66666,   4,
 				0,    0,       -1.615385,  6.923077 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedPositive)
@@ -229,10 +205,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedPositive)
 				0,   -3.66666, -2.66666, -3.33333,
 				0,    0,       -1.72727, -6.90909 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedPositive)
@@ -247,10 +221,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedPositive)
 				0,   -3.66666, -2.66666, -3.33333,
 				0,    0,       -1.72727, -6.90909, };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedNegative)
@@ -265,10 +237,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedNegative)
 				 0,    3.66666,  2.66666,  3.33333,
 				 0,    0,        1.72727,  6.90909 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedNegative)
@@ -283,10 +253,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedNegative)
 				 0,    3.66666,  2.66666,  3.33333,
 				 0,    0,        1.72727,  6.90909 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedMixed)
@@ -301,10 +269,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduceMixedMixed)
 				 0,   5.66666, 2.66666,  -3.33333,
 				 0,   0,       16.35294, -8.941176 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedMixed)
@@ -319,10 +285,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceMixedMixed)
 				 0,   5.66666, 2.66666,  -3.33333,
 				 0,   0,       16.35294, -8.941176 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //-----------Different dimensions------------
@@ -338,10 +302,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5)
 				0, -5, -4,   -6,   -6,
 				0,  0, -1.8, -7.2, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x5)
@@ -356,10 +318,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x5)
 				0, -5, -4,   -6,   -6,
 				0,  0, -1.8, -7.2, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5_2)
@@ -374,10 +334,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x5_2)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4)
@@ -392,10 +350,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x3)
@@ -410,10 +366,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x3)
 				0, -5, -4,
 				0,  0, -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x3)
@@ -428,10 +382,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x3)
 				0, -5, -4,
 				0,  0, -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x3)
 {
@@ -447,10 +399,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x3)
 				0,  0, -1.8,
 				0,  0,  0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x3)
@@ -467,10 +417,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x3)
 				0,  0, -1.8,
 				0,  0,  0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x3)
@@ -489,10 +437,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x3)
 				0,  0,  0,
 				0,  0,  0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x3)
@@ -511,10 +457,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x3)
 				0,  0,  0,
 				0,  0,  0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //----------Different sizes-----------
@@ -529,10 +473,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce1x2)
 	result->setEntry(0, 0, 1);
 	result->setEntry(0, 1, 2);
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce1x2)
@@ -545,10 +487,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce1x2)
 	result->setEntry(0, 0, 1);
 	result->setEntry(0, 1, 2);
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce2x3)
@@ -561,10 +501,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce2x3)
 	*result = { 1,  2,  3,
 				0, -5, -4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce2x3)
@@ -577,10 +515,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce2x3)
 	*result = { 1,  2,  3,
 				0, -5, -4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x4)
@@ -595,10 +531,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce3x4)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4_2)
@@ -613,10 +547,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce3x4_2)
 				0, -5, -4,   -6,
 				0,  0, -1.8, -7.2 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x5)
@@ -633,10 +565,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce4x5)
 				0,  0, -1.8, -7.2,   0.4,
 				0,  0,  0,    0,    -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x5)
@@ -653,10 +583,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce4x5)
 				0,  0, -1.8, -7.2,   0.4,
 				0,  0,  0,    0,    -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x6)
@@ -675,10 +603,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, getRowReduce5x6)
 				0,  0,  0,   -18,   29.37333,  29.70666,
 				0,  0,  0,     0,   14.04,     14.04 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getRowReduction(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getRowReduction(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x6)
@@ -697,10 +623,8 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduce5x6)
 				0,  0,  0,   -18,   29.37333,  29.70666,
 				0,  0,  0,     0,   14.04,     14.04 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 
@@ -716,8 +640,6 @@ TEST(VectorEngineBasicMatrixOperationsRowReduce, rowReduceSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.rowReduce(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(BasicMatrixOperations::rowReduce(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }

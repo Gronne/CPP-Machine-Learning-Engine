@@ -14,10 +14,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormHolePositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHolePositive)
@@ -32,10 +30,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHolePositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormHoleNegative)
@@ -50,10 +46,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormHoleNegative)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHoleNegative)
@@ -68,10 +62,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHoleNegative)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormHoleMixed)
@@ -86,10 +78,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormHoleMixed)
 				0, 1, 0, -2,
 				0, 0, 1, -4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHoleMixed)
@@ -104,10 +94,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormHoleMixed)
 				0, 1, 0, -2,
 				0, 0, 1, -4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalPositive)
@@ -122,10 +110,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalPositive
 				0, 1, 0, -1.71428,
 				0, 0, 1, 4.28571 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalPositive)
@@ -140,10 +126,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalPositive)
 				0, 1, 0, -1.71428,
 				0, 0, 1, 4.28571 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalNegative)
@@ -158,10 +142,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalNegative
 				0, 1, 0, -1.71428, 
 				0, 0, 1,  4.28571 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalNegative)
@@ -176,10 +158,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalNegative)
 				0, 1, 0, -1.71428,
 				0, 0, 1, 4.28571 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalMixed)
@@ -194,10 +174,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormDecimalMixed)
 				0, 1, 0, -1.71428,
 				0, 0, 1, -4.285714 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalMixed)
@@ -212,10 +190,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormDecimalMixed)
 				0, 1, 0, -1.71428,
 				0, 0, 1, -4.285714 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedPositive)
@@ -230,10 +206,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedPositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedPositive)
@@ -248,10 +222,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedPositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedNegative)
@@ -266,10 +238,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedNegative)
 				0, 1, 0, -2,
 				0, 0, 1, 4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedNegative)
@@ -284,10 +254,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedNegative)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedMixed)
@@ -302,10 +270,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonFormMixedMixed)
 				0, 1, 0, -0.33093,
 				0, 0, 1, -0.54676 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedMixed)
@@ -320,10 +286,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormMixedMixed)
 				0, 1, 0, -0.33093,
 				0, 0, 1, -0.54676 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //-----------Different dimensions------------
@@ -339,10 +303,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x5)
 				0, 1, 0, -2, -2,
 				0, 0, 1,  4,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x5)
@@ -357,10 +319,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x5)
 				0, 1, 0, -2, -2,
 				0, 0, 1,  4,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x4_2)
@@ -375,10 +335,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x4_2)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x4)
@@ -393,10 +351,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x4)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x3)
@@ -411,10 +367,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x3)
 				0, 1, 0,
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x3)
@@ -429,10 +383,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x3)
 				0, 1, 0,
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x3)
 {
@@ -448,10 +400,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x3)
 				0, 0, 1,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm4x3)
@@ -468,10 +418,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm4x3)
 				0, 0, 1,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm5x3)
 {
@@ -489,10 +437,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm5x3)
 				0, 0, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm5x3)
@@ -511,10 +457,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm5x3)
 				0, 0, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //----------Different sizes-----------
@@ -529,10 +473,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm1x2)
 	result->setEntry(0, 0, 1);
 	result->setEntry(0, 1, 2);
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm1x2)
@@ -545,10 +487,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm1x2)
 	result->setEntry(0, 0, 1);
 	result->setEntry(0, 1, 2);
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm2x3)
@@ -562,10 +502,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm2x3)
 	*result = { 1, 0, 1.4,
 				0, 1, 0.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm2x3)
@@ -578,10 +516,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm2x3)
 	*result = { 1, 0, 1.4,
 				0, 1, 0.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x4)
@@ -596,10 +532,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm3x4)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x4_2)
@@ -614,10 +548,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm3x4_2)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x5)
@@ -634,10 +566,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x5)
 				0, 0, 1,  4,  0, 
 				0, 0, 0,  0, -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm4x5)
@@ -654,10 +584,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm4x5)
 				0, 0, 1,  4,  0,
 				0, 0, 0,  0, -1.8 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm5x6)
@@ -676,10 +604,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm5x6)
 				0, 0, 0, 1, 0, -0.01851,
 				0, 0, 0, 0, 1,  1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(*matrix = BMO.getEchelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm5x6)
@@ -698,10 +624,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm5x6)
 				0, 0, 0, 1, 0, -0.01851,
 				0, 0, 0, 0, 1,  1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 //----- special case -----
@@ -719,10 +643,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_1)
 				0, 0, 1, 0,
 				0, 0, 0, 1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_2)
@@ -739,10 +661,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_2)
 				0, 0, 1, 0,
 				0, 0, 0, 1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_3)
@@ -759,10 +679,8 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm0and1s_3)
 				0, 0, 1, 0,
 				0, 0, 0, 1 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormSpecialCase)
@@ -777,8 +695,6 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonFormSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	BasicMatrixOperations BMO;
-	EXPECT_NO_THROW(BMO.echelonForm(*matrix));
-	EXPECT_TRUE(TM.isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
 }

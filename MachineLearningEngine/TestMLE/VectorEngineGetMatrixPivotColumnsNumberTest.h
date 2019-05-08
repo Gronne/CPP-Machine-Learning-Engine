@@ -8,8 +8,7 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber0P2x2M)
 	*matrix = { 0, 0,
 				0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.pivotColumnsNumber(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::pivotColumnsNumber(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber1P2x2M)
@@ -18,9 +17,8 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber1P2x2M)
 	*matrix = { 1, 1,
 				2, 2 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber2P2x2M)
@@ -29,10 +27,9 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber2P2x2M)
 	*matrix = { 1, 2,
 				5, 4 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
-	EXPECT_EQ(1, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_EQ(1, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 1));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber0P3x3M)
@@ -42,8 +39,7 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber0P3x3M)
 				0, 0, 0,
 				0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.pivotColumnsNumber(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::pivotColumnsNumber(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber1P3x3M)
@@ -53,9 +49,8 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber1P3x3M)
 				0, 0, 0,
 				0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber2P3x3M)
@@ -65,10 +60,9 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber2P3x3M)
 				0, 1, 0,
 				0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
-	EXPECT_EQ(1, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_EQ(1, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 1));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber3P3x3M)
@@ -78,11 +72,10 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumber3P3x3M)
 				0, 1, 0,
 				0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
-	EXPECT_EQ(1, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
-	EXPECT_EQ(2, GM.pivotColumnsNumber(*matrix).getEntry(0, 2));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_EQ(1, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 1));
+	EXPECT_EQ(2, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 2));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberZeroSpecial)
@@ -93,11 +86,10 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberZeroSpecial)
 				0, 0, 0, 1, 0,
 				0, 0, 0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(1, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
-	EXPECT_EQ(3, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
-	EXPECT_EQ(4, GM.pivotColumnsNumber(*matrix).getEntry(0, 2));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(1, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_EQ(3, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 1));
+	EXPECT_EQ(4, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 2));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase)
@@ -107,10 +99,9 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase)
 				0, 0, 6,
 				0, 0, 6 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(0, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
-	EXPECT_EQ(2, GM.pivotColumnsNumber(*matrix).getEntry(0, 1));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(0, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_EQ(2, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 1));
 }
 
 TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase2)
@@ -120,7 +111,6 @@ TEST(VectorEngineGetMatrixPivotColumnsNumber, pivotColumnsNumberSpecialCase2)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.pivotColumnsNumber(*matrix));
-	EXPECT_EQ(3, GM.pivotColumnsNumber(*matrix).getEntry(0, 0));
+	EXPECT_NO_THROW(GetMatrix::pivotColumnsNumber(*matrix));
+	EXPECT_EQ(3, GetMatrix::pivotColumnsNumber(*matrix).getEntry(0, 0));
 }

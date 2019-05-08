@@ -15,10 +15,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHolePositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleNegative)
@@ -33,10 +31,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleNegative)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleMixed)
@@ -51,10 +47,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverHoleMixed)
 				0, 1, 0, -2,
 				0, 0, 1, -4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalPositive)
@@ -69,10 +63,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalPositive)
 				0, 1, 0, -1.71428,
 				0, 0, 1,  4.28571 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalNegative)
@@ -87,10 +79,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalNegative)
 				0, 1, 0, -1.71428,
 				0, 0, 1,  4.28571 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalMixed)
@@ -105,10 +95,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverDecimalMixed)
 				0, 1, 0, -1.71428,
 				0, 0, 1, -4.28571 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedPositive)
@@ -123,10 +111,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedPositive)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedNegative)
@@ -141,10 +127,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedNegative)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedMixed)
@@ -159,10 +143,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverMixedMixed)
 				0, 1, 0, -0.33093,
 				0, 0, 1, -0.54676 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 //-----------Different dimensions------------
@@ -178,10 +160,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x5)
 				0, 1, 0, -2, -2,
 				0, 0, 1,  4, 4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4)
@@ -196,10 +176,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x3)
@@ -214,10 +192,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x3)
 				0, 1, 0,
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x3)
@@ -234,10 +210,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x3)
 				0, 0, 1,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x3)
@@ -256,10 +230,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x3)
 				0, 0, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 //----------Different sizes-----------
@@ -269,11 +241,10 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver1x2)
 	matrix->setEntry(0, 0, 1);
 	matrix->setEntry(0, 1, 2);
 
-	MatrixRREF RREF; 
 	Matrix *resultMatrix = new Matrix(); 
-	*resultMatrix = RREF.rowReduceUnder(*matrix);
+	*resultMatrix = MatrixRREF::rowReduceUnder(*matrix);
 
-	EXPECT_NO_THROW(*resultMatrix = RREF.rowReduceOver(*resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = MatrixRREF::rowReduceOver(*resultMatrix));
 	EXPECT_EQ(1, resultMatrix->getEntry(0, 0));
 	EXPECT_EQ(2, resultMatrix->getEntry(0, 1));
 }
@@ -288,10 +259,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver2x3)
 	*result = { 1, 0, 1.4,
 				0, 1, 0.8 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4_2)
@@ -306,10 +275,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver3x4_2)
 				0, 1, 0, -2,
 				0, 0, 1,  4 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x5)
@@ -326,10 +293,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x5)
 				0, 0, 1,  4,  0,
 				0, 0, 0,  0, -1.8 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x6)
@@ -348,10 +313,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver5x6)
 				0, 0, 0, 1, 0, -0.01851, 
 				0, 0 ,0, 0, 1,  1 };
 
-	TypeMatrix TM;
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)));
-	EXPECT_TRUE(TM.isEqual(*result, RREF.rowReduceOver(RREF.rowReduceUnder(*matrix)), 0.0001));
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
 }
 
 
@@ -362,9 +325,8 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	MatrixRREF RREF;
 	Matrix *resultMatrix = new Matrix();
-	*resultMatrix = RREF.rowReduceUnder(*matrix);
+	*resultMatrix = MatrixRREF::rowReduceUnder(*matrix);
 
-	EXPECT_NO_THROW(*resultMatrix = RREF.rowReduceOver(*resultMatrix));
+	EXPECT_NO_THROW(*resultMatrix = MatrixRREF::rowReduceOver(*resultMatrix));
 }

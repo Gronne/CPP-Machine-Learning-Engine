@@ -4,7 +4,6 @@
 
 TEST(VectorEngineGetMatrixSpan, spanHolePositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -12,7 +11,7 @@ TEST(VectorEngineGetMatrixSpan, spanHolePositive)
 				4, 3, 2, 1, 
 				5, 3, 7, 4 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -21,7 +20,6 @@ TEST(VectorEngineGetMatrixSpan, spanHolePositive)
 
 TEST(VectorEngineGetMatrixSpan, spanHoleNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -29,7 +27,7 @@ TEST(VectorEngineGetMatrixSpan, spanHoleNegative)
 				-4, -3, -2, -1,
 				-5, -3, -7, -4 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -38,7 +36,6 @@ TEST(VectorEngineGetMatrixSpan, spanHoleNegative)
 
 TEST(VectorEngineGetMatrixSpan, spanHoleMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 	 
@@ -46,7 +43,7 @@ TEST(VectorEngineGetMatrixSpan, spanHoleMixed)
 				 4, -3,  2, -1,
 				-5,  3,  7, -4 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -55,7 +52,6 @@ TEST(VectorEngineGetMatrixSpan, spanHoleMixed)
 
 TEST(VectorEngineGetMatrixSpan, spanDecimalPositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -63,7 +59,7 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalPositive)
 				4.5, 3.5, 2.5, 1.5,
 				5.5, 3.5, 7.5, 4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -72,7 +68,6 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalPositive)
 
 TEST(VectorEngineGetMatrixSpan, spanDecimalNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -80,7 +75,7 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalNegative)
 				-4.5, -3.5, -2.5, -1.5,
 				-5.5, -3.5, -7.5, -4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -89,7 +84,6 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalNegative)
 
 TEST(VectorEngineGetMatrixSpan, spanDecimalMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -97,7 +91,7 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalMixed)
 				 4.5, -3.5,  2.5, -1.5,
 				-5.5,  3.5,  7.5, -4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -106,7 +100,6 @@ TEST(VectorEngineGetMatrixSpan, spanDecimalMixed)
 
 TEST(VectorEngineGetMatrixSpan, spanMixedPositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -114,7 +107,7 @@ TEST(VectorEngineGetMatrixSpan, spanMixedPositive)
 				4.5, 3,   2.5, 1,
 				5.5, 3,   7,   4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -123,7 +116,6 @@ TEST(VectorEngineGetMatrixSpan, spanMixedPositive)
 
 TEST(VectorEngineGetMatrixSpan, spanMixedNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -131,7 +123,7 @@ TEST(VectorEngineGetMatrixSpan, spanMixedNegative)
 				-4.5, -3,   -2.5, -1,
 				-5.5, -3,   -7,   -4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -140,7 +132,6 @@ TEST(VectorEngineGetMatrixSpan, spanMixedNegative)
 
 TEST(VectorEngineGetMatrixSpan, spanMixedMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -148,7 +139,7 @@ TEST(VectorEngineGetMatrixSpan, spanMixedMixed)
 				4.5, -3,   -2.5, 1,
 				5.5, 3,   -7,   -4.5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -157,7 +148,6 @@ TEST(VectorEngineGetMatrixSpan, spanMixedMixed)
 
 TEST(VectorEngineGetMatrixSpan, spanZero)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -165,7 +155,7 @@ TEST(VectorEngineGetMatrixSpan, spanZero)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -174,7 +164,6 @@ TEST(VectorEngineGetMatrixSpan, spanZero)
 
 TEST(VectorEngineGetMatrixSpan, spanFullDependent)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -182,7 +171,7 @@ TEST(VectorEngineGetMatrixSpan, spanFullDependent)
 				1, 2, 3, 4,
 				1, 2, 3, 4 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -192,7 +181,6 @@ TEST(VectorEngineGetMatrixSpan, spanFullDependent)
 //Different sizes
 TEST(VectorEngineGetMatrixSpan, span3x2)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 2);
 
@@ -200,13 +188,12 @@ TEST(VectorEngineGetMatrixSpan, span3x2)
 				4, 8,
 				3, 6};
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_TRUE(matrix->getColumn(1) == matrix->getColumn(0) * *buffer);
 }
 
 TEST(VectorEngineGetMatrixSpan, span3x3)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 3);
 
@@ -214,7 +201,7 @@ TEST(VectorEngineGetMatrixSpan, span3x3)
 				4, 3, 17,
 				5, 3, 19 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn(0) * buffer->getEntry(0, 0) + matrix->getColumn(1) * buffer->getEntry(1, 0));
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(2).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(2).getEntry(1, 0), 0.0001);
@@ -223,7 +210,6 @@ TEST(VectorEngineGetMatrixSpan, span3x3)
 
 TEST(VectorEngineGetMatrixSpan, span3x4)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -231,7 +217,7 @@ TEST(VectorEngineGetMatrixSpan, span3x4)
 				4, 3, 2, 1,
 				5, 3, 7, 4 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(3).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(3).getEntry(1, 0), 0.0001);
@@ -240,7 +226,6 @@ TEST(VectorEngineGetMatrixSpan, span3x4)
 
 TEST(VectorEngineGetMatrixSpan, span3x5)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 5);
 
@@ -248,7 +233,7 @@ TEST(VectorEngineGetMatrixSpan, span3x5)
 				4, 3, 2, 1, 1,
 				5, 3, 7, 4, 5 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn({ 0, 1, 2, 3 }) * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(4).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(4).getEntry(1, 0), 0.0001);
@@ -257,27 +242,25 @@ TEST(VectorEngineGetMatrixSpan, span3x5)
 
 TEST(VectorEngineGetMatrixSpan, span2x4)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(2, 4);
 
 	*matrix = { 1, 2, 3, 4,
 				4, 3, 2, 1 };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_TRUE(matrix->getColumn(3) == matrix->getColumn({ 0, 1, 2 }) * *buffer);
 }
 
 TEST(VectorEngineGetMatrixSpan, span2x3)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(2, 3);
 
 	*matrix = { 1, 2, 3,
 				4, 3, 2};
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix));
 	EXPECT_NO_THROW(*buffer = matrix->getColumn(0) * buffer->getEntry(0, 0) + matrix->getColumn(1) * buffer->getEntry(1, 0));
 	EXPECT_NEAR(buffer->getEntry(0, 0), matrix->getColumn(2).getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), matrix->getColumn(2).getEntry(1, 0), 0.0001);
@@ -286,7 +269,6 @@ TEST(VectorEngineGetMatrixSpan, span2x3)
 //Exceptions
 TEST(VectorEngineGetMatrixSpan, spanExceptionZero)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -294,12 +276,11 @@ TEST(VectorEngineGetMatrixSpan, spanExceptionZero)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, spanException3x1DontMatch)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 1);
 
@@ -307,12 +288,11 @@ TEST(VectorEngineGetMatrixSpan, spanException3x1DontMatch)
 				4,
 				5};
 
-	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, spanException3x2NotSameDimension)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 2);
 
@@ -320,12 +300,11 @@ TEST(VectorEngineGetMatrixSpan, spanException3x2NotSameDimension)
 				4, 3,
 				5, 3 };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, spanException3x4NotSameDimension)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -333,23 +312,14 @@ TEST(VectorEngineGetMatrixSpan, spanException3x4NotSameDimension)
 				4, 3, 2, 1,
 				4, 3, 2, 4 };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix), std::exception);
 }
-
-
-
-
-
-
-
-
 
 
 //----------------double matrix---------------------
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanHolePositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -362,7 +332,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHolePositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -371,7 +341,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHolePositive)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanHoleNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -384,7 +353,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -393,7 +362,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleNegative)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanHoleMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -406,7 +374,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -415,7 +383,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanHoleMixed)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalPositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -428,7 +395,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalPositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -437,7 +404,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalPositive)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -450,7 +416,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -459,7 +425,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalNegative)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -472,7 +437,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -481,7 +446,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanDecimalMixed)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanMixedPositive)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -494,7 +458,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedPositive)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -503,7 +467,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedPositive)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanMixedNegative)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -516,7 +479,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedNegative)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -525,7 +488,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedNegative)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanMixedMixed)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -538,7 +500,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedMixed)
 				4,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -547,7 +509,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanMixedMixed)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanZero)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -560,7 +521,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanZero)
 				0,
 				0, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -572,7 +533,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanZero)
 //Different sizes
 TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 1);
 
@@ -585,7 +545,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1)
 				8,
 				6, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -594,7 +554,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1_2)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 2);
 
@@ -607,7 +566,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1_2)
 				17,
 				19, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -616,7 +575,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x2Plus1_2)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpan3x3Plus1)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 3);
 
@@ -629,7 +587,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x3Plus1)
 				1,
 				4, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -638,7 +596,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x3Plus1)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpan3x4Plus1)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -651,7 +608,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x4Plus1)
 				1,
 				5, };
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -660,7 +617,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan3x4Plus1)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpan2x4Plus1)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(2, 4);
 
@@ -671,7 +627,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x4Plus1)
 	secMat->setEntry(0, 0, 4);
 	secMat->setEntry(1, 0, 2);
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -679,7 +635,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x4Plus1)
 
 TEST(VectorEngineGetMatrixSpan, doubleSpan2x2Plus1)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(2, 2);
 
@@ -690,7 +645,7 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x2Plus1)
 	secMat->setEntry(0, 0, 3);
 	secMat->setEntry(1, 0, 2);
 
-	EXPECT_NO_THROW(*buffer = GM.span(*matrix, *secMat));
+	EXPECT_NO_THROW(*buffer = GetMatrix::span(*matrix, *secMat));
 	EXPECT_NO_THROW(*buffer = *matrix * *buffer);
 	EXPECT_NEAR(buffer->getEntry(0, 0), secMat->getEntry(0, 0), 0.0001);
 	EXPECT_NEAR(buffer->getEntry(1, 0), secMat->getEntry(1, 0), 0.0001);
@@ -699,7 +654,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpan2x2Plus1)
 //Exceptions
 TEST(VectorEngineGetMatrixSpan, doubleSpanExceptionZero)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 3);
 
@@ -712,12 +666,11 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanExceptionZero)
 				0,
 				0, };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix, *secMat), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanException3x1Plus1DontMatch)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 1);
 
@@ -730,12 +683,11 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanException3x1Plus1DontMatch)
 				1,
 				5, };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix, *secMat), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanException3x2Plus1NotSameDimension)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 2);
 
@@ -748,12 +700,11 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanException3x2Plus1NotSameDimension)
 				1,
 				5, };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix, *secMat), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanException3x4Plus1NotSameDimension)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 
@@ -766,24 +717,22 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanException3x4Plus1NotSameDimension)
 				1,
 				5, };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix, *secMat), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, SpanSpecialCaseException)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 4);
 	*matrix = { 0, 0, 0, 1,
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixSpan, doubleSpanSpecialCaseException)
 {
-	GetMatrix GM;
 	Matrix *buffer = new Matrix();
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 0, 0, 0,
@@ -795,6 +744,6 @@ TEST(VectorEngineGetMatrixSpan, doubleSpanSpecialCaseException)
 				0,
 				0, };
 
-	EXPECT_THROW(*buffer = GM.span(*matrix, *secMat), std::exception);
+	EXPECT_THROW(*buffer = GetMatrix::span(*matrix, *secMat), std::exception);
 }
 

@@ -11,9 +11,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanNotSpan)
 	Matrix *spanMatrix = new Matrix(3, 1);
 	*spanMatrix = { 1, 3, 5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_FALSE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException1)
@@ -26,8 +25,7 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException1)
 	Matrix *spanMatrix = new Matrix(4, 1);
 	*spanMatrix = { 1, 3, 5, 5 };
 
-	TypeMatrix TM;
-	EXPECT_THROW(TM.checkSpan(*matrix, *spanMatrix), std::exception);
+	EXPECT_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix), std::exception);
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException2)
@@ -41,8 +39,7 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanException2)
 	spanMatrix->setEntry(0, 0, 1);
 	spanMatrix->setEntry(1, 0, 3);
 
-	TypeMatrix TM;
-	EXPECT_THROW(TM.checkSpan(*matrix, *spanMatrix), std::exception);
+	EXPECT_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix), std::exception);
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanRow)
@@ -55,9 +52,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanRow)
 	Matrix *spanMatrix = new Matrix(3, 1);
 	*spanMatrix = { 1, 3, 5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_TRUE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanCol)
@@ -70,9 +66,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanCol)
 	Matrix *spanMatrix = new Matrix(1, 3);
 	*spanMatrix = { 1, 3, 5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_TRUE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixRow)
@@ -86,9 +81,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixRow)
 	*spanMatrix = { 1, 3, 5, 
 					1, 3, 5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_TRUE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixCol)
@@ -103,9 +97,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpanMatrixCol)
 					5, 1, 
 					3, 5 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_TRUE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionTrue)
@@ -118,9 +111,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionTrue)
 	*spanMatrix = { 3, 6, 
 					4, 8 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_TRUE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_TRUE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionFalse)
@@ -133,9 +125,8 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpan1DimensionFalse)
 	*spanMatrix = { 3, 6, 
 					3, 8 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_FALSE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }
 
 TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpecialCase) 
@@ -148,7 +139,6 @@ TEST(VectorEngineTypeMatrixCheckSpan, checkSpanSpecialCase)
 	Matrix *spanMatrix = new Matrix(3, 1);
 	*spanMatrix = { 1, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.checkSpan(*matrix, *spanMatrix));
-	EXPECT_FALSE(TM.checkSpan(*matrix, *spanMatrix));
+	EXPECT_NO_THROW(TypeMatrix::checkSpan(*matrix, *spanMatrix));
+	EXPECT_FALSE(TypeMatrix::checkSpan(*matrix, *spanMatrix));
 }

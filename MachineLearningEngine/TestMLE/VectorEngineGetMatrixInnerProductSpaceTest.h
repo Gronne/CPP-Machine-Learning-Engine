@@ -8,9 +8,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHolePositiveRow)
 	*matrix = { 1, 2, 3,
 				3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHolePositiveColumn)
@@ -20,9 +19,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHolePositiveColumn)
 				2, 2, 
 				3, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleNegativeRow)
@@ -31,9 +29,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleNegativeRow)
 	*matrix = { -1, -2, -3,
 				-3, -2, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleNegativeColumn)
@@ -43,9 +40,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleNegativeColumn)
 				-2, -2,
 				-3, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleMixedRow)
@@ -54,9 +50,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleMixedRow)
 	*matrix = { -1, 2, -3,
 				3, -2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(2.3664, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(2.3664, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleMixedColumn)
@@ -66,9 +61,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleHoleMixedColumn)
 				2, -2,
 				-3, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(2.3664, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(2.3664, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalPositiveRow)
@@ -77,9 +71,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalPositiveRow)
 	*matrix = { 1.5, 2.5, 3.5,
 				3.5, 2.5, 1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalPositiveColumn)
@@ -89,9 +82,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalPositiveColumn)
 				2.5, 2.5,
 				3.5, 1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalNegativeRow)
@@ -100,9 +92,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalNegativeRow)
 	*matrix = { -1.5, -2.5, -3.5,
 				-3.5, -2.5, -1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalNegativeColumn)
@@ -112,9 +103,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalNegativeColumn)
 				-2.5, -2.5,
 				-3.5, -1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalMixedRow)
@@ -123,9 +113,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalMixedRow)
 	*matrix = { -1.5, 2.5, -3.5,
 				3.5, -2.5, 1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(2.5102, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(2.5102, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalMixedColumn)
@@ -135,9 +124,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleDecimalMixedColumn)
 				 2.5, -2.5,
 				-3.5,  1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(2.5102, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(2.5102, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedPositiveRow)
@@ -146,9 +134,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedPositiveRow)
 	*matrix = { 1.5, 2,   3.5,
 				3,   2.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedPositiveColumn)
@@ -158,9 +145,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedPositiveColumn)
 				2,   2.5,
 				3.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedNegativeRow)
@@ -169,9 +155,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedNegativeRow)
 	*matrix = { -1.5, -2,   -3.5,
 				-3,   -2.5, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedNegativeColumn)
@@ -181,9 +166,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedNegativeColumn)
 				-2,   -2.5,
 				-3.5, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedMixedRow)
@@ -192,9 +176,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedMixedRow)
 	*matrix = { -1.5, 2,   3.5,
 				-3,   -2.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(1.3969, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(1.3969, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedMixedColumn)
@@ -204,9 +187,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleMixedMixedColumn)
 				2,    -2.5,
 				3.5,   1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(1.3969, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(1.3969, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 //------Different sizes------
@@ -216,9 +198,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x2)
 	*matrix = { 1, 2,
 				3, 2, };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.5191, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.5191, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x3)
@@ -227,9 +208,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x3)
 	*matrix = { 1, 2, 3,
 				3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0.7752, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0.7752, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x4)
@@ -238,9 +218,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x4)
 	*matrix = { 1, 2, 3, 4,
 				3, 2, 1, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(1.0611, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(1.0611, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x5)
@@ -249,9 +228,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSize2x5)
 	*matrix = { 1, 2, 3, 4, 5,
 				3, 2, 1, 0, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(1.3958, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(1.3958, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 
@@ -263,8 +241,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_1)
 				3, 2, 1, 0,
 				4, 2, 4, 5};
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_2)
@@ -275,8 +252,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_2)
 				4, 2, 4,
 				5, 1, 5 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_3)
@@ -284,8 +260,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_3)
 	Matrix *matrix = new Matrix();
 	matrix->setEntry(0, 0, 1);
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_4)
@@ -293,8 +268,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleExceptionVector_4)
 	Matrix *matrix = new Matrix(1, 3);
 	*matrix = { 1, 2, 3 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 
@@ -306,8 +280,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleZero_1)
 	*matrix = { 0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleZero_2)
@@ -316,8 +289,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleZero_2)
 	*matrix = { 0, 0, 0, 0,
 				0, 0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleZero_3)
@@ -326,8 +298,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleZero_3)
 	*matrix = { 0, 0, 0, 1,
 				0, 0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSame)
@@ -336,9 +307,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSSingleSame)
 	*matrix = { 1, 2, 3, 4,
 				1, 2, 3, 4 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix));
-	EXPECT_NEAR(0, GM.innerProductSpace(*matrix), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix));
+	EXPECT_NEAR(0, GetMatrix::innerProductSpace(*matrix), 0.0001);
 }
 
 
@@ -353,9 +323,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHolePositiveRow)
 	*matrix1 = { 1, 2, 3 };
 	*matrix2 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHolePositiveColumn)
@@ -365,9 +334,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHolePositiveColumn)
 	*matrix1 = { 1, 2, 3 };
 	*matrix2 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleNegativeRow)
@@ -377,9 +345,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleNegativeRow)
 	*matrix1 = { -1, -2, -3 };
 	*matrix2 = { -3, -2, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleNegativeColumn)
@@ -389,9 +356,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleNegativeColumn)
 	*matrix1 = { -1, -2, -3 };
 	*matrix2 = { -3, -2, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.775193, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.775193, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleMixedRow)
@@ -401,9 +367,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleMixedRow)
 	*matrix1 = { -1,  2, -3 };
 	*matrix2 = {  3, -2,  1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(2.3664, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(2.3664, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleMixedColumn)
@@ -413,9 +378,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleHoleMixedColumn)
 	*matrix1 = { -1,  2, -3 };
 	*matrix2 = { 3, -2,  1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(2.3664, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(2.3664, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalPositiveRow)
@@ -425,9 +389,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalPositiveRow)
 	*matrix1 = { 1.5, 2.5, 3.5 };
 	*matrix2 = { 3.5, 2.5, 1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalPositiveColumn)
@@ -437,9 +400,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalPositiveColumn)
 	*matrix1 = { 1.5, 2.5, 3.5 };
 	*matrix2 = { 3.5, 2.5, 1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalNegativeRow)
@@ -449,9 +411,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalNegativeRow)
 	*matrix1 = { -1.5, -2.5, -3.5 };
 	*matrix2 = { -3.5, -2.5, -1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalNegativeColumn)
@@ -461,9 +422,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalNegativeColumn)
 	*matrix1 = { -1.5, -2.5, -3.5 };
 	*matrix2 = { -3.5, -2.5, -1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.6314, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.6314, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalMixedRow)
@@ -473,9 +433,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalMixedRow)
 	*matrix1 = { -1.5,  2.5, -3.5 };
 	*matrix2 = {  3.5, -2.5,  1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(2.5102, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(2.5102, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalMixedColumn)
@@ -485,9 +444,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleDecimalMixedColumn)
 	*matrix1 = { -1.5,  2.5, -3.5 };
 	*matrix2 = { 3.5, -2.5,  1.5 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(2.5102, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(2.5102, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedPositiveRow)
@@ -497,9 +455,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedPositiveRow)
 	*matrix1 = { 1.5, 2  , 3.5 };
 	*matrix2 = { 3  , 2.5, 1   };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedPositiveColumn)
@@ -509,9 +466,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedPositiveColumn)
 	*matrix1 = { 1.5, 2  , 3.5 };
 	*matrix2 = { 3  , 2.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedNegativeRow)
@@ -521,9 +477,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedNegativeRow)
 	*matrix1 = { -1.5, -2  , -3.5 };
 	*matrix2 = { -3  , -2.5, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedNegativeColumn)
@@ -533,9 +488,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedNegativeColumn)
 	*matrix1 = { -1.5, -2  , -3.5 };
 	*matrix2 = { -3  , -2.5, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.7231, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.7231, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedMixedRow)
@@ -545,9 +499,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedMixedRow)
 	*matrix1 = { -1.5,  2  , 3.5 };
 	*matrix2 = { -3  , -2.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(1.3969, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(1.3969, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedMixedColumn)
@@ -557,9 +510,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleMixedMixedColumn)
 	*matrix1 = { -1.5,  2  , 3.5 };
 	*matrix2 = { -3  , -2.5, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(1.3969, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(1.3969, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 //------Different sizes------
@@ -572,9 +524,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x2)
 	matrix2->setEntry(0, 0, 3);
 	matrix2->setEntry(0, 1, 2);
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.5191, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.5191, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x3)
@@ -584,9 +535,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x3)
 	*matrix1 = { 1, 2, 3 };
 	*matrix2 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0.7752, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0.7752, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x4)
@@ -596,9 +546,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x4)
 	*matrix1 = { 1, 2, 3, 4 };
 	*matrix2 = { 3, 2, 1, 0 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(1.0611, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(1.0611, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x5)
@@ -608,9 +557,8 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSize2x5)
 	*matrix1 = { 1, 2, 3, 4,  5 };
 	*matrix2 = { 3, 2, 1, 0, -1 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(1.3958, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(1.3958, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }
 
 
@@ -624,8 +572,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_1)
 
 	*matrix2 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_2)
@@ -637,8 +584,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_2)
 
 	*matrix1 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_3)
@@ -651,8 +597,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_3)
 
 	*matrix2 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_4)
@@ -665,8 +610,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleExceptionVector_4)
 
 	*matrix1 = { 3, 2, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 
@@ -679,8 +623,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleZero_1)
 	*matrix1 = { 0, 0, 0, 0 };
 	*matrix2 = { 0, 0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleZero_2)
@@ -690,8 +633,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleZero_2)
 	*matrix1 = { 0, 0, 0, 1 };
 	*matrix2 = { 0, 0, 0, 0 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleZero_3)
@@ -701,8 +643,7 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleZero_3)
 	*matrix1 = { 0, 0, 0, 0 };
 	*matrix2 = { 0, 0, 0, 1 };
 
-	GetMatrix GM;
-	EXPECT_THROW(GM.innerProductSpace(*matrix1, *matrix2), std::exception);
+	EXPECT_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2), std::exception);
 }
 
 TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSame)
@@ -712,7 +653,6 @@ TEST(VectorEngineGetMatrixInnerProductSpace, IPSDoubleSame)
 	*matrix1 = { 1, 2, 3, 4 };
 	*matrix2 = { 1, 2, 3, 4 };
 
-	GetMatrix GM;
-	EXPECT_NO_THROW(GM.innerProductSpace(*matrix1, *matrix2));
-	EXPECT_NEAR(0, GM.innerProductSpace(*matrix1, *matrix2), 0.0001);
+	EXPECT_NO_THROW(GetMatrix::innerProductSpace(*matrix1, *matrix2));
+	EXPECT_NEAR(0, GetMatrix::innerProductSpace(*matrix1, *matrix2), 0.0001);
 }

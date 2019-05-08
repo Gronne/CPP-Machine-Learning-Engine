@@ -9,9 +9,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHolePositiveTrue)
 				1, 2, 3,
 				1, 2, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHolePositiveFalse)
@@ -21,9 +20,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHolePositiveFalse)
 				1, 2, 3,
 				1, 2, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleNegativeTrue)
@@ -33,9 +31,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleNegativeTrue)
 				-1, -2, -3,
 				-1, -2, -3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleNegativeFalse)
@@ -45,9 +42,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleNegativeFalse)
 				-1, -2, -3, 
 				-1, -2, -3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleMixedTrue)
@@ -57,9 +53,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleMixedTrue)
 				-1, 2, 3, 
 				-1, 2, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleMixedFalse)
@@ -69,9 +64,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMHoleMixedFalse)
 				-1, 2, 3, 
 				-1, 2, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveTrue)
@@ -81,9 +75,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveTrue
 				1.5, 2.5, 3.5, 
 				1.5, 2.5, 3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveFalse)
@@ -93,9 +86,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalPositiveFals
 				1.5, 2.5, 3.5, 
 				1.5, 2.5, 3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeTrue)
@@ -105,9 +97,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeTrue
 				-1.5, -2.5, -3.5, 
 				-1.5, -2.5, -3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeFalse)
@@ -117,9 +108,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalNegativeFals
 				-1.5, -2.5, -3.5, 
 				-1.5, -2.5, -3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedTrue)
@@ -129,9 +119,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedTrue)
 				-1.5, 2.5, 3.5, 
 				-1.5, 2.5, 3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedFalse)
@@ -141,9 +130,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDecimalMixedFalse)
 				-1.5, 2.5, 3.5, 
 				-1.5, 2.5, 3.5 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveTrue)
@@ -153,9 +141,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveTrue)
 				1.5, 2.5, 3, 
 				1.5, 2.5, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveFalse)
@@ -165,9 +152,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedPositiveFalse)
 				1.5, 2.5, 3,
 				1.5, 2.5, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeTrue)
@@ -177,9 +163,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeTrue)
 				-1.5, -2.5, -3,
 				-1.5, -2.5, -3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeFalse)
@@ -189,9 +174,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedNegativeFalse)
 				-1.5, -2.5, -3,
 				-1.5, -2.5, -3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedTrue)
@@ -201,9 +185,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedTrue)
 				-1.5, 2.5, 3,
 				-1.5, 2.5, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedFalse)
@@ -213,9 +196,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMMixedMixedFalse)
 				-1.5, 2.5, 3,
 				-1.5, 2.5, 3 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 //-------Dependent different scaling-------
@@ -226,9 +208,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize1)
 				2, 4, 6, 
 				3, 6, 9 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize2)
@@ -238,9 +219,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize2)
 				-1, -2, -3, 
 				 4,  8, 12 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_TRUE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_TRUE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize3)
@@ -248,9 +228,8 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMDependentSize3)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }
 
 TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMSpecialCase)
@@ -260,7 +239,6 @@ TEST(VectorEngineMatrixRREFCheckForFullDependentMatrix, CFFDMSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	MatrixRREF RREF;
-	EXPECT_NO_THROW(RREF.checkForFullDependentMatrix(*matrix));
-	EXPECT_FALSE(RREF.checkForFullDependentMatrix(*matrix));
+	EXPECT_NO_THROW(MatrixRREF::checkForFullDependentMatrix(*matrix));
+	EXPECT_FALSE(MatrixRREF::checkForFullDependentMatrix(*matrix));
 }

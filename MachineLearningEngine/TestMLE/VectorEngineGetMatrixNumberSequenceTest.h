@@ -12,10 +12,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__1__1_0)
 	double to = 1;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1__1__0_1)
@@ -27,10 +25,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__1__0_1)
 	double to = 1;
 	double stepSize = 0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1__10__1_0)
@@ -42,10 +38,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__10__1_0)
 	double to = 10;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1__2__0_1)
@@ -57,10 +51,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__2__0_1)
 	double to = 2;
 	double stepSize = 0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__10__1_0)
@@ -72,10 +64,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__10__1_0)
 	double to = 10;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__0__0_1)
@@ -87,10 +77,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__0__0_1)
 	double to = 0;
 	double stepSize = 0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1_1__3_3__1_1)
@@ -102,10 +90,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1_1__3_3__1_1)
 	double to = 3.3;
 	double stepSize = 1.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1__2__1_0)
@@ -118,10 +104,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__2__1_0)
 	double to = 2;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__2_0)
@@ -133,10 +117,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__2_0)
 	double to = 10;
 	double stepSize = 2;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 //----------From smaller than to-----------
@@ -150,10 +132,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_10__1__1_0)
 	double to = 1;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_2__1__0_1)
@@ -165,10 +145,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_2__1__0_1)
 	double to = 1;
 	double stepSize = 0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_10__Minus1__1_0)
@@ -180,10 +158,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_10__Minus1__1_0)
 	double to = -1;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus1__0_1)
@@ -195,10 +171,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus1__0_1)
 	double to = -1;
 	double stepSize = 0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_3_3__1_1__1_1)
@@ -210,10 +184,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_3_3__1_1__1_1)
 	double to = 1.1;
 	double stepSize = 1.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_2__1__1_0)
@@ -226,10 +198,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_2__1__1_0)
 	double to = 1;
 	double stepSize = 1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_10__0__2_0)
@@ -241,10 +211,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_10__0__2_0)
 	double to = 0;
 	double stepSize = 2;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 //--------Inbalance--------
@@ -258,10 +226,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__3_0)
 	double to = 10;
 	double stepSize = 3.0;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__1__0_3)
@@ -273,10 +239,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__1__0_3)
 	double to = 1;
 	double stepSize = 0.3;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_10__0__3_0)
@@ -288,10 +252,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_10__0__3_0)
 	double to = 0;
 	double stepSize = 3.0;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_1__0__0_3)
@@ -303,10 +265,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_1__0__0_3)
 	double to = 0;
 	double stepSize = 0.3;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus10__3_0)
@@ -318,10 +278,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus10__3_0)
 	double to = -10;
 	double stepSize = 3.0;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus1__0_3)
@@ -333,10 +291,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__Minus1__0_3)
 	double to = -1;
 	double stepSize = 0.3;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_Minus10__0__3_0)
@@ -348,10 +304,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_Minus10__0__3_0)
 	double to = 0;
 	double stepSize = 3.0;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__0__0_3)
@@ -363,10 +317,8 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_Minus1__0__0_3)
 	double to = 0;
 	double stepSize = 0.3;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_NO_THROW(GM.numberSequence(from, to, stepSize));
-	EXPECT_TRUE(TM.isEqual(*result, GM.numberSequence(from, to, stepSize), 0.0001));
+	EXPECT_NO_THROW(GetMatrix::numberSequence(from, to, stepSize));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, GetMatrix::numberSequence(from, to, stepSize), 0.0001));
 }
 
 //--------Exceptions-------
@@ -377,9 +329,7 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__Minus1)
 	double to = 10;
 	double stepSize = -1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_THROW(GM.numberSequence(from, to, stepSize), std::exception);
+	EXPECT_THROW(GetMatrix::numberSequence(from, to, stepSize), std::exception);
 }
 
 TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__Minus1_0)
@@ -388,7 +338,5 @@ TEST(VectorEngineGetMatrixNumberSequence, NS_0__10__Minus1_0)
 	double to = 10;
 	double stepSize = -0.1;
 
-	GetMatrix GM;
-	TypeMatrix TM;
-	EXPECT_THROW(GM.numberSequence(from, to, stepSize), std::exception);
+	EXPECT_THROW(GetMatrix::numberSequence(from, to, stepSize), std::exception);
 }
