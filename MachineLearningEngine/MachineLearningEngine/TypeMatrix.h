@@ -31,7 +31,7 @@ public:
 	bool isZeroMatrix(const Matrix&);
 
 private:
-
-
+	int findRankFromRREF(Matrix&);
+	int isEqualEntry(double, double, double) const;
 };
 

@@ -59,8 +59,8 @@ Matrix& GetMatrix::extractPivots(const Matrix &matrix, bool type)
 {
 	Matrix *returnMatrix = new Matrix(1, numberOfPivots(matrix));
 
-	for (size_t row = 0, counter = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0, counter = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			if (matrix.getEntry(row, col) != 0)
 			{
 				returnMatrix->setEntry(0, counter++, ((type) ? row : col));
@@ -79,7 +79,7 @@ Matrix & GetMatrix::makeMatrixHorizontal(const Matrix &matrix)
 	{
 		*buffer = getZeroMatrix(matrix.getNumberOfRows(), matrix.getNumberOfRows() + 1);
 
-		for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; col++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; ++col)
 			buffer->setColumn(col, matrix.getColumn(col));
 
 		//Setting last column in Matrix to last column in Buffer
@@ -92,7 +92,7 @@ Matrix & GetMatrix::makeMatrixHorizontal(const Matrix &matrix)
 void GetMatrix::deleteInsertedZeroRows(Matrix &buffer, const Matrix &matrix)
 {
 	int insertedColumns = matrix.getNumberOfRows() - matrix.getNumberOfColumns();
-	for (size_t col = 0; col < (insertedColumns + 1); col++)
+	for (size_t col = 0; col < (insertedColumns + 1); ++col)
 		buffer.deleteColumn(buffer.getNumberOfColumns() - 2);
 }
 
@@ -101,7 +101,7 @@ Matrix & GetMatrix::calcSpanOnePivot(Matrix &buffer, const Matrix &matrix)
 	//The reason it needs to me one smaller, is because the last column is the result row
 	buffer = getZeroMatrix(matrix.getNumberOfColumns() - 1, 1);
 
-	for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; col++)
+	for (size_t col = 0; col < matrix.getNumberOfColumns() - 1; ++col)
 		if (matrix.getEntry(0, col) != 0)
 		{
 			double resultValue = matrix.getEntry(0, matrix.getNumberOfColumns() - 1);
@@ -181,7 +181,7 @@ bool GetMatrix::pivotColumn(const Matrix &pivots, const Matrix &matrix, int row,
 void GetMatrix::fillResultSpan(const Matrix &matrix, const Matrix &buffer, const Matrix &pivots, Matrix &resultMatrix)
 {
 	int pivotsCounter = 0;
-	for (size_t row = 0; row < resultMatrix.getNumberOfRows(); row++)
+	for (size_t row = 0; row < resultMatrix.getNumberOfRows(); ++row)
 	{
 		if (pivotColumn(pivots, matrix, row, pivotsCounter))
 			resultMatrix.setEntry(row, 0, buffer.getEntry(pivotsCounter++, 0));
@@ -231,7 +231,7 @@ void GetMatrix::innerProductExceptions(const Matrix &matrixA, const Matrix &matr
 void GetMatrix::fillSequenceMatrix(Matrix &matrix, double from, double to, double stepSize) const
 {
 	matrix.setEntry(0, 0, from);
-	for (size_t col = 1; col < matrix.getNumberOfColumns(); col++)
+	for (size_t col = 1; col < matrix.getNumberOfColumns(); ++col)
 		matrix.setEntry(0, col, from + ((from < to) ? stepSize : -stepSize) * col);
 }
 
@@ -326,8 +326,8 @@ double GetMatrix::frobeniusProductSpace(const Matrix &matrixA, const Matrix &mat
 	
 	double returnValue = 0;
 
-	for (size_t row = 0; row < matrixA.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrixB.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrixB.getNumberOfColumns(); ++col)
 			returnValue += matrixA.getEntry(row, col) * matrixB.getEntry(row, col);
 	return returnValue;
 }
@@ -361,8 +361,8 @@ Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 		throw std::exception("Both rows and columns needs to be positive");
 
 	Matrix *matrix = new Matrix(rows, cols);
-	for (size_t row = 0; row < rows; row++)
-		for (size_t col = 0; col < cols; col++)
+	for (size_t row = 0; row < rows; ++row)
+		for (size_t col = 0; col < cols; ++col)
 			matrix->setEntry(row, col, 0);
 	return *matrix;
 }
@@ -380,8 +380,8 @@ Matrix & GetMatrix::getIdentityMatrix(const Matrix &matrix) const
 Matrix & GetMatrix::getIdentityMatrix(int rows, int columns) const
 {
 	Matrix *Imatrix = new Matrix(rows, columns);
-	for (size_t row = 0; row < rows; row++)
-		for (size_t col = 0; col < columns; col++)
+	for (size_t row = 0; row < rows; ++row)
+		for (size_t col = 0; col < columns; ++col)
 			(col == row) ? Imatrix->setEntry(row, col, 1) : Imatrix->setEntry(row, col, 0);
 	return *Imatrix;
 }

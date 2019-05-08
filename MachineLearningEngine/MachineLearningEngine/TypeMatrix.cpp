@@ -28,7 +28,7 @@ bool TypeMatrix::dependent(const Matrix &matrix)
 
 bool TypeMatrix::homogeneous(const Matrix &matrix)
 {
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 		if (matrix.getEntry(row, matrix.getNumberOfColumns() - 1) != 0)
 			return false;
 	return true;
@@ -101,45 +101,33 @@ bool TypeMatrix::orthogonal(const Matrix &matrix)
 
 int TypeMatrix::rank(const Matrix &matrix)
 {
+	MatrixRREF RREF;
+	BasicMatrixOperations BMO;
+
 	if (isZeroMatrix(matrix))
 		return 0;
-
-	MatrixRREF RREF;
+	
 	if (RREF.checkForFullDependentMatrix(matrix))
 		return 1;
-
-	BasicMatrixOperations BMO;
-	Matrix *buffer = new Matrix();
-	*buffer = BMO.getEchelonForm(matrix);
-
-	int rank = 0;
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			if (buffer->getEntry(row, col) != 0)
-			{
-				rank++;
-				break;
-			}
-
-	delete buffer;
-	return rank;
+	
+	return findRankFromRREF(BMO.getEchelonForm(matrix));
 }
 
 
 int TypeMatrix::rank(const MatrixResult &)
 {
-
+	throw std::exception("rank matrixResult Not implemented yet");
 	return 0;
 }
 
 bool TypeMatrix::fullRank(const Matrix &matrix)
 {
-	int largestNumber = (matrix.getNumberOfRows() < matrix.getNumberOfColumns()) ? matrix.getNumberOfColumns() : matrix.getNumberOfRows();
-	return (largestNumber == rank(matrix)) ? true : false;
+	return (matrix.getLargestSize() == rank(matrix)) ? true : false;
 }
 
 bool TypeMatrix::fullRank(const MatrixResult &)
 {
+	throw std::exception("full Rank MatrixResult not implementet");
 	return false;
 }
 
@@ -149,56 +137,34 @@ int TypeMatrix::span(const Matrix &matrix)
 	return rank(matrix);
 }
 
-#include <iostream>
-
 bool TypeMatrix::isInSpan(const Matrix &matrixSpan, const Matrix &newVectors, bool rowVector)
 {
-	Matrix *firstMatrix = new Matrix();
-	Matrix *secondMatrix = new Matrix();
-	*firstMatrix = matrixSpan;
-	*secondMatrix = newVectors;
-
-	if (rowVector)
-	{
-		firstMatrix->transpose();
-		secondMatrix->transpose();
-	}
-
-	bool returnBool = checkSpan(*firstMatrix, *secondMatrix);
-
-	delete firstMatrix;
-	delete secondMatrix;
-	return returnBool;
+	if (!rowVector)
+		return checkSpan(matrixSpan, newVectors);
+	else
+		return checkSpan(matrixSpan.transpose(), newVectors.transpose());
 }
 
 bool TypeMatrix::checkSpan(const Matrix &matrixSpan, const Matrix &matrixInSpan)
 {
 	Matrix *spanBuffer = new Matrix();
-	*spanBuffer = matrixSpan;
-	Matrix *inSpanBuffer = new Matrix();
-	*inSpanBuffer = matrixInSpan;
+	*spanBuffer = matrixSpan.transpose();
 
-	spanBuffer->transpose();
-	inSpanBuffer->transpose();
+	if (matrixSpan.getNumberOfColumns() != matrixInSpan.getNumberOfColumns())
+		spanBuffer->appendMatrix(matrixInSpan);
+	else 
+		spanBuffer->appendMatrix(matrixInSpan.transpose());
 
-	if (spanBuffer->getNumberOfRows() != inSpanBuffer->getNumberOfRows())
-		inSpanBuffer->transpose();
-
-	spanBuffer->appendMatrix(*inSpanBuffer);
-
-	int primarySpan = span(matrixSpan);
-	int secondarySpan = span(*spanBuffer);
-	bool returnState = (primarySpan == secondarySpan) ? true : false;
+	bool returnState = (span(matrixSpan) == span(*spanBuffer));
 
 	delete spanBuffer;
-	delete inSpanBuffer;
 	return returnState;
 }
 
 
 bool TypeMatrix::isomorphic(Matrix &, Matrix &) const
 {
-
+	throw std::exception("Isomorphic is not implemented yet");
 	return false;
 }
 
@@ -215,23 +181,22 @@ bool TypeMatrix::isEqual(const Matrix &matrixA, const Matrix &matrixB, double pr
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		return false;
 
-	for (size_t row = 0; row < matrixA.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrixA.getNumberOfColumns(); col++)
-		{
-			if (matrixA.getEntry(row, col) + precision < matrixB.getEntry(row, col))
-				return false;
-			else if (matrixA.getEntry(row, col) - precision > matrixB.getEntry(row, col))
-				return false;
-		}	
-	return true;
+	bool equalFlag = true;
+
+	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrixA.getNumberOfColumns(); ++col)
+			if(equalFlag)
+				equalFlag = isEqualEntry(matrixA.getEntry(row, col), matrixB.getEntry(row, col), precision);
+
+	return equalFlag;
 }
 
 bool TypeMatrix::isZeroMatrix(const Matrix &matrix)
 {
 	bool zeroes = true;
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			if (matrix.getEntry(row, col) != 0)
 			{
 				zeroes = false;
@@ -239,5 +204,32 @@ bool TypeMatrix::isZeroMatrix(const Matrix &matrix)
 			}
 
 	return zeroes;
+}
+
+int TypeMatrix::findRankFromRREF(Matrix &matrix)
+{
+	int rank = 0;
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
+			if (matrix.getEntry(row, col) != 0)
+			{
+				++rank;
+				break;
+			}
+
+	return rank;
+}
+
+int TypeMatrix::isEqualEntry(double entryA, double entryB, double precision) const
+{
+	bool returnBool = true;
+	
+	if (entryA + precision < entryB)
+		returnBool = false;
+	else if (entryA - precision > entryB)
+		returnBool = false;
+
+	return returnBool;
 }
 
