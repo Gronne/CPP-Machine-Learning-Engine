@@ -1,17 +1,6 @@
 #include "BasicMatrixOperations.h"
 
 
-
-BasicMatrixOperations::BasicMatrixOperations()
-{
-}
-
-BasicMatrixOperations::~BasicMatrixOperations()
-{
-
-}
-
-
 void BasicMatrixOperations::rowReduce(Matrix &matrix)
 {
 	matrix = getRowReduction(matrix);
@@ -21,7 +10,7 @@ void BasicMatrixOperations::rowReduce(Matrix &matrix)
 Matrix & BasicMatrixOperations::getRowReduction(const Matrix &matrix)
 {
 	Matrix *returnMatrix = new Matrix();
-	*returnMatrix = rref.rowReduceUnder(matrix);
+	*returnMatrix = MatrixRREF::rowReduceUnder(matrix);
 	return *returnMatrix;
 }
 
@@ -35,8 +24,8 @@ void BasicMatrixOperations::echelonForm(Matrix &matrix)
 Matrix & BasicMatrixOperations::getEchelonForm(const Matrix &matrix)
 {
 	Matrix *returnMatrix = new Matrix();
-	*returnMatrix = rref.rowReduceUnder(matrix);
-	*returnMatrix = rref.rowReduceOver(*returnMatrix);
+	*returnMatrix = MatrixRREF::rowReduceUnder(matrix);
+	*returnMatrix = MatrixRREF::rowReduceOver(*returnMatrix);
 	return *returnMatrix;
 }
 
@@ -57,12 +46,11 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	Matrix *resultMatrix = new Matrix();
 	*resultMatrix = matrix;
 
-	GetMatrix GM;
-	resultMatrix->appendMatrix(GM.getIdentityMatrix(matrix.getNumberOfRows()));
+	resultMatrix->appendMatrix(GetMatrix::getIdentityMatrix(matrix.getNumberOfRows()));
 
 	echelonForm(*resultMatrix);
 
-	return resultMatrix->getColumn(GM.numberSequence(matrix.getNumberOfColumns(), resultMatrix->getNumberOfColumns() - 1));
+	return resultMatrix->getColumn(GetMatrix::numberSequence(matrix.getNumberOfColumns(), resultMatrix->getNumberOfColumns() - 1));
 }
 
 double BasicMatrixOperations::determinant(const Matrix &matrix)
@@ -71,7 +59,7 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 
 	if (matrix.getNumberOfColumns() == 1)
 		return matrix.getEntry(0, 0);
-	if (rref.checkForFullDependentMatrix(matrix))
+	if (MatrixRREF::checkForFullDependentMatrix(matrix))
 		return 0;
 
 	Matrix *bufferMatrix = new Matrix();
@@ -130,7 +118,7 @@ void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
 		throw std::exception("Ned square matrix for inverse");
 
-	if (rref.checkForFullDependentMatrix(matrix))
+	if (MatrixRREF::checkForFullDependentMatrix(matrix))
 		throw std::exception("When finding Inverse, the matrix can't be full dependent");
 }
 

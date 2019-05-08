@@ -1,16 +1,5 @@
 #include "MatrixRREF.h"
 
-MatrixRREF::MatrixRREF()
-{
-
-}
-
-
-MatrixRREF::~MatrixRREF()
-{
-
-}
-
 
 Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 {

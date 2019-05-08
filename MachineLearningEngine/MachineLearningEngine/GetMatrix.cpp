@@ -1,20 +1,9 @@
 #include "GetMatrix.h"
 
 
-
-GetMatrix::GetMatrix()
-{
-}
-
-
-GetMatrix::~GetMatrix()
-{
-}
-
 int GetMatrix::numberOfPivots(const Matrix &matrix)
 {
-	TypeMatrix TM;
-	return TM.rank(matrix);
+	return TypeMatrix::rank(matrix);
 }
 
 Matrix & GetMatrix::pivotRows(const Matrix &matrix)
@@ -42,17 +31,14 @@ Matrix & GetMatrix::pivotNumbers(const Matrix &matrix, bool type)
 	if (matrix == getZeroMatrix(matrix))
 		throw std::exception("No Pivots");
 
-	BasicMatrixOperations BMO;
-	MatrixRREF RREF;
-
-	if (RREF.checkForFullDependentMatrix(matrix))
+	if (MatrixRREF::checkForFullDependentMatrix(matrix))
 	{
 		Matrix *returnMatrix = new Matrix();
 		returnMatrix->setEntry(0, 0, 0);
 		return *returnMatrix;
 	}
 
-	return extractPivots(BMO.getEchelonForm(matrix), type).sort();
+	return extractPivots(BasicMatrixOperations::getEchelonForm(matrix), type).sort();
 }
 
 Matrix& GetMatrix::extractPivots(const Matrix &matrix, bool type)
@@ -121,8 +107,7 @@ bool GetMatrix::checkPossibilityForSpan(Matrix &matrix)
 
 	argument->deleteColumn(argument->getNumberOfColumns() - 1);
 
-	TypeMatrix TM;
-	int rankDifference = TM.rank(*argument) - TM.rank(matrix);
+	int rankDifference = TypeMatrix::rank(*argument) - TypeMatrix::rank(matrix);
 
 	delete argument;
 
@@ -228,7 +213,7 @@ void GetMatrix::innerProductExceptions(const Matrix &matrixA, const Matrix &matr
 		throw std::exception("There can only be one vector in the second matrix");
 }
 
-void GetMatrix::fillSequenceMatrix(Matrix &matrix, double from, double to, double stepSize) const
+void GetMatrix::fillSequenceMatrix(Matrix &matrix, double from, double to, double stepSize)
 {
 	matrix.setEntry(0, 0, from);
 	for (size_t col = 1; col < matrix.getNumberOfColumns(); ++col)
@@ -243,10 +228,9 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 	Matrix *buffer = new Matrix();
 	*buffer = makeMatrixHorizontal(fullMatrix);
 
-	BasicMatrixOperations BMO;
 	try
 	{
-		*buffer = BMO.getEchelonForm(*buffer);
+		*buffer = BasicMatrixOperations::getEchelonForm(*buffer);
 	}
 	catch (const std::exception &ex)
 	{
@@ -339,23 +323,22 @@ Matrix & GetMatrix::getBasicVectors(const Matrix &matrix)
 
 Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix &result)
 {
-	BasicMatrixOperations BMO;
 	Matrix *buffer = new Matrix();
 
 	if (argument.getNumberOfColumns() == argument.getNumberOfRows())
-		*buffer = BMO.getEchelonInverse(argument) * result;
+		*buffer = BasicMatrixOperations::getEchelonInverse(argument) * result;
 	//	*buffer = BMO.getEchelonInverse(BMO.getEchelonInverse(result) * argument); - It's not possible to find a normal inverse if the arguemnt isn't square
 	else
 		throw std::exception("The argument matrix needs to be square");
 	return *buffer;
 }
 
-Matrix & GetMatrix::getZeroMatrix(const Matrix &matrix) const
+Matrix & GetMatrix::getZeroMatrix(const Matrix &matrix)
 {
 	return getZeroMatrix(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
 }
 
-Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
+Matrix & GetMatrix::getZeroMatrix(int rows, int cols)
 {
 	if (rows <= 0 || cols <= 0)
 		throw std::exception("Both rows and columns needs to be positive");
@@ -367,17 +350,17 @@ Matrix & GetMatrix::getZeroMatrix(int rows, int cols) const
 	return *matrix;
 }
 
-Matrix & GetMatrix::getZeroMatrix(int size) const
+Matrix & GetMatrix::getZeroMatrix(int size)
 {
 	return getZeroMatrix(size, size);
 }
 
-Matrix & GetMatrix::getIdentityMatrix(const Matrix &matrix) const
+Matrix & GetMatrix::getIdentityMatrix(const Matrix &matrix)
 {
 	return getIdentityMatrix(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
 }
 
-Matrix & GetMatrix::getIdentityMatrix(int rows, int columns) const
+Matrix & GetMatrix::getIdentityMatrix(int rows, int columns)
 {
 	Matrix *Imatrix = new Matrix(rows, columns);
 	for (size_t row = 0; row < rows; ++row)
@@ -386,12 +369,12 @@ Matrix & GetMatrix::getIdentityMatrix(int rows, int columns) const
 	return *Imatrix;
 }
 
-Matrix & GetMatrix::getIdentityMatrix(int size) const
+Matrix & GetMatrix::getIdentityMatrix(int size)
 {
 	return getIdentityMatrix(size, size);
 }
 
-Matrix & GetMatrix::numberSequence(double from, double to, double stepSize) const
+Matrix & GetMatrix::numberSequence(double from, double to, double stepSize)
 {
 	if (stepSize <= 0)
 		throw std::exception("StepSize can't be less or equal to zero");

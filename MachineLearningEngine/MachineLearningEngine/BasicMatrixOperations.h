@@ -7,25 +7,21 @@
 class BasicMatrixOperations
 {
 public:
-	BasicMatrixOperations();
-	~BasicMatrixOperations();
-	void rowReduce(Matrix&);
-	Matrix& getRowReduction(const Matrix&);
-	void echelonForm(Matrix&);
-	Matrix& getEchelonForm(const Matrix&);
-	void echelonInverse(Matrix&);
-	Matrix& getEchelonInverse(const Matrix&);
-	double determinant(const Matrix&);
-	Matrix& getEigenValues(const Matrix&);
-	Matrix& getEigenVectors(const Matrix&);
-	MatrixResult& findSolution(const Matrix&);
-	Matrix& getOrthonormal(const Matrix&);
+	static void rowReduce(Matrix&);
+	static Matrix& getRowReduction(const Matrix&);
+	static void echelonForm(Matrix&);
+	static Matrix& getEchelonForm(const Matrix&);
+	static void echelonInverse(Matrix&);
+	static Matrix& getEchelonInverse(const Matrix&);
+	static double determinant(const Matrix&);
+	static Matrix& getEigenValues(const Matrix&);
+	static Matrix& getEigenVectors(const Matrix&);
+	static MatrixResult& findSolution(const Matrix&);
+	static Matrix& getOrthonormal(const Matrix&);
 
 private:
-	void inverseExceptions(const Matrix &);
-	void determinantExceptions(const Matrix&);
-	Matrix& singleValueInverse(const Matrix&);
-	double diagonalProduct(const Matrix&);
-
-	MatrixRREF rref;
+	static void inverseExceptions(const Matrix &);
+	static void determinantExceptions(const Matrix&);
+	static Matrix& singleValueInverse(const Matrix&);
+	static double diagonalProduct(const Matrix&);
 };

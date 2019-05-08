@@ -4,31 +4,28 @@
 class MatrixRREF
 {
 public:
-	MatrixRREF();
-	~MatrixRREF();
+	static Matrix& rowReduceUnder(const Matrix&);
+	static Matrix& rowReduceOver(Matrix&);
 
-	Matrix& rowReduceUnder(const Matrix&);
-	Matrix& rowReduceOver(Matrix&);
-
-	bool checkForFullDependentMatrix(const Matrix&);
+	static bool checkForFullDependentMatrix(const Matrix&);
 
 private:
-	Matrix& reduceRowsUnder(Matrix&);
-	Matrix& reduceRowsOver(Matrix&);
-	void reduceColumnUnder(Matrix&, int, int);
-	void reduceColumnOver(Matrix&, int);
+	static Matrix& reduceRowsUnder(Matrix&);
+	static Matrix& reduceRowsOver(Matrix&);
+	static void reduceColumnUnder(Matrix&, int, int);
+	static void reduceColumnOver(Matrix&, int);
 
-	void sameSizeColumnUnder(Matrix&, int, std::vector<double>&);
-	void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
-	void substractRow(Matrix&, int, int);
-	Matrix& minimizeAllRows(Matrix&);
-	void minimizeRow(Matrix&, int, double);
-	void correctForZeroRow(Matrix&, int);
-	void correctForZeroRowOver(Matrix&, int);
-	void checkForFreePivot(Matrix&, int);
+	static void sameSizeColumnUnder(Matrix&, int, std::vector<double>&);
+	static void sameSizeColumnOver(Matrix&, int, std::vector<double>&);
+	static void substractRow(Matrix&, int, int);
+	static Matrix& minimizeAllRows(Matrix&);
+	static void minimizeRow(Matrix&, int, double);
+	static void correctForZeroRow(Matrix&, int);
+	static void correctForZeroRowOver(Matrix&, int);
+	static void checkForFreePivot(Matrix&, int);
 
-	bool checkIfAllRowsIsEqual(const Matrix&);
-	bool checkIfPreColsIsAllZero(const Matrix&, int, int);
-	double columnProduct(const Matrix&, int, int, int);
+	static bool checkIfAllRowsIsEqual(const Matrix&);
+	static bool checkIfPreColsIsAllZero(const Matrix&, int, int);
+	static double columnProduct(const Matrix&, int, int, int);
 };
 

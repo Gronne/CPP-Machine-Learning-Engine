@@ -2,27 +2,14 @@
 
 
 
-TypeMatrix::TypeMatrix()
-{
-
-}
-
-
-TypeMatrix::~TypeMatrix()
-{
-
-}
-
-
 bool TypeMatrix::dependent(const Matrix &matrix)
 {
 	//Is independent if and only if rank(A) == min(row, col)
 	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
 		return true;
 
-	BasicMatrixOperations BMO;
 	//If and only if, det(A) = 0
-	return (BMO.determinant(matrix) == 0) ? true : false;
+	return (BasicMatrixOperations::determinant(matrix) == 0);
 }
 
 
@@ -50,15 +37,12 @@ bool TypeMatrix::trivial(const Matrix &matrix)
 
 
 bool TypeMatrix::basis(const Matrix &matrix)
-{
-	MatrixRREF RREF;
-	BasicMatrixOperations BMO;
-	
-	if (!isSquare(matrix) || RREF.checkForFullDependentMatrix(matrix))
+{	
+	if (!isSquare(matrix) || MatrixRREF::checkForFullDependentMatrix(matrix))
 		return false;
 
 	Matrix *buffer = new Matrix();
-	*buffer = BMO.getEchelonForm(matrix);
+	*buffer = BasicMatrixOperations::getEchelonForm(matrix);
 
 	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 		if (buffer->getEntry(row, row) != 1)
@@ -68,14 +52,14 @@ bool TypeMatrix::basis(const Matrix &matrix)
 }
 
 
-bool TypeMatrix::basis(Matrix &, MatrixSpace &) const
+bool TypeMatrix::basis(Matrix &, MatrixSpace &)
 {
 
 	return false;
 }
 
 
-bool TypeMatrix::orthogonal(Matrix &, Matrix &) const
+bool TypeMatrix::orthogonal(Matrix &, Matrix &)
 {
 
 	return false;
@@ -84,15 +68,12 @@ bool TypeMatrix::orthogonal(Matrix &, Matrix &) const
 
 bool TypeMatrix::orthogonal(const Matrix &matrix)
 {
-	MatrixRREF RREF;
-	GetMatrix GM;
-
-	if (!isSquare(matrix) || RREF.checkForFullDependentMatrix(matrix))
+	if (!isSquare(matrix) || MatrixRREF::checkForFullDependentMatrix(matrix))
 		return false;
 
 	bool returnState = false;
 
-	if (matrix * matrix.transpose() == GM.getIdentityMatrix(matrix.getNumberOfRows()))
+	if (matrix * matrix.transpose() == GetMatrix::getIdentityMatrix(matrix.getNumberOfRows()))
 		returnState = true;
 
 	return returnState;
@@ -101,16 +82,13 @@ bool TypeMatrix::orthogonal(const Matrix &matrix)
 
 int TypeMatrix::rank(const Matrix &matrix)
 {
-	MatrixRREF RREF;
-	BasicMatrixOperations BMO;
-
 	if (isZeroMatrix(matrix))
 		return 0;
 	
-	if (RREF.checkForFullDependentMatrix(matrix))
+	if (MatrixRREF::checkForFullDependentMatrix(matrix))
 		return 1;
 	
-	return findRankFromRREF(BMO.getEchelonForm(matrix));
+	return findRankFromRREF(BasicMatrixOperations::getEchelonForm(matrix));
 }
 
 
@@ -162,18 +140,18 @@ bool TypeMatrix::checkSpan(const Matrix &matrixSpan, const Matrix &matrixInSpan)
 }
 
 
-bool TypeMatrix::isomorphic(Matrix &, Matrix &) const
+bool TypeMatrix::isomorphic(Matrix &, Matrix &)
 {
 	throw std::exception("Isomorphic is not implemented yet");
 	return false;
 }
 
-bool TypeMatrix::isSquare(const Matrix &matrix) const
+bool TypeMatrix::isSquare(const Matrix &matrix)
 {
 	return matrix.getNumberOfColumns() == matrix.getNumberOfRows();
 }
 
-bool TypeMatrix::isEqual(const Matrix &matrixA, const Matrix &matrixB, double precision) const
+bool TypeMatrix::isEqual(const Matrix &matrixA, const Matrix &matrixB, double precision)
 {
 	if (precision < 0)
 		throw std::exception("Precision needs to be 0 or positive");
@@ -221,7 +199,7 @@ int TypeMatrix::findRankFromRREF(Matrix &matrix)
 	return rank;
 }
 
-bool TypeMatrix::isEqualEntry(double entryA, double entryB, double precision) const
+bool TypeMatrix::isEqualEntry(double entryA, double entryB, double precision)
 {
 	bool returnBool = true;
 	

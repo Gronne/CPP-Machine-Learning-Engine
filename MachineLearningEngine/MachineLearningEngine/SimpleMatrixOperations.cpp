@@ -2,46 +2,37 @@
 
 
 
-SimpleMatrixOperations::SimpleMatrixOperations()
-{
-}
-
-
-SimpleMatrixOperations::~SimpleMatrixOperations()
-{
-}
-
-Matrix & SimpleMatrixOperations::addition(Matrix &matrixA, Matrix &matrixB) const
+Matrix & SimpleMatrixOperations::addition(Matrix &matrixA, Matrix &matrixB)
 {
 	return matrixA + matrixB;
 }
 
-Matrix & SimpleMatrixOperations::addition(Matrix &matrix, double value) const
+Matrix & SimpleMatrixOperations::addition(Matrix &matrix, double value)
 {
 	return matrix + value;
 }
 
-Matrix & SimpleMatrixOperations::substraction(Matrix &matrixA, Matrix &matrixB) const
+Matrix & SimpleMatrixOperations::substraction(Matrix &matrixA, Matrix &matrixB)
 {
 	return matrixA - matrixB;
 }
 
-Matrix & SimpleMatrixOperations::substraction(Matrix &matrix, double value) const
+Matrix & SimpleMatrixOperations::substraction(Matrix &matrix, double value)
 {
 	return matrix - value;
 }
 
-Matrix & SimpleMatrixOperations::multiplication(Matrix &matrixA, Matrix &matrixB) const
+Matrix & SimpleMatrixOperations::multiplication(Matrix &matrixA, Matrix &matrixB)
 {
 	return matrixA * matrixB;
 }
 
-Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value) const
+Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value)
 {
 	return matrix * value;
 }
 
-Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB) const
+Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 {
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		throw std::exception("Matrix dimensions do not comply");
@@ -241,11 +232,10 @@ void SimpleMatrixOperations::lengthOfVectorExceptions(const Matrix &matrix, bool
 
 Matrix & SimpleMatrixOperations::createNormBuffer(const Matrix &matrix, bool oneNorm)
 {
-	GetMatrix GM;
 	if (oneNorm)
-		return GM.getZeroMatrix(1, matrix.getNumberOfColumns());
+		return GetMatrix::getZeroMatrix(1, matrix.getNumberOfColumns());
 	else
-		return GM.getZeroMatrix(1, matrix.getNumberOfRows());
+		return GetMatrix::getZeroMatrix(1, matrix.getNumberOfRows());
 }
 
 void SimpleMatrixOperations::fillNormVector(const Matrix &matrix, Matrix &normVector, bool oneNorm)
@@ -324,7 +314,7 @@ double SimpleMatrixOperations::norm(const Matrix &matrix, bool oneNorm)
 	return returnValue;
 }
 
-double SimpleMatrixOperations::sum(Matrix &matrix) const
+double SimpleMatrixOperations::sum(Matrix &matrix)
 {
 	double returnValue = 0.0;
 

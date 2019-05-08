@@ -8,30 +8,27 @@
 class TypeMatrix
 {
 public:
-	TypeMatrix();
-	~TypeMatrix();
-
-	bool dependent(const Matrix&);
-	bool homogeneous(const Matrix&);
-	bool trivial(const Matrix&);
-	bool basis(const Matrix&);
-	bool basis(Matrix&, MatrixSpace&) const;
-	bool orthogonal(Matrix&, Matrix&) const;
-	bool orthogonal(const Matrix&);
-	int rank(const Matrix&);
-	int rank(const MatrixResult&);
-	bool fullRank(const Matrix&);
-	bool fullRank(const MatrixResult&);
-	int span(const Matrix&);
-	bool isInSpan(const Matrix&, const Matrix&, bool = 0);
-	bool checkSpan(const Matrix&, const Matrix&);
-	bool isomorphic(Matrix&, Matrix&) const;
-	bool isSquare(const Matrix&) const;
-	bool isEqual(const Matrix&, const Matrix&, double = 0) const;
-	bool isZeroMatrix(const Matrix&);
+	static bool dependent(const Matrix&);
+	static bool homogeneous(const Matrix&);
+	static bool trivial(const Matrix&);
+	static bool basis(const Matrix&);
+	static bool basis(Matrix&, MatrixSpace&);
+	static bool orthogonal(Matrix&, Matrix&);
+	static bool orthogonal(const Matrix&);
+	static int rank(const Matrix&);
+	static int rank(const MatrixResult&);
+	static bool fullRank(const Matrix&);
+	static bool fullRank(const MatrixResult&);
+	static int span(const Matrix&);
+	static bool isInSpan(const Matrix&, const Matrix&, bool = 0);
+	static bool checkSpan(const Matrix&, const Matrix&);
+	static bool isomorphic(Matrix&, Matrix&);
+	static bool isSquare(const Matrix&);
+	static bool isEqual(const Matrix&, const Matrix&, double = 0);
+	static bool isZeroMatrix(const Matrix&);
 
 private:
-	int findRankFromRREF(Matrix&);
-	bool isEqualEntry(double, double, double) const;
+	static int findRankFromRREF(Matrix&);
+	static bool isEqualEntry(double, double, double) const;
 };
 
