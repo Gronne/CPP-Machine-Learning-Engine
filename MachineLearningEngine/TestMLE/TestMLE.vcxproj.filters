@@ -162,6 +162,9 @@
     <ClInclude Include="VectorEngineGetMatrixNumberSequenceTest.h">
       <Filter>VectorEngineDatastructures\GetMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixIsZeroMatrixTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

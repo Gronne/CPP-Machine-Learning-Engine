@@ -8,6 +8,7 @@
 #include "VectorEngineTypeMatrixIsEqualTest.h"
 #include "VectorEngineTypeMatrixIsInSpanTest.h"
 #include "VectorEngineTypeMatrixIsSquareTest.h"
+#include "VectorEngineTypeMatrixIsZeroMatrixTest.h"
 #include "VectorEngineTypeMatrixOrthogonalTest.h"
 #include "VectorEngineTypeMatrixRankTest.h"
 #include "VectorEngineTypeMatrixSpanTest.h"

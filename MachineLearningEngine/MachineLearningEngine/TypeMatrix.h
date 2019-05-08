@@ -28,6 +28,7 @@ public:
 	bool isomorphic(Matrix&, Matrix&) const;
 	bool isSquare(const Matrix&) const;
 	bool isEqual(const Matrix&, const Matrix&, double = 0) const;
+	bool isZeroMatrix(const Matrix&);
 
 private:
 

@@ -48,8 +48,8 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB) cons
 
 	Matrix *returnMatrix = new Matrix(matrixA.getNumberOfRows(), matrixA.getNumberOfColumns());
 
-	for (size_t row = 0; row < matrixA.getNumberOfRows(); row++)
-		for (size_t column = 0; column < matrixA.getNumberOfColumns(); column++)
+	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
+		for (size_t column = 0; column < matrixA.getNumberOfColumns(); ++column)
 			returnMatrix->setEntry(row, column, matrixA.getEntry(row, column) * matrixB.getEntry(row, column));
 
 	return *returnMatrix;
@@ -81,8 +81,8 @@ void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inve
 	if (inverseMatrix.getNumberOfColumns() == 2)
 		setInverseMatrix2x2(matrix, inverseMatrix);
 	else
-		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); row++)
-			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); col++)
+		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
+			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
 				setDeterminantEntry(matrix, inverseMatrix, row, col);
 }
 
@@ -107,7 +107,7 @@ Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 
 	Matrix *crossMatrix = new Matrix(1, matrix.getNumberOfColumns());
 
-	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 		crossMatrix->setEntry(0, col, calculateCrossValue(matrix, col));
 	
 	return *crossMatrix;
@@ -146,7 +146,7 @@ double SimpleMatrixOperations::calculateVectorLength(const Matrix &matrix)
 {
 	double buffer = 0;
 
-	for (size_t column = 0; column < matrix.getNumberOfColumns(); column++)
+	for (size_t column = 0; column < matrix.getNumberOfColumns(); ++column)
 		buffer += matrix.getEntry(0, column) * matrix.getEntry(0, column);
 
 	return sqrt(buffer);
@@ -154,8 +154,8 @@ double SimpleMatrixOperations::calculateVectorLength(const Matrix &matrix)
 
 void SimpleMatrixOperations::shiftInverseEntries(Matrix &inverseMatrix)
 {
-	for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
 			inverseMatrix.setEntry(row, col, inverseMatrix.getEntry(row, col) * (((row + col) % 2) ? -1 : 1));
 }
 
@@ -205,7 +205,7 @@ double SimpleMatrixOperations::determinantRecursive(const Matrix &matrix)
 	if (matrix.getNumberOfRows() == 2)
 		return matrix.getEntry(0, 0) * matrix.getEntry(1, 1) - matrix.getEntry(0, 1) * matrix.getEntry(1, 0);
 	else
-		for (size_t column = 0; column < matrix.getNumberOfColumns(); column++)
+		for (size_t column = 0; column < matrix.getNumberOfColumns(); ++column)
 			value += calculateDeterminantValue(matrix, column);	
 		
 	return value;
@@ -250,8 +250,8 @@ Matrix & SimpleMatrixOperations::createNormBuffer(const Matrix &matrix, bool one
 
 void SimpleMatrixOperations::fillNormVector(const Matrix &matrix, Matrix &normVector, bool oneNorm)
 {
-	for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-		for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+	for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
+		for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 		{
 			double && entryValue = matrix.getEntry(row, col);
 			if (oneNorm == true)
@@ -328,8 +328,8 @@ double SimpleMatrixOperations::sum(Matrix &matrix) const
 {
 	double returnValue = 0.0;
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 			returnValue += matrix.getEntry(row, col);
 
 	return returnValue;
@@ -339,8 +339,8 @@ double SimpleMatrixOperations::findMaxValue(const Matrix &matrix)
 {
 	double returnValue = 0;
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
 		{
 			double newValue = ((matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col));
 			double oldValue = ((returnValue > 0) ? returnValue : -returnValue);
@@ -357,8 +357,8 @@ void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &
 	int copyRow = 0;
 	int copyCol = 0;
 
-	for (size_t rowSet = 0; rowSet < matrix.getNumberOfRows(); rowSet++)
-		for (size_t columnSet = 0; columnSet < matrix.getNumberOfColumns(); columnSet++)
+	for (size_t rowSet = 0; rowSet < matrix.getNumberOfRows(); ++rowSet)
+		for (size_t columnSet = 0; columnSet < matrix.getNumberOfColumns(); ++columnSet)
 			if (rowSet != row && columnSet != column)
 			{
 				if(copyCol == copyMatrix.getNumberOfColumns()) copyCol = 0, copyRow++;

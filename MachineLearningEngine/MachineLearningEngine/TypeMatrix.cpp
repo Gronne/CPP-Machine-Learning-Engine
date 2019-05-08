@@ -52,14 +52,15 @@ bool TypeMatrix::trivial(const Matrix &matrix)
 bool TypeMatrix::basis(const Matrix &matrix)
 {
 	MatrixRREF RREF;
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows() || RREF.checkForFullDependentMatrix(matrix))
+	BasicMatrixOperations BMO;
+	
+	if (!isSquare(matrix) || RREF.checkForFullDependentMatrix(matrix))
 		return false;
 
 	Matrix *buffer = new Matrix();
-	BasicMatrixOperations BMO;
 	*buffer = BMO.getEchelonForm(matrix);
 
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 		if (buffer->getEntry(row, row) != 1)
 			return false;
 
@@ -84,36 +85,23 @@ bool TypeMatrix::orthogonal(Matrix &, Matrix &) const
 bool TypeMatrix::orthogonal(const Matrix &matrix)
 {
 	MatrixRREF RREF;
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows() || RREF.checkForFullDependentMatrix(matrix))
+	GetMatrix GM;
+
+	if (!isSquare(matrix) || RREF.checkForFullDependentMatrix(matrix))
 		return false;
 
-	GetMatrix GM;
-	Matrix *buffer = new Matrix();
-	*buffer = matrix;
-
-	buffer->transpose();
-	*buffer = matrix * *buffer;
-
 	bool returnState = false;
-	if (*buffer == GM.getIdentityMatrix(matrix.getNumberOfRows()))
+
+	if (matrix * matrix.transpose() == GM.getIdentityMatrix(matrix.getNumberOfRows()))
 		returnState = true;
 
-	delete buffer;
 	return returnState;
 }
 
 
 int TypeMatrix::rank(const Matrix &matrix)
 {
-	bool zeroes = true;
-	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
-		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
-			if (matrix.getEntry(row, col) != 0)
-			{
-				zeroes = false;
-				break;
-			}
-	if (zeroes)
+	if (isZeroMatrix(matrix))
 		return 0;
 
 	MatrixRREF RREF;
@@ -236,5 +224,20 @@ bool TypeMatrix::isEqual(const Matrix &matrixA, const Matrix &matrixB, double pr
 				return false;
 		}	
 	return true;
+}
+
+bool TypeMatrix::isZeroMatrix(const Matrix &matrix)
+{
+	bool zeroes = true;
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); row++)
+		for (size_t col = 0; col < matrix.getNumberOfColumns(); col++)
+			if (matrix.getEntry(row, col) != 0)
+			{
+				zeroes = false;
+				break;
+			}
+
+	return zeroes;
 }
 
