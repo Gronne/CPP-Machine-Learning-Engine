@@ -71,7 +71,6 @@ TEST(MatrixSizeTranspose, transposeSetTransposeRowAndColumn)
 
 //---------------return transposed matrix------------------
 
-
 TEST(MatrixSizeTranspose, transposedReturnEQSize0)
 {
 	Matrix *matrix = new Matrix(2, 3);
@@ -88,6 +87,28 @@ TEST(MatrixSizeTranspose, transposedReturnEQSize1)
 	EXPECT_EQ(2, matrix->getNumberOfRows());
 	EXPECT_EQ(3, matrix->getNumberOfColumns());
 
+	EXPECT_EQ(matrix->getNumberOfColumns(), matrix->transpose(false).getNumberOfColumns());
+	EXPECT_EQ(matrix->getNumberOfRows(), matrix->transpose(false).getNumberOfRows());
+}
+
+TEST(MatrixSizeTranspose, transposedReturnEQSize2)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_EQ(3, matrix->getNumberOfColumns());
+
 	EXPECT_EQ(matrix->getNumberOfRows(), matrix->transpose(true).getNumberOfColumns());
 	EXPECT_EQ(matrix->getNumberOfColumns(), matrix->transpose(true).getNumberOfRows());
+}
+
+TEST(MatrixSizeTranspose, transposedReturnEQSize3)
+{
+	Matrix *matrix = new Matrix(2, 3);
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_EQ(3, matrix->getNumberOfColumns());
+
+	const_cast<const Matrix*>(matrix)->transpose();
+
+	EXPECT_EQ(2, matrix->getNumberOfRows());
+	EXPECT_EQ(3, matrix->getNumberOfColumns());
 }

@@ -35,7 +35,9 @@ public:
 	void deleteColumn(int);
 	void deleteColumn(std::vector<int>);
 	void deleteColumn(const Matrix&);
-	Matrix& transpose(bool = 0);
+	Matrix& transpose();
+	Matrix& transpose() const;
+	Matrix& transpose(bool);
 	void scale(double);
 	std::string print(bool = 1) const;
 	void appendMatrix(const Matrix&, bool = 0);

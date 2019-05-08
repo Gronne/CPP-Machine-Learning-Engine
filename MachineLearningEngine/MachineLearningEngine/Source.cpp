@@ -17,16 +17,17 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix();
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 1, 2, 3, 4,
+				4, 3, 2, 1,
+				2, 6, 2, 6 };
 	Matrix *resizeMatrix = new Matrix();
 
 	
 
 	try
 	{
-		resizeMatrix->setMatrixSize(1, 1);
-		matrix->setMatrixSize(*resizeMatrix);
-		std::cout << matrix->getNumberOfRows() << std::endl;
+		std::cout << SMO.cross(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

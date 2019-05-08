@@ -38,6 +38,13 @@ private:
 	void inverseExceptions(const Matrix&, double);
 	void setInverseMatrix2x2(const Matrix&, Matrix&);
 	void setDeterminantEntry(const Matrix&, Matrix&, int, int);
+	double determinantRecursive(const Matrix&);
+	Matrix& transformSingleCrossValues(const Matrix&);
+	double calculateCrossValue(const Matrix&, int);
+	void lengthOfVectorExceptions(const Matrix&, bool, int);
+	Matrix& createNormBuffer(const Matrix&, bool);
+	void fillNormVector(const Matrix&, Matrix&, bool);
+	double calculateDeterminantValue(const Matrix&, int);
 };
 
 #endif

@@ -371,6 +371,19 @@ Matrix & Matrix::transpose(bool copyFlag)
 	}
 }
 
+Matrix & Matrix::transpose()
+{
+	_transposeFlag = !_transposeFlag;
+	return *this;
+}
+
+Matrix & Matrix::transpose() const
+{
+	Matrix *copy = new Matrix();
+	*copy = *this;
+	return copy->transpose();
+}
+
 
 void Matrix::scale(double scaleingsFactor)
 {
