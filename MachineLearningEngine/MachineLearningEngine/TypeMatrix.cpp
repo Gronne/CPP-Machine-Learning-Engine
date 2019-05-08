@@ -221,7 +221,7 @@ int TypeMatrix::findRankFromRREF(Matrix &matrix)
 	return rank;
 }
 
-int TypeMatrix::isEqualEntry(double entryA, double entryB, double precision) const
+bool TypeMatrix::isEqualEntry(double entryA, double entryB, double precision) const
 {
 	bool returnBool = true;
 	

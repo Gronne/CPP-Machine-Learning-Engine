@@ -32,6 +32,6 @@ public:
 
 private:
 	int findRankFromRREF(Matrix&);
-	int isEqualEntry(double, double, double) const;
+	bool isEqualEntry(double, double, double) const;
 };
 
