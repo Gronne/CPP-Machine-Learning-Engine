@@ -9,9 +9,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHolePositive)
 				4, 5, 6, 
 				7, 8, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleNegative)
@@ -21,9 +20,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleNegative)
 				-4, -5, -6, 
 				-7, -8, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleMixed)
@@ -33,9 +31,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleMixed)
 				 4, -5,  6, 
 				-7,  8, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleZero)
@@ -45,9 +42,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantHoleZero)
 				0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(0, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(0, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantDecimalPositive)
@@ -57,9 +53,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantDecimalPositive)
 				4.5, 5.5, 6.5, 
 				7.5, 8.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantDecimalNegative)
@@ -69,9 +64,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantDecimalNegative)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionDecimalMixed)
@@ -81,9 +75,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionDecimalMixed)
 				 4.5, -5.5,  6.5, 
 				-7.5,  8.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionDecimalZero)
@@ -93,9 +86,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionDecimalZero)
 				4.5, 5.5, 6.5, 
 				7.5, 8.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(0, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(0, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionExceptionNotSquare1)
@@ -104,8 +96,7 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, additionExceptionNotSquare1)
 	*matrix = { 1.5, 2.5, 3.5, 
 				4.5, 5.5, 6.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.determinant(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::determinant(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantExceptionNotSquare1)
@@ -115,8 +106,7 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantExceptionNotSquar
 				4.5, 5.5, 
 				4.5, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.determinant(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::determinant(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize1x1)
@@ -124,9 +114,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(1, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(1, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize2x2)
@@ -135,9 +124,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize2x2)
 	*matrix = { 1, 2,
 				3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-5, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-5, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize3x3)
@@ -147,9 +135,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize3x3)
 				4, 5, 6, 
 				7, 8, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(24, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(24, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize4x4)
@@ -160,9 +147,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize4x4)
 				9, 1, 2, 3, 
 				4, 5, 6, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(216, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(216, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize5x5)
@@ -174,9 +160,8 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, DetermineSize5x5)
 				7,  2, 1,  1,  2, 
 				3,  4, 5,  6, -7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(-16314, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(-16314, SimpleMatrixOperations::determinant(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantSpecialCase)
@@ -186,7 +171,6 @@ TEST(VectorEngineSimpleMatrixOperationsDeterminant, determinantSpecialCase)
 				0, 0, 0,
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.determinant(*matrix));
-	EXPECT_EQ(0, SMO.determinant(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::determinant(*matrix));
+	EXPECT_EQ(0, SimpleMatrixOperations::determinant(*matrix));
 }

@@ -12,9 +12,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addHolePositive)
 	*result = { 2,  4,  6,
 				8, 10, 12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleNegative)
@@ -27,9 +26,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleNegative)
 	*result = { -2,  -4,  -6, 
 				-8, -10, -12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleMixed)
@@ -42,9 +40,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleMixed)
 	*result = { -2,   4, -6, 
 				 8, -10, 12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleZero)
@@ -57,9 +54,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addHoleZero)
 	*result = { 0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix * -1));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix * -1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix * -1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix * -1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalPositive)
@@ -72,9 +68,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalPositive)
 	*result = { 3,  5,  7,
 				9, 11, 13 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalNegative)
@@ -87,9 +82,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalNegative)
 	*result = { -3,  -5,  -7,
 				-9, -11, -13 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalMixed)
@@ -102,9 +96,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalMixed)
 	*result = { -3,   5, -7,
 				 9, -11, 13};
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalZero)
@@ -117,9 +110,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDecimalZero)
 	*result = { 0, 0, 0,
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix*-1));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix*-1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix*-1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix*-1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffCol1)
@@ -129,9 +121,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffCol1)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(2, 4);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffCol2)
@@ -141,9 +131,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffCol2)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(2, 2);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRow1)
@@ -153,9 +141,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRow1)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(3, 3);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRow2)
@@ -165,9 +151,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRow2)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(1, 3);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRowCol1)
@@ -177,9 +161,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRowCol1)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(3, 4);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRowCol2)
@@ -189,9 +171,7 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addExceptionDiffRowCol2)
 				4.5, 5.5, 6.5 };
 
 	Matrix *matrix2 = new Matrix(1, 2);
-	SimpleMatrixOperations SMO;
-
-	EXPECT_THROW(SMO.addition(*matrix, *matrix2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::addition(*matrix, *matrix2), std::exception);
 }
 
 //-----------------
@@ -206,9 +186,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleHolePositive)
 	*result = { 3, 4, 5, 
 				6, 7, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, 2));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, 2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, 2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, 2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleHoleNegative)
@@ -221,9 +200,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleHoleNegative)
 	*result = { -1, 0, 1,
 				 2, 3, 4 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, -2));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, -2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, -2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, -2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleHoleZero)
@@ -236,9 +214,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleHoleZero)
 	*result = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, 0));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, 0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalPositive)
@@ -251,9 +228,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalPositive)
 	*result = { 3.5, 4.5, 5.5, 
 				6.5, 7.5, 8.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, 2.5));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, 2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, 2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, 2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalNegative)
@@ -266,9 +242,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalNegative)
 	*result = { -1.5, -0.5, 0.5,
 				 1.5,  2.5, 3.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, -2.5));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, -2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, -2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, -2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalZero)
@@ -281,9 +256,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addDoubleDecimalZero)
 	*result = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, 0.0));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, 0.0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, 0.0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, 0.0));
 }
 
 //--------Different sizes---------
@@ -294,9 +268,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addSize1x1)
 	matrix->setEntry(0,0,1);
 
 	Matrix *result = new Matrix();
-	SimpleMatrixOperations SMO;
 
-	EXPECT_NO_THROW(*result = SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(*result = SimpleMatrixOperations::addition(*matrix, *matrix));
 	EXPECT_EQ(2, result->getEntry(0, 0));
 }
 
@@ -310,9 +283,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addSize2x2)
 	*result = { 2, 4,
 				6, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addSize3x3)
@@ -327,9 +299,8 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addSize3x3)
 				 8, 10, 12,
 				14, 16, 18 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsAddition, addSize4x4)
@@ -346,7 +317,6 @@ TEST(VectorEngineSimpleMatrixOperationsAddition, addSize4x4)
 				18, 20, 22, 24,
 				26, 28, 30, 32 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.addition(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.addition(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::addition(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::addition(*matrix, *matrix));
 }

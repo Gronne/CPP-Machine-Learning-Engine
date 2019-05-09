@@ -9,9 +9,8 @@ TEST(VectorEngineTypeMatrixTrivial, trivialFalse1)
 				5, 6, 7, 8, 
 				9, 10, 11, 12 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.trivial(*matrix));
-	EXPECT_FALSE(TM.trivial(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::trivial(*matrix));
+	EXPECT_FALSE(TypeMatrix::trivial(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixTrivial, trivialFalse2)
@@ -21,9 +20,8 @@ TEST(VectorEngineTypeMatrixTrivial, trivialFalse2)
 				5, 6, 7, 0, 
 				9, 10, 11, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.trivial(*matrix));
-	EXPECT_FALSE(TM.trivial(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::trivial(*matrix));
+	EXPECT_FALSE(TypeMatrix::trivial(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixTrivial, trivialFalse3)
@@ -33,9 +31,8 @@ TEST(VectorEngineTypeMatrixTrivial, trivialFalse3)
 				5,  6,  7, 0, 0, 
 				9, 10, 11, 1, 4 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.trivial(*matrix));
-	EXPECT_FALSE(TM.trivial(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::trivial(*matrix));
+	EXPECT_FALSE(TypeMatrix::trivial(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixTrivial, trivialTrue1)
@@ -45,9 +42,8 @@ TEST(VectorEngineTypeMatrixTrivial, trivialTrue1)
 				4, 5, 6, 0, 
 				3, 4, 1, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.trivial(*matrix));
-	EXPECT_TRUE(TM.trivial(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::trivial(*matrix));
+	EXPECT_TRUE(TypeMatrix::trivial(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixTrivial, trivialTrue2)
@@ -58,9 +54,8 @@ TEST(VectorEngineTypeMatrixTrivial, trivialTrue2)
 				7, 8, 0, 
 				3, 2, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.homogeneous(*matrix));
-	EXPECT_TRUE(TM.homogeneous(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::homogeneous(*matrix));
+	EXPECT_TRUE(TypeMatrix::homogeneous(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixTrivial, trivialSpecialCase)
@@ -70,7 +65,6 @@ TEST(VectorEngineTypeMatrixTrivial, trivialSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.trivial(*matrix));
-	EXPECT_FALSE(TM.trivial(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::trivial(*matrix));
+	EXPECT_FALSE(TypeMatrix::trivial(*matrix));
 }

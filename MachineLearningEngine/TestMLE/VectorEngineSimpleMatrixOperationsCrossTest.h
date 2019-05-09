@@ -12,8 +12,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossHolePositive)
 	*resultVec = { -7, 2, 1 };
 
 	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -30,9 +30,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleNegative)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { 7, -2, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -49,9 +48,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossHoleMixed)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -11, -2, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -68,9 +66,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalPositive)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -8.5, 3, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -87,9 +84,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalNegative)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -8.5, 3, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -106,9 +102,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossDecimalMixed)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -8.5, -3, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -125,9 +120,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedPositive)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -7.5, 3, 0.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -144,9 +138,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedNegative)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { 7.5, -3, -0.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -163,9 +156,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedMixed)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { 7.5, 3, -0.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -176,10 +168,9 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossMixedMixed)
 TEST(VectorEngineSimpleMatrixOperationsCross, crossNotSet)
 {
 	Matrix *matrix = new Matrix(2, 3);
-
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*matrix));
+
+	EXPECT_NO_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossVector1x2)
@@ -189,8 +180,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossVector1x2)
 	matrix->setEntry(0, 1, 8);
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*matrix));
+
+	EXPECT_NO_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix));
 	EXPECT_EQ(8, resultVec->getEntry(0, 0));
 	EXPECT_EQ(-2, resultVec->getEntry(0, 1));
 
@@ -208,9 +199,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossVector2x3)
 	Matrix *resultVec = new Matrix(1, 3);
 	*resultVec = { -7, 2, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -228,9 +218,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossVector3x4)
 	Matrix *resultVec = new Matrix(1, 4);
 	*resultVec = { 16, -16, -16, 16 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -250,9 +239,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossVector4x5)
 	Matrix *resultVec = new Matrix(1, 5);
 	*resultVec = { -48, 96, 0, -96, 48 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.cross(*matrix));
-	EXPECT_TRUE(*resultVec == SMO.cross(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::cross(*matrix));
+	EXPECT_TRUE(*resultVec == SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);
@@ -268,8 +256,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossException1x1)
 	matrix->setEntry(0, 0, 2);
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*matrix), std::exception);
+
+	EXPECT_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossException2x2)
@@ -279,8 +267,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossException2x2)
 				2, 2 };
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*matrix), std::exception);
+
+	EXPECT_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x3)
@@ -291,8 +279,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x3)
 				-4, 2, 3 };
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*matrix), std::exception);
+
+	EXPECT_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x2)
@@ -303,8 +291,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossException3x2)
 				3, 1 };
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(*resultVec = SMO.cross(*matrix), std::exception);
+
+	EXPECT_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsCross, crossVectorspecialCase)
@@ -315,8 +303,8 @@ TEST(VectorEngineSimpleMatrixOperationsCross, crossVectorspecialCase)
 				0, 0, 0, 0 };
 
 	Matrix *resultVec = new Matrix();
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(*resultVec = SMO.cross(*matrix));
+
+	EXPECT_NO_THROW(*resultVec = SimpleMatrixOperations::cross(*matrix));
 
 	double resultValue = resultVec->getEntry(0, 0) * matrix->getEntry(0, 0);
 	resultValue += resultVec->getEntry(0, 1) * matrix->getEntry(0, 1);

@@ -9,9 +9,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse1)
 				3, 1, 3, 
 				5, 2, 4 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse2)
@@ -20,9 +19,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse2)
 	*matrix = { 1, 0, 
 				0, 2 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse3)
@@ -32,9 +30,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse3)
 				3, 1, 3, 
 				1, 2, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse4)
@@ -44,9 +41,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse4)
 				1, 2, 3, 
 				4, 2, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse5)
@@ -56,9 +52,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse5)
 				3, 1, 3, 1, 
 				4, 2, 6, 3 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse6)
@@ -67,9 +62,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse6)
 	*matrix = { 1, 2, 3, 3, 
 				3, 1, 3, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse7)
@@ -80,9 +74,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse7)
 				3, 7, 
 				4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse8)
@@ -92,9 +85,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse8)
 				0, 1, 0, 
 				0, 1, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse9)
@@ -102,9 +94,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalFalse9)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 2);
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue1)
@@ -114,9 +105,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue1)
 				0, 1, 0, 
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_TRUE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_TRUE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue2)
@@ -126,9 +116,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue2)
 				1, 0, 0, 
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_TRUE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_TRUE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue3)
@@ -137,9 +126,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue3)
 	*matrix = { 1, 0, 
 				0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_TRUE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_TRUE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue4)
@@ -147,9 +135,8 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalTrue4)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_TRUE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_TRUE(TypeMatrix::orthogonal(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixOrthogonal, orthogonalSpecialCase)
@@ -159,7 +146,6 @@ TEST(VectorEngineTypeMatrixOrthogonal, orthogonalSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.orthogonal(*matrix));
-	EXPECT_FALSE(TM.orthogonal(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::orthogonal(*matrix));
+	EXPECT_FALSE(TypeMatrix::orthogonal(*matrix));
 }

@@ -136,15 +136,14 @@ TEST(MatrixGetsGetRows, getRowsMatrixEqualNoException)
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(0, 1, 1);
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*vec = matrix->getRow(*vec));
-	EXPECT_TRUE(TM.isEqual(*vec, *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*vec, *matrix, 0.0001));
 
 	vec->setMatrixSize(2, 1);
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(1, 0, 1);
 	EXPECT_NO_THROW(*vec = matrix->getRow(*vec));
-	EXPECT_TRUE(TM.isEqual(*vec, *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*vec, *matrix, 0.0001));
 }
 
 TEST(MatrixGetsGetRows, getRowsMatrixEqualExceptionToLargeIndexOne)
@@ -190,9 +189,8 @@ TEST(MatrixGetsGetRows, getRowsMatrixEqualNoExceptionEmptyGet)
 	vec->setEntry(0, 0, 0);
 	vec->setEntry(0, 1, 1);
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*result = matrix->getRow(*vec));
-	EXPECT_TRUE(TM.isEqual(*result, *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix, 0.0001));
 
 
 	vec->setMatrixSize(2, 1);
@@ -200,7 +198,7 @@ TEST(MatrixGetsGetRows, getRowsMatrixEqualNoExceptionEmptyGet)
 	vec->setEntry(1, 0, 1);
 
 	EXPECT_NO_THROW(*result = matrix->getRow(*vec));
-	EXPECT_TRUE(TM.isEqual(*result, *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix, 0.0001));
 }
 
 TEST(MatrixGetsGetRows, getRowsMatrix5x5M3P)
@@ -220,9 +218,8 @@ TEST(MatrixGetsGetRows, getRowsMatrix5x5M3P)
 			 2, 4, 6, 7, 2,
 			 4, 4, 4, 1, 7 };
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(matrix->getRow(*vec));
-	EXPECT_TRUE(TM.isEqual(*buf, matrix->getRow(*vec), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buf, matrix->getRow(*vec), 0.0001));
 
 
 	vec->setMatrixSize(3, 1);

@@ -9,9 +9,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive)
 				4, 5, 6, 
 				7, 8, 9 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(45, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(45, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleNegative)
@@ -21,9 +20,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleNegative)
 				-4, -5, -6,
 				-7, -8, -9 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(-45, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(-45, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleMixed)
@@ -33,9 +31,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHoleMixed)
 				 4, -5,  6,
 				-7,  8, -9 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(-5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(-5, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalPositive)
@@ -45,9 +42,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalPositive)
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(49.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(49.5, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalNegative)
@@ -57,9 +53,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalNegative)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(-49.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(-49.5, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalMixed)
@@ -69,9 +64,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumDecimalMixed)
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(-5.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(-5.5, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedPositive)
@@ -81,9 +75,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedPositive)
 				4,   5.5, 6, 
 				7.5, 8,   9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(47.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(47.5, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedNegative)
@@ -93,9 +86,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedNegative)
 				-4,   -5.5, -6,
 				-7.5, -8,   -9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(-47.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(-47.5, SimpleMatrixOperations::sum(*matrix));
 }
 TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedMixed)
 {
@@ -104,9 +96,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumMixedMixed)
 				-4,   5.5, 6,
 				-7.5, 8,   9.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(21.5, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(21.5, SimpleMatrixOperations::sum(*matrix));
 }
 
 //-----Different sizes-----
@@ -115,9 +106,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(1, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(1, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive1x5)
@@ -125,9 +115,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive1x5)
 	Matrix *matrix = new Matrix(1, 5);
 	*matrix = { 1, 2, 3, 4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(15, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x1)
@@ -135,9 +124,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x1)
 	Matrix *matrix = new Matrix(5, 1);
 	*matrix = { 1, 2, 3, 4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(15, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x5)
@@ -149,9 +137,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x5)
 				16, 17, 18, 19, 20, 
 				21, 22, 23, 24, 25 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(325, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(325, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive2x5)
@@ -160,9 +147,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive2x5)
 	*matrix = { 1, 2, 3, 4, 5, 
 				6, 7, 8, 9, 10 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(55, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(55, SimpleMatrixOperations::sum(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x2)
@@ -174,9 +160,8 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x2)
 				7, 8,
 				9, 10 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(55, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(55, SimpleMatrixOperations::sum(*matrix));
 }
 
 //--------No Values--------
@@ -184,8 +169,7 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumHolePositive5x2)
 TEST(VectorEngineSimpleMatrixOperationsSum, sumNoValue)
 {
 	Matrix *matrix = new Matrix(3, 3);
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
 }
 
 
@@ -198,7 +182,6 @@ TEST(VectorEngineSimpleMatrixOperationsSum, sumSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.sum(*matrix));
-	EXPECT_EQ(1, SMO.sum(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::sum(*matrix));
+	EXPECT_EQ(1, SimpleMatrixOperations::sum(*matrix));
 }

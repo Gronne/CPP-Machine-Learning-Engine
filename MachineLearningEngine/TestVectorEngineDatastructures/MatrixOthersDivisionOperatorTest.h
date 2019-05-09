@@ -39,9 +39,8 @@ TEST(MatrixOthersDivisionOperator, divisionOperatorValueDecimalPositive)
 	*result = { 0.4, 0.8, 1.2, 
 				1.6, 2.0, 2.4 };
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix / 2.5);
-	EXPECT_TRUE(TM.isEqual(*result, *matrix / 2.5, 0.001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix / 2.5, 0.001));
 }
 
 TEST(MatrixOthersDivisionOperator, divisionOperatorValueDecimalNegative)
@@ -54,9 +53,8 @@ TEST(MatrixOthersDivisionOperator, divisionOperatorValueDecimalNegative)
 	*result = { -0.4, -0.8, -1.2,
 				-1.6, -2.0, -2.4 };
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix / -2.5);
-	EXPECT_TRUE(TM.isEqual(*result, *matrix / -2.5, 0.001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix / -2.5, 0.001));
 }
 
 TEST(MatrixOthersDivisionOperator, divisionOperatorValueZero)

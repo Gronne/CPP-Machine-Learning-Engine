@@ -9,9 +9,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveMatrixRow)
@@ -20,9 +19,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveMatrixRow)
 	*vec = { 1, 2, 3, 
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveMatrixCol)
@@ -32,9 +30,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHolePositiveMatrixCol)
 			 2, 3, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeVector)
@@ -45,9 +42,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1, -3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeMatrixRow)
@@ -56,9 +52,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeMatrixRow)
 	*vec = { -1, -2, -3, 
 			 -1, -3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeMatrixCol)
@@ -68,9 +63,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleNegativeMatrixCol)
 			 -2, -3, 
 			 -3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedVector)
@@ -81,9 +75,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1, -3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(-10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(-10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedMatrixRow)
@@ -92,9 +85,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedMatrixRow)
 	*vec = {  1,  2,  3, 
 			 -1, -3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(-10, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(-10, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedMatrixCol)
@@ -104,9 +96,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleMixedMatrixCol)
 			 2, -3, 
 			 3, -1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(-10, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(-10, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveVector)
@@ -117,9 +108,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1.5, 3.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(16.25, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveMatrixRow)
@@ -128,10 +118,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveMatrixRow)
 	*vec = { 1.5, 2.5, 3.5, 
 			 1.5, 3.5, 1.5 };
 
-	double resultValue = 0;
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(16.25, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveMatrixCol)
@@ -141,9 +129,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalPositiveMatrixCol)
 			 2.5, 3.5, 
 			 3.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(16.25, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeVector)
@@ -154,9 +141,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(16.25, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeMatrixRow)
@@ -165,9 +151,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeMatrixRow)
 	*vec = { -1.5, -2.5, -3.5, 
 			 -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(16.25, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeMatrixCol)
@@ -177,9 +162,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalNegativeMatrixCol)
 			 -2.5, -3.5, 
 			 -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(16.25, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(16.25, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedVector)
@@ -190,9 +174,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(-16.25, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(-16.25, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedMatrixRow)
@@ -201,9 +184,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedMatrixRow)
 	*vec = {  1.5,  2.5,  3.5, 
 			 -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(-16.25, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(-16.25, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedMatrixCol)
@@ -213,9 +195,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotDecimalMixedMatrixCol)
 			 2.5, -3.5, 
 			 3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(-16.25, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(-16.25, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveVector)
@@ -226,9 +207,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1.5, 3.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(13, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveMatrixRow)
@@ -237,9 +217,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveMatrixRow)
 	*vec = { 1,   2,   3, 
 			 1.5, 3.5, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(13, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveMatrixCol)
@@ -249,9 +228,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedPositiveMatrixCol)
 			 2, 3.5, 
 			 3, 1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(13, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeVector)
@@ -262,10 +240,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1.5, -3.5, -1.5 };
 
-	double resultValue = 0;
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(13, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeMatrixRow)
@@ -274,9 +250,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeMatrixRow)
 	*vec = { -1,   -2,   -3, 
 			 -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(13, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeMatrixCol)
@@ -286,9 +261,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedNegativeMatrixCol)
 			 -2, -3.5, 
 			 -3, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(13, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(13, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedVector)
@@ -299,9 +273,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedVector)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(-13, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(-13, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedMatrixRow)
@@ -310,9 +283,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedMatrixRow)
 	*vec = {  1,    2,    3, 
 			 -1.5, -3.5, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(-13, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(-13, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedMatrixCol)
@@ -322,9 +294,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMixedMixedMatrixCol)
 			 2, -3.5, 
 			 3, -1.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(-13, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(-13, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector1x2)
@@ -334,9 +305,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector1x2)
 	Matrix *vec2 = new Matrix(1, 1);
 	vec2->setEntry(0, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(1, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(1, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow1x2)
@@ -345,9 +315,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow1x2)
 	vec->setEntry(0, 0, 1);
 	vec->setEntry(1, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(1, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(1, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol1x2)
@@ -356,9 +325,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol1x2)
 	vec->setEntry(0, 0, 1);
 	vec->setEntry(0, 1, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(1, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(1, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector2x2)
@@ -370,9 +338,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector2x2)
 	vec2->setEntry(0, 0, 1);
 	vec2->setEntry(0, 1, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(5, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(5, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow2x2)
@@ -381,9 +348,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow2x2)
 	*vec = { 1, 2, 
 			 1, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(5, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(5, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol2x2)
@@ -392,9 +358,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol2x2)
 	*vec = { 1, 1, 
 			 2, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(5, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(5, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector3x2)
@@ -405,9 +370,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector3x2)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow3x2)
@@ -416,9 +380,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow3x2)
 	*vec = { 1, 2, 3, 
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol3x2)
@@ -428,9 +391,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol3x2)
 			 2, 3, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(10, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector4x2)
@@ -441,9 +403,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector4x2)
 	Matrix *vec2 = new Matrix(1, 4);
 	*vec2 = { 1, 2, 3, 4 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(30, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(30, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow4x2)
@@ -452,9 +413,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow4x2)
 	*vec = { 1, 2, 3, 4, 
 			 1, 2, 3, 4 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(30, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(30, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol4x2)
@@ -465,9 +425,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol4x2)
 			 3, 3, 
 			 4, 4 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(30, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(30, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector5x2)
@@ -478,9 +437,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector5x2)
 	Matrix *vec2 = new Matrix(1, 5);
 	*vec2 = { 1, 2, 3, 4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(55, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(55, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow5x2)
@@ -489,9 +447,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow5x2)
 	*vec = { 1, 2, 3, 4, 5, 
 			 1, 2, 3, 4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(55, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(55, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol5x2)
@@ -503,9 +460,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol5x2)
 			 4, 4, 
 			 5, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(55, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(55, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector6x2)
@@ -516,9 +472,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotHoleVector6x2)
 	Matrix *vec2 = new Matrix(1, 6);
 	*vec2 = { 1, 2, 3, 4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(91, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(91, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow6x2)
@@ -527,9 +482,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixRow6x2)
 	*vec = { 1, 2, 3, 4, 5, 6, 
 			 1, 2, 3, 4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1));
-	EXPECT_EQ(91, SMO.dot(*vec, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1));
+	EXPECT_EQ(91, SimpleMatrixOperations::dot(*vec, 0, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol6x2)
@@ -542,9 +496,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixCol6x2)
 			 5, 5, 
 			 6, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 1, 1));
-	EXPECT_EQ(91, SMO.dot(*vec, 0, 1, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 1, 1));
+	EXPECT_EQ(91, SimpleMatrixOperations::dot(*vec, 0, 1, 1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotRowRow)
@@ -555,9 +508,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotRowRow)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotRowCol)
@@ -568,9 +520,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotRowCol)
 	Matrix *vec2 = new Matrix(3, 1);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotColRow)
@@ -581,9 +532,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotColRow)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotColCol)
@@ -594,9 +544,8 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotColCol)
 	Matrix *vec2 = new Matrix(3, 1);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec1, *vec2));
-	EXPECT_EQ(10, SMO.dot(*vec1, *vec2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec1, *vec2));
+	EXPECT_EQ(10, SimpleMatrixOperations::dot(*vec1, *vec2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException1)
@@ -608,8 +557,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException1)
 	Matrix *vec2 = new Matrix(1, 3);
 	*vec2 = { 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException2)
@@ -621,8 +569,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException2)
 	vec2->setEntry(0, 0, 1);
 	vec2->setEntry(0, 1, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException3)
@@ -635,8 +582,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException3)
 	*vec2 = { 1, 2, 3,
 			  1, 2, 3 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException4)
@@ -650,8 +596,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException4)
 			  1, 2, 
 			  1, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException5)
@@ -665,8 +610,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException5)
 	*vec2 = { 1, 2, 3, 
 			  1, 2, 3 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException6)
@@ -681,8 +625,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotVectorException6)
 			  1, 2,
 			  1, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec1, *vec2), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec1, *vec2), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException1)
@@ -691,8 +634,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException1)
 	*vec = { 1, 2, 3, 
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, -1, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, -1, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException2)
@@ -701,8 +643,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException2)
 	*vec = { 1, 2, 3, 
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 3, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 3, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException3)
@@ -711,8 +652,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException3)
 	*vec = { 1, 2, 3, 
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 0, -1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 0, -1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException4)
@@ -721,8 +661,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixException4)
 	*vec = { 1, 2, 3,
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 0, 3), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 0, 3), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixNoException)
@@ -731,8 +670,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixNoException)
 	*vec = { 1, 2, 3,
 			 1, 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException1)
@@ -742,8 +680,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException1)
 			 3, 1, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, -1, 1, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, -1, 1, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException2)
@@ -753,9 +690,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException2)
 			 3, 1, 
 			 3, 1 };
 
-	double resultValue = 0;
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 3, 1, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 3, 1, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException3)
@@ -765,8 +700,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException3)
 			 3, 1, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 0, -1, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 0, -1, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException4)
@@ -776,8 +710,7 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColException4)
 			 3, 1, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.dot(*vec, 0, 3, 1), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::dot(*vec, 0, 3, 1), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColNoException)
@@ -787,6 +720,5 @@ TEST(VectorEngineSimpleMatrixOperationsDot, DotMatrixColNoException)
 			 3, 1, 
 			 3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.dot(*vec, 0, 0, 1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::dot(*vec, 0, 0, 1));
 }

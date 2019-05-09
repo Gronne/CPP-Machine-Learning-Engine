@@ -8,9 +8,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVHolePositive)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVHoleNegative)
@@ -20,9 +19,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVHoleNegative)
 				-4, -5, -6,
 				-7, -8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(-8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(-8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVHoleMixed)
@@ -32,9 +30,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVHoleMixed)
 				 4, -5,  6,
 				-7,  8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 //-------------
@@ -46,9 +43,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVDecimalPositive)
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8.5, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8.5, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVDecimalNegative)
@@ -58,9 +54,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVDecimalNegative)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(-8.5, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(-8.5, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVDecimalMixed)
@@ -70,9 +65,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVDecimalMixed)
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8.5, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8.5, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 //----------------
@@ -84,9 +78,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVMixedPositive)
 				4,   5.5, 6,
 				7.5, 8,   2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVMixedNegative)
@@ -96,9 +89,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVMixedNegative)
 				-4,   -5.5, -6,
 				-7.5, -8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(-8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(-8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVMixedMixed)
@@ -108,9 +100,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMVMixedMixed)
 				4,   -5.5, 6,
 				7.5, 8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 //-------different sizes------
@@ -120,9 +111,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 8);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV2x2)
@@ -131,9 +121,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV2x2)
 	*matrix = { 1, 2,
 				4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(5, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(5, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x3)
@@ -143,9 +132,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x3)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV4x4)
@@ -156,9 +144,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV4x4)
 				7, 8, 2, 9,
 				4, 2, 7, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(9, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(9, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x1)
@@ -168,9 +155,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x1)
 				6,
 				7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(7, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(7, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV1x3)
@@ -178,9 +164,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV1x3)
 	Matrix *matrix = new Matrix(1, 3);
 	*matrix = { 1, 2, 3 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(3, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(3, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x2)
@@ -190,9 +175,8 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV3x2)
 				4, 6,
 				7, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(8, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::findMaxValue(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV2x3)
@@ -201,7 +185,6 @@ TEST(VectorEngineSimpleMatrixOperationsFindMaxValue, FMV2x3)
 	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.findMaxValue(*matrix));
-	EXPECT_EQ(6, SMO.findMaxValue(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::findMaxValue(*matrix));
+	EXPECT_EQ(6, SimpleMatrixOperations::findMaxValue(*matrix));
 }

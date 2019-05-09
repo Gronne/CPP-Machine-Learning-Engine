@@ -157,9 +157,8 @@ TEST(MatrixOperatorMultiplicationOperator, multiplicationOperatorMatrixHoleNegat
 	*result = { -142, -188, -234,
 				-340, -449, -558 };
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix * (matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, *matrix * (matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix * (matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(MatrixOperatorMultiplicationOperator, multiplicationOperatorMatrixDecimalPositive)
@@ -220,9 +219,8 @@ TEST(MatrixOperatorMultiplicationOperator, multiplicationOperatorMatrixDecimalNe
 	*result = { -225.75, -289.75, -353.75,
 				-482.25, -618.25, -754.25 };
 
-	TypeMatrix TM;
 	EXPECT_NO_THROW(*matrix * (matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, *matrix * (matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, *matrix * (matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(MatrixOperatorMultiplicationOperator, multiplicationOperatorMatrixTwoTimes)

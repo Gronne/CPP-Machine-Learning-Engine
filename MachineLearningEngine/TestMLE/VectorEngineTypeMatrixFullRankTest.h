@@ -8,9 +8,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankFullDependent)
 				1, 2, 3, 4, 
 				1, 2, 3, 4 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankFullDependentDistributed)
@@ -20,9 +19,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankFullDependentDistributed)
 				2, 4, 6, 8, 
 				4, 8, 12, 16 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankZeroes)
@@ -32,9 +30,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankZeroes)
 				0, 0, 0, 0, 
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankOf2)
@@ -44,9 +41,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankOf2)
 				3, 1, 4, 1, 
 				3, 1, 4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankOf2_2)
@@ -56,9 +52,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankOf2_2)
 				1, 2, 3, 4, 
 				3, 1, 4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankOf3)
@@ -68,9 +63,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankOf3)
 				3, 1, 3, 1, 
 				5, 1, 2, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank,  fullRankOf3x5Matrix)
@@ -80,9 +74,8 @@ TEST(VectorEngineTypeMatrixFullRank,  fullRankOf3x5Matrix)
 				0, 1, 0, 0, 0, 
 				0, 0, 0, 1, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank, fullRankOf1x1Matrix)
@@ -90,9 +83,8 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankOf1x1Matrix)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_TRUE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_TRUE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank, fullRankOf2x2Matrix)
@@ -101,9 +93,8 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankOf2x2Matrix)
 	*matrix = { 1, 2, 
 				3, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_TRUE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_TRUE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank, fullRankOf3x3Matrix)
@@ -113,9 +104,8 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankOf3x3Matrix)
 				3, 1, 3, 
 				5, 1, 2 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_TRUE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_TRUE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank, fullRankOf4x4Matrix)
@@ -126,9 +116,8 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankOf4x4Matrix)
 				4, 3, 2, 1, 
 				5, 3, 1, 8 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_TRUE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_TRUE(TypeMatrix::fullRank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixFullRank, fullRankSpecialCase)
@@ -138,7 +127,6 @@ TEST(VectorEngineTypeMatrixFullRank, fullRankSpecialCase)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.fullRank(*matrix));
-	EXPECT_FALSE(TM.fullRank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::fullRank(*matrix));
+	EXPECT_FALSE(TypeMatrix::fullRank(*matrix));
 }

@@ -9,9 +9,8 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependent)
 				1, 2, 3, 4, 
 				1, 2, 3, 4 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(1, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(1, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
@@ -21,9 +20,8 @@ TEST(VectorEngineTypeMatrixRank, rankFullDependentDistributed)
 				2, 4,  6,  8, 
 				4, 8, 12, 16 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(1, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(1, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankZeroes)
@@ -33,9 +31,8 @@ TEST(VectorEngineTypeMatrixRank, rankZeroes)
 				0, 0, 0, 0, 
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(0, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(0, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankOf2)
@@ -45,9 +42,8 @@ TEST(VectorEngineTypeMatrixRank, rankOf2)
 				3, 1, 4, 1, 
 				3, 1, 4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(2, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(2, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankOf2_2)
@@ -57,9 +53,8 @@ TEST(VectorEngineTypeMatrixRank, rankOf2_2)
 				1, 2, 3, 4, 
 				3, 1, 4, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(2, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(2, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankOf3)
@@ -69,9 +64,8 @@ TEST(VectorEngineTypeMatrixRank, rankOf3)
 				3, 1, 3, 1, 
 				5, 1, 2, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(3, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
@@ -81,9 +75,8 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x3Matrix)
 				3, 1, 3, 
 				5, 1, 2 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(3, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
@@ -93,9 +86,8 @@ TEST(VectorEngineTypeMatrixRank, rankOf3x5Matrix)
 				0, 1, 0, 0, 0,
 				0, 0, 0, 1, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(3, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
@@ -106,9 +98,8 @@ TEST(VectorEngineTypeMatrixRank, rankZeroSpecial)
 				0, 0, 0, 1, 0, 
 				0, 0, 0, 0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(3, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(3, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankSpecialCase)
@@ -118,9 +109,8 @@ TEST(VectorEngineTypeMatrixRank, rankSpecialCase)
 				0, 0, 6, 
 				0, 0, 6 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(2, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(2, TypeMatrix::rank(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixRank, rankSpecialCase2)
@@ -130,8 +120,7 @@ TEST(VectorEngineTypeMatrixRank, rankSpecialCase2)
 				0, 0, 0, 0,
 				0, 0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.rank(*matrix));
-	EXPECT_EQ(1, TM.rank(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::rank(*matrix));
+	EXPECT_EQ(1, TypeMatrix::rank(*matrix));
 }
 

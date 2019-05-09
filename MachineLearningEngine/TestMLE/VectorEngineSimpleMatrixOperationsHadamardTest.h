@@ -12,9 +12,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHolePositive)
 	*result = { 1, 4, 9,
 				16, 25, 36 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleNegative)
@@ -27,9 +26,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleNegative)
 	*result = {  1,  4,  9, 
 				16, 25, 36 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleMixed)
@@ -42,9 +40,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleMixed)
 	*result = {  1,  4,  9, 
 				16, 25, 36 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleInv)
@@ -57,9 +54,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardHoleInv)
 	*result = {  -1,  -4,  -9, 
 				-16, -25, -36 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix * -1));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix * -1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix * -1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix * -1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalPositive)
@@ -72,9 +68,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalPositive)
 	*result = {  2.25,  6.25, 12.25, 
 				20.25, 30.25, 42.25 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalNegative)
@@ -87,9 +82,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalNegative)
 	*result = { 2.25,   6.25, 12.25,
 				20.25, 30.25, 42.25 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalMixed)
@@ -102,9 +96,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalMixed)
 	*result = { 2.25,   6.25, 12.25,
 				20.25, 30.25, 42.25 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalInv)
@@ -117,9 +110,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalInv)
 	*result = { -2.25,   -6.25, -12.25,
 				-20.25, -30.25, -42.25 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix * -1));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix * -1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix * -1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix * -1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalZero)
@@ -132,9 +124,8 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardDecimalZero)
 	*result = { 0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.hadamard(*matrix, *matrix * 0));
-	EXPECT_TRUE(*result == SMO.hadamard(*matrix, *matrix * 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::hadamard(*matrix, *matrix * 0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::hadamard(*matrix, *matrix * 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffCol1)
@@ -142,8 +133,7 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffCol1)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(2, 4);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffCol2)
@@ -151,8 +141,7 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffCol2)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(2, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRow1)
@@ -160,8 +149,7 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRow1)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(3, 3);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRow2)
@@ -169,8 +157,7 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRow2)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(1, 3);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRowCol1)
@@ -178,8 +165,7 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRowCol1)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(3, 4);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRowCol2)
@@ -187,6 +173,5 @@ TEST(VectorEngineSimpleMatrixOperationsHadamard, hadamardExceptionDiffRowCol2)
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(1, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.hadamard(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::hadamard(*matrix, *result), std::exception);
 }

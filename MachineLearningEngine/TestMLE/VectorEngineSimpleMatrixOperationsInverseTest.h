@@ -9,11 +9,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHolePositive)
 				4, 5, 6, 
 				7, 8, 1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleNegative)
@@ -23,11 +22,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleNegative)
 				-4, -5, -6,
 				-7, -8, -1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleMixed)
@@ -37,11 +35,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleMixed)
 				 4, -5,  6,
 				-7,  8, -1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleZero)
@@ -51,8 +48,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseHoleZero)
 				0, 0, 0,
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.getInverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::getInverse(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getinverseDecimalPositive)
@@ -62,11 +58,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getinverseDecimalPositive)
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 1.5 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseDecimalNegative)
@@ -76,11 +71,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseDecimalNegative)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -1.5 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseDecimalMixed)
@@ -90,11 +84,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseDecimalMixed)
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -1.5 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseExceptionNotSquare1)
@@ -103,8 +96,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseExceptionNotSquare1)
 	*matrix = { 1, 2, 3, 
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.getInverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::getInverse(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseExceptionNotSquare2)
@@ -114,8 +106,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseExceptionNotSquare2)
 				4, 5, 
 				4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.getInverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::getInverse(*matrix), std::exception);
 }
 
 
@@ -124,9 +115,8 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_EQ(1, SMO.getInverse(*matrix).getEntry(0,0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::getInverse(*matrix));
+	EXPECT_EQ(1, SimpleMatrixOperations::getInverse(*matrix).getEntry(0,0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize2x2)
@@ -135,11 +125,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize2x2)
 	*matrix = { 1, 2,
 				3, 1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize3x3)
@@ -149,11 +138,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize3x3)
 				4, 5, 6,
 				7, 8, 1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize4x4)
@@ -164,11 +152,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize4x4)
 				9, 1, 2, 3, 
 				4, 5, 6, 1 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize5x5)
@@ -180,11 +167,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize5x5)
 				7,  2, 1,  1,  2, 
 				3,  4, 5,  6, -7 };
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.getInverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*matrix), SMO.getInverse(*matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize5x5Time)
@@ -196,8 +182,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize5x5Time)
 				7,  2, 1,  1,  2, 
 				3,  4, 5,  6, -7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.getInverse(*matrix*2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::getInverse(*matrix*2));
 }
 
 //--------------------------------------------------
@@ -212,11 +197,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseHolePositive)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleNegative)
@@ -229,11 +213,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleNegative)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleMixed)
@@ -246,11 +229,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleMixed)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleZero)
@@ -260,8 +242,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseHoleZero)
 				0, 0, 0,
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.inverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::inverse(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalPositive)
@@ -274,11 +255,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalPositive)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalNegative)
@@ -291,11 +271,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalNegative)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalMixed)
@@ -308,27 +287,24 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, inverseDecimalMixed)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseExceptionNotSquare1)
 {
 	Matrix *matrix = new Matrix(2, 3);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.inverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::inverse(*matrix), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, inverseExceptionNotSquare2)
 {
 	Matrix *matrix = new Matrix(3, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.inverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::inverse(*matrix), std::exception);
 }
 
 
@@ -337,8 +313,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.inverse(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::inverse(*matrix));
 	EXPECT_EQ(1, matrix->getEntry(0, 0));
 }
 
@@ -348,8 +323,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize2x2)
 	*matrix = { 1, 2, 
 				3, 1 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.inverse(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::inverse(*matrix));
 	EXPECT_EQ(-0.2, matrix->getEntry(0, 0));
 	EXPECT_EQ(0.4, matrix->getEntry(0, 1));
 	EXPECT_NEAR(0.6, matrix->getEntry(1, 0), 0.0001);
@@ -366,11 +340,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize3x3)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize4x4)
@@ -384,11 +357,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize4x4)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5)
@@ -403,11 +375,10 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5)
 	Matrix *result = new Matrix();
 	*result = *matrix;
 
-	TypeMatrix TM;
 	BasicMatrixOperations BMO;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.inverse(*matrix));
-	EXPECT_TRUE(TM.isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(BMO.getEchelonInverse(*result), *matrix, 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5Time)
@@ -419,8 +390,7 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize5x5Time)
 				7,  2, 1,  1,  2,
 				3,  4, 5,  6, -7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.inverse(*matrix*2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::inverse(*matrix*2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSpecialCase)
@@ -430,6 +400,5 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSpecialCase)
 				0, 0, 0,
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.inverse(*matrix), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::inverse(*matrix), std::exception);
 }

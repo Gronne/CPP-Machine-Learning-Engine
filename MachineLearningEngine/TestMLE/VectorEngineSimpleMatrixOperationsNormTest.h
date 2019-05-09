@@ -8,9 +8,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHolePositiveCol)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normHolePositiveRow)
@@ -20,9 +19,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHolePositiveRow)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(17, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(17, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleNegativeCol)
@@ -32,9 +30,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleNegativeCol)
 				-4, -5, -6,
 				-7, -8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleNegativeRow)
@@ -44,9 +41,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleNegativeRow)
 				-4, -5, -6,
 				-7, -8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(17, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(17, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleMixedCol)
@@ -56,9 +52,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleMixedCol)
 				 4, -5,  6,
 				-7,  8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleMixedRow)
@@ -68,9 +63,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normHoleMixedRow)
 				 4, -5,  6,
 				-7,  8, -2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(17, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(17, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 //-------------
@@ -82,9 +76,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalPositiveCol)
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(16.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(16.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalPositiveRow)
@@ -94,9 +87,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalPositiveRow)
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18.5, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18.5, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalNegativeCol)
@@ -106,9 +98,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalNegativeCol)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(16.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(16.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalNegativeRow)
@@ -118,9 +109,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalNegativeRow)
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18.5, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18.5, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalMixedCol)
@@ -130,9 +120,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalMixedCol)
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(16.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(16.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalMixedRow)
@@ -142,9 +131,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normDecimalMixedRow)
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18.5, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18.5, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 //----------------
@@ -156,9 +144,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedPositiveCol)
 				4,   5.5, 6,
 				7.5, 8,   2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedPositiveRow)
@@ -168,9 +155,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedPositiveRow)
 				4,   5.5, 6,
 				7.5, 8,   2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedNegativeCol)
@@ -180,9 +166,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedNegativeCol)
 				-4,   -5.5, -6,
 				-7.5, -8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedNegativeRow)
@@ -192,9 +177,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedNegativeRow)
 				-4,   -5.5, -6,
 				-7.5, -8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedMixedCol)
@@ -204,9 +188,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedMixedCol)
 				4,   -5.5, 6,
 				7.5, 8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15.5, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15.5, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedMixedRow)
@@ -216,9 +199,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, normMixedMixedRow)
 				4,   -5.5, 6,
 				7.5, 8,   -2.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(18, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(18, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 //-------different sizes------
@@ -228,9 +210,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x1Col)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 8);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(8, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(8, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x1Row)
@@ -238,9 +219,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x1Row)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 8);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(8, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(8, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x2Col)
@@ -249,9 +229,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x2Col)
 	*matrix = { 1, 2,
 				4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(7, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(7, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x2Row)
@@ -260,9 +239,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x2Row)
 	*matrix = { 1, 2,
 				4, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(9, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(9, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x3Col)
@@ -272,9 +250,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x3Col)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(15, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x3Row)
@@ -284,9 +261,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x3Row)
 				4, 5, 6,
 				7, 8, 2 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(17, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(17, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm4x4Col)
@@ -297,9 +273,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm4x4Col)
 				7, 8, 2, 9,
 				4, 2, 7, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(25, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(25, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm4x4Row)
@@ -310,9 +285,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm4x4Row)
 				7, 8, 2, 9,
 				4, 2, 7, 5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(26, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(26, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x1Col)
@@ -322,9 +296,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x1Col)
 				6,
 				7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(14, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(14, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x1Row)
@@ -334,9 +307,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x1Row)
 				6,
 				7 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(7, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(7, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x3Col)
@@ -344,9 +316,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x3Col)
 	Matrix *matrix = new Matrix(1, 3);
 	*matrix = { 1, 2, 3 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(3, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(3, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x3Row)
@@ -354,9 +325,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm1x3Row)
 	Matrix *matrix = new Matrix(1, 3);
 	*matrix = { 1, 2, 3 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(6, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(6, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x2Col)
@@ -366,9 +336,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x2Col)
 				4, 6,
 				7, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(16, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(16, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x2Row)
@@ -378,9 +347,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm3x2Row)
 				4, 6,
 				7, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(15, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x3Col)
@@ -389,9 +357,8 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x3Col)
 	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix));
-	EXPECT_EQ(9, SMO.norm(*matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix));
+	EXPECT_EQ(9, SimpleMatrixOperations::norm(*matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x3Row)
@@ -400,7 +367,6 @@ TEST(VectorEngineSimpleMatrixOperationsNorm, norm2x3Row)
 	*matrix = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.norm(*matrix, 0));
-	EXPECT_EQ(15, SMO.norm(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::norm(*matrix, 0));
+	EXPECT_EQ(15, SimpleMatrixOperations::norm(*matrix, 0));
 }

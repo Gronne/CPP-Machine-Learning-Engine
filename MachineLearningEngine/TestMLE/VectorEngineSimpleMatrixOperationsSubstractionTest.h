@@ -12,9 +12,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHolePositive)
 	*result = { -2,  -4,  -6, 
 				-8, -10, -12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleNegative)
@@ -27,9 +26,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleNegative)
 	*result = { 2, 4, 6, 
 				8, 10, 12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleMixed)
@@ -42,9 +40,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleMixed)
 	*result = {  2, -4,   6, 
 				-8, 10, -12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleZero)
@@ -57,9 +54,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionHoleZero)
 	*result = { 0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix * -1));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix * -1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix * -1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix * -1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalPositive)
@@ -72,9 +68,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalPositive
 	*result = { -3,  -5,  -7, 
 				-9, -11, -13 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalNegative)
@@ -87,9 +82,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalNegative
 	*result = { 3,  5,  7, 
 				9, 11, 13 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalMixed)
@@ -102,9 +96,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalMixed)
 	*result = {  3, -5,   7, 
 				-9, 11, -13 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalZero)
@@ -117,9 +110,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDecimalZero)
 	*result = { 0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction((*matrix * -1), *matrix * -1));
-	EXPECT_TRUE(*result == SMO.substraction((*matrix * -1), *matrix * -1));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction((*matrix * -1), *matrix * -1));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction((*matrix * -1), *matrix * -1));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCol1)
@@ -127,8 +119,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(2, 4);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCol2)
@@ -136,8 +127,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffCo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(2, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRow1)
@@ -145,8 +135,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(3, 3);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRow2)
@@ -154,8 +143,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(1, 3);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRowCol1)
@@ -163,8 +151,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(3, 4);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRowCol2)
@@ -172,8 +159,7 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionExceptionDiffRo
 	Matrix *matrix = new Matrix(2, 3);
 	Matrix *result = new Matrix(1, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.substraction(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::substraction(*matrix, *result), std::exception);
 }
 
 //-----------------
@@ -188,9 +174,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleHolePosit
 	*result = { -1, 0, 1, 
 				 2, 3, 4 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, 2));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, 2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, 2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, 2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleHoleNegative)
@@ -203,9 +188,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleHoleNegat
 	*result = { 3, 4, 5, 
 				6, 7, 8 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, -2));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, -2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, -2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, -2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleHoleZero)
@@ -218,9 +202,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleHoleZero)
 	*result = { 1, 2, 3,
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, 0));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, 0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalPositive)
@@ -233,9 +216,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalPo
 	*result = { -1.5, -0.5, 0.5, 
 				 1.5,  2.5, 3.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, 2.5));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, 2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, 2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, 2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalNegative)
@@ -248,9 +230,8 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalNe
 	*result = { 3.5, 4.5, 5.5, 
 				6.5, 7.5, 8.5 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, -2.5));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, -2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, -2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, -2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalZero)
@@ -263,7 +244,6 @@ TEST(VectorEngineSimpleMatrixOperationsSubstraction, substractionDoubleDecimalZe
 	*result = { 1, 2, 3, 
 				4, 5, 6 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.substraction(*matrix, 0.0));
-	EXPECT_TRUE(*result == SMO.substraction(*matrix, 0.0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::substraction(*matrix, 0.0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::substraction(*matrix, 0.0));
 }

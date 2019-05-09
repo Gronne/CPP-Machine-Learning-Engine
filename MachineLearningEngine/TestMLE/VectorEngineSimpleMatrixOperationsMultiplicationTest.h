@@ -11,9 +11,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueHolePo
 	*result = { 2,  4,  6,
 				8, 10, 12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.multiplication(*matrix, 2));
-	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::multiplication(*matrix, 2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::multiplication(*matrix, 2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueHoleNegative)
@@ -26,9 +25,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueHoleNe
 	*result = { -2,  -4,  -6,
 				-8, -10, -12 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.multiplication(*matrix, -2));
-	EXPECT_TRUE(*result == SMO.multiplication(*matrix, -2));
+	EXPECT_NO_THROW(SimpleMatrixOperations::multiplication(*matrix, -2));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::multiplication(*matrix, -2));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecimalPositive)
@@ -41,9 +39,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecima
 	*result = {  2.5,  5,    7.5,
 				10,   12.5, 15   };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.multiplication(*matrix, 2.5));
-	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::multiplication(*matrix, 2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::multiplication(*matrix, 2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecimalNegative)
@@ -56,9 +53,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueDecima
 	*result = {  -2.5,  -5,    -7.5,
 				-10,   -12.5, -15   };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.multiplication(*matrix, -2.5));
-	EXPECT_TRUE(*result == SMO.multiplication(*matrix, -2.5));
+	EXPECT_NO_THROW(SimpleMatrixOperations::multiplication(*matrix, -2.5));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::multiplication(*matrix, -2.5));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueZero)
@@ -71,9 +67,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueZero)
 	*result = { 0, 0, 0, 
 				0, 0, 0 };
 
-	SimpleMatrixOperations SMO;
-	EXPECT_NO_THROW(SMO.multiplication(*matrix, 0));
-	EXPECT_TRUE(*result == SMO.multiplication(*matrix, 0));
+	EXPECT_NO_THROW(SimpleMatrixOperations::multiplication(*matrix, 0));
+	EXPECT_TRUE(*result == SimpleMatrixOperations::multiplication(*matrix, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationValueTwoTimes)
@@ -102,10 +97,9 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleP
 	*result = { 14, 32,
 				32, 77 };
 
-	TypeMatrix TM;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1)));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
 
 
 	result->setMatrixSize(3, 3);
@@ -114,7 +108,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleP
 				27, 36, 45 };
 
 	EXPECT_NO_THROW(SMO.multiplication(matrix->transpose(1), *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
 
 
 	result->setMatrixSize(2, 3);
@@ -122,7 +116,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleP
 				340, 449, 558 };
 
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleNegative)
@@ -135,10 +129,9 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleN
 	*result = { 14, 32,
 				32, 77 };
 
-	TypeMatrix TM;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1)));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
 
 
 	result->setMatrixSize(3, 3);
@@ -147,7 +140,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleN
 				27, 36, 45 };
 
 	EXPECT_NO_THROW(SMO.multiplication(matrix->transpose(1), *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
 
 
 	result->setMatrixSize(2, 3);
@@ -155,7 +148,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixHoleN
 				-340, -449, -558 };
 
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecimalPositive)
@@ -168,10 +161,9 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 	*result = { 20.75, 43.25,
 				43.25, 92.75 };
 
-	TypeMatrix TM;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1)));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
 
 
 	result->setMatrixSize(3, 3);
@@ -180,7 +172,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 				34.5, 44.5, 54.5 };
 
 	EXPECT_NO_THROW(SMO.multiplication(matrix->transpose(1), *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
 
 
 	result->setMatrixSize(2, 3);
@@ -188,7 +180,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 				482.25, 618.25, 754.25 };
 
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecimalNegative)
@@ -201,10 +193,9 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 	*result = { 20.75, 43.25,
 				43.25, 92.75 };
 
-	TypeMatrix TM;
 	SimpleMatrixOperations SMO;
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1)));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1)), 0.0001));
 
 
 	result->setMatrixSize(3, 3);
@@ -213,7 +204,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 				34.5, 44.5, 54.5 };
 
 	EXPECT_NO_THROW(SMO.multiplication(matrix->transpose(1), *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(matrix->transpose(1), *matrix), 0.0001));
 
 
 	result->setMatrixSize(2, 3);
@@ -221,7 +212,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixDecim
 				-482.25, -618.25, -754.25 };
 
 	EXPECT_NO_THROW(SMO.multiplication(*matrix, matrix->transpose(1) * *matrix));
-	EXPECT_TRUE(TM.isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, SMO.multiplication(*matrix, matrix->transpose(1) * *matrix), 0.0001));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixTwoTimes)
@@ -246,12 +237,8 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixExcep
 
 	*result = *matrix;
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
-
-	matrix->transpose();
-	result->transpose();
-	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::multiplication(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::multiplication(matrix->transpose(), result->transpose()), std::exception);
 }
 
 TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixExceptionLarge)
@@ -259,8 +246,7 @@ TEST(VectorEngineSimpleMatrixOperationsMultiplication, multiplicationMatrixExcep
 	Matrix *matrix = new Matrix(3, 3);
 	Matrix *result = new Matrix(4, 4);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::multiplication(*matrix, *result), std::exception);
 }
 
 TEST(VectorEngineDatastructurMatrixMultiplicationOperator, multiplicationMatrixExceptionSmall)
@@ -268,6 +254,5 @@ TEST(VectorEngineDatastructurMatrixMultiplicationOperator, multiplicationMatrixE
 	Matrix *matrix = new Matrix(3, 3);
 	Matrix *result = new Matrix(2, 2);
 
-	SimpleMatrixOperations SMO;
-	EXPECT_THROW(SMO.multiplication(*matrix, *result), std::exception);
+	EXPECT_THROW(SimpleMatrixOperations::multiplication(*matrix, *result), std::exception);
 }

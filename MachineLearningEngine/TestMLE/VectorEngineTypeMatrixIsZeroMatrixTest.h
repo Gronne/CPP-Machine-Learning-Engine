@@ -6,9 +6,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 0);
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_TRUE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_TRUE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_1x1)
@@ -16,9 +15,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_1x1)
 	Matrix *matrix = new Matrix(1, 1);
 	matrix->setEntry(0, 0, 1);
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_2x2)
@@ -27,9 +25,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_2x2)
 	*matrix = { 0, 0,
 				0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_TRUE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_TRUE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x2_1)
@@ -38,9 +35,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x2_1)
 	*matrix = { 0, 0,
 				0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x2_2)
@@ -49,9 +45,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x2_2)
 	*matrix = { 2, 4,
 				3, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_3x3)
@@ -61,9 +56,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_3x3)
 				0, 0, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_TRUE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_TRUE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x3_1)
@@ -73,9 +67,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x3_1)
 				0, 1, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x3_2)
@@ -85,9 +78,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x3_2)
 				0, 1, 0,
 				0, 0, 1 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_3x2)
@@ -97,9 +89,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_3x2)
 				0, 0,
 				0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_TRUE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_TRUE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x2)
@@ -109,9 +100,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_3x2)
 				0, 1,
 				0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_2x3)
@@ -120,9 +110,8 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_true_2x3)
 	*matrix = { 0, 0, 0,
 				0, 0, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_TRUE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_TRUE(TypeMatrix::isZeroMatrix(*matrix));
 }
 
 TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x3)
@@ -131,7 +120,6 @@ TEST(VectorEngineTypeMatrixIsZeroMatrix, IZM_false_2x3)
 	*matrix = { 0, 0, 0,
 				0, 1, 0 };
 
-	TypeMatrix TM;
-	EXPECT_NO_THROW(TM.isZeroMatrix(*matrix));
-	EXPECT_FALSE(TM.isZeroMatrix(*matrix));
+	EXPECT_NO_THROW(TypeMatrix::isZeroMatrix(*matrix));
+	EXPECT_FALSE(TypeMatrix::isZeroMatrix(*matrix));
 }
