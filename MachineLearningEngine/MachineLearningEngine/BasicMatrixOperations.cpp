@@ -100,12 +100,6 @@ Matrix & BasicMatrixOperations::getEigenVectors(const Matrix &matrix)
 }
 
 
-MatrixResult & BasicMatrixOperations::findSolution(const Matrix &)
-{
-	MatrixResult *matrix = new MatrixResult();
-	return *matrix;
-}
-
 Matrix & BasicMatrixOperations::getOrthonormal(const Matrix &)
 {
 	Matrix *matrix = new Matrix();

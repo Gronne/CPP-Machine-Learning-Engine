@@ -17,17 +17,25 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(3, 4);
-	*matrix = { 1, 2, 3, 4,
-				4, 3, 2, 1,
-				2, 6, 2, 6 };
-	Matrix *resizeMatrix = new Matrix();
+	Matrix *matrix = new Matrix(5, 5);
+	*matrix = { 1,  2, 3,  4,  5,
+				6, -2, 3,  1,  1,
+				2,  3, 4, -5,  6,
+				7,  2, 1,  1,  2,
+				3,  4, 5,  6, -7 };
+
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	
 
 	try
 	{
-		std::cout << SMO.cross(*matrix) << std::endl;
+		std::cout << *matrix << std::endl;
+		std::cout << *buffer << std::endl;
+
+		BasicMatrixOperations::echelonInverse(*matrix);
+		std::cout << TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(5, 5), 0.00001) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
@@ -35,6 +43,7 @@ int main(int argc, char ** argv) {
 	}
 	
 
-
 	exit(0);
 }
+
+//assert() - instead of exception?

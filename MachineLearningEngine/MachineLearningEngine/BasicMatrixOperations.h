@@ -1,6 +1,5 @@
 #pragma once
 #include "Matrix.h"
-#include "MatrixResult.h"
 #include "MatrixRREF.h"
 #include "SimpleMatrixOperations.h"
 
@@ -16,7 +15,7 @@ public:
 	static double determinant(const Matrix&);
 	static Matrix& getEigenValues(const Matrix&);
 	static Matrix& getEigenVectors(const Matrix&);
-	static MatrixResult& findSolution(const Matrix&);
+	//static MatrixResult& findSolution(const Matrix&);
 	static Matrix& getOrthonormal(const Matrix&);
 
 private:

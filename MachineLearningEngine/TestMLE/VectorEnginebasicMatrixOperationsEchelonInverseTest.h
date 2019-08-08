@@ -8,13 +8,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHolePosit
 				4, 5, 6, 
 				7, 8, 1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.791667,  0.916677, -0.125,
-				 1.583333, -0.833333,  0.25,
-				-0.125,		0.25,	  -0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHoleNegative)
@@ -24,13 +21,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHoleNegat
 				-4, -5, -6,
 				-7, -8, -1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = {  1.791667, -0.91667,  0.125,
-				-1.583333,  0.83333, -0.25,
-				 0.125,    -0.25,     0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHoleMixed)
@@ -40,13 +34,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHoleMixed
 				 4, -5,  6,
 				-7,  8, -1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { 1.791667, 0.916667, 0.125,
-				1.583333, 0.833333, 0.25,
-				0.125,    0.25,     0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseHoleZero)
@@ -66,13 +57,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseDecimalPo
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.958333,  1.083333, -0.125, 
-				 1.75,     -1,         0.25, 
-				-0.125,	    0.25,     -0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseDecimalNegative)
@@ -82,13 +70,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseDecimalNe
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = {  1.958333, -1.083333,  0.125,
-				-1.75,	    1,        -0.25,
-				 0.125,    -0.25,      0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseDecimalMixed)
@@ -98,13 +83,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseDecimalMi
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { 1.958333, 1.083333, 0.125,
-				1.75,     1,        0.25,
-				0.125,    0.25,     0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseExceptionNotSquare1)
@@ -138,12 +120,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize2x2)
 	*matrix = { 1, 2, 
 				3, 1 };
 
-	Matrix *result = new Matrix(2, 2);
-	*result = { -0.2,  0.4,
-				 0.6, -0.2 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(2, 2), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize3x3)
@@ -153,13 +133,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize3x3)
 				4, 5, 6, 
 				7, 8, 1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.791667,  0.916667, -0.125,
-				 1.583333, -0.833333,  0.25,
-				-0.125,     0.25,     -0.125 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize4x4)
@@ -170,14 +147,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize4x4)
 				9, 1, 2, 3,
 				4, 5, 6, 1 };
 
-	Matrix *result = new Matrix(4, 4);
-	*result = { -0.138889, 0.027778,  0.111111, 0,
-				-1.430556, 0.819444, -0.222222, -0.166667,
-				 1.277778, -0.72222,  0.111111,  0.333333,
-				 0.041667,  0.125,    0,        -0.166667 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(4, 4), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize5x5)
@@ -189,15 +162,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize5x5)
 				7,  2, 1,  1,  2, 
 				3,  4, 5,  6, -7 };
 
-	Matrix *result = new Matrix(5, 5);
-	*result = { -0.048976,  0.038892, -0.014834,  0.123697, -0.006804,
-				-0.000061, -0.193944,  0.048792,  0.130318,  0.051306,
-				 0.025009,  0.129092,  0.092681, -0.169548,  0.067304,
-				 0.119468, -0.003433, -0.096482,  0.011156,  0.005333,
-				 0.099240, -0.004904,  0.005026,  0.015937, -0.063810 };
+	Matrix *result = new Matrix();
 
-	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_NO_THROW(*result = BasicMatrixOperations::getEchelonInverse(*matrix));
+	EXPECT_TRUE(TypeMatrix::isEqual(*matrix * *result, GetMatrix::getIdentityMatrix(5, 5), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, getEchelonInverseSize5x5Time)
@@ -221,13 +189,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHolePositive
 				4, 5, 6, 
 				7, 8, 1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.791667,  0.916677, -0.125,
-				 1.583333, -0.833333,  0.25,
-				-0.125,     0.25,     -0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHoleNegative)
@@ -237,13 +203,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHoleNegative
 				-4, -5, -6,
 				-7, -8, -1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = {  1.791665, -0.916667,  0.125,
-				-1.583333,  0.833333, -0.25,
-				 0.125,    -0.25,      0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHoleMixed)
@@ -253,13 +217,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHoleMixed)
 				 4, -5,  6,
 				-7,  8, -1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { 1.791667, 0.916667, 0.125,
-				1.583333, 0.833333, 0.25,
-				0.125,    0.25,     0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseHoleZero)
@@ -279,13 +241,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseDecimalPosit
 				4.5, 5.5, 6.5,
 				7.5, 8.5, 1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.958333,  1.083333, -0.125,
-				 1.75,     -1,         0.25,
-				-0.125,     0.25,     -0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseDecimalNegative)
@@ -295,13 +255,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseDecimalNegat
 				-4.5, -5.5, -6.5,
 				-7.5, -8.5, -1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = {  1.958333, -1.083333,  0.125,
-				-1.75,      1,        -0.25,
-				 0.125,    -0.25,      0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseDecimalMixed)
@@ -311,13 +269,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseDecimalMixed
 				 4.5, -5.5,  6.5,
 				-7.5,  8.5, -1.5 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { 1.958333, 1.083333, 0.125,
-				1.75,     1,        0.25,
-				0.125,    0.25,     0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseExceptionNotSquare1)
@@ -357,12 +313,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize2x2)
 	*matrix = { 1, 2, 
 				3, 1 };
 
-	Matrix *result = new Matrix(2, 2);
-	*result = { -0.2,  0.4,
-				 0.6, -0.2 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(2, 2), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize3x3)
@@ -372,13 +327,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize3x3)
 				4, 5, 6, 
 				7, 8, 1 };
 
-	Matrix *result = new Matrix(3, 3);
-	*result = { -1.791667,  0.916667, -0.125,
-				 1.583333, -0.833333,  0.25,
-				-0.125,     0.25,     -0.125 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(3, 3), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize4x4)
@@ -389,14 +342,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize4x4)
 				9, 1, 2, 3, 
 				4, 5, 6, 1 };
 
-	Matrix *result = new Matrix(4, 4);
-	*result = { -0.138889,  0.027778,  0.111111, 0,
-				-1.430556,  0.819444, -0.222222, -0.166667,
-				 1.277778, -0.722222,  0.111111,  0.333333,
-				 0.041667,  0.125,     0,        -0.166667 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(4, 4), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize5x5)
@@ -408,15 +358,11 @@ TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize5x5)
 				7,  2, 1,  1,  2, 
 				3,  4, 5,  6, -7 };
 
-	Matrix *result = new Matrix(5, 5);
-	*result = { -0.048976,  0.038892, -0.014834,  0.123697, -0.006804,
-				-0.000061, -0.193944,  0.048792,  0.130318,  0.051306,
-				 0.025009,  0.129092,  0.092681, -0.169548,  0.067304,
-				 0.119468, -0.003433, -0.096482,  0.011156,  0.005333,
-				 0.099240, -0.004904,  0.005026,  0.015937, -0.063810 };
+	Matrix *buffer = new Matrix();
+	*buffer = *matrix;
 
 	EXPECT_NO_THROW(BasicMatrixOperations::echelonInverse(*matrix));
-	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
+	EXPECT_TRUE(TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(5, 5), 0.00001));
 }
 
 TEST(VectorEngineBasicMatrixOperationsEchelonInverse, echelonInverseSize5x5Time)

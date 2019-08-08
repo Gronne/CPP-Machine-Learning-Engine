@@ -52,13 +52,6 @@ bool TypeMatrix::basis(const Matrix &matrix)
 }
 
 
-bool TypeMatrix::basis(Matrix &, MatrixSpace &)
-{
-
-	return false;
-}
-
-
 bool TypeMatrix::orthogonal(Matrix &, Matrix &)
 {
 
@@ -92,21 +85,9 @@ int TypeMatrix::rank(const Matrix &matrix)
 }
 
 
-int TypeMatrix::rank(const MatrixResult &)
-{
-	throw std::exception("rank matrixResult Not implemented yet");
-	return 0;
-}
-
 bool TypeMatrix::fullRank(const Matrix &matrix)
 {
 	return (matrix.getLargestSize() == rank(matrix)) ? true : false;
-}
-
-bool TypeMatrix::fullRank(const MatrixResult &)
-{
-	throw std::exception("full Rank MatrixResult not implementet");
-	return false;
 }
 
 //Will return the number of dimensions that the matrix spans over

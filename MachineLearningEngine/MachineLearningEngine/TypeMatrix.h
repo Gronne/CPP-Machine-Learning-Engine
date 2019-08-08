@@ -1,7 +1,5 @@
 #pragma once
 #include "Matrix.h"
-#include "MatrixSpace.h"
-#include "MatrixResult.h"
 #include "SimpleMatrixOperations.h"
 #include "BasicMatrixOperations.h"
 
@@ -12,13 +10,13 @@ public:
 	static bool homogeneous(const Matrix&);
 	static bool trivial(const Matrix&);
 	static bool basis(const Matrix&);
-	static bool basis(Matrix&, MatrixSpace&);
+	//static bool basis(Matrix&, MatrixSpace&);
 	static bool orthogonal(Matrix&, Matrix&);
 	static bool orthogonal(const Matrix&);
 	static int rank(const Matrix&);
-	static int rank(const MatrixResult&);
+	//static int rank(const MatrixResult&);
 	static bool fullRank(const Matrix&);
-	static bool fullRank(const MatrixResult&);
+	//static bool fullRank(const MatrixResult&);
 	static int span(const Matrix&);
 	static bool isInSpan(const Matrix&, const Matrix&, bool = 0);
 	static bool checkSpan(const Matrix&, const Matrix&);

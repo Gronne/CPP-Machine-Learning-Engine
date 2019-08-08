@@ -119,12 +119,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicMatrixOperations.cpp" />
+    <ClCompile Include="CoreMatrixFactory.cpp" />
     <ClCompile Include="GetMatrix.cpp" />
+    <ClCompile Include="ICoreMatrix.cpp" />
     <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="MatrixResult.cpp" />
     <ClCompile Include="MatrixRREF.cpp" />
-    <ClCompile Include="MatrixSpace.cpp" />
-    <ClCompile Include="Regression.cpp" />
     <ClCompile Include="SimpleMatrixOperations.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TypeMatrix.cpp" />
@@ -132,12 +131,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicMatrixOperations.h" />
+    <ClInclude Include="CoreMatrixFactory.h" />
     <ClInclude Include="GetMatrix.h" />
+    <ClInclude Include="ICoreMatrix.h" />
     <ClInclude Include="Matrix.h" />
-    <ClInclude Include="MatrixResult.h" />
     <ClInclude Include="MatrixRREF.h" />
-    <ClInclude Include="MatrixSpace.h" />
-    <ClInclude Include="Regression.h" />
     <ClInclude Include="SimpleMatrixOperations.h" />
     <ClInclude Include="TypeMatrix.h" />
     <ClInclude Include="VectorEngineDatastructures.h" />
