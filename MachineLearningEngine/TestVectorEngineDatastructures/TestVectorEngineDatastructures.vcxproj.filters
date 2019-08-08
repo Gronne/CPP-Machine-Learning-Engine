@@ -124,9 +124,6 @@
     <ClInclude Include="MatrixOthersDeconstructorTest.h">
       <Filter>Matrix\Others</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixOthersDivisionOperatorTest.h">
-      <Filter>Matrix\Others</Filter>
-    </ClInclude>
     <ClInclude Include="MatrixOthersScaleTest.h">
       <Filter>Matrix\Others</Filter>
     </ClInclude>
@@ -135,6 +132,9 @@
     </ClInclude>
     <ClInclude Include="MatrixOthersSortTest2.h">
       <Filter>Matrix\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixOperatorDivisionOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -156,5 +156,8 @@
     <Filter Include="Matrix\Size">
       <UniqueIdentifier>{5cccd3c1-4a5b-42fd-a2bc-3bf975cf234a}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

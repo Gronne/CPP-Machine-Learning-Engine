@@ -44,6 +44,7 @@
     <ClInclude Include="MatrixGetsGetSmallestSizeTest.h" />
     <ClInclude Include="MatrixOperatorAdditionEqualOperatorTest.h" />
     <ClInclude Include="MatrixOperatorAdditionOperatorTest.h" />
+    <ClInclude Include="MatrixOperatorDivisionOperatorTest.h" />
     <ClInclude Include="MatrixOperatorEqualEqualOperatorTest.h" />
     <ClInclude Include="MatrixOperatorEqualOperatorTest.h" />
     <ClInclude Include="MatrixOperatorLargerEqualOperatorTest.h" />
@@ -57,7 +58,6 @@
     <ClInclude Include="MatrixOperatorSubstractionOperatorTest.h" />
     <ClInclude Include="MatrixOthersConstructorTest.h" />
     <ClInclude Include="MatrixOthersDeconstructorTest.h" />
-    <ClInclude Include="MatrixOthersDivisionOperatorTest.h" />
     <ClInclude Include="MatrixOthersScaleTest.h" />
     <ClInclude Include="MatrixOthersSortTest1.h" />
     <ClInclude Include="MatrixOthersSortTest2.h" />
