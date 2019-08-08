@@ -37,7 +37,7 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
 		throw std::exception("Matrix dimensions do not comply");
 
-	Matrix *returnMatrix = new Matrix(matrixA.getNumberOfRows(), matrixA.getNumberOfColumns());
+	Matrix *returnMatrix = new Matrix(matrixA);
 
 	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
 		for (size_t column = 0; column < matrixA.getNumberOfColumns(); ++column)
@@ -61,16 +61,6 @@ Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 void SimpleMatrixOperations::inverse(Matrix &matrix) 
 {
 	matrix = getInverse(matrix);
-}
-
-void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inverseMatrix)
-{
-	if (inverseMatrix.getNumberOfColumns() == 2)
-		setInverseMatrix2x2(matrix, inverseMatrix);
-	else
-		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
-			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
-				setDeterminantEntry(matrix, inverseMatrix, row, col);
 }
 
 double SimpleMatrixOperations::determinant(const Matrix &matrix)
@@ -156,6 +146,16 @@ Matrix& SimpleMatrixOperations::calculateInverse(const Matrix &matrix, double de
 
 	*inverseMatrix *= (1 / det);
 	return *inverseMatrix;
+}
+
+void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inverseMatrix)
+{
+	if (inverseMatrix.getNumberOfColumns() == 2)
+		setInverseMatrix2x2(matrix, inverseMatrix);
+	else
+		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
+			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
+				setDeterminantEntry(matrix, inverseMatrix, row, col);
 }
 
 void SimpleMatrixOperations::inverseExceptions(const Matrix &matrix, double det)
