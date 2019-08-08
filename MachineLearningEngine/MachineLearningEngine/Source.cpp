@@ -28,7 +28,8 @@ int main(int argc, char ** argv) {
 	try
 	{
 		std::cout << *matrix << std::endl;
-		std::cout << SimpleMatrixOperations::getInverse(*matrix) << std::endl;
+		std::cout << matrix->getEntry(0, 0) * matrix->getEntry(0, 0) << std::endl;
+		std::cout << *matrix / (matrix->getEntry(0, 0) * matrix->getEntry(0, 0)) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

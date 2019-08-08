@@ -616,6 +616,16 @@ Matrix & Matrix::operator/(const double value)
 	return *returnObj;
 }
 
+Matrix & Matrix::operator/(const double value) const
+{
+	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+
+	*returnObj = *this;
+	returnObj->scale(1 / value);
+
+	return *returnObj;
+}
+
 const Matrix & Matrix::operator=(std::vector<double> vectorArray)
 {
 	if (vectorArray.size() != getNumberOfRows() * getNumberOfColumns())

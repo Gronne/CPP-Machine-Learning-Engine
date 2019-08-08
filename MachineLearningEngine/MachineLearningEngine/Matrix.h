@@ -65,6 +65,8 @@ public:
 	Matrix& operator*(const double);
 	Matrix& operator*(const Matrix&) const;
 	Matrix& operator/(const double);
+	Matrix& operator/(const double) const;
+
 	//Matrix& operator ~();  //Inverte
 
 	friend std::ostream& operator<<(std::ostream&, const Matrix&);

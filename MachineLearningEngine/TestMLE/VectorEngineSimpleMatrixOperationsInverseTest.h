@@ -119,6 +119,15 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize1x1)
 	EXPECT_EQ(1, SimpleMatrixOperations::getInverse(*matrix).getEntry(0,0));
 }
 
+TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize1x1_2)
+{
+	Matrix *matrix = new Matrix(1, 1);
+	matrix->setEntry(0, 0, 4);
+
+	EXPECT_NO_THROW(SimpleMatrixOperations::getInverse(*matrix));
+	EXPECT_DOUBLE_EQ(0.25, SimpleMatrixOperations::getInverse(*matrix).getEntry(0, 0));
+}
+
 TEST(VectorEngineSimpleMatrixOperationsInverse, getInverseSize2x2)
 {
 	Matrix *matrix = new Matrix(2, 2);
@@ -303,6 +312,15 @@ TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize1x1)
 
 	EXPECT_NO_THROW(SimpleMatrixOperations::inverse(*matrix));
 	EXPECT_EQ(1, matrix->getEntry(0, 0));
+}
+
+TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize1x1_2)
+{
+	Matrix *matrix = new Matrix(1, 1);
+	matrix->setEntry(0, 0, 4);
+
+	EXPECT_NO_THROW(SimpleMatrixOperations::inverse(*matrix));
+	EXPECT_DOUBLE_EQ(0.25, matrix->getEntry(0, 0));
 }
 
 TEST(VectorEngineSimpleMatrixOperationsInverse, InverseSize2x2)

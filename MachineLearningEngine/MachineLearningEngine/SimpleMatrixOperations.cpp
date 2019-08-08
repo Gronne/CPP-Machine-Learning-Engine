@@ -34,8 +34,7 @@ Matrix& SimpleMatrixOperations::multiplication(Matrix &matrix, double value)
 
 Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 {
-	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
-		throw std::exception("Matrix dimensions do not comply");
+	hadamardExceptions(matrixA, matrixB);
 
 	Matrix *returnMatrix = new Matrix(matrixA);
 
@@ -46,6 +45,12 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 	return *returnMatrix;
 }
 
+void SimpleMatrixOperations::hadamardExceptions(const Matrix &matrixA, const Matrix &matrixB)
+{
+	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
+		throw std::exception("Matrix dimensions do not comply");
+}
+
 Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 {
 	double det = determinant(matrix);
@@ -53,7 +58,8 @@ Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 	inverseExceptions(matrix, det);
 
 	if (matrix.getNumberOfColumns() == 1)
-		return *(new Matrix(matrix));
+		return matrix / (matrix.getEntry(0, 0) * matrix.getEntry(0, 0));
+		
 	
 	return calculateInverse(matrix, det);
 }
