@@ -36,13 +36,13 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 {
 	hadamardExceptions(matrixA, matrixB);
 
-	Matrix *returnMatrix = new Matrix(matrixA);
+	Matrix *result = new Matrix(matrixA);
 
 	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
 		for (size_t column = 0; column < matrixA.getNumberOfColumns(); ++column)
-			returnMatrix->setEntry(row, column, matrixA.getEntry(row, column) * matrixB.getEntry(row, column));
+			result->setEntry(row, column, matrixA.getEntry(row, column) * matrixB.getEntry(row, column));
 
-	return *returnMatrix;
+	return *result;
 }
 
 void SimpleMatrixOperations::hadamardExceptions(const Matrix &matrixA, const Matrix &matrixB)
@@ -59,7 +59,6 @@ Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 
 	if (matrix.getNumberOfColumns() == 1)
 		return matrix / (matrix.getEntry(0, 0) * matrix.getEntry(0, 0));
-		
 	
 	return calculateInverse(matrix, det);
 }
@@ -71,8 +70,7 @@ void SimpleMatrixOperations::inverse(Matrix &matrix)
 
 double SimpleMatrixOperations::determinant(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Matrix need to be square to find the determinant");
+	determinantExceptions(matrix);
 
 	if (matrix.getNumberOfColumns() == 1)
 		return matrix.getEntry(0, 0);
@@ -80,10 +78,15 @@ double SimpleMatrixOperations::determinant(const Matrix &matrix)
 	return determinantRecursive(matrix);
 }
 
+void SimpleMatrixOperations::determinantExceptions(const Matrix &matrix)
+{
+	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+		throw std::exception("Matrix need to be square to find the determinant");
+}
+
 Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 {
-	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns()-1)
-		throw std::exception("Matrix need to have the dimensions: NxN+1");
+	crossExceptions(matrix);
 
 	if (matrix.getNumberOfRows() == 1)
 		return transformSingleCrossValues(matrix);
@@ -96,14 +99,25 @@ Matrix& SimpleMatrixOperations::cross(const Matrix &matrix)
 	return *crossMatrix;
 }
 
+void SimpleMatrixOperations::crossExceptions(const Matrix &matrix)
+{
+	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns() - 1)
+		throw std::exception("Matrix need to have the dimensions: NxN+1");
+}
+
 double SimpleMatrixOperations::dot(const Matrix &vec1, const Matrix &vec2)
+{
+	dotExceptions(vec1, vec2);
+	
+	return calculateDotProduct(vec1, vec2);
+}
+
+void SimpleMatrixOperations::dotExceptions(const Matrix &vec1, const Matrix &vec2)
 {
 	if (vec1.getNumberOfColumns() != 1 && vec1.getNumberOfRows() != 1)
 		throw std::exception("First argument isn't a 1xN or Nx1 Matrix");
 	if (vec2.getNumberOfColumns() != 1 && vec2.getNumberOfRows() != 1)
 		throw std::exception("Second argument isn't a 1xN or Nx1 Matrix");
-	
-	return calculateDotProduct(vec1, vec2);
 }
 
 double SimpleMatrixOperations::calculateDotProduct(const Matrix &vec1, const Matrix &vec2)
@@ -144,8 +158,7 @@ void SimpleMatrixOperations::shiftInverseEntries(Matrix &inverseMatrix)
 
 Matrix& SimpleMatrixOperations::calculateInverse(const Matrix &matrix, double det)
 {
-	Matrix *inverseMatrix = new Matrix();
-	*inverseMatrix = matrix;
+	Matrix *inverseMatrix = new Matrix(matrix);
 
 	setInverseMatrix(matrix, *inverseMatrix);
 	shiftInverseEntries(*inverseMatrix);
@@ -204,6 +217,19 @@ double SimpleMatrixOperations::determinantRecursive(const Matrix &matrix)
 	return value;
 }
 
+double SimpleMatrixOperations::calculateDeterminantValue(const Matrix &matrix, int column)
+{
+	Matrix *copyMatrix = new Matrix(matrix.getNumberOfColumns() - 1, matrix.getNumberOfColumns() - 1);
+
+	setDeterminantMatrix(matrix, *copyMatrix, 0, column);
+
+	double detValue = (matrix.getEntry(0, column) * determinantRecursive(*copyMatrix));
+	detValue *= ((column % 2) ? -1 : 1);
+
+	delete copyMatrix;
+	return detValue;
+}
+
 Matrix & SimpleMatrixOperations::transformSingleCrossValues(const Matrix &matrix)
 {
 	Matrix *crossMatrix = new Matrix(1, 2);
@@ -251,19 +277,6 @@ void SimpleMatrixOperations::fillNormVector(const Matrix &matrix, Matrix &normVe
 			else
 				normVector.setEntry(0, row, normVector.getEntry(0, row) + ((entryValue > 0) ? entryValue : -entryValue));
 		}
-}
-
-double SimpleMatrixOperations::calculateDeterminantValue(const Matrix &matrix, int column)
-{
-	Matrix *copyMatrix = new Matrix(matrix.getNumberOfColumns() - 1, matrix.getNumberOfColumns() - 1);
-
-	setDeterminantMatrix(matrix, *copyMatrix, 0, column);
-
-	double detValue = (matrix.getEntry(0, column) * determinantRecursive(*copyMatrix));
-	detValue *= ((column % 2) ? -1 : 1);
-
-	delete copyMatrix;
-	return detValue;
 }
 
 double SimpleMatrixOperations::dot(const Matrix &matrix, int row1, int row2, bool transposed)

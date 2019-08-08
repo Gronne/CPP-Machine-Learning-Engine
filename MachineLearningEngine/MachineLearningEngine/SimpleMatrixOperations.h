@@ -44,6 +44,9 @@ private:
 	static void fillNormVector(const Matrix&, Matrix&, bool);
 	static double calculateDeterminantValue(const Matrix&, int);
 	static void hadamardExceptions(const Matrix&, const Matrix&);
+	static void determinantExceptions(const Matrix&);
+	static void crossExceptions(const Matrix&);
+	static void dotExceptions(const Matrix&, const Matrix&);
 };
 
 #endif
