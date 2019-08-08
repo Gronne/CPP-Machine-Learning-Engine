@@ -53,11 +53,7 @@ Matrix & SimpleMatrixOperations::getInverse(const Matrix &matrix)
 	inverseExceptions(matrix, det);
 
 	if (matrix.getNumberOfColumns() == 1)
-	{
-		Matrix *inverseMatrix = new Matrix();
-		*inverseMatrix = matrix;
-		return *inverseMatrix;
-	}	
+		return *(new Matrix(matrix));
 	
 	return calculateInverse(matrix, det);
 }

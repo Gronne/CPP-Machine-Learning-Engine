@@ -11,11 +11,13 @@ Matrix::Matrix(int rows, int columns)
 
 Matrix::Matrix(const Matrix &copy)
 {
+	resizeMatrix(1, 1);
 	*this = copy;
 }
 
 Matrix::Matrix(const Matrix *copy)
 {
+	resizeMatrix(1, 1);
 	*this = *copy;
 }
 

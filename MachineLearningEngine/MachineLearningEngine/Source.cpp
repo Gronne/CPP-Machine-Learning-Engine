@@ -17,12 +17,8 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(5, 5);
-	*matrix = { 1,  2, 3,  4,  5,
-				6, -2, 3,  1,  1,
-				2,  3, 4, -5,  6,
-				7,  2, 1,  1,  2,
-				3,  4, 5,  6, -7 };
+	Matrix *matrix = new Matrix(1, 1);
+	matrix->setEntry(0, 0, 5);
 
 	Matrix *buffer = new Matrix();
 	*buffer = *matrix;
@@ -32,10 +28,7 @@ int main(int argc, char ** argv) {
 	try
 	{
 		std::cout << *matrix << std::endl;
-		std::cout << *buffer << std::endl;
-
-		BasicMatrixOperations::echelonInverse(*matrix);
-		std::cout << TypeMatrix::isEqual(*buffer * *matrix, GetMatrix::getIdentityMatrix(5, 5), 0.00001) << std::endl;
+		std::cout << SimpleMatrixOperations::getInverse(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{
