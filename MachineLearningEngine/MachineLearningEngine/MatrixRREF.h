@@ -6,7 +6,7 @@ class MatrixRREF
 {
 public:
 	static Matrix& rowReduceUnder(const Matrix&);
-	static Matrix& rowReduceOver(Matrix&);
+	static Matrix& rowReduceOver(const Matrix&);
 
 private:
 	static Matrix& reduceRowsUnder(Matrix&);

@@ -58,8 +58,7 @@ Matrix& GetMatrix::extractPivots(const Matrix &matrix, bool type)
 
 Matrix & GetMatrix::makeMatrixHorizontal(const Matrix &matrix)
 {
-	Matrix *buffer = new Matrix();
-	*buffer = matrix;
+	Matrix *buffer = new Matrix(matrix);
 
 	if (buffer->getNumberOfColumns() <= buffer->getNumberOfRows())
 	{
@@ -244,7 +243,8 @@ Matrix & GetMatrix::span(const Matrix &fullMatrix)
 
 Matrix& GetMatrix::span(const Matrix &spanMatrix, const Matrix &resultMatrix)
 {
-	if (spanMatrix.getNumberOfRows() != resultMatrix.getNumberOfRows() && spanMatrix.getNumberOfColumns() != resultMatrix.getNumberOfColumns())
+	if (spanMatrix.getNumberOfRows() != resultMatrix.getNumberOfRows() && 
+		spanMatrix.getNumberOfColumns() != resultMatrix.getNumberOfColumns())
 		throw std::exception("The dimensions between the span and vector doesn't match");
 
 	return span(mergeMatrixes(spanMatrix, resultMatrix));
@@ -305,7 +305,7 @@ double GetMatrix::frobeniusProductSpace(const Matrix &matrix)
 
 double GetMatrix::frobeniusProductSpace(const Matrix &matrixA, const Matrix &matrixB)
 {
-	if (matrixA.getNumberOfRows() != matrixB.getNumberOfRows() || matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns())
+	if (TypeMatrix::isSameSize(matrixA, matrixB) == false)
 		throw std::exception("The matrix dimensions doesn't match");
 	
 	double returnValue = 0;
@@ -325,7 +325,7 @@ Matrix & GetMatrix::getTransformationMatrix(const Matrix &argument, const Matrix
 {
 	Matrix *buffer = new Matrix();
 
-	if (argument.getNumberOfColumns() == argument.getNumberOfRows())
+	if (TypeMatrix::isSquare(argument))
 		*buffer = BasicMatrixOperations::getEchelonInverse(argument) * result;
 	//	*buffer = BMO.getEchelonInverse(BMO.getEchelonInverse(result) * argument); - It's not possible to find a normal inverse if the arguemnt isn't square
 	else

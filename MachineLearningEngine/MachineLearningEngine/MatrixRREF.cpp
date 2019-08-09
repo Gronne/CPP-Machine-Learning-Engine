@@ -6,12 +6,11 @@ Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 	if (TypeMatrix::isFullDependent(matrix))
 		throw std::exception("Your matrix is full dependent and can't be reduced");
 
-	Matrix *resultMatrix = new Matrix(matrix);
-	return reduceRowsUnder(*resultMatrix);
+	return reduceRowsUnder(*new Matrix(matrix));
 }
 
 
-Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
+Matrix & MatrixRREF::rowReduceOver(const Matrix &matrix)
 {
 	Matrix *resultMatrix = new Matrix(matrix);
 
@@ -27,13 +26,12 @@ Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 
 int MatrixRREF::findPivotRow(const Matrix &matrix)
 {
-	int smallestSize = matrix.getSmallestSize();
-	for (int row = 0; row < smallestSize; ++row)
+	int smallestDimension = matrix.getSmallestSize();
+	for (int row = 0; row < smallestDimension; ++row)
 		if (matrix.getEntry(row, row) == 0)
 			return row;
 	return -1;
 }
-#include <iostream>
 
 void MatrixRREF::normalizePivotColumn(Matrix &matrix, int rowNr)
 {
@@ -62,6 +60,7 @@ void MatrixRREF::normalizeColumn(Matrix &matrix, int pivotRow, int column)
 			Matrix newRow = matrix.getRow(row) - (divisionRow * matrix.getEntry(row, column));
 			matrix.setRow(row, newRow);
 		}
+
 	matrix.setRow(pivotRow, divisionRow);
 }
 
