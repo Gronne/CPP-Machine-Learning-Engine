@@ -80,7 +80,7 @@ double SimpleMatrixOperations::determinant(const Matrix &matrix)
 
 void SimpleMatrixOperations::determinantExceptions(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Matrix need to be square to find the determinant");
 }
 
@@ -182,7 +182,7 @@ void SimpleMatrixOperations::inverseExceptions(const Matrix &matrix, double det)
 	if (det == 0)
 		throw std::exception("Not possible to invert");
 
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Matrix need to be square to find the inverse");
 }
 

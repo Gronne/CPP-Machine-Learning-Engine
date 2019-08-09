@@ -8,10 +8,8 @@ void BasicMatrixOperations::rowReduce(Matrix &matrix)
 
 
 Matrix & BasicMatrixOperations::getRowReduction(const Matrix &matrix)
-{
-	Matrix *returnMatrix = new Matrix();
-	*returnMatrix = MatrixRREF::rowReduceUnder(matrix);
-	return *returnMatrix;
+{ 
+	return MatrixRREF::rowReduceUnder(matrix);
 }
 
 
@@ -23,8 +21,7 @@ void BasicMatrixOperations::echelonForm(Matrix &matrix)
 
 Matrix & BasicMatrixOperations::getEchelonForm(const Matrix &matrix)
 {
-	Matrix *returnMatrix = new Matrix();
-	*returnMatrix = MatrixRREF::rowReduceUnder(matrix);
+	Matrix *returnMatrix = &MatrixRREF::rowReduceUnder(matrix);
 	*returnMatrix = MatrixRREF::rowReduceOver(*returnMatrix);
 	return *returnMatrix;
 }
@@ -43,14 +40,27 @@ Matrix & BasicMatrixOperations::getEchelonInverse(const Matrix &matrix)
 	if (matrix.getNumberOfColumns() == 1)
 		return singleValueInverse(matrix);
 
-	Matrix *resultMatrix = new Matrix();
-	*resultMatrix = matrix;
+	Matrix *result = new Matrix(matrix);
+	result->appendMatrix(GetMatrix::getIdentityMatrix(matrix));
 
-	resultMatrix->appendMatrix(GetMatrix::getIdentityMatrix(matrix.getNumberOfRows()));
+	echelonForm(*result);
 
-	echelonForm(*resultMatrix);
+	Matrix numberSequence = GetMatrix::numberSequence(matrix.getNumberOfColumns(), result->getNumberOfColumns() - 1);
+	return result->getColumn(numberSequence);
+}
 
-	return resultMatrix->getColumn(GetMatrix::numberSequence(matrix.getNumberOfColumns(), resultMatrix->getNumberOfColumns() - 1));
+void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
+{
+	if (TypeMatrix::isSquare(matrix) == false)
+		throw std::exception("Need square matrix for inverse");
+
+	if (MatrixRREF::checkForFullDependentMatrix(matrix))
+		throw std::exception("When finding Inverse, the matrix can't be full dependent");
+}
+
+Matrix & BasicMatrixOperations::singleValueInverse(const Matrix &matrix)
+{
+	return matrix / (matrix.getEntry(0, 0) * matrix.getEntry(0, 0));
 }
 
 double BasicMatrixOperations::determinant(const Matrix &matrix)
@@ -75,7 +85,7 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 Matrix & BasicMatrixOperations::getEigenValues(const Matrix &matrix)
 {
 	//det(A-tau*I) = 0		//Where tay is a scalar for the Identity matrix
-	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns())
+	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Matrix needs to be square to calculate the eigenValues");
 
 	Matrix *returnMatrix = new Matrix(matrix.getNumberOfRows(), 1);
@@ -91,7 +101,7 @@ Matrix & BasicMatrixOperations::getEigenValues(const Matrix &matrix)
 
 Matrix & BasicMatrixOperations::getEigenVectors(const Matrix &matrix)
 {
-	if (matrix.getNumberOfRows() != matrix.getNumberOfColumns())
+	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Matrix needs to be square to calculate the eigenVectors");
 	else 
 		throw std::exception("Not implemented yet, need new architecture to do it easy");
@@ -106,27 +116,10 @@ Matrix & BasicMatrixOperations::getOrthonormal(const Matrix &)
 	return *matrix;
 }
 
-
-void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
-{
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
-		throw std::exception("Ned square matrix for inverse");
-
-	if (MatrixRREF::checkForFullDependentMatrix(matrix))
-		throw std::exception("When finding Inverse, the matrix can't be full dependent");
-}
-
 void BasicMatrixOperations::determinantExceptions(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() != matrix.getNumberOfRows())
+	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Matrix need to be square to find the determinant");
-}
-
-Matrix & BasicMatrixOperations::singleValueInverse(const Matrix &matrix)
-{
-	Matrix *resultMatrix = new Matrix(1, 1);
-	resultMatrix->setEntry(0, 0, 1 / matrix.getEntry(0, 0));
-	return *resultMatrix;
 }
 
 double BasicMatrixOperations::diagonalProduct(const Matrix &matrix)
