@@ -17,19 +17,18 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(1, 1);
-	matrix->setEntry(0, 0, 5);
-
-	Matrix *buffer = new Matrix();
-	*buffer = *matrix;
+	Matrix *matrix = new Matrix(4, 6);
+	*matrix = { 1, 2, 3, 4, 5, 5,
+				3, 1, 5, 6, 2, 3,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 3 };
 
 	
 
 	try
 	{
 		std::cout << *matrix << std::endl;
-		std::cout << matrix->getEntry(0, 0) * matrix->getEntry(0, 0) << std::endl;
-		std::cout << *matrix / (matrix->getEntry(0, 0) * matrix->getEntry(0, 0)) << std::endl;
+		std::cout << BasicMatrixOperations::getEchelonForm(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

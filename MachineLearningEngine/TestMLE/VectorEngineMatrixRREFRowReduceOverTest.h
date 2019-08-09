@@ -288,10 +288,82 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x5)
 				5, 1, 6, 2, 3 };
 
 	Matrix *result = new Matrix(4, 5);
-	*result = { 1, 0, 0, -4,  0,
-				0, 1, 0, -2,  0,
-				0, 0, 1,  4,  0,
-				0, 0, 0,  0, -1.8 };
+	*result = { 1, 0, 0, -4, 0,
+				0, 1, 0, -2, 0,
+				0, 0, 1,  4, 0,
+				0, 0, 0,  0, 1 };
+
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
+}
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x6)
+{
+	Matrix *matrix = new Matrix(4, 6);
+	*matrix = { 1, 2, 3, 4, 5, 5,
+				3, 1, 5, 6, 2, 2,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 3 };
+
+	Matrix *result = new Matrix(4, 6);
+	*result = { 1, 0, 0, -4, 0, 0,
+				0, 1, 0, -2, 0, 0,
+				0, 0, 1,  4, 0, 0,
+				0, 0, 0,  0, 1, 1 };
+
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
+}
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x6_2)
+{
+	Matrix *matrix = new Matrix(4, 6);
+	*matrix = { 1, 2, 3, 4, 5, 5,
+				3, 1, 5, 6, 2, 3,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 3 };
+
+	Matrix *result = new Matrix(4, 6);
+	*result = { 1, 0, 0, -4, 0, -1,
+				0, 1, 0, -2, 0, -1,
+				0, 0, 1,  4, 0,  1,
+				0, 0, 0,  0, 1,  1 };
+
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
+}
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x6_3)
+{
+	Matrix *matrix = new Matrix(4, 6);
+	*matrix = { 1, 2, 3, 4, 5, 5,
+				3, 1, 5, 6, 2, 3,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 2 };
+
+	Matrix *result = new Matrix(4, 6);
+	*result = { 1, 0, 0, -4, 0, -0.8888,
+				0, 1, 0, -2, 0, 1.7777,
+				0, 0, 1,  4, 0, 0.7777,
+				0, 0, 0,  0, 1, 0 };
+
+	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
+	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
+}
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOver4x6_4)
+{
+	Matrix *matrix = new Matrix(4, 6);
+	*matrix = { 1, 2, 3, 4, 5, 5,
+				3, 1, 5, 6, 2, 3,
+				5, 1, 6, 2, 2, 2,
+				5, 1, 6, 2, 3, 4 };
+
+	Matrix *result = new Matrix(4, 6);
+	*result = { 1, 0, 0, -4, 0, -1.1111,
+				0, 1, 0, -2, 0, -3.7777,
+				0, 0, 1,  4, 0, 1.2222,
+				0, 0, 0,  0, 1, 2 };
 
 	EXPECT_NO_THROW(MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)));
 	EXPECT_TRUE(TypeMatrix::isEqual(*result, MatrixRREF::rowReduceOver(MatrixRREF::rowReduceUnder(*matrix)), 0.0001));
@@ -330,3 +402,42 @@ TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverSpecialCase)
 
 	EXPECT_NO_THROW(*resultMatrix = MatrixRREF::rowReduceOver(*resultMatrix));
 }
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverSpecialCase_2)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 1, 0, 0, 0,
+				0, 1, 1, 1,
+				0, 0, 0, 0 };
+
+	Matrix *result = new Matrix(matrix);
+	*result = { 1, 0, 0, 0,
+				0, 1, 1, 1,
+				0, 0, 0, 0 };
+
+	Matrix *resultMatrix = new Matrix();
+	*resultMatrix = MatrixRREF::rowReduceUnder(*matrix);
+
+	EXPECT_NO_THROW(*resultMatrix = MatrixRREF::rowReduceOver(*resultMatrix));
+}
+
+TEST(VectorEngineMatrixRREFRowReduceOver, rowReduceOverSpecialCase_3)
+{
+	Matrix *matrix = new Matrix(3, 4);
+	*matrix = { 1, 0, 1, 0,
+				0, 1, 0, 1,
+				0, 0, 0, 0 };
+
+	Matrix *result = new Matrix(matrix);
+	*result = { 1, 0, 1, 0,
+				0, 1, 0, 1,
+				0, 0, 0, 0 };
+
+	Matrix *resultMatrix = new Matrix();
+	*resultMatrix = MatrixRREF::rowReduceUnder(*matrix);
+
+	EXPECT_NO_THROW(*resultMatrix = MatrixRREF::rowReduceOver(*resultMatrix));
+}
+
+
+

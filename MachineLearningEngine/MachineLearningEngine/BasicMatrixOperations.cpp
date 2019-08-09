@@ -72,13 +72,9 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 	if (MatrixRREF::checkForFullDependentMatrix(matrix))
 		return 0;
 
-	Matrix *bufferMatrix = new Matrix();
-	*bufferMatrix = getRowReduction(matrix);
+	Matrix bufferMatrix = getRowReduction(matrix);
 
-	double returnValue = diagonalProduct(*bufferMatrix);
-
-	delete bufferMatrix;
-	return returnValue;
+	return diagonalProduct(bufferMatrix);
 }
 
 

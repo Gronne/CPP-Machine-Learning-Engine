@@ -6,31 +6,63 @@ Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 	if (checkForFullDependentMatrix(matrix))
 		throw std::exception("Your matrix is full dependent and can't be reduced");
 
-	Matrix *resultMatrix = new Matrix();
-	*resultMatrix = matrix;
-
+	Matrix *resultMatrix = new Matrix(matrix);
 	return reduceRowsUnder(*resultMatrix);
 }
 
 
 Matrix & MatrixRREF::rowReduceOver(Matrix &matrix)
 {
-	Matrix *resultMatrix = new Matrix();
-	*resultMatrix = matrix;
+	Matrix *resultMatrix = new Matrix(matrix);
 
 	reduceRowsOver(*resultMatrix);
 	minimizeAllRows(*resultMatrix);
-	checkForFreePivot(*resultMatrix, resultMatrix->getSmallestSize());
+
+	int rowNr = findPivotRow(*resultMatrix);
+	if (rowNr != -1)
+		normalizePivotColumn(*resultMatrix, rowNr);
 
 	return *resultMatrix;
 }
 
-void MatrixRREF::checkForFreePivot(Matrix &matrix, int smallestSize)
+int MatrixRREF::findPivotRow(const Matrix &matrix)
 {
-	if (matrix.getNumberOfColumns() > 2)
-		if(matrix.getEntry(0, smallestSize - 1) != 0 && matrix.getEntry(smallestSize - 1, smallestSize - 1) == 0)
-			for (size_t row = 0; row < matrix.getNumberOfRows()-1; ++row)
-				matrix.setEntry(row, matrix.getNumberOfColumns() - 1, 0);
+	int smallestSize = matrix.getSmallestSize();
+	for (int row = 0; row < smallestSize; ++row)
+		if (matrix.getEntry(row, row) == 0)
+			return row;
+	return -1;
+}
+#include <iostream>
+
+void MatrixRREF::normalizePivotColumn(Matrix &matrix, int rowNr)
+{
+	int pivotColumn = firstPivotInColumn(matrix, rowNr);
+	if(pivotColumn != matrix.getNumberOfColumns())
+		normalizeColumn(matrix, rowNr, pivotColumn);
+}
+
+int MatrixRREF::firstPivotInColumn(Matrix &matrix, int rowNr)
+{
+	int columnNr = 0;
+	for (;columnNr < matrix.getNumberOfColumns(); ++columnNr)
+		if (matrix.getEntry(rowNr, columnNr) != 0)
+			break;
+
+	return columnNr;
+}
+
+void MatrixRREF::normalizeColumn(Matrix &matrix, int pivotRow, int column)
+{
+	Matrix divisionRow = matrix.getRow(pivotRow) / matrix.getEntry(pivotRow, column);
+
+	for (int row = 0; row < matrix.getNumberOfRows(); ++row)
+		if (row != pivotRow)
+		{
+			Matrix newRow = matrix.getRow(row) - (divisionRow * matrix.getEntry(row, column));
+			matrix.setRow(row, newRow);
+		}
+	matrix.setRow(pivotRow, divisionRow);
 }
 
 bool MatrixRREF::checkForFullDependentMatrix(const Matrix &matrix)
@@ -103,8 +135,7 @@ void MatrixRREF::reduceColumnOver(Matrix &matrix, int column)
 			substractRow(matrix, column, column - row);
 
 	for (size_t row = column; row > 0; --row)
-		if (matrix.getEntry(column - row, column) != 0)
-			minimizeRow(matrix, row, divideVector[column - row]);
+		minimizeRow(matrix, row, divideVector[column - row]);
 }
 
 
@@ -171,16 +202,18 @@ void MatrixRREF::sameSizeColumnOver(Matrix &matrix, int column, std::vector<doub
 		if (matrix.getEntry(row, column) != 0)
 		{
 			double multiplicationValue = multiplicationMaxValue / matrix.getEntry(row, column);
-			
+
 			divideVector.push_back(multiplicationValue);
 			matrix.setRow(row, matrix.getRow(row) * multiplicationValue);
 		}
+		else
+			divideVector.push_back(1);
 }
 
 
-void MatrixRREF::substractRow(Matrix &matrix, int primaryRow, int secondaryRow)
+void MatrixRREF::substractRow(Matrix &matrix, int primaryRow, int mutableRow)
 {
-	matrix.setRow(secondaryRow, (matrix.getRow(secondaryRow) - matrix.getRow(primaryRow)));
+	matrix.setRow(mutableRow, (matrix.getRow(mutableRow) - matrix.getRow(primaryRow)));
 }
 
 Matrix & MatrixRREF::minimizeAllRows(Matrix &matrix)

@@ -22,7 +22,10 @@ private:
 	static void minimizeRow(Matrix&, int, double);
 	static void correctForZeroRow(Matrix&, int);
 	static void correctForZeroRowOver(Matrix&, int);
-	static void checkForFreePivot(Matrix&, int);
+	static int findPivotRow(const Matrix&);
+	static void normalizePivotColumn(Matrix&, int);
+	static void normalizeColumn(Matrix&, int, int);
+	static int firstPivotInColumn(Matrix&, int);
 
 	static bool checkIfAllRowsIsEqual(const Matrix&);
 	static bool checkIfPreColsIsAllZero(const Matrix&, int, int);

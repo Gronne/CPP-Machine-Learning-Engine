@@ -561,10 +561,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, getEchelonForm4x5)
 				5, 1, 6, 2, 3 };
 
 	Matrix *result = new Matrix(4, 5);
-	*result = { 1, 0, 0, -4,  0,
-				0, 1, 0, -2,  0,
-				0, 0, 1,  4,  0, 
-				0, 0, 0,  0, -1.8 };
+	*result = { 1, 0, 0, -4, 0,
+				0, 1, 0, -2, 0,
+				0, 0, 1,  4, 0, 
+				0, 0, 0,  0, 1 };
 
 	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
 	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
@@ -579,10 +579,10 @@ TEST(VectorEngineBasicMatrixOperationsEchelonForm, echelonForm4x5)
 				5, 1, 6, 2, 3 };
 
 	Matrix *result = new Matrix(4, 5);
-	*result = { 1, 0, 0, -4,  0,
-				0, 1, 0, -2,  0,
-				0, 0, 1,  4,  0,
-				0, 0, 0,  0, -1.8 };
+	*result = { 1, 0, 0, -4, 0,
+				0, 1, 0, -2, 0,
+				0, 0, 1,  4, 0,
+				0, 0, 0,  0, 1 };
 
 	EXPECT_NO_THROW(*matrix = BasicMatrixOperations::getEchelonForm(*matrix));
 	EXPECT_TRUE(TypeMatrix::isEqual(*matrix, *result, 0.0001));
