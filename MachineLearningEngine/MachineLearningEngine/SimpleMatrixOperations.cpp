@@ -47,7 +47,7 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 
 void SimpleMatrixOperations::hadamardExceptions(const Matrix &matrixA, const Matrix &matrixB)
 {
-	if (matrixA.getNumberOfColumns() != matrixB.getNumberOfColumns() || matrixA.getNumberOfRows() != matrixB.getNumberOfRows())
+	if (TypeMatrix::isSameSize(matrixA, matrixB) == false)
 		throw std::exception("Matrix dimensions do not comply");
 }
 
@@ -366,7 +366,8 @@ void SimpleMatrixOperations::setDeterminantMatrix(const Matrix &matrix, Matrix &
 		for (size_t columnSet = 0; columnSet < matrix.getNumberOfColumns(); ++columnSet)
 			if (rowSet != row && columnSet != column)
 			{
-				if(copyCol == copyMatrix.getNumberOfColumns()) copyCol = 0, copyRow++;
+				if(copyCol == copyMatrix.getNumberOfColumns()) 
+					copyCol = 0, copyRow++;
 				copyMatrix.setEntry(copyRow, copyCol++, matrix.getEntry(rowSet, columnSet));
 			}	
 }

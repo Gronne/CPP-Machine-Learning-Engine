@@ -165,6 +165,12 @@ bool TypeMatrix::isZeroMatrix(const Matrix &matrix)
 	return zeroes;
 }
 
+bool TypeMatrix::isSameSize(const Matrix &matrixA, const Matrix &matrixB)
+{
+	return matrixA.getNumberOfColumns() == matrixB.getNumberOfColumns() &&
+			matrixA.getNumberOfRows() == matrixB.getNumberOfRows();
+}
+
 int TypeMatrix::findRankFromRREF(Matrix &matrix)
 {
 	int rank = 0;

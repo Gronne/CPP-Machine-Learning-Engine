@@ -81,6 +81,7 @@
     <ClInclude Include="VectorEngineTypeMatrixHomogeneousTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixIsEqualTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixIsInSpanTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixIsSameSizeTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixIsSquareTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixIsZeroMatrixTest.h" />
     <ClInclude Include="VectorEngineTypeMatrixOrthogonalTest.h" />

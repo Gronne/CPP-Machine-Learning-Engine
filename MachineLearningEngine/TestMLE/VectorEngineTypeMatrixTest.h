@@ -7,6 +7,7 @@
 #include "VectorEngineTypeMatrixHomogeneousTest.h"
 #include "VectorEngineTypeMatrixIsEqualTest.h"
 #include "VectorEngineTypeMatrixIsInSpanTest.h"
+#include "VectorEngineTypeMatrixIsSameSizeTest.h"
 #include "VectorEngineTypeMatrixIsSquareTest.h"
 #include "VectorEngineTypeMatrixIsZeroMatrixTest.h"
 #include "VectorEngineTypeMatrixOrthogonalTest.h"

@@ -24,6 +24,7 @@ public:
 	static bool isSquare(const Matrix&);
 	static bool isEqual(const Matrix&, const Matrix&, double = 0);
 	static bool isZeroMatrix(const Matrix&);
+	static bool isSameSize(const Matrix&, const Matrix&);
 
 private:
 	static int findRankFromRREF(Matrix&);
