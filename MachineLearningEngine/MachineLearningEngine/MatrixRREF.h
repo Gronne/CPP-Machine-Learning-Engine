@@ -1,13 +1,12 @@
 #pragma once
 #include "Matrix.h"
+#include "TypeMatrix.h"
 
 class MatrixRREF
 {
 public:
 	static Matrix& rowReduceUnder(const Matrix&);
 	static Matrix& rowReduceOver(Matrix&);
-
-	static bool checkForFullDependentMatrix(const Matrix&);
 
 private:
 	static Matrix& reduceRowsUnder(Matrix&);
@@ -27,7 +26,6 @@ private:
 	static void normalizeColumn(Matrix&, int, int);
 	static int firstPivotInColumn(Matrix&, int);
 
-	static bool checkIfAllRowsIsEqual(const Matrix&);
 	static bool checkIfPreColsIsAllZero(const Matrix&, int, int);
 	static double columnProduct(const Matrix&, int, int, int);
 };

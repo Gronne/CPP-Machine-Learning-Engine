@@ -57,7 +57,7 @@
     <ClInclude Include="VectorEngineGetMatrixPivotRowsTest.h" />
     <ClInclude Include="VectorEngineGetMatrixSpanTest.h" />
     <ClInclude Include="VectorEngineGetMatrixTest.h" />
-    <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h" />
+    <ClInclude Include="VectorEngineTypeMatrixIsFullDependentTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFRowReduceOverTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h" />
     <ClInclude Include="VectorEngineMatrixRREFTest.h" />

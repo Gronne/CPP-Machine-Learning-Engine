@@ -38,7 +38,7 @@ bool TypeMatrix::trivial(const Matrix &matrix)
 
 bool TypeMatrix::basis(const Matrix &matrix)
 {	
-	if (!isSquare(matrix) || MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (!isSquare(matrix) || isFullDependent(matrix))
 		return false;
 
 	Matrix *buffer = new Matrix();
@@ -61,7 +61,7 @@ bool TypeMatrix::orthogonal(Matrix &, Matrix &)
 
 bool TypeMatrix::orthogonal(const Matrix &matrix)
 {
-	if (!isSquare(matrix) || MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (!isSquare(matrix) || isFullDependent(matrix))
 		return false;
 
 	bool returnState = false;
@@ -78,7 +78,7 @@ int TypeMatrix::rank(const Matrix &matrix)
 	if (isZeroMatrix(matrix))
 		return 0;
 	
-	if (MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (isFullDependent(matrix))
 		return 1;
 	
 	return findRankFromRREF(BasicMatrixOperations::getEchelonForm(matrix));
@@ -194,6 +194,40 @@ bool TypeMatrix::isEqualEntry(double entryA, double entryB, double precision)
 		returnBool = false;
 	else if (entryA - precision > entryB)
 		returnBool = false;
+
+	return returnBool;
+}
+
+bool TypeMatrix::isFullDependent(const Matrix &matrix)
+{
+	if (matrix.getNumberOfRows() == 1)
+		return false;
+	if (isZeroMatrix(matrix))
+		return true;
+
+	Matrix buffer(matrix);
+	makeRowsSameSize(buffer);
+
+	return checkIfAllRowsIsEqual(buffer);
+}
+
+void TypeMatrix::makeRowsSameSize(Matrix &matrix)
+{
+	for (int row = 0; row < matrix.getNumberOfRows(); ++row)
+	{
+		double divisionValue = matrix.getEntry(row, 0);
+		for (int column = 0; column < matrix.getNumberOfColumns(); ++column)
+			matrix.setEntry(row, column, matrix.getEntry(row, column) / divisionValue);
+	}
+}
+
+bool TypeMatrix::checkIfAllRowsIsEqual(const Matrix &matrix)
+{
+	bool returnBool = true;
+
+	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
+		if (matrix.getRow(0) != matrix.getRow(row))
+			returnBool = false;
 
 	return returnBool;
 }

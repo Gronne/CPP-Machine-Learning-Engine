@@ -31,7 +31,7 @@ Matrix & GetMatrix::pivotNumbers(const Matrix &matrix, bool type)
 	if (matrix == getZeroMatrix(matrix))
 		throw std::exception("No Pivots");
 
-	if (MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (TypeMatrix::isFullDependent(matrix))
 	{
 		Matrix *returnMatrix = new Matrix();
 		returnMatrix->setEntry(0, 0, 0);

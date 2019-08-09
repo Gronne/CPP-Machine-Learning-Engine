@@ -3,7 +3,7 @@
 
 Matrix & MatrixRREF::rowReduceUnder(const Matrix &matrix)
 {
-	if (checkForFullDependentMatrix(matrix))
+	if (TypeMatrix::isFullDependent(matrix))
 		throw std::exception("Your matrix is full dependent and can't be reduced");
 
 	Matrix *resultMatrix = new Matrix(matrix);
@@ -63,32 +63,6 @@ void MatrixRREF::normalizeColumn(Matrix &matrix, int pivotRow, int column)
 			matrix.setRow(row, newRow);
 		}
 	matrix.setRow(pivotRow, divisionRow);
-}
-
-bool MatrixRREF::checkForFullDependentMatrix(const Matrix &matrix)
-{
-	if (matrix.getNumberOfRows() == 1)
-		return false;
-
-	Matrix *bufferMatrix = new Matrix();
-	*bufferMatrix = matrix;
-
-	sameSizeColumnUnder(*bufferMatrix, 0, *(new std::vector<double>));
-	bool returnBool = checkIfAllRowsIsEqual(*bufferMatrix);
-		
-	delete bufferMatrix;
-	return returnBool;
-}
-
-bool MatrixRREF::checkIfAllRowsIsEqual(const Matrix &matrix)
-{
-	bool returnBool = true;
-
-	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
-		if (matrix.getRow(0) != matrix.getRow(row))
-			returnBool = false;
-
-	return returnBool;
 }
 
 Matrix & MatrixRREF::reduceRowsUnder(Matrix &matrix)

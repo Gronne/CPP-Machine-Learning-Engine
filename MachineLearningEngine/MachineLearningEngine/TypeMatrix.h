@@ -25,9 +25,12 @@ public:
 	static bool isEqual(const Matrix&, const Matrix&, double = 0);
 	static bool isZeroMatrix(const Matrix&);
 	static bool isSameSize(const Matrix&, const Matrix&);
+	static bool isFullDependent(const Matrix&);
 
 private:
 	static int findRankFromRREF(Matrix&);
 	static bool isEqualEntry(double, double, double);
+	static bool checkIfAllRowsIsEqual(const Matrix&);
+	static void makeRowsSameSize(Matrix&);
 };
 

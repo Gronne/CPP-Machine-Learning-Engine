@@ -17,18 +17,19 @@ int main(int argc, char ** argv) {
 	TypeMatrix TM;
 	GetMatrix GM;
 
-	Matrix *matrix = new Matrix(4, 6);
-	*matrix = { 1, 2, 3, 4, 5, 5,
-				3, 1, 5, 6, 2, 3,
-				5, 1, 6, 2, 2, 2,
-				5, 1, 6, 2, 3, 3 };
+	Matrix *matrix = new Matrix(3, 3);
+	*matrix = { 0, 0, 0,
+				0, 0, 0,
+				0, 0, 0 };
 
 	
 
 	try
 	{
 		std::cout << *matrix << std::endl;
+		std::cout << TypeMatrix::isFullDependent(*matrix) << std::endl;
 		std::cout << BasicMatrixOperations::getEchelonForm(*matrix) << std::endl;
+		std::cout << BasicMatrixOperations::getEchelonInverse(*matrix) << std::endl;
 	}
 	catch (const std::exception ex)
 	{

@@ -54,9 +54,6 @@
     <ClInclude Include="VectorEngineMatrixRREFTest.h">
       <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
     </ClInclude>
-    <ClInclude Include="VectorEngineMatrixRREFCheckForFullDependentMatrixTest.h">
-      <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
-    </ClInclude>
     <ClInclude Include="VectorEngineMatrixRREFRowReduceUnderTest.h">
       <Filter>VectorEngineDatastructures\MatrixRREF</Filter>
     </ClInclude>
@@ -166,6 +163,9 @@
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineTypeMatrixIsSameSizeTest.h">
+      <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineTypeMatrixIsFullDependentTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
   </ItemGroup>

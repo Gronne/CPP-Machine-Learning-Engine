@@ -6,6 +6,7 @@
 #include "VectorEngineTypeMatrixFullRankTest.h"
 #include "VectorEngineTypeMatrixHomogeneousTest.h"
 #include "VectorEngineTypeMatrixIsEqualTest.h"
+#include "VectorEngineTypeMatrixIsFullDependentTest.h"
 #include "VectorEngineTypeMatrixIsInSpanTest.h"
 #include "VectorEngineTypeMatrixIsSameSizeTest.h"
 #include "VectorEngineTypeMatrixIsSquareTest.h"

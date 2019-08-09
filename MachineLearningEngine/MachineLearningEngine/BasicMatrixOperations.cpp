@@ -54,7 +54,7 @@ void BasicMatrixOperations::inverseExceptions(const Matrix &matrix)
 	if (TypeMatrix::isSquare(matrix) == false)
 		throw std::exception("Need square matrix for inverse");
 
-	if (MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (TypeMatrix::isFullDependent(matrix))
 		throw std::exception("When finding Inverse, the matrix can't be full dependent");
 }
 
@@ -69,7 +69,7 @@ double BasicMatrixOperations::determinant(const Matrix &matrix)
 
 	if (matrix.getNumberOfColumns() == 1)
 		return matrix.getEntry(0, 0);
-	if (MatrixRREF::checkForFullDependentMatrix(matrix))
+	if (TypeMatrix::isFullDependent(matrix))
 		return 0;
 
 	Matrix bufferMatrix = getRowReduction(matrix);
