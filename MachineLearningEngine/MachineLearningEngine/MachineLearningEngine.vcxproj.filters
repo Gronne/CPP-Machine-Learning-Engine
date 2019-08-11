@@ -153,33 +153,6 @@
     <ClCompile Include="NextMemory.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClCompile>
-    <ClCompile Include="CoreEntryFactory.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="ICoreEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
-    </ClCompile>
-    <ClCompile Include="VariableEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberVariableEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberComplexVariableEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="NumberComplexEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="ComplexVariableEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
-    <ClCompile Include="ComplexEntry.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClCompile>
     <ClCompile Include="ISetEntry.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
     </ClCompile>
@@ -197,6 +170,18 @@
     </ClCompile>
     <ClCompile Include="EntryFunctionFactory.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryTypeVariable.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryTypeNumber.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryTypeComplex.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,33 +230,6 @@
     <ClInclude Include="NextMemory.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClInclude>
-    <ClInclude Include="CoreEntryFactory.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
-    </ClInclude>
-    <ClInclude Include="ICoreEntry.h">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
-    </ClInclude>
-    <ClInclude Include="VariableEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="NumberVariableEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="NumberEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="NumberComplexVariableEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="NumberComplexEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="ComplexVariableEntry.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
-    <ClInclude Include="ComplexEntry.h">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
     <ClInclude Include="ISetEntry.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
     </ClInclude>
@@ -289,6 +247,18 @@
     </ClInclude>
     <ClInclude Include="EntryFunctionFactory.h">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeVariable.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeNumber.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeComplex.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
