@@ -118,26 +118,68 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AllMemory.cpp" />
     <ClCompile Include="BasicMatrixOperations.cpp" />
+    <ClCompile Include="ClusterMemory.cpp" />
+    <ClCompile Include="ComplexEntry.cpp" />
+    <ClCompile Include="ComplexVariableEntry.cpp" />
+    <ClCompile Include="CoreEntryFactory.cpp" />
+    <ClCompile Include="CoreMatrix.cpp" />
     <ClCompile Include="CoreMatrixFactory.cpp" />
+    <ClCompile Include="CoreMemoryFactory.cpp" />
+    <ClCompile Include="EntryFunctionFactory.cpp" />
     <ClCompile Include="GetMatrix.cpp" />
+    <ClCompile Include="ICalculateEntry.cpp" />
+    <ClCompile Include="ICoreEntry.cpp" />
     <ClCompile Include="ICoreMatrix.cpp" />
+    <ClCompile Include="ICoreMemory.cpp" />
+    <ClCompile Include="IGetEntry.cpp" />
+    <ClCompile Include="IOverloadingEntry.cpp" />
+    <ClCompile Include="IPrintEntry.cpp" />
+    <ClCompile Include="ISetEntry.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixRREF.cpp" />
+    <ClCompile Include="NextMemory.cpp" />
+    <ClCompile Include="NumberComplexEntry.cpp" />
+    <ClCompile Include="NumberComplexVariableEntry.cpp" />
+    <ClCompile Include="NumberEntry.cpp" />
+    <ClCompile Include="NumberVariableEntry.cpp" />
     <ClCompile Include="SimpleMatrixOperations.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TypeMatrix.cpp" />
+    <ClCompile Include="VariableEntry.cpp" />
     <ClCompile Include="VectorEngineDatastructures.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllMemory.h" />
     <ClInclude Include="BasicMatrixOperations.h" />
+    <ClInclude Include="ClusterMemory.h" />
+    <ClInclude Include="ComplexEntry.h" />
+    <ClInclude Include="ComplexVariableEntry.h" />
+    <ClInclude Include="CoreEntryFactory.h" />
+    <ClInclude Include="CoreMatrix.h" />
     <ClInclude Include="CoreMatrixFactory.h" />
+    <ClInclude Include="CoreMemoryFactory.h" />
+    <ClInclude Include="EntryFunctionFactory.h" />
     <ClInclude Include="GetMatrix.h" />
+    <ClInclude Include="ICalculateEntry.h" />
+    <ClInclude Include="ICoreEntry.h" />
     <ClInclude Include="ICoreMatrix.h" />
+    <ClInclude Include="ICoreMemory.h" />
+    <ClInclude Include="IGetEntry.h" />
+    <ClInclude Include="IOverloadingEntry.h" />
+    <ClInclude Include="IPrintEntry.h" />
+    <ClInclude Include="ISetEntry.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixRREF.h" />
+    <ClInclude Include="NextMemory.h" />
+    <ClInclude Include="NumberComplexEntry.h" />
+    <ClInclude Include="NumberComplexVariableEntry.h" />
+    <ClInclude Include="NumberEntry.h" />
+    <ClInclude Include="NumberVariableEntry.h" />
     <ClInclude Include="SimpleMatrixOperations.h" />
     <ClInclude Include="TypeMatrix.h" />
+    <ClInclude Include="VariableEntry.h" />
     <ClInclude Include="VectorEngineDatastructures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

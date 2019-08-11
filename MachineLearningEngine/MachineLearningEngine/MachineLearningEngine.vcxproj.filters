@@ -43,15 +43,69 @@
     <Filter Include="Source Files\VectorEngine\BasicMatrixOperations">
       <UniqueIdentifier>{c7b850fd-23c0-48fb-a4fb-e4ee985be495}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix">
+      <UniqueIdentifier>{e7038e2c-51b4-4904-a273-ed0ea180cf44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix">
+      <UniqueIdentifier>{8b198399-238d-42ba-8abc-64d92380f812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Space">
+      <UniqueIdentifier>{b2d62ee2-d892-497b-95ab-81d1a803d2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Type">
+      <UniqueIdentifier>{b49beabc-41a0-42e0-8186-8260f39c0490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Alignment">
+      <UniqueIdentifier>{7f6d4819-6991-4d5d-ac25-8fdf88e80372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core">
+      <UniqueIdentifier>{0224963f-b1f6-4046-92fc-9c7cb14ef191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Function">
+      <UniqueIdentifier>{fb201ce5-9d18-458c-91aa-1984d936f8e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Alignment">
+      <UniqueIdentifier>{c87292a9-bdb4-4bf1-ac65-1b5a1150df05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core">
+      <UniqueIdentifier>{44c0e2b2-2d54-4e09-8725-f0833715ca5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Function">
+      <UniqueIdentifier>{3337e1d4-78e5-47f9-8f07-0588cd6321ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Type">
+      <UniqueIdentifier>{11a6c400-d10c-40b0-b55f-7c4d7c7c19a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Space">
+      <UniqueIdentifier>{2fdc4a06-ab67-4f96-906b-d16de0e579af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory">
+      <UniqueIdentifier>{75919d4c-277d-4804-addf-0236a8ccb4f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry">
+      <UniqueIdentifier>{d1afeb43-a470-4f57-998d-33fffc7f21fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function">
+      <UniqueIdentifier>{2737277c-4452-4ab5-8a70-d3838aaf8625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory">
+      <UniqueIdentifier>{33cd65c1-5e7f-4f31-9d66-a8bd3131f50f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry">
+      <UniqueIdentifier>{80244f1d-a68c-4e67-b37e-9adff62a0454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function">
+      <UniqueIdentifier>{f969dba2-fbfc-49a9-b98e-2d08bc0a0187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type">
+      <UniqueIdentifier>{0609e797-1b40-439c-99c3-6e9e77ba7f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type">
+      <UniqueIdentifier>{e46c4ce5-6ad3-47d7-a4ae-d3346c36d926}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures</Filter>
-    </ClCompile>
-    <ClCompile Include="MatrixResult.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures</Filter>
-    </ClCompile>
-    <ClCompile Include="MatrixSpace.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures</Filter>
     </ClCompile>
     <ClCompile Include="SimpleMatrixOperations.cpp">
@@ -59,9 +113,6 @@
     </ClCompile>
     <ClCompile Include="VectorEngineDatastructures.cpp">
       <Filter>Source Files\VectorEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Regression.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
@@ -78,21 +129,81 @@
     <ClCompile Include="GetMatrix.cpp">
       <Filter>Source Files\VectorEngine</Filter>
     </ClCompile>
+    <ClCompile Include="ICoreMatrix.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMatrixFactory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMatrix.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ICoreMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreMemoryFactory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="AllMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="ClusterMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="NextMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreEntryFactory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="ICoreEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberVariableEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberComplexVariableEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberComplexEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplexVariableEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplexEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="ISetEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="IPrintEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="IOverloadingEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="IGetEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="ICalculateEntry.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryFunctionFactory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
       <Filter>Header Files\VectorEngine</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixResult.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures</Filter>
-    </ClInclude>
-    <ClInclude Include="MatrixSpace.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures</Filter>
-    </ClInclude>
-    <ClInclude Include="Regression.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures</Filter>
     </ClInclude>
     <ClInclude Include="VectorEngineDatastructures.h">
@@ -109,6 +220,75 @@
     </ClInclude>
     <ClInclude Include="GetMatrix.h">
       <Filter>Header Files\VectorEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMatrix.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMatrixFactory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ICoreMatrix.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ICoreMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreMemoryFactory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="AllMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="ClusterMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="NextMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryFactory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="ICoreEntry.h">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberVariableEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberComplexVariableEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberComplexEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexVariableEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexEntry.h">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="ISetEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="IPrintEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="IOverloadingEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="IGetEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="ICalculateEntry.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryFunctionFactory.h">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
