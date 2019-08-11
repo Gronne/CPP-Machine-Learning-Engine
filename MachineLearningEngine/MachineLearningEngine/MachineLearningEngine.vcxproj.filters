@@ -183,6 +183,9 @@
     <ClCompile Include="EntryTypeComplex.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClCompile>
+    <ClCompile Include="ICoreEntryType.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -258,6 +261,9 @@
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
     <ClInclude Include="EntryTypeComplex.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="ICoreEntryType.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
   </ItemGroup>

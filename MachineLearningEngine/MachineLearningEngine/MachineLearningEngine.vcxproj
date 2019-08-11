@@ -131,6 +131,7 @@
     <ClCompile Include="EntryTypeVariable.cpp" />
     <ClCompile Include="GetMatrix.cpp" />
     <ClCompile Include="ICalculateEntry.cpp" />
+    <ClCompile Include="ICoreEntryType.cpp" />
     <ClCompile Include="ICoreMatrix.cpp" />
     <ClCompile Include="ICoreMemory.cpp" />
     <ClCompile Include="IGetEntry.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="EntryTypeVariable.h" />
     <ClInclude Include="GetMatrix.h" />
     <ClInclude Include="ICalculateEntry.h" />
+    <ClInclude Include="ICoreEntryType.h" />
     <ClInclude Include="ICoreMatrix.h" />
     <ClInclude Include="ICoreMemory.h" />
     <ClInclude Include="IGetEntry.h" />
