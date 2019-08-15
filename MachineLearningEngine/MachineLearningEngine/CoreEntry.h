@@ -1,43 +1,32 @@
 #pragma once
 #include <string>
-#include "ICoreEntryType.h"
+#include "EntryType.h"
 #include "EntryTypeNumber.h"
 #include "EntryTypeComplex.h"
 #include "EntryTypeVariable.h"
+#include <list>
 
 class CoreEntry
 {
 public:
 	CoreEntry();
-	CoreEntry(const ICoreEntryType&);
-	CoreEntry(const ICoreEntryType&, const ICoreEntryType&);
-	CoreEntry(const ICoreEntryType&, const ICoreEntryType&, const ICoreEntryType&);
+	CoreEntry(const EntryType&);
+	CoreEntry(const CoreEntry&);
 	~CoreEntry();
 
-	CoreEntry getEntry(void);
-	void setEntry(const CoreEntry&);
-	std::string printEntry(void);
-
-	ICoreEntryType operator+(const ICoreEntryType&);
-	void operator+=(const ICoreEntryType&);
-
-	ICoreEntryType operator-(const ICoreEntryType&);
-	void operator-=(const ICoreEntryType&);
-
-	ICoreEntryType operator*(const ICoreEntryType&);
-	void operator*=(const ICoreEntryType&);
-
-	ICoreEntryType operator/(const ICoreEntryType&);
-	void operator/=(const ICoreEntryType&);
-
-	ICoreEntryType operator=(const ICoreEntryType&);
-	void operator==(const ICoreEntryType&);
+	EntryType operator=(const EntryType&);
+	bool operator==(const EntryType&);
+	EntryType operator+(const EntryType&);
+	void operator+=(const EntryType&);
+	EntryType operator-(const EntryType&);
+	void operator-=(const EntryType&);
+	EntryType operator*(const EntryType&);
+	void operator*=(const EntryType&);
+	EntryType operator/(const EntryType&);
+	void operator/=(const EntryType&);
 
 	
 private:
-
-	EntryTypeNumber _number;
-	EntryTypeComplex _complex;
-	EntryTypeVariable _variable;
+	std::list<EntryType> _prefixList;
 };
 
