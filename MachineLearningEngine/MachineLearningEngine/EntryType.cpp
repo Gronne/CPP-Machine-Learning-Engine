@@ -1,58 +1,62 @@
 #include "EntryType.h"
 
-
-
 EntryType::EntryType()
 {
-	//Nothing will happen but the default constructors for the Entry types will be set
 }
 
-EntryType::EntryType(const EntryType &EntryType)
+EntryType::EntryType(const EntryType &newEntry)
 {
+	_number = newEntry._number;
+	_complex = newEntry._complex;
+	_variable = newEntry._variable;
 }
 
-EntryType::EntryType(const EntryTypeNumber &numberType)
+EntryType::EntryType(const EntryTypeNumber &number)
 {
+	_number = number;
 }
 
-EntryType::EntryType(const EntryTypeComplex &complexType)
+EntryType::EntryType(const EntryTypeComplex &complex)
 {
+	_complex = complex;
 }
 
-EntryType::EntryType(const EntryTypeVariable &variableType)
+EntryType::EntryType(const EntryTypeVariable &variable)
 {
-}
-
-EntryType::EntryType(const EntryTypeNumber &numberType, const EntryTypeComplex &ComplexType)
-{
-}
-
-EntryType::EntryType(const EntryTypeNumber &numberType, const EntryTypeVariable &variableType)
-{
-}
-
-EntryType::EntryType(const EntryTypeComplex &complexType, const EntryTypeVariable &variableType)
-{
-}
-
-EntryType::EntryType(const EntryTypeNumber &numberType, const EntryTypeComplex &complexType, const EntryTypeVariable &variableType)
-{
+	_variable = variable;
 }
 
 EntryType::~EntryType()
 {
 }
 
-EntryType EntryType::getEntry(void)
+EntryType EntryType::operator+(const EntryType &entry) const
 {
 	return EntryType();
 }
 
-void EntryType::setEntry(const EntryType &)
+EntryType EntryType::operator-(const EntryType &entry) const
 {
+	return EntryType();
 }
 
-std::string EntryType::printEntry(void)
+EntryType EntryType::operator*(const EntryType &entry) const
 {
-	return std::string();
+	return EntryType();
+}
+
+EntryType EntryType::operator/(const EntryType &entry) const
+{
+	return EntryType();
+}
+
+std::string EntryType::print(void) const
+{
+	std::string entryString;
+
+	entryString += _number.print();
+	entryString += _complex.print();
+	entryString += _variable.print();
+
+	return entryString;
 }

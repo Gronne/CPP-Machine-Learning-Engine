@@ -4,6 +4,7 @@
 
 EntryTypeVariable::EntryTypeVariable()
 {
+	_state = "";
 }
 
 
@@ -13,165 +14,37 @@ EntryTypeVariable::~EntryTypeVariable()
 
 EntryTypeVariable::EntryTypeVariable(const EntryTypeVariable &entryType)
 {
-	_state = entryType.getState();
+	setState(entryType.getState());
 }
 
 EntryTypeVariable::EntryTypeVariable(std::string state)
 {
+	setState(state);
+}
+
+void EntryTypeVariable::setState(std::string state)
+{
 	_state = state;
+	_initialised = true;
 }
 
-EntryType EntryTypeVariable::operator()(const std::string state, const EntryTypeNumber &entryType)
+void EntryTypeVariable::setState(const EntryTypeVariable &entry)
 {
-	std::string stateBuffer = getState();
-
-	return EntryType();
+	setState(entry.getState());
 }
 
-EntryType EntryTypeVariable::operator()(const std::string state, const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-EntryType EntryTypeVariable::operator()(const std::string state, const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-EntryType EntryTypeVariable::operator=(const EntryTypeNumber &entryType)
-{
-	return EntryType();
-}
-
-bool EntryTypeVariable::operator==(const EntryTypeNumber &entryType)
+bool EntryTypeVariable::isInitialised(void) const
 {
 	return false;
 }
 
-EntryType EntryTypeVariable::operator+(const EntryTypeNumber &entryType)
+std::string EntryTypeVariable::getState(void) const
 {
-	return EntryType();
+	return _state;
+}
+ 
+std::string EntryTypeVariable::print(void) const
+{
+	return getState();
 }
 
-void EntryTypeVariable::operator+=(const EntryTypeNumber &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator-(const EntryTypeNumber &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator-=(const EntryTypeNumber &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator*(const EntryTypeNumber &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator*=(const EntryTypeNumber &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator/(const EntryTypeNumber &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator/=(const EntryTypeNumber &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator=(const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-bool EntryTypeVariable::operator==(const EntryTypeVariable &entryType)
-{
-	return false;
-}
-
-EntryType EntryTypeVariable::operator+(const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator+=(const EntryTypeVariable &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator-(const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator-=(const EntryTypeVariable &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator*(const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator*=(const EntryTypeVariable &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator/(const EntryTypeVariable &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator/=(const EntryTypeVariable &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator=(const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-bool EntryTypeVariable::operator==(const EntryTypeComplex &entryType)
-{
-	return false;
-}
-
-EntryType EntryTypeVariable::operator+(const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator+=(const EntryTypeComplex &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator-(const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator-=(const EntryTypeComplex &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator*(const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator*=(const EntryTypeComplex &entryType)
-{
-}
-
-EntryType EntryTypeVariable::operator/(const EntryTypeComplex &entryType)
-{
-	return EntryType();
-}
-
-void EntryTypeVariable::operator/=(const EntryTypeComplex &entryType)
-{
-}

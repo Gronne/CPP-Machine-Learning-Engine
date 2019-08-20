@@ -12,20 +12,20 @@ public:
 	EntryType(const EntryTypeNumber&);
 	EntryType(const EntryTypeComplex&);
 	EntryType(const EntryTypeVariable&);
-	EntryType(const EntryTypeNumber&, const EntryTypeComplex&);
-	EntryType(const EntryTypeNumber&, const EntryTypeVariable&);
-	EntryType(const EntryTypeComplex&, const EntryTypeVariable&);
-	EntryType(const EntryTypeNumber&, const EntryTypeComplex&, const EntryTypeVariable&);
 	~EntryType();
 
-	EntryType getEntry(void);
-	void setEntry(const EntryType&);
-	std::string printEntry(void);
+	EntryType operator+(const EntryType&) const;
+	EntryType operator-(const EntryType&) const;
+	EntryType operator*(const EntryType&) const;
+	EntryType operator/(const EntryType&) const;
+
+	std::string print(void) const;
 
 
 private:
-	EntryTypeNumber _number;
-	EntryTypeComplex _complex;
-	EntryTypeVariable _variable;
+	EntryTypeNumber _number = EntryTypeNumber();
+	EntryTypeComplex _complex = EntryTypeComplex();
+	EntryTypeVariable _variable = EntryTypeVariable();
+	bool calculationEntry = false;
 };
 

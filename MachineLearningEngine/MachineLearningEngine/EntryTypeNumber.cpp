@@ -4,7 +4,7 @@
 
 EntryTypeNumber::EntryTypeNumber()
 {
-
+	_state = 0;
 }
 
 EntryTypeNumber::~EntryTypeNumber()
@@ -14,169 +14,40 @@ EntryTypeNumber::~EntryTypeNumber()
 
 EntryTypeNumber::EntryTypeNumber(const EntryTypeNumber &entryType)
 {
-	_state = entryType.getState();
+	setState(entryType.getState());
 }
 
 EntryTypeNumber::EntryTypeNumber(double value)
 {
-	_state = value;
+	setState(value);
+}
+
+void EntryTypeNumber::setState(double state)
+{
+	_state = state;
+	_initialised = true;
+}
+
+void EntryTypeNumber::setState(const EntryTypeNumber &entry)
+{
+	setState(entry.getState());
+}
+
+bool EntryTypeNumber::isInitialised(void) const
+{
+	return _initialised;
 }
 
 
-EntryType EntryTypeNumber::operator()(const std::string variable, double value)
+double EntryTypeNumber::getState(void) const
 {
-	return EntryType(*this);
+	return _state;
 }
 
-EntryType EntryTypeNumber::operator=(const EntryTypeNumber &entryType)
+std::string EntryTypeNumber::print(void) const
 {
-	_state = entryType.getState();
-	return EntryType(*this);
-}
-
-bool EntryTypeNumber::operator==(const EntryTypeNumber &entryType)
-{
-	return _state == entryType.getState();
-}
-
-EntryType EntryTypeNumber::operator+(const EntryTypeNumber &entryType)
-{
-	return EntryTypeNumber(_state + entryType.getState());
-}
-
-void EntryTypeNumber::operator+=(const EntryTypeNumber &entryType)
-{
-	_state += entryType.getState();
-}
-
-EntryType EntryTypeNumber::operator-(const EntryTypeNumber &entryType)
-{
-	return EntryTypeNumber(_state - entryType.getState());
-}
-
-void EntryTypeNumber::operator-=(const EntryTypeNumber &entryType)
-{
-	_state -= entryType.getState();
-}
-
-EntryType EntryTypeNumber::operator*(const EntryTypeNumber &entryType)
-{
-	return EntryTypeNumber(_state * entryType.getState());
-}
-
-void EntryTypeNumber::operator*=(const EntryTypeNumber &entryType)
-{
-	_state *= entryType.getState();
-}
-
-EntryType EntryTypeNumber::operator/(const EntryTypeNumber &entryType)
-{
-	return EntryTypeNumber(_state / entryType.getState());
-}
-
-void EntryTypeNumber::operator/=(const EntryTypeNumber &entryType)
-{
-	_state /= entryType.getState();
-}
-
-EntryType EntryTypeNumber::operator=(const EntryTypeVariable &entryType)
-{
-	_state = 0;
-	return EntryType(*this);
-}
-
-bool EntryTypeNumber::operator==(const EntryTypeVariable &entryType)
-{
-	return false;
-}
-
-EntryType EntryTypeNumber::operator+(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator+=(const EntryTypeVariable &entryType)
-{
-	_state += 0;
-}
-
-EntryType EntryTypeNumber::operator-(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator-=(const EntryTypeVariable &entryType)
-{
-	_state -= 0;
-}
-
-EntryType EntryTypeNumber::operator*(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator*=(const EntryTypeVariable &entryType)
-{
-	_state *= 1;
-}
-
-EntryType EntryTypeNumber::operator/(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator/=(const EntryTypeVariable &entryType)
-{
-	_state = _state;
-}
-
-EntryType EntryTypeNumber::operator=(const EntryTypeComplex &entryType)
-{
-	_state = 0;
-	return EntryType(*this);
-}
-
-bool EntryTypeNumber::operator==(const EntryTypeComplex &entryType)
-{
-	return false;
-}
-
-EntryType EntryTypeNumber::operator+(const EntryTypeComplex &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator+=(const EntryTypeComplex &entryType)
-{
-	_state += 0;
-}
-
-EntryType EntryTypeNumber::operator-(const EntryTypeComplex &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeNumber::operator-=(const EntryTypeComplex &entryType)
-{
-	_state -= 0;
-}
-
-EntryType EntryTypeNumber::operator*(const EntryTypeComplex &entryType)
-{
-	return EntryTypeNumber(0);
-}
-
-void EntryTypeNumber::operator*=(const EntryTypeComplex &entryType)
-{
-	_state = 0;
-}
-
-EntryType EntryTypeNumber::operator/(const EntryTypeComplex &entryType)
-{
-	return EntryTypeNumber(0);
-}
-
-void EntryTypeNumber::operator/=(const EntryTypeComplex &entryType)
-{
-	_state = 0;
+	if (isInitialised() == true)
+		return std::to_string(_state);
+	else
+		return "";
 }

@@ -1,6 +1,5 @@
 #pragma once
-#include "EntryTypeNumber.h"
-#include "EntryTypeVariable.h"
+#include <string>
 
 class EntryTypeComplex
 {
@@ -10,44 +9,14 @@ public:
 	EntryTypeComplex(const EntryTypeComplex&);
 	EntryTypeComplex(double);
 
-	double getState(void) const { return _state; }
-
-	EntryType operator()(const std::string, double);
-
-	EntryType operator=(const EntryTypeNumber&);
-	bool operator==(const EntryTypeNumber&);
-	EntryType operator+(const EntryTypeNumber&);
-	void operator+=(const EntryTypeNumber&);
-	EntryType operator-(const EntryTypeNumber&);
-	void operator-=(const EntryTypeNumber&);
-	EntryType operator*(const EntryTypeNumber&);
-	void operator*=(const EntryTypeNumber&);
-	EntryType operator/(const EntryTypeNumber&);
-	void operator/=(const EntryTypeNumber&);
-
-	EntryType operator=(const EntryTypeVariable&);
-	bool operator==(const EntryTypeVariable&);
-	EntryType operator+(const EntryTypeVariable&);
-	void operator+=(const EntryTypeVariable&);
-	EntryType operator-(const EntryTypeVariable&);
-	void operator-=(const EntryTypeVariable&);
-	EntryType operator*(const EntryTypeVariable&);
-	void operator*=(const EntryTypeVariable&);
-	EntryType operator/(const EntryTypeVariable&);
-	void operator/=(const EntryTypeVariable&);
-
-	EntryType operator=(const EntryTypeComplex&);
-	bool operator==(const EntryTypeComplex&);
-	EntryType operator+(const EntryTypeComplex&);
-	void operator+=(const EntryTypeComplex&);
-	EntryType operator-(const EntryTypeComplex&);
-	void operator-=(const EntryTypeComplex&);
-	EntryType operator*(const EntryTypeComplex&);
-	void operator*=(const EntryTypeComplex&);
-	EntryType operator/(const EntryTypeComplex&);
-	void operator/=(const EntryTypeComplex&);
+	void setState(double);
+	void setState(const EntryTypeComplex&);
+	bool isInitialised(void) const;
+	double getState(void) const;
+	std::string print(void) const;
 
 private:
 	double _state = 0.0;
+	bool _initialised = false;
 };
 

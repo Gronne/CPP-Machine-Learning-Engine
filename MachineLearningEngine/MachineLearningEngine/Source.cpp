@@ -5,13 +5,14 @@
 #include "BasicMatrixOperations.h"
 #include "TypeMatrix.h"
 #include "GetMatrix.h"
-#include "ICoreEntryType.h"
-#include "EntryTypeNumber.h"
-#include "EntryTypeComplex.h"
-#include "EntryTypeVariable.h"
+#include "EntryFactory.h"
+#include "EntryType.h"
 #include "CoreEntry.h"
 
 typedef long int li;
+
+
+#define Entry EntryFactory
 
 
 int main(int argc, char ** argv) {
@@ -27,38 +28,61 @@ int main(int argc, char ** argv) {
 				0, 0, 0,
 				0, 0, 0 };
 
-	
-
 	try
 	{
-		std::cout << *matrix << std::endl;
-		std::cout << TypeMatrix::isFullDependent(*matrix) << std::endl;
+		std::cout << "Start: " << std::endl << std::endl;
 
-		std::cout << "---------" << std::endl;
-		std::cout << std::is_same<ICoreEntryType, ICoreEntryType>::value << std::endl;
-		std::cout << std::is_same<ICoreEntryType, EntryTypeNumber>::value << std::endl;
+		EntryType number = EntryFactory::Number(5);
+		EntryType complex = EntryFactory::Complex(3);
+		EntryType variable = EntryFactory::Variable("A");
 
-		const ICoreEntryType *number = new EntryTypeNumber();
-		ICoreEntryType *a = new EntryTypeNumber();
-		ICoreEntryType *b = new EntryTypeComplex();
+		std::cout << number.print() << std::endl;
+		std::cout << complex.print() << std::endl;
+		std::cout << variable.print() << std::endl;
 
-		std::cout << ".." << std::endl;
+		std::cout << "-------" << std::endl;
 
-		std::cout << (typeid(number) == typeid(new ICoreEntryType())) << std::endl;
-		std::cout << (typeid(number).name() == typeid(a).name()) << std::endl;
-		std::cout << (typeid(number).name() == typeid(b).name()) << std::endl;
+		CoreEntry coreNumber(number);
+		CoreEntry coreComplex(complex);
+		CoreEntry coreVariable(variable);
+		
+		std::cout << coreNumber.print() << std::endl;
+		std::cout << coreComplex.print() << std::endl;
+		std::cout << coreVariable.print() << std::endl;
 
-		std::cout << ".." << std::endl;
+		std::cout << "-------" << std::endl;
 
-		const EntryTypeNumber* pRect = dynamic_cast<const EntryTypeNumber*>(number);
-		const EntryTypeComplex* bRect = dynamic_cast<const EntryTypeComplex*>(number);
+		coreVariable = coreComplex;
+		coreNumber += coreComplex;
 
-		std::cout << (pRect != 0) << std::endl;
-		std::cout << (bRect != 0) << std::endl;
+		std::cout << coreNumber.print() << std::endl;
+		std::cout << coreComplex.print() << std::endl;
+		std::cout << coreVariable.print() << std::endl;
 
-		std::cout << ".." << std::endl;
+		std::cout << "-------" << std::endl;
 
-		CoreEntry entry(*number);
+		coreComplex -= coreComplex;
+
+		std::cout << coreNumber.print() << std::endl;
+		std::cout << coreComplex.print() << std::endl;
+		std::cout << coreVariable.print() << std::endl;
+
+		std::cout << "-------" << std::endl;
+
+		coreNumber *= coreComplex;
+
+		std::cout << coreNumber.print() << std::endl;
+		std::cout << coreComplex.print() << std::endl;
+		std::cout << coreVariable.print() << std::endl;
+
+		std::cout << "-------" << std::endl;
+
+		coreNumber /= coreVariable;
+
+		std::cout << coreNumber.print() << std::endl;
+		std::cout << coreComplex.print() << std::endl;
+		std::cout << coreVariable.print() << std::endl;
+
 	}
 	catch (const std::exception ex)
 	{

@@ -183,8 +183,14 @@
     <ClCompile Include="EntryTypeComplex.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClCompile>
-    <ClCompile Include="ICoreEntryType.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    <ClCompile Include="EntryTypeCalculation.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryType.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryFactory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,8 +269,14 @@
     <ClInclude Include="EntryTypeComplex.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
-    <ClInclude Include="ICoreEntryType.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    <ClInclude Include="EntryTypeCalculation.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryType.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryFactory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

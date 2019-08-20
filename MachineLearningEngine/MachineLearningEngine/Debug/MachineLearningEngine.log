@@ -1,3 +1,2 @@
 ﻿  CoreEntry.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\coreentry.cpp(104): warning C4715: 'CoreEntry::getEntryType': not all control paths return a value
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

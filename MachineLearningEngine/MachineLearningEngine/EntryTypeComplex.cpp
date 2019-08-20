@@ -4,6 +4,7 @@
 
 EntryTypeComplex::EntryTypeComplex()
 {
+	_state = 0;
 }
 
 
@@ -13,170 +14,42 @@ EntryTypeComplex::~EntryTypeComplex()
 
 EntryTypeComplex::EntryTypeComplex(const EntryTypeComplex &entryType)
 {
-	_state = entryType.getState();
+	setState(entryType.getState());
 }
 
 EntryTypeComplex::EntryTypeComplex(double value)
 {
-	_state = value;
+	setState(value);
 }
 
-
-EntryType EntryTypeComplex::operator()(const std::string, double)
+void EntryTypeComplex::setState(double state)
 {
-	return EntryType(*this);
+	_state = state;
+	_initialised = true;
 }
 
-EntryType EntryTypeComplex::operator=(const EntryTypeNumber &entryType)
+void EntryTypeComplex::setState(const EntryTypeComplex &entry)
 {
-	_state = 0;
-	return EntryType(*this);
+	setState(entry.getState());
 }
 
-bool EntryTypeComplex::operator==(const EntryTypeNumber &entryType)
+double EntryTypeComplex::getState(void) const
 {
-	return false;
+	return _state;
 }
 
-EntryType EntryTypeComplex::operator+(const EntryTypeNumber &entryType)
+bool EntryTypeComplex::isInitialised(void) const
 {
-	return EntryType(*this);
+	return _initialised;
 }
 
-void EntryTypeComplex::operator+=(const EntryTypeNumber &entryType)
+
+std::string EntryTypeComplex::print(void) const
 {
-	_state += 0;
+	if (isInitialised() == true)
+		return std::to_string(_state) + "i";
+	else
+		return "";
 }
 
-EntryType EntryTypeComplex::operator-(const EntryTypeNumber &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeComplex::operator-=(const EntryTypeNumber &entryType)
-{
-	_state -= 0;
-}
-
-EntryType EntryTypeComplex::operator*(const EntryTypeNumber &entryType)
-{
-	return EntryTypeComplex(_state * entryType.getState());
-}
-
-void EntryTypeComplex::operator*=(const EntryTypeNumber &entryType)
-{
-	_state *= entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator/(const EntryTypeNumber &entryType)
-{
-	return EntryTypeComplex(_state / entryType.getState());
-}
-
-void EntryTypeComplex::operator/=(const EntryTypeNumber &entryType)
-{
-	_state /= entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator=(const EntryTypeVariable &entryType)
-{
-	_state = 0;
-	return EntryType(*this);
-}
-
-bool EntryTypeComplex::operator==(const EntryTypeVariable &entryType)
-{
-	return false;
-}
-
-EntryType EntryTypeComplex::operator+(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeComplex::operator+=(const EntryTypeVariable &entryType)
-{
-	_state += 0;
-}
-
-EntryType EntryTypeComplex::operator-(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeComplex::operator-=(const EntryTypeVariable &entryType)
-{
-	_state -= 0;
-}
-
-EntryType EntryTypeComplex::operator*(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeComplex::operator*=(const EntryTypeVariable &entryType)
-{
-	_state *= 1;
-}
-
-EntryType EntryTypeComplex::operator/(const EntryTypeVariable &entryType)
-{
-	return EntryType(*this);
-}
-
-void EntryTypeComplex::operator/=(const EntryTypeVariable &entryType)
-{
-	_state = _state;
-}
-
-EntryType EntryTypeComplex::operator=(const EntryTypeComplex &entryType)
-{
-	_state = entryType.getState();
-	return EntryType(*this);
-}
-
-bool EntryTypeComplex::operator==(const EntryTypeComplex &entryType)
-{
-	return _state == entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator+(const EntryTypeComplex &entryType)
-{
-	return EntryTypeComplex(_state + entryType.getState());
-}
-
-void EntryTypeComplex::operator+=(const EntryTypeComplex &entryType)
-{
-	_state += entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator-(const EntryTypeComplex &entryType)
-{
-	return EntryTypeComplex(_state - entryType.getState());
-}
-
-void EntryTypeComplex::operator-=(const EntryTypeComplex &entryType)
-{
-	_state -= entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator*(const EntryTypeComplex &entryType)
-{
-	return EntryTypeComplex(_state * entryType.getState());
-}
-
-void EntryTypeComplex::operator*=(const EntryTypeComplex &entryType)
-{
-	_state *= entryType.getState();
-}
-
-EntryType EntryTypeComplex::operator/(const EntryTypeComplex &entryType)
-{
-	return EntryTypeComplex(_state / entryType.getState());
-}
-
-void EntryTypeComplex::operator/=(const EntryTypeComplex &entryType)
-{
-	_state = entryType.getState();
-}
 
