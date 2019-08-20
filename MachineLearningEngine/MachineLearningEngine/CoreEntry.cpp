@@ -37,7 +37,6 @@ CoreEntry CoreEntry::operator=(const EntryType &entry)
 
 CoreEntry CoreEntry::operator=(const CoreEntry &newCoreEntry)
 {
-
 	resetTree();
 	setLeaf(newCoreEntry._leafEntry);
 	addEntries(newCoreEntry);
@@ -188,6 +187,85 @@ bool CoreEntry::isLeaf(void) const
 
 void CoreEntry::collapsTree(void)
 {
+	
+	if (isLeaf() == true)
+		return;
+	
+	_leftEntries->collapsTree();
+	_rightEntries->collapsTree();
 
+	if (_leftEntries->isLeaf() == true && _rightEntries->isLeaf() == true)
+		collapsTwoLeafs(*_leftEntries, *_rightEntries);
+
+	else if (_leftEntries->isLeaf() == false && _rightEntries->isLeaf() == true)
+		collapsWithOneLeaf(*_leftEntries, *_rightEntries);
+
+	else if (_leftEntries->isLeaf() == true && _rightEntries->isLeaf() == false)
+		collapsWithOneLeaf(*_leftEntries, *_rightEntries);
+
+	if (isLeaf() == false)
+		if (_leftEntries->isLeaf() == true && _rightEntries->isLeaf() == true)
+			if (_leftEntries->_leafEntry.isEmpty() && _rightEntries->_leafEntry.isEmpty())
+			{
+				setLeaf(_leftEntries->_leafEntry);
+				resetTree();
+			}
+			else if (_leftEntries->_leafEntry.isEmpty() == false && _rightEntries->_leafEntry.isEmpty())
+			{
+				setLeaf(_leftEntries->_leafEntry);
+				resetTree();
+			}
+			else if (_leftEntries->_leafEntry.isEmpty() && _rightEntries->_leafEntry.isEmpty() == false)
+			{
+				setLeaf(_rightEntries->_leafEntry);
+				resetTree();
+			}
+	
 }
+
+void CoreEntry::collapsTwoLeafs(const CoreEntry &leafA, const CoreEntry &leafB)
+{
+	EntryType newEntry = _calculation.calculate(leafA._leafEntry, leafB._leafEntry);
+	if (newEntry.isPossible() == true)
+	{
+		resetTree();
+		setLeaf(newEntry);
+	}
+}
+
+void CoreEntry::collapsWithOneLeaf(const CoreEntry &tree, const CoreEntry &leaf)
+{
+	if (tree._leftEntries->isLeaf() == true && tree._rightEntries->isLeaf() == true)
+	{
+		EntryType entryLeft = _calculation.calculate(leaf._leafEntry, tree._leftEntries->_leafEntry);
+		EntryType entryRight = _calculation.calculate(leaf._leafEntry, tree._rightEntries->_leafEntry);
+		
+		if (_calculation.getState() == "+" || _calculation.getState() == "-")
+		{
+			if (entryLeft.isPossible() == true && entryRight.isPossible() == false)
+				tree._leftEntries->setLeaf(entryLeft);
+			else if (entryLeft.isPossible() == false && entryRight.isPossible() == true)
+				tree._rightEntries->setLeaf(entryRight);
+
+			_leftEntries = copyTree(*tree._leftEntries);
+			_rightEntries = copyTree(*tree._rightEntries);
+			_calculation = tree._calculation;
+			_leafEntry = tree._leafEntry;
+		}
+		
+		if (_calculation.getState() == "*" || _calculation.getState() == "/")
+			if (entryLeft.isPossible() == true && entryRight.isPossible() == true)
+			{
+				tree._leftEntries->setLeaf(entryLeft);
+				tree._rightEntries->setLeaf(entryRight);
+				
+				_leftEntries = copyTree(*tree._leftEntries);
+				_rightEntries = copyTree(*tree._rightEntries);
+				_calculation = tree._calculation;
+				_leafEntry = tree._leafEntry;
+			}
+	}
+		
+}
+
 

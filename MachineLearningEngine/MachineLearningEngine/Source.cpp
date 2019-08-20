@@ -52,36 +52,21 @@ int main(int argc, char ** argv) {
 
 		std::cout << "-------" << std::endl;
 
-		coreVariable = coreComplex;
 		coreNumber += coreComplex;
 
-		std::cout << coreNumber.print() << std::endl;
-		std::cout << coreComplex.print() << std::endl;
-		std::cout << coreVariable.print() << std::endl;
+		std::cout << coreNumber.print() << std::endl << std::endl;
 
-		std::cout << "-------" << std::endl;
+		coreNumber += CoreEntry(EntryFactory::Number(2));
 
-		coreComplex -= coreComplex;
+		std::cout << coreNumber.print() << std::endl << std::endl;
 
-		std::cout << coreNumber.print() << std::endl;
-		std::cout << coreComplex.print() << std::endl;
-		std::cout << coreVariable.print() << std::endl;
+		coreNumber -= CoreEntry(EntryFactory::Complex(1));
 
-		std::cout << "-------" << std::endl;
+		std::cout << coreNumber.print() << std::endl << std::endl;
 
-		coreNumber *= coreComplex;
+		coreNumber *= CoreEntry(EntryFactory::Number(0));
 
-		std::cout << coreNumber.print() << std::endl;
-		std::cout << coreComplex.print() << std::endl;
-		std::cout << coreVariable.print() << std::endl;
-
-		std::cout << "-------" << std::endl;
-
-		coreNumber /= coreVariable;
-
-		std::cout << coreNumber.print() << std::endl;
-		std::cout << coreComplex.print() << std::endl;
-		std::cout << coreVariable.print() << std::endl;
+		std::cout << coreNumber.print() << std::endl << std::endl;
 
 	}
 	catch (const std::exception ex)

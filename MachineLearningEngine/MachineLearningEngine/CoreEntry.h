@@ -38,6 +38,8 @@ private:
 	CoreEntry* copyTree(const CoreEntry&);
 
 	void collapsTree(void);
+	void collapsTwoLeafs(const CoreEntry&, const CoreEntry&);
+	void collapsWithOneLeaf(const CoreEntry&, const CoreEntry&);
 
 	CoreEntry *_rightEntries = NULL;
 	CoreEntry *_leftEntries = NULL;
