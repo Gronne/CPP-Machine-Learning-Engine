@@ -19,10 +19,15 @@ public:
 	EntryType operator-(const EntryType&) const;
 	EntryType operator*(const EntryType&) const;
 	EntryType operator/(const EntryType&) const;
+	bool operator==(const EntryType&) const;
+	bool operator!=(const EntryType&) const;
 
 	std::string print(void) const;
 	bool isPossible(void) const;
 	bool isEmpty(void) const;
+	bool isVariable(void) const;
+	bool isComplex(void) const;
+	bool sameAs(const EntryType&) const;
 
 private:
 	EntryTypeNumber _number = EntryTypeNumber();

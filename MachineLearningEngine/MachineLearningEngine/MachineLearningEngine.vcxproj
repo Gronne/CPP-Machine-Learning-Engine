@@ -122,6 +122,7 @@
     <ClCompile Include="BasicMatrixOperations.cpp" />
     <ClCompile Include="ClusterMemory.cpp" />
     <ClCompile Include="CoreEntry.cpp" />
+    <ClCompile Include="CoreEntryFactory.cpp" />
     <ClCompile Include="CoreMatrix.cpp" />
     <ClCompile Include="CoreMatrixFactory.cpp" />
     <ClCompile Include="CoreMemoryFactory.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="BasicMatrixOperations.h" />
     <ClInclude Include="ClusterMemory.h" />
     <ClInclude Include="CoreEntry.h" />
+    <ClInclude Include="CoreEntryFactory.h" />
     <ClInclude Include="CoreMatrix.h" />
     <ClInclude Include="CoreMatrixFactory.h" />
     <ClInclude Include="CoreMemoryFactory.h" />

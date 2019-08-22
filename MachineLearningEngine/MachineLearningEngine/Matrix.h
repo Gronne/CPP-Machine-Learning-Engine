@@ -2,6 +2,8 @@
 #define MATRIX_H
 
 #include <vector>
+#include "CoreEntry.h"
+#include "CoreEntryFactory.h"
 
 class Matrix
 {

@@ -1,6 +1,6 @@
 ﻿  Source.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(21): warning C4101: 'SMO': unreferenced local variable
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(24): warning C4101: 'GM': unreferenced local variable
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(23): warning C4101: 'TM': unreferenced local variable
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(22): warning C4101: 'BMO': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(22): warning C4101: 'SMO': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(25): warning C4101: 'GM': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(24): warning C4101: 'TM': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(23): warning C4101: 'BMO': unreferenced local variable
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

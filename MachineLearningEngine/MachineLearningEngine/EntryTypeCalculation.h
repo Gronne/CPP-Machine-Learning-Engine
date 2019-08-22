@@ -10,6 +10,7 @@ public:
 	~EntryTypeCalculation();
 
 	EntryType calculate(const EntryType&, const EntryType&);
+	EntryTypeCalculation invertCalculation(void);
 	std::string getState(void) const;
 
 private:

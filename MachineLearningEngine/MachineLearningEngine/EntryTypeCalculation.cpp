@@ -42,6 +42,28 @@ EntryType EntryTypeCalculation::calculate(const EntryType &entryA, const EntryTy
 	return buffer;
 }
 
+EntryTypeCalculation EntryTypeCalculation::invertCalculation(void)
+{
+	EntryTypeCalculation newcalculation(*this);
+
+	switch (_state)
+	{
+	case '+': newcalculation._state = '-';
+		break;
+	case '-': newcalculation._state = '+';
+		break;
+	case '*': newcalculation._state = '/';
+		break;
+	case '/': newcalculation._state = '*';
+		break;
+
+	default:
+		throw std::exception("Not possible to make this type of calculation");
+	}
+
+	return newcalculation;
+}
+
 std::string EntryTypeCalculation::getState(void) const
 {
 	return std::string() + _state;

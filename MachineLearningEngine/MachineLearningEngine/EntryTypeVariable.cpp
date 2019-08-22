@@ -35,7 +35,7 @@ void EntryTypeVariable::setState(const EntryTypeVariable &entry)
 
 bool EntryTypeVariable::isInitialised(void) const
 {
-	return false;
+	return _initialised;
 }
 
 std::string EntryTypeVariable::getState(void) const
