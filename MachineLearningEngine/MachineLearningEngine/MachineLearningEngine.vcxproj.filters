@@ -263,9 +263,6 @@
     <ClInclude Include="CoreEntry.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
     </ClInclude>
-    <ClInclude Include="EntryTypeVariable.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
-    </ClInclude>
     <ClInclude Include="EntryTypeNumber.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
@@ -283,6 +280,9 @@
     </ClInclude>
     <ClInclude Include="CoreEntryFactory.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeVariable.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@ public:
 	bool isLeaf(void) const;
 	std::string print(void) const;
 
-	bool replace(const CoreEntry&, const CoreEntry&);
+	void replace(const CoreEntry&, const CoreEntry&);
 
 	
 private:

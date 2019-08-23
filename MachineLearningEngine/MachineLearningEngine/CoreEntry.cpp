@@ -133,23 +133,19 @@ std::string CoreEntry::print(void) const
 	return "(" + leftString + ") " + _calculation.getState() + " (" + rightString + ")";
 }
 
-bool CoreEntry::replace(const CoreEntry &originalEntry, const CoreEntry &newEntry)
+void CoreEntry::replace(const CoreEntry &originalEntry, const CoreEntry &newEntry)
 {
 	if (isLeaf() == true)
+	{
 		if (_leafEntry.sameAs(originalEntry._leafEntry) == true)
-		{
 			_leafEntry = newEntry._leafEntry;
-			return true;
-		}
-		else
-			return false;
+		return;
+	}
 
-	bool leftBool = _leftEntries->replace(originalEntry, newEntry);
-	bool rightBool = _rightEntries->replace(originalEntry, newEntry);
+	_leftEntries->replace(originalEntry, newEntry);
+	_rightEntries->replace(originalEntry, newEntry);
 
 	collapsTree();
-
-	return (leftBool == true || rightBool == true ? true : false);
 }
 
 void CoreEntry::resetTree(void)
