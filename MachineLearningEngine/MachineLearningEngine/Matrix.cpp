@@ -542,6 +542,9 @@ void Matrix::operator*=(const double value)
 	scale(value);
 }
 
+//------------------------------------------------------------------------------
+//Matrix Addition Documentation: Documentation - Matrix- Addition
+//------------------------------------------------------------------------------
 Matrix & Matrix::operator+(const Matrix & obj)
 {
 	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
@@ -588,6 +591,9 @@ Matrix & Matrix::operator-(const double value)
 	return *returnObj;
 }
 
+//------------------------------------------------------------------------------
+//Matrix Scale Documentation: Documentation - Matrix- Scale
+//------------------------------------------------------------------------------
 Matrix & Matrix::operator*(const double value)
 {
 	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
@@ -746,6 +752,9 @@ std::string Matrix::eraseZeros(std::string string) const
 	return string.substr(0, string.size() - (cursor));
 }
 
+//------------------------------------------------------------------------------
+//Matrix Multiplicaiton Documentation: Documentation - Matrix- Multiplication
+//------------------------------------------------------------------------------
 Matrix & Matrix::multiplication(const Matrix &obj) const
 {
 	Matrix *returnMatrix = new Matrix(getNumberOfRows(), obj.getNumberOfColumns());

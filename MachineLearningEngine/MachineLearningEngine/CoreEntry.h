@@ -27,10 +27,8 @@ public:
 
 	bool isLeaf(void) const;
 	std::string print(void) const;
-
 	void replace(const CoreEntry&, const CoreEntry&);
 
-	
 private:
 	void resetTree(void);
 	void setLeaf(const EntryType&);

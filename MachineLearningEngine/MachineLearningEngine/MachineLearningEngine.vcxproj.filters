@@ -103,6 +103,12 @@
     <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type">
       <UniqueIdentifier>{e46c4ce5-6ad3-47d7-a4ae-d3346c36d926}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes">
+      <UniqueIdentifier>{4364b0d4-85cd-4e29-b7be-92d268a234ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes">
+      <UniqueIdentifier>{80aec3f2-bfde-4ad8-84a6-cd6875753939}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix.cpp">
@@ -142,15 +148,6 @@
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClCompile>
     <ClCompile Include="CoreMemoryFactory.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="AllMemory.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="ClusterMemory.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClCompile>
-    <ClCompile Include="NextMemory.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClCompile>
     <ClCompile Include="ISetEntry.cpp">
@@ -195,6 +192,15 @@
     <ClCompile Include="EntryTypeCalculation.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
     </ClCompile>
+    <ClCompile Include="NextMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ClusterMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="AllMemory.cpp">
+      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -231,15 +237,6 @@
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClInclude>
     <ClInclude Include="CoreMemoryFactory.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="AllMemory.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="ClusterMemory.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="NextMemory.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory</Filter>
     </ClInclude>
     <ClInclude Include="ISetEntry.h">
@@ -283,6 +280,15 @@
     </ClInclude>
     <ClInclude Include="EntryTypeVariable.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Entry\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="ClusterMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="NextMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="AllMemory.h">
+      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
