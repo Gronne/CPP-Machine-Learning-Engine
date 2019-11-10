@@ -19,6 +19,9 @@ void BasicMatrixOperations::echelonForm(Matrix &matrix)
 }
 
 
+//------------------------------------------------------------------------------
+//Matrix Echelon form Documentation: Documentation - Matrix- Echelon form
+//------------------------------------------------------------------------------
 Matrix & BasicMatrixOperations::getEchelonForm(const Matrix &matrix)
 {
 	Matrix *returnMatrix = &MatrixRREF::rowReduceUnder(matrix);
