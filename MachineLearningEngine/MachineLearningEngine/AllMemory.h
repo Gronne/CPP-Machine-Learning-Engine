@@ -14,6 +14,7 @@ private:
 	void constructMemory(int, int);
 	void deconstructMemory(void);
 	CoreEntry& getEntryPointer(const std::vector<int>) const;
+	int productOfFutureDimentions(int) const;
 
 	CoreEntry **_memoryBuffer;
 	std::vector<int> _dimentions;

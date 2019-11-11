@@ -59,12 +59,19 @@ CoreEntry & AllMemory::getEntryPointer(const std::vector<int> dimentionalVector)
 	int column = 0;
 
 	for (size_t index = 1; index < dimentionalVector.size(); ++index)
-	{
+		column += dimentionalVector[index] * productOfFutureDimentions(index);
 
-	}
+	return _memoryBuffer[row][column];
+}
 
+int AllMemory::productOfFutureDimentions(int currentDimentionNumber) const
+{
+	int productOfFutureDimentions = 1;
 
-	return _memoryBuffer[row][0];
+	for (size_t i = currentDimentionNumber + 1; i < _dimentions.size(); i++)
+		productOfFutureDimentions *= _dimentions[i];
+
+	return productOfFutureDimentions
 }
 
 
