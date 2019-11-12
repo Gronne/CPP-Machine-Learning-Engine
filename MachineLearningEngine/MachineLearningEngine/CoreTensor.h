@@ -25,9 +25,6 @@ public:
 	
 	void setEntry(std::vector<int>);
 
-	CoreTensor getLowerDimension(int) const;
-	void setDimension(int, CoreTensor) const;
-
 private:
 	CoreEntry _defaultValue;
 	std::vector<int> _directionalLookup;

@@ -4,6 +4,7 @@
 class AllMemory : public ICoreMemory
 {
 public:
+	AllMemory();
 	AllMemory(std::vector<int>);
 	~AllMemory();
 

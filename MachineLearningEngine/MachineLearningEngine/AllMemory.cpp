@@ -3,6 +3,13 @@
 
 
 
+AllMemory::AllMemory()
+{
+	constructMemory(1, 1);
+
+	_dimentions = { 1, 1 };
+}
+
 AllMemory::AllMemory(std::vector<int> dimentionalVector)
 {
 	if (dimentionalVector.size() == 1)
@@ -48,6 +55,18 @@ void AllMemory::deconstructMemory()
 	}
 }
 
+
+CoreEntry AllMemory::get(const std::vector<int> dimentionalVector) const
+{
+	return getEntryPointer(dimentionalVector);
+}
+
+void AllMemory::set(const std::vector<int> dimentionalVector, CoreEntry newValue) 
+{
+	getEntryPointer(dimentionalVector) = newValue;
+}
+
+
 CoreEntry & AllMemory::getEntryPointer(const std::vector<int> dimentionalVector) const
 {
 	if (dimentionalVector.size() < _dimentions.size())
@@ -64,6 +83,7 @@ CoreEntry & AllMemory::getEntryPointer(const std::vector<int> dimentionalVector)
 	return _memoryBuffer[row][column];
 }
 
+
 int AllMemory::productOfFutureDimentions(int currentDimentionNumber) const
 {
 	int productOfFutureDimentions = 1;
@@ -71,18 +91,5 @@ int AllMemory::productOfFutureDimentions(int currentDimentionNumber) const
 	for (size_t i = currentDimentionNumber + 1; i < _dimentions.size(); i++)
 		productOfFutureDimentions *= _dimentions[i];
 
-	return productOfFutureDimentions
-}
-
-
-CoreEntry AllMemory::get(const std::vector<int> dimentionalVector) const
-{
-	return getEntryPointer(dimentionalVector);
-}
-
-void AllMemory::set(const std::vector<int> dimentionalVector, CoreEntry newValue) 
-{
-	CoreEntry entryPointer = getEntryPointer(dimentionalVector);
-
-	entryPointer = newValue;
+	return productOfFutureDimentions;
 }

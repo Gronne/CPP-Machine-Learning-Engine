@@ -10,6 +10,6 @@ public:
 	~ICoreMemory();
 
 	virtual CoreEntry get(const std::vector<int>) const = 0;
-	virtual CoreEntry set(const std::vector<int>) const = 0;
+	virtual void set(const std::vector<int>, CoreEntry) = 0;
 };
 

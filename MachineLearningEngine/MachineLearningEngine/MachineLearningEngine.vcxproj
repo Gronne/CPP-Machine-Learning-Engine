@@ -123,7 +123,7 @@
     <ClCompile Include="ClusterMemory.cpp" />
     <ClCompile Include="CoreEntry.cpp" />
     <ClCompile Include="CoreEntryFactory.cpp" />
-    <ClCompile Include="CoreMatrix.cpp" />
+    <ClCompile Include="CoreTensor.cpp" />
     <ClCompile Include="CoreMatrixFactory.cpp" />
     <ClCompile Include="CoreMemoryFactory.cpp" />
     <ClCompile Include="EntryFactory.cpp" />
@@ -135,7 +135,7 @@
     <ClCompile Include="EntryTypeVariable.cpp" />
     <ClCompile Include="GetMatrix.cpp" />
     <ClCompile Include="ICalculateEntry.cpp" />
-    <ClCompile Include="ICoreMatrix.cpp" />
+    <ClCompile Include="ICoreTensor.cpp" />
     <ClCompile Include="ICoreMemory.cpp" />
     <ClCompile Include="IGetEntry.cpp" />
     <ClCompile Include="IOverloadingEntry.cpp" />
@@ -155,7 +155,7 @@
     <ClInclude Include="ClusterMemory.h" />
     <ClInclude Include="CoreEntry.h" />
     <ClInclude Include="CoreEntryFactory.h" />
-    <ClInclude Include="CoreMatrix.h" />
+    <ClInclude Include="CoreTensor.h" />
     <ClInclude Include="CoreMatrixFactory.h" />
     <ClInclude Include="CoreMemoryFactory.h" />
     <ClInclude Include="EntryFactory.h" />
@@ -167,7 +167,7 @@
     <ClInclude Include="EntryTypeVariable.h" />
     <ClInclude Include="GetMatrix.h" />
     <ClInclude Include="ICalculateEntry.h" />
-    <ClInclude Include="ICoreMatrix.h" />
+    <ClInclude Include="ICoreTensor.h" />
     <ClInclude Include="ICoreMemory.h" />
     <ClInclude Include="IGetEntry.h" />
     <ClInclude Include="IOverloadingEntry.h" />
