@@ -18,18 +18,21 @@ CoreTensor::CoreTensor(const CoreEntry &defaultValue)
 }
 
 
-CoreTensor::CoreTensor(const ICoreTensor &tensor)
+CoreTensor::CoreTensor(const CoreTensor &tensor)
 {
-	//const std::vector<int> dimensions = tensor->;
-	//const CoreEntry defaultValue = CoreEntryFactory::Number(0);
+	const std::vector<int> dimensions = tensor._memory->size();
+	const CoreEntry defaultValue = tensor._defaultValue;
 
-
+	constructCoreTensor(dimensions, defaultValue);
 }
 
 
-CoreTensor::CoreTensor(const ICoreTensor &tensor, const CoreEntry &defaultValue)
+CoreTensor::CoreTensor(const CoreTensor &tensor, const CoreEntry &defaultValue)
 {
+	const std::vector<int> dimensions = tensor._memory->size();
+	const CoreEntry defaultValue = defaultValue;
 
+	constructCoreTensor(dimensions, defaultValue);
 }
 
 
@@ -102,7 +105,7 @@ void CoreTensor::constructCoreTensor(std::vector<int> dimensions, CoreEntry defa
 	_defaultValue = defaultValue;
 	_memory = &CoreMemoryFactory::all(dimensions, defaultValue);
 
-	for(size_t direction = 0; direction < dimensions.size(); ++direction)
-		_directionalLookup.push_back(direction)
+	for (size_t direction = 0; direction < dimensions.size(); ++direction)
+		_directionalLookup.push_back(direction);
 }
 

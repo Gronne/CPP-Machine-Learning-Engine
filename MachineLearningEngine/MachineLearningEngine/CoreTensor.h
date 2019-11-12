@@ -1,18 +1,17 @@
 #pragma once
 #include <vector>
-#include "ICoreTensor.h"
 #include "ICoreMemory.h"
 #include "CoreEntry.h"
 #include "CoreEntryFactory.h"
 #include "CoreMemoryFactory.h"
 
-class CoreTensor : ICoreTensor
+class CoreTensor
 {
 public:
 	CoreTensor();
 	CoreTensor(const CoreEntry&);
-	CoreTensor(const ICoreTensor&);
-	CoreTensor(const ICoreTensor&, const CoreEntry&);
+	CoreTensor(const CoreTensor&);
+	CoreTensor(const CoreTensor&, const CoreEntry&);
 	CoreTensor(std::vector<int>);
 	CoreTensor(std::vector<int>, const CoreEntry&);
 	~CoreTensor();
