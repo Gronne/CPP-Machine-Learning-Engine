@@ -107,7 +107,7 @@ CoreEntry & AllMemory::getEntryPointer(const std::vector<int> dimentionalVector)
 {
 	if (dimentionalVector.size() < _dimentions.size())
 		throw std::exception("The dimentional vector has too few elements");
-	else if (dimentionalVector.size() > _dimentions.size())
+	if (dimentionalVector.size() > _dimentions.size())
 		throw std::exception("The dimentional vector has too many elements");
 
 	int row = dimentionalVector[0];

@@ -17,7 +17,7 @@ public:
 	~CoreTensor();
 
 	void addDimension(int);
-	void removeDimension(int);
+	void removeDimension(int = 0);
 
 	CoreTensor lookFrom(int);
 	CoreTensor loookFrom(std::vector<int>);
@@ -25,9 +25,12 @@ public:
 	CoreTensor get(std::vector<int>);
 	
 	void setEntry(std::vector<int>);
+	void setEntry(std::vector<int>, CoreTensor);
 
 private:
 	void constructCoreTensor(std::vector<int>, CoreEntry);
+	void moveIntoLargerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>);
+	void moveIntoSmallerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>, int);
 
 	CoreEntry _defaultValue;
 	std::vector<int> _directionalLookup;
