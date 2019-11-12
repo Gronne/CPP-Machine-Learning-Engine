@@ -5,33 +5,54 @@
 
 AllMemory::AllMemory()
 {
-	constructMemory(1, 1);
-
+	CoreEntry defaultValue = CoreEntryFactory::Number(0);
 	_dimentions = { 1, 1 };
+	_fullColumnSize = 1;
+
+	constructMemory(1, 1, defaultValue);
 }
 
 AllMemory::AllMemory(std::vector<int> dimentionalVector)
 {
-	if (dimentionalVector.size() == 1)
-		throw std::exception("The tensor must at least be two dimentions");
-
-	for (size_t index = 1; index < dimentionalVector.size(); ++index)
-		if (dimentionalVector[index] <= 0)
-			throw std::exception("A size of a dimention is positive. A negative value has been given");
+	dimensionalVectorCheck(dimentionalVector);
 	
 	_fullColumnSize = std::accumulate(dimentionalVector.begin()+1, dimentionalVector.end(), 1, std::multiplies<int>());
 
-	constructMemory(dimentionalVector[0], _fullColumnSize);
-
 	_dimentions = dimentionalVector;
+	CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+	constructMemory(dimentionalVector[0], _fullColumnSize, defaultValue);
+}
+
+AllMemory::AllMemory(CoreEntry &defaultValue)
+{
+	_dimentions = { 1, 1 };
+	_fullColumnSize = 1;
+
+	constructMemory(1, 1, defaultValue);
+}
+
+AllMemory::AllMemory(std::vector<int>dimensions, CoreEntry &defaultValue)
+{
+	dimensionalVectorCheck(dimensions);
+
+	_fullColumnSize = std::accumulate(dimensions.begin() + 1, dimensions.end(), 1, std::multiplies<int>());
+
+	_dimentions = dimensions;
+
+	constructMemory(dimensions[0], _fullColumnSize, defaultValue);
 }
 
 
-void AllMemory::constructMemory(int rows, int columns)
+void AllMemory::constructMemory(int rows, int columns, CoreEntry &defaultValue)
 {
 	_memoryBuffer = new CoreEntry*[rows];
 	for (size_t index = 0; index < rows; ++index)
 		_memoryBuffer[index] = new CoreEntry[columns];
+
+	for (size_t row = 0; row < _dimentions[0]; ++row)
+		for (size_t column = 0; column < _fullColumnSize; ++column)
+			_memoryBuffer[row][column] = defaultValue;
 }
 
 
@@ -55,6 +76,16 @@ void AllMemory::deconstructMemory()
 	}
 }
 
+void AllMemory::dimensionalVectorCheck(std::vector<int> dimentionalVector)
+{
+	if (dimentionalVector.size() == 1)
+		throw std::exception("The tensor must at least be two dimentions");
+	
+	for (size_t index = 1; index < dimentionalVector.size(); ++index)
+		if (dimentionalVector[index] <= 0)
+			throw std::exception("A size of a dimention is positive. A negative value has been given");
+}
+
 
 CoreEntry AllMemory::get(const std::vector<int> dimentionalVector) const
 {
@@ -64,6 +95,11 @@ CoreEntry AllMemory::get(const std::vector<int> dimentionalVector) const
 void AllMemory::set(const std::vector<int> dimentionalVector, CoreEntry newValue) 
 {
 	getEntryPointer(dimentionalVector) = newValue;
+}
+
+std::vector<int> AllMemory::size(void)
+{
+	return _dimentions;
 }
 
 

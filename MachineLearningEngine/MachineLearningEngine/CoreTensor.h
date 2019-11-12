@@ -3,6 +3,8 @@
 #include "ICoreTensor.h"
 #include "ICoreMemory.h"
 #include "CoreEntry.h"
+#include "CoreEntryFactory.h"
+#include "CoreMemoryFactory.h"
 
 class CoreTensor : ICoreTensor
 {
@@ -26,8 +28,10 @@ public:
 	void setEntry(std::vector<int>);
 
 private:
+	void constructCoreTensor(std::vector<int>, CoreEntry);
+
 	CoreEntry _defaultValue;
 	std::vector<int> _directionalLookup;
-
+	ICoreMemory *_memory;
 };
 

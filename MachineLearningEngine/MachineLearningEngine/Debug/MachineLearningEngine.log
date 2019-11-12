@@ -1,11 +1,5 @@
-﻿  AllMemory.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\allmemory.cpp(33): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\allmemory.cpp(48): warning C4018: '<': signed/unsigned mismatch
-  ClusterMemory.cpp
-  CoreMemoryFactory.cpp
+﻿  CoreMemoryFactory.cpp
   CoreTensor.cpp
-  ICoreMemory.cpp
-  NextMemory.cpp
   Source.cpp
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(28): warning C4101: 'SMO': unreferenced local variable
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(31): warning C4101: 'GM': unreferenced local variable

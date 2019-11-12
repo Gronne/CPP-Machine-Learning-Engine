@@ -10,6 +10,14 @@ NextMemory::NextMemory(std::vector<int>)
 {
 }
 
+NextMemory::NextMemory(CoreEntry &)
+{
+}
+
+NextMemory::NextMemory(std::vector<int>, CoreEntry &)
+{
+}
+
 
 NextMemory::~NextMemory()
 {
@@ -22,4 +30,9 @@ CoreEntry NextMemory::get(const std::vector<int>) const
 
 void NextMemory::set(const std::vector<int>, CoreEntry)
 {
+}
+
+std::vector<int> NextMemory::size(void)
+{
+	return std::vector<int>();
 }

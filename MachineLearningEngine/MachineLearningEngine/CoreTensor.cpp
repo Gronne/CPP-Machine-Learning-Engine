@@ -4,35 +4,46 @@
 
 CoreTensor::CoreTensor()
 {
+	const std::vector<int> dimensions = { 1, 1 };
+	const CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+	constructCoreTensor(dimensions, defaultValue);
 }
 
-CoreTensor::CoreTensor(const CoreEntry &)
+CoreTensor::CoreTensor(const CoreEntry &defaultValue)
+{
+	const std::vector<int> dimensions = { 1, 1 };
+
+	constructCoreTensor(dimensions, defaultValue);
+}
+
+
+CoreTensor::CoreTensor(const ICoreTensor &tensor)
+{
+	//const std::vector<int> dimensions = tensor->;
+	//const CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+
+}
+
+
+CoreTensor::CoreTensor(const ICoreTensor &tensor, const CoreEntry &defaultValue)
 {
 
 }
 
 
-CoreTensor::CoreTensor(const ICoreTensor &)
+CoreTensor::CoreTensor(std::vector<int> dimensions)
 {
+	const CoreEntry defaultValue = CoreEntryFactory::Number(0);
 
+	constructCoreTensor(dimensions, defaultValue);
 }
 
 
-CoreTensor::CoreTensor(const ICoreTensor &, const CoreEntry &)
+CoreTensor::CoreTensor(std::vector<int> dimensions, const CoreEntry &defaultValue)
 {
-
-}
-
-
-CoreTensor::CoreTensor(std::vector<int>)
-{
-
-}
-
-
-CoreTensor::CoreTensor(std::vector<int>, const CoreEntry &)
-{
-
+	constructCoreTensor(dimensions, defaultValue);
 }
 
 
@@ -86,15 +97,12 @@ void CoreTensor::setEntry(std::vector<int>)
 
 }
 
-
-CoreTensor CoreTensor::getLowerDimension(int) const
+void CoreTensor::constructCoreTensor(std::vector<int> dimensions, CoreEntry defaultValue)
 {
+	_defaultValue = defaultValue;
+	_memory = &CoreMemoryFactory::all(dimensions, defaultValue);
 
-	return CoreTensor();
+	for(size_t direction = 0; direction < dimensions.size(); ++direction)
+		_directionalLookup.push_back(direction)
 }
 
-
-void CoreTensor::setDimension(int, CoreTensor) const
-{
-
-}
