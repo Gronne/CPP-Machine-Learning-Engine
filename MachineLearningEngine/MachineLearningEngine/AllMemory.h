@@ -9,6 +9,7 @@ public:
 	AllMemory();
 	AllMemory(std::vector<int>);
 	AllMemory(CoreEntry&);
+	AllMemory(ICoreMemory&);
 	AllMemory(std::vector<int>, CoreEntry&);
 	~AllMemory();
 
@@ -16,6 +17,8 @@ public:
 	virtual void set(const std::vector<int>, CoreEntry);
 
 	virtual std::vector<int> size(void);
+
+	virtual void operator=(ICoreMemory&);
 
 private:
 	void constructMemory(int, int, CoreEntry&);

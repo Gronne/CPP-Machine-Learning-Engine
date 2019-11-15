@@ -137,17 +137,45 @@ void CoreTensor::moveIntoSmallerDimensionalTensor(ICoreMemory &newMemory, ICoreM
 }
 
 
-CoreTensor CoreTensor::get(int) 
+CoreTensor CoreTensor::get(int keepSliceNr) 
 {
+	if (0 > keepSliceNr || keepSliceNr > _memory->size()[_memory->size().size()])
+		throw std::exception("You cannot keep a slice that is outside the tensors dimensions");
 
-	return CoreTensor();
+	std::vector<int> dimensions = _memory->size();
+	dimensions.pop_back();
+	_directionalLookup.pop_back();
+
+	ICoreMemory *newMemory = &CoreMemoryFactory::all(dimensions, _defaultValue);
+
+
+	std::vector<int> memoryAccess(dimensions.size(), 0);
+	moveIntoSmallerDimensionalTensor(*newMemory, *_memory, dimensions, memoryAccess, keepSliceNr);
+	
+
+	CoreTensor newTensor;
+
+	const std::vector<int> dimensions = newMemory->size();
+	const CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+	newTensor.constructCoreTensor(dimensions, defaultValue);
+
+	delete newTensor._memory;
+	newTensor._memory = newMemory;
+
+
+	return newTensor;
 }
 
 
-CoreTensor CoreTensor::get(std::vector<int>) 
+CoreTensor CoreTensor::get(std::vector<int> dimensions) 
 {
+	CoreTensor newTensor;
 
-	return CoreTensor();
+	for (auto &dimension : dimensions)
+		newTensor = get(dimension);
+
+	return newTensor;
 }
 
 
@@ -165,14 +193,58 @@ CoreTensor CoreTensor::loookFrom(std::vector<int>)
 }
 
 
-void CoreTensor::setEntry(std::vector<int>)
+void CoreTensor::setEntry(std::vector<int> dimensions, CoreEntry entry)
 {
-
+	_memory->set(dimensions, entry);
 }
 
-void CoreTensor::setEntry(std::vector<int>, CoreTensor)
+void CoreTensor::setEntry(std::vector<int> dimensions, CoreTensor entryCluster)
 {
+	if ((_memory->size().size() - dimensions.size()) != entryCluster._memory->size().size())
+		throw std::exception("The dimensions for the entryCluster does not macth with the dimensions for the sub-tensor");
+
+
+	std::vector<int> dimensionsToIterate(entryCluster._memory->size().size(), 0);
+	for (size_t index = 0; index < dimensionsToIterate.size(); index++)
+		dimensionsToIterate[index] = index;
+
+	std::vector<int> allDimensions(_memory->size().size(), 0);
+	for (size_t index = 0; index < dimensions.size(); index++)
+		allDimensions[(dimensions.size() - 1) - index] = dimensions[index];
+
+	std::vector<int> dimentionalBaoundaries = _memory->size();
+
+	moveIntoSuperTensor(*_memory, *entryCluster._memory, dimentionalBaoundaries, allDimensions, dimensionsToIterate);
 }
+
+
+
+
+void CoreTensor::moveIntoSuperTensor(	ICoreMemory &memory, 
+										ICoreMemory &newTensorMemory,
+										std::vector<int> dimensionalBoundaries, 
+										std::vector<int> allDimensions,
+										std::vector<int> dimensionsToIterate )
+{
+	std::vector<int> iterateMatrix(newTensorMemory.size().size(), 0);
+
+	int index = 0;
+	while (index < iterateMatrix.size())
+		if (iterateMatrix[index] == dimensionalBoundaries[dimensionsToIterate[index]])
+			iterateMatrix[index++] = 0;
+		else
+		{
+			for (size_t i = 0; i < iterateMatrix.size(); i++)
+				allDimensions[dimensionsToIterate[i]] = iterateMatrix[index];
+
+			memory.set(allDimensions, newTensorMemory.get(iterateMatrix));
+
+			iterateMatrix[index]++;
+
+			if (index != 0) index--;
+		}
+}
+
 
 void CoreTensor::constructCoreTensor(std::vector<int> dimensions, CoreEntry defaultValue)
 {

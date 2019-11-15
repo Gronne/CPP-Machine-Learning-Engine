@@ -14,6 +14,10 @@ ClusterMemory::ClusterMemory(CoreEntry &)
 {
 }
 
+ClusterMemory::ClusterMemory(ICoreMemory &)
+{
+}
+
 ClusterMemory::ClusterMemory(std::vector<int>, CoreEntry &)
 {
 }
@@ -35,4 +39,8 @@ void ClusterMemory::set(const std::vector<int>, CoreEntry)
 std::vector<int> ClusterMemory::size(void)
 {
 	return std::vector<int>();
+}
+
+void ClusterMemory::operator=(ICoreMemory &)
+{
 }

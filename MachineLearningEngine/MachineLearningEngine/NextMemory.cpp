@@ -14,6 +14,10 @@ NextMemory::NextMemory(CoreEntry &)
 {
 }
 
+NextMemory::NextMemory(ICoreMemory &)
+{
+}
+
 NextMemory::NextMemory(std::vector<int>, CoreEntry &)
 {
 }
@@ -35,4 +39,8 @@ void NextMemory::set(const std::vector<int>, CoreEntry)
 std::vector<int> NextMemory::size(void)
 {
 	return std::vector<int>();
+}
+
+void NextMemory::operator=(ICoreMemory &)
+{
 }

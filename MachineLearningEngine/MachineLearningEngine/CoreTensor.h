@@ -24,13 +24,14 @@ public:
 	CoreTensor get(int);
 	CoreTensor get(std::vector<int>);
 	
-	void setEntry(std::vector<int>);
+	void setEntry(std::vector<int>, CoreEntry);
 	void setEntry(std::vector<int>, CoreTensor);
 
 private:
 	void constructCoreTensor(std::vector<int>, CoreEntry);
 	void moveIntoLargerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>);
 	void moveIntoSmallerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>, int);
+	void moveIntoSuperTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>, std::vector<int>);
 
 	CoreEntry _defaultValue;
 	std::vector<int> _directionalLookup;

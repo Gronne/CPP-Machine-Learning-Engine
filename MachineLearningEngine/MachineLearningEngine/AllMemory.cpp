@@ -32,6 +32,10 @@ AllMemory::AllMemory(CoreEntry &defaultValue)
 	constructMemory(1, 1, defaultValue);
 }
 
+AllMemory::AllMemory(ICoreMemory &)
+{
+}
+
 AllMemory::AllMemory(std::vector<int>dimensions, CoreEntry &defaultValue)
 {
 	dimensionalVectorCheck(dimensions);
@@ -100,6 +104,10 @@ void AllMemory::set(const std::vector<int> dimentionalVector, CoreEntry newValue
 std::vector<int> AllMemory::size(void)
 {
 	return _dimentions;
+}
+
+void AllMemory::operator=(ICoreMemory &)
+{
 }
 
 

@@ -8,6 +8,7 @@ public:
 	ClusterMemory();
 	ClusterMemory(std::vector<int>);
 	ClusterMemory(CoreEntry&);
+	ClusterMemory(ICoreMemory&);
 	ClusterMemory(std::vector<int>, CoreEntry&);
 	~ClusterMemory();
 
@@ -15,5 +16,7 @@ public:
 	virtual void set(const std::vector<int>, CoreEntry);
 
 	virtual std::vector<int> size(void);
+
+	virtual void operator=(ICoreMemory&);
 };
 
