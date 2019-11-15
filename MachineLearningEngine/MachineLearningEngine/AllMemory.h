@@ -26,6 +26,7 @@ private:
 	void dimensionalVectorCheck(std::vector<int>);
 	CoreEntry& getEntryPointer(const std::vector<int>) const;
 	int productOfFutureDimentions(int) const;
+	void moveMemory(ICoreMemory&);
 
 	CoreEntry **_memoryBuffer;
 	std::vector<int> _dimentions;

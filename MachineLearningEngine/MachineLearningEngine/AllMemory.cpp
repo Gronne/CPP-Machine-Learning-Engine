@@ -12,6 +12,7 @@ AllMemory::AllMemory()
 	constructMemory(1, 1, defaultValue);
 }
 
+
 AllMemory::AllMemory(std::vector<int> dimentionalVector)
 {
 	dimensionalVectorCheck(dimentionalVector);
@@ -24,17 +25,31 @@ AllMemory::AllMemory(std::vector<int> dimentionalVector)
 	constructMemory(dimentionalVector[0], _fullColumnSize, defaultValue);
 }
 
+
 AllMemory::AllMemory(CoreEntry &defaultValue)
 {
 	_dimentions = { 1, 1 };
 	_fullColumnSize = 1;
 
-	constructMemory(1, 1, defaultValue);
+	constructMemory(1, _fullColumnSize, defaultValue);
 }
 
-AllMemory::AllMemory(ICoreMemory &)
+
+AllMemory::AllMemory(ICoreMemory &memory)
 {
+	_dimentions = memory.size();
+
+	_fullColumnSize = 1;
+	for (size_t index = 1; index < memory.size().size(); ++index)
+		_fullColumnSize *= memory.size()[index];
+
+	CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+	constructMemory(memory.size()[0], _fullColumnSize, defaultValue);
+
+	moveMemory(memory);
 }
+
 
 AllMemory::AllMemory(std::vector<int>dimensions, CoreEntry &defaultValue)
 {
@@ -96,18 +111,34 @@ CoreEntry AllMemory::get(const std::vector<int> dimentionalVector) const
 	return getEntryPointer(dimentionalVector);
 }
 
+
 void AllMemory::set(const std::vector<int> dimentionalVector, CoreEntry newValue) 
 {
 	getEntryPointer(dimentionalVector) = newValue;
 }
+
 
 std::vector<int> AllMemory::size(void)
 {
 	return _dimentions;
 }
 
-void AllMemory::operator=(ICoreMemory &)
+
+void AllMemory::operator=(ICoreMemory &memory)
 {
+	deconstructMemory();
+
+	_dimentions = memory.size();
+
+	_fullColumnSize = 1;
+	for (size_t index = 1; index < memory.size().size(); ++index)
+		_fullColumnSize *= memory.size()[index];
+
+	CoreEntry defaultValue = CoreEntryFactory::Number(0);
+
+	constructMemory(memory.size()[0], _fullColumnSize, defaultValue);
+
+	moveMemory(memory);
 }
 
 
@@ -136,4 +167,21 @@ int AllMemory::productOfFutureDimentions(int currentDimentionNumber) const
 		productOfFutureDimentions *= _dimentions[i];
 
 	return productOfFutureDimentions;
+}
+
+void AllMemory::moveMemory(ICoreMemory &memory)
+{
+	std::vector<int> iterativeVector(memory.size().size(), 0);
+	int index = 0;
+	while (index < memory.size().size())
+		if (iterativeVector[index] == memory.size()[index])
+			iterativeVector[index++] = 0;
+		else
+		{
+			set(iterativeVector, memory.get(iterativeVector));
+
+			iterativeVector[index]++;
+
+			if (index != 0) index--;
+		}
 }
