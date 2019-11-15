@@ -198,9 +198,6 @@
     <ClCompile Include="CoreTensor.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
     </ClCompile>
-    <ClCompile Include="ICoreTensor.cpp">
-      <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -285,9 +282,6 @@
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes</Filter>
     </ClInclude>
     <ClInclude Include="CoreTensor.h">
-      <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="ICoreTensor.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
     </ClInclude>
   </ItemGroup>

@@ -24,13 +24,14 @@ CoreTensor::CoreTensor(const CoreTensor &tensor)
 	const CoreEntry defaultValue = CoreEntryFactory::Number(0);
 
 	constructCoreTensor(dimensions, defaultValue);
+
+	//Move the tensors memory into the local memory
 }
 
 
 CoreTensor::CoreTensor(const CoreTensor &tensor, const CoreEntry &defaultValue)
 {
 	const std::vector<int> dimensions = tensor._memory->size();
-	const CoreEntry defaultValue = defaultValue;
 
 	constructCoreTensor(dimensions, defaultValue);
 }
@@ -64,35 +65,15 @@ void CoreTensor::addDimension(int newdimensionSize)
 
 	ICoreMemory *newMemory = &CoreMemoryFactory::all(dimensions, _defaultValue);
 
+	std::vector<int> allDimensions(newMemory->size().size(), 0);
 
-	std::vector<int> memoryAccess(dimensions.size(), 0);
-	moveIntoLargerDimensionalTensor(*newMemory, *_memory, dimensions, memoryAccess);
+	std::vector<int> dimensionsToIterate(_memory->size().size(), 0);
+	for (size_t index = 0; index < dimensionsToIterate.size(); index++)
+		dimensionsToIterate[index] = index;
 
-	delete _memory;
+	moveIntoSuperTensor(*newMemory, *_memory, _memory->size(), allDimensions, dimensionsToIterate);
 
-	_memory = newMemory;
-}
-
-
-
-void CoreTensor::moveIntoLargerDimensionalTensor(ICoreMemory &newMemory, ICoreMemory &oldMemory, std::vector<int> dimensions, std::vector<int> counters)
-{
-	int index = 0;
-	while (index < dimensions.size()-1)
-		if (counters[index] == dimensions[index])
-			counters[index++] = 0;
-		else
-		{
-			std::vector<int> getCounters = counters;
-			getCounters.pop_back();
-
-			newMemory.set(counters, oldMemory.get(getCounters));
-
-			counters[index]++;
-
-			if(index != 0) index--;
-		}
-
+	*_memory = *newMemory;
 }
 
 
@@ -111,9 +92,7 @@ void CoreTensor::removeDimension(int keepSliceNr)
 	std::vector<int> memoryAccess(dimensions.size(), 0);
 	moveIntoSmallerDimensionalTensor(*newMemory, *_memory, dimensions, memoryAccess, keepSliceNr);
 
-	delete _memory;
-
-	_memory = newMemory;
+	*_memory = *newMemory;
 }
 
 
@@ -155,14 +134,12 @@ CoreTensor CoreTensor::get(int keepSliceNr)
 
 	CoreTensor newTensor;
 
-	const std::vector<int> dimensions = newMemory->size();
+	const std::vector<int> newDimensions = newMemory->size();
 	const CoreEntry defaultValue = CoreEntryFactory::Number(0);
 
-	newTensor.constructCoreTensor(dimensions, defaultValue);
+	newTensor.constructCoreTensor(newDimensions, defaultValue);
 
-	delete newTensor._memory;
-	newTensor._memory = newMemory;
-
+	*newTensor._memory = *newMemory;
 
 	return newTensor;
 }
@@ -220,13 +197,13 @@ void CoreTensor::setEntry(std::vector<int> dimensions, CoreTensor entryCluster)
 
 
 
-void CoreTensor::moveIntoSuperTensor(	ICoreMemory &memory, 
-										ICoreMemory &newTensorMemory,
+void CoreTensor::moveIntoSuperTensor(	ICoreMemory &superTensorMemory, 
+										ICoreMemory &memory,
 										std::vector<int> dimensionalBoundaries, 
 										std::vector<int> allDimensions,
 										std::vector<int> dimensionsToIterate )
 {
-	std::vector<int> iterateMatrix(newTensorMemory.size().size(), 0);
+	std::vector<int> iterateMatrix(memory.size().size(), 0);
 
 	int index = 0;
 	while (index < iterateMatrix.size())
@@ -237,7 +214,7 @@ void CoreTensor::moveIntoSuperTensor(	ICoreMemory &memory,
 			for (size_t i = 0; i < iterateMatrix.size(); i++)
 				allDimensions[dimensionsToIterate[i]] = iterateMatrix[index];
 
-			memory.set(allDimensions, newTensorMemory.get(iterateMatrix));
+			superTensorMemory.set(allDimensions, memory.get(iterateMatrix));
 
 			iterateMatrix[index]++;
 

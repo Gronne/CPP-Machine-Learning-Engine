@@ -29,7 +29,6 @@ public:
 
 private:
 	void constructCoreTensor(std::vector<int>, CoreEntry);
-	void moveIntoLargerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>);
 	void moveIntoSmallerDimensionalTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>, int);
 	void moveIntoSuperTensor(ICoreMemory&, ICoreMemory&, std::vector<int>, std::vector<int>, std::vector<int>);
 
