@@ -47,7 +47,24 @@ double EntryTypeNumber::getState(void) const
 std::string EntryTypeNumber::print(void) const
 {
 	if (isInitialised() == true)
-		return std::to_string(_state);
+		return minimizeNumberString(std::to_string(_state));
 	else
 		return "";
+}
+
+std::string EntryTypeNumber::minimizeNumberString(std::string numberStr) const
+{
+	int cursor = 1;
+	for (; cursor <= numberStr.size(); ++cursor)
+	{
+		char currentCharacter = numberStr[numberStr.size() - cursor];
+		if (currentCharacter != '0')
+		{
+			if (currentCharacter == '.')
+				++cursor;
+			break;
+		}
+	}
+
+	return numberStr.substr(0, numberStr.size() - cursor + 1);
 }

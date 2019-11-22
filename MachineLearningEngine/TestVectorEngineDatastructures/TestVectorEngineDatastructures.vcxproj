@@ -33,6 +33,16 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="CoreEntryEntryType.h" />
+    <ClInclude Include="CoreEntryFactory.h" />
+    <ClInclude Include="CoreEntryInterface.h" />
+    <ClInclude Include="CoreTensorCoreEntry.h" />
+    <ClInclude Include="CoreTensorInterface.h" />
+    <ClInclude Include="CoreTensorMemory.h" />
+    <ClInclude Include="EntryTypeCalculation.h" />
+    <ClInclude Include="EntryTypeFactory.h" />
+    <ClInclude Include="EntryTypeInterface.h" />
+    <ClInclude Include="EntryTypeTypes.h" />
     <ClInclude Include="MatrixGetsGetColumnsTest.h" />
     <ClInclude Include="MatrixGetsGetColumnTest.h" />
     <ClInclude Include="MatrixGetsGetEntryTest.h" />
@@ -71,6 +81,27 @@
     <ClInclude Include="MatrixSizeDeleteRowTest.h" />
     <ClInclude Include="MatrixSizeTransposeTest.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TensorAllignment.h" />
+    <ClInclude Include="TensorCoreTensor.h" />
+    <ClInclude Include="TensorNarrator.h" />
+    <ClInclude Include="TypesComplex.h" />
+    <ClInclude Include="TypesComplexConstruct.h" />
+    <ClInclude Include="TypesComplexGetState.h" />
+    <ClInclude Include="TypesComplexIsInitialised.h" />
+    <ClInclude Include="TypesComplexPrint.h" />
+    <ClInclude Include="TypesComplexSetState.h" />
+    <ClInclude Include="TypesNumber.h" />
+    <ClInclude Include="TypesNumberConstruct.h" />
+    <ClInclude Include="TypesNumberGetState.h" />
+    <ClInclude Include="TypesNumberIsInitialised.h" />
+    <ClInclude Include="TypesNumberPrint.h" />
+    <ClInclude Include="TypesNumberSetState.h" />
+    <ClInclude Include="TypesVariable.h" />
+    <ClInclude Include="TypesVariableConstruct.h" />
+    <ClInclude Include="TypesVariableGetState.h" />
+    <ClInclude Include="TypesVariableIsInitialised.h" />
+    <ClInclude Include="TypesVariablePrint.h" />
+    <ClInclude Include="TypesVariableSetState.h" />
     <ClInclude Include="VectorEngineMatrix.h" />
     <ClInclude Include="VectorEngineHeaders.h" />
     <ClInclude Include="VectorEngineMatrixGets.h" />
@@ -78,6 +109,7 @@
     <ClInclude Include="VectorEngineMatrixOthers.h" />
     <ClInclude Include="VectorEngineMatrixSets.h" />
     <ClInclude Include="VectorEngineMatrixSize.h" />
+    <ClInclude Include="VectorEngineTensor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />

@@ -142,6 +142,7 @@ void AllMemory::operator=(ICoreMemory &memory)
 }
 
 
+
 CoreEntry & AllMemory::getEntryPointer(const std::vector<int> dimentionalVector) const
 {
 	if (dimentionalVector.size() < _dimentions.size())

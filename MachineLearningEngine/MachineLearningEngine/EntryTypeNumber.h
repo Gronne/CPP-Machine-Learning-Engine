@@ -18,6 +18,8 @@ public:
 	std::string print(void) const;
 
 private:
+	std::string minimizeNumberString(std::string) const;
+
 	double _state = 0;
 	bool _initialised = false;
 };

@@ -57,6 +57,7 @@ int main(int argc, char ** argv) {
 		std::cout << A << std::endl;
 
 		*/
+
 		CoreEntry entry = CoreEntryFactory::Complex(5);
 
 		AllMemory memory({ 100, 100, 3, 30 }, entry);
@@ -68,6 +69,14 @@ int main(int argc, char ** argv) {
 		std::cout << memory.get({ 0, 1, 0, 0 }) << std::endl;
 		std::cout << memory.get({ 0, 1, 2, 0 }) << std::endl;
 		std::cout << memory.get({ 0, 1, 2, 3 }) << std::endl;
+
+		memory.set({ 0, 1, 2, 3 }, CoreEntryFactory::Number(-2));
+
+		std::cout << memory.get({ 0, 1, 2, 3 }) << std::endl;
+
+		std::cout << (new EntryTypeComplex(0))->print() << std::endl;
+
+		
 
 	}
 	catch (const std::exception ex)

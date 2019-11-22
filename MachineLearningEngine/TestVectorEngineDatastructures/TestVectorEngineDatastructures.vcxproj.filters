@@ -136,6 +136,102 @@
     <ClInclude Include="MatrixOperatorDivisionOperatorTest.h">
       <Filter>Matrix\Operators</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineTensor.h">
+      <Filter>Tensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TensorCoreTensor.h">
+      <Filter>Tensor\CoreTensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TensorNarrator.h">
+      <Filter>Tensor\Narrator</Filter>
+    </ClInclude>
+    <ClInclude Include="TensorAllignment.h">
+      <Filter>Tensor\Allignment</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTensorMemory.h">
+      <Filter>Tensor\CoreTensor\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTensorInterface.h">
+      <Filter>Tensor\CoreTensor\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTensorCoreEntry.h">
+      <Filter>Tensor\CoreTensor\CoreEntry</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryEntryType.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryInterface.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryFactory.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeCalculation.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterface.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeFactory.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeTypes.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplex.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariable.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumber.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexConstruct.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableConstruct.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberConstruct.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexSetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableSetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberSetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexGetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexIsInitialised.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexPrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableGetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableIsInitialised.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariablePrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberGetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberIsInitialised.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberPrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">
@@ -155,6 +251,63 @@
     </Filter>
     <Filter Include="Matrix\Size">
       <UniqueIdentifier>{5cccd3c1-4a5b-42fd-a2bc-3bf975cf234a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor">
+      <UniqueIdentifier>{781c52e5-a1a1-4539-800e-042a7c79c7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\Narrator">
+      <UniqueIdentifier>{34d6f911-c63e-45ca-8af3-7aa3e2e2d0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\Space">
+      <UniqueIdentifier>{5696f5ed-851c-4ae9-a463-58b4dd9cc20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\Types">
+      <UniqueIdentifier>{b7e5fdfe-e920-443e-8f13-12bfcc42d983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\Allignment">
+      <UniqueIdentifier>{4da5f54e-426a-49a4-8879-050ea9297484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor">
+      <UniqueIdentifier>{6244213a-d5f6-4a66-b492-8c4a63617891}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\Memory">
+      <UniqueIdentifier>{f1b61d92-750a-48e4-8c4f-9296e8e22e22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\Interface">
+      <UniqueIdentifier>{a18480d3-cd78-4db8-8293-03e42b4cd915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry">
+      <UniqueIdentifier>{966b1b37-3e94-47a7-93f6-ff1a74f7bd40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\Factory">
+      <UniqueIdentifier>{4a246b93-278e-4304-a998-aa62bf886275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType">
+      <UniqueIdentifier>{03f2e6f9-1552-4114-93ee-4933cc294147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Calculation">
+      <UniqueIdentifier>{eadd8f5c-c4cf-4f09-8111-6dad65c2939e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Interface">
+      <UniqueIdentifier>{6a146732-e170-477f-adff-d5b351e80f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Factory">
+      <UniqueIdentifier>{933bb10b-97e1-43c3-8f56-998e2309c6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\Interface">
+      <UniqueIdentifier>{0b615b0b-68a9-460c-8290-4d81febcdc65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Types">
+      <UniqueIdentifier>{bbb40eb2-16ee-4677-ba07-853dbaabdb04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Types\Number">
+      <UniqueIdentifier>{600245be-c6d6-4edf-ad2f-72d8d5ec961e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex">
+      <UniqueIdentifier>{2ff35995-b09a-4bc7-95af-a641d66b932d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable">
+      <UniqueIdentifier>{2f2622c9-14cf-43f3-8ed4-4d4cab75c792}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
