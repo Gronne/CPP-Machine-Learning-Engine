@@ -130,13 +130,19 @@ EntryType EntryType::operator*(const EntryType &entry) const
 
 	if (_number.isInitialised() == true && entry._number.isInitialised() == true)
 	{
-		newEntry._number = EntryTypeNumber(_number.getState() * entry._number.getState());
+		if (_number.getState() == 0 || entry._number.getState() == 0)
+			newEntry._number = EntryTypeNumber(0);
+		else
+			newEntry._number = EntryTypeNumber(_number.getState() * entry._number.getState());
 		newEntry._isPossible = true;
 	}
 
 	else if (_number.isInitialised() == true && entry._complex.isInitialised() == true)
 	{
-		newEntry._complex = EntryTypeComplex(_number.getState() * entry._complex.getState());
+		if (_number.getState() == 0 || entry._complex.getState() == 0)
+			newEntry._complex = EntryTypeComplex(0);
+		else
+			newEntry._complex = EntryTypeComplex(_number.getState() * entry._complex.getState());
 		newEntry._isPossible = true;
 	}
 
@@ -147,13 +153,19 @@ EntryType EntryType::operator*(const EntryType &entry) const
 
 	else if (_complex.isInitialised() == true && entry._number.isInitialised() == true)
 	{
-		newEntry._complex = EntryTypeComplex(_complex.getState() * entry._number.getState());
+		if (_complex.getState() == 0 || entry._number.getState() == 0)
+			newEntry._complex = EntryTypeComplex(0);
+		else
+			newEntry._complex = EntryTypeComplex(_complex.getState() * entry._number.getState());
 		newEntry._isPossible = true;
 	}
 
 	else if (_complex.isInitialised() == true && entry._complex.isInitialised() == true)
 	{
-		newEntry._number = EntryTypeNumber(_complex.getState() * entry._complex.getState() * -1);
+		if (_complex.getState() == 0 || entry._complex.getState() == 0)
+			newEntry._number = EntryTypeNumber(0);
+		else
+			newEntry._number = EntryTypeNumber(_complex.getState() * entry._complex.getState() * -1);
 		newEntry._isPossible = true;
 	}
 
@@ -181,13 +193,23 @@ EntryType EntryType::operator/(const EntryType &entry) const
 
 	if (_number.isInitialised() == true && entry._number.isInitialised() == true)
 	{
-		newEntry._number = EntryTypeNumber(_number.getState() / entry._number.getState());
+		if (_number.getState() == 0 && entry._number.getState() == 0)
+			newEntry._number = EntryTypeNumber(0);
+		else if (_number.getState() != 0 && entry._number.getState() == 0)
+			newEntry._number = EntryTypeNumber(INFINITY);
+		else
+			newEntry._number = EntryTypeNumber(_number.getState() / entry._number.getState());
 		newEntry._isPossible = true;
 	}
 
 	else if (_number.isInitialised() == true && entry._complex.isInitialised() == true)
 	{
-		newEntry._complex = EntryTypeComplex(_number.getState() / (entry._complex.getState() * -1));
+		if (_number.getState() == 0 && entry._complex.getState() == 0)
+			newEntry._complex = EntryTypeComplex(0);
+		else if (_number.getState() != 0 && entry._complex.getState() == 0)
+			newEntry._complex = EntryTypeComplex(INFINITY);
+		else
+			newEntry._complex = EntryTypeComplex(_number.getState() / (entry._complex.getState() * -1));
 		newEntry._isPossible = true;
 	}
 
@@ -198,13 +220,23 @@ EntryType EntryType::operator/(const EntryType &entry) const
 
 	else if (_complex.isInitialised() == true && entry._number.isInitialised() == true)
 	{
-		newEntry._complex = EntryTypeComplex(_complex.getState() / entry._number.getState());
+		if (_complex.getState() == 0 && entry._number.getState() == 0)
+			newEntry._complex = EntryTypeComplex(0);
+		else if (_complex.getState() != 0 && entry._number.getState() == 0)
+			newEntry._complex = EntryTypeComplex(INFINITY);
+		else
+			newEntry._complex = EntryTypeComplex(_complex.getState() / entry._number.getState());
 		newEntry._isPossible = true;
 	}
 
 	else if (_complex.isInitialised() == true && entry._complex.isInitialised() == true)
 	{
-		newEntry._number = EntryTypeNumber(_complex.getState() / entry._complex.getState());
+		if (_complex.getState() == 0 && entry._complex.getState() == 0)
+			newEntry._number = EntryTypeNumber(0);
+		else if (_complex.getState() != 0 && entry._complex.getState() == 0)
+			newEntry._number = EntryTypeNumber(INFINITY);
+		else
+			newEntry._number = EntryTypeNumber(_complex.getState() / entry._complex.getState());
 		newEntry._isPossible = true;
 	}
 

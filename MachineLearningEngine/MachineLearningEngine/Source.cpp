@@ -58,23 +58,14 @@ int main(int argc, char ** argv) {
 
 		*/
 
-		CoreEntry entry = CoreEntryFactory::Complex(5);
+		EntryTypeComplex ComplexObject(0);
+		EntryTypeNumber NumberObject(0);
 
-		AllMemory memory({ 100, 100, 3, 30 }, entry);
+		EntryType complex(ComplexObject);
+		EntryType number(NumberObject);
 
-		for (auto &element : memory.size())
-			std::cout << element << std::endl;
 
-		std::cout << memory.get({ 0, 0, 0, 0 }) << std::endl;
-		std::cout << memory.get({ 0, 1, 0, 0 }) << std::endl;
-		std::cout << memory.get({ 0, 1, 2, 0 }) << std::endl;
-		std::cout << memory.get({ 0, 1, 2, 3 }) << std::endl;
-
-		memory.set({ 0, 1, 2, 3 }, CoreEntryFactory::Number(-2));
-
-		std::cout << memory.get({ 0, 1, 2, 3 }) << std::endl;
-
-		std::cout << (new EntryTypeComplex(0))->print() << std::endl;
+		std::cout << (complex / number).print() << std::endl;
 
 		
 

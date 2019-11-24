@@ -30,7 +30,7 @@ void EntryTypeComplex::operator=(const EntryTypeComplex &entry)
 
 bool EntryTypeComplex::operator==(const EntryTypeComplex &entry) const
 {
-	return this->_state == entry._state && this->_initialised == entry._initialised;
+	return sameState(this->_state, entry._state) && this->_initialised == entry._initialised;
 }
 
 bool EntryTypeComplex::operator!=(const EntryTypeComplex &entry) const
@@ -84,6 +84,11 @@ std::string EntryTypeComplex::minimizeNumberString(std::string numberStr) const
 	}
 
 	return numberStr.substr(0, numberStr.size() - cursor + 1);
+}
+
+bool EntryTypeComplex::sameState(double state_A, double state_B, double tolerence) const
+{
+	return (state_A - tolerence <= state_B && state_A + tolerence >= state_B);
 }
 
 

@@ -21,6 +21,8 @@ public:
 
 private:
 	std::string minimizeNumberString(std::string) const;
+	bool sameState(double, double, double = 0.000001) const;
+
 	double _state = 0.0;
 	bool _initialised = false;
 };
