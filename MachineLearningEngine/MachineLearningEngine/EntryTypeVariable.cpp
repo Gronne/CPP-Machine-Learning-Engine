@@ -28,12 +28,12 @@ void EntryTypeVariable::operator=(const EntryTypeVariable &entry)
 	this->_state = entry._state;
 }
 
-bool EntryTypeVariable::operator==(const EntryTypeVariable &entry)
+bool EntryTypeVariable::operator==(const EntryTypeVariable &entry) const
 {
 	return this->_state == entry._state && this->_initialised == entry._initialised;
 }
 
-bool EntryTypeVariable::operator!=(const EntryTypeVariable &entry)
+bool EntryTypeVariable::operator!=(const EntryTypeVariable &entry) const
 {
 	return this->_state != entry._state || this->_initialised != entry._initialised;
 }

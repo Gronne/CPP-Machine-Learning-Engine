@@ -1,5 +1,6 @@
 #pragma once
 #include "../MachineLearningEngine/BasicMatrixOperations.cpp"
+#include "../MachineLearningEngine/EntryType.cpp"
 #include "../MachineLearningEngine/EntryTypeComplex.cpp"
 #include "../MachineLearningEngine/EntryTypeNumber.cpp"
 #include "../MachineLearningEngine/EntryTypeVariable.cpp"

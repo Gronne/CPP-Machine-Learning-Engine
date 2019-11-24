@@ -35,6 +35,6 @@ private:
 	EntryTypeComplex _complex;
 	EntryTypeVariable _variable;
 
-	bool _isPossible;
+	bool _isPossible = false;
 };
 

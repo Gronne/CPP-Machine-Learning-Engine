@@ -10,8 +10,8 @@ public:
 	EntryTypeComplex(double);
 
 	void operator=(const EntryTypeComplex&);
-	bool operator==(const EntryTypeComplex&);
-	bool operator!=(const EntryTypeComplex&);
+	bool operator==(const EntryTypeComplex&) const;
+	bool operator!=(const EntryTypeComplex&) const;
 
 	void setState(double);
 	void setState(const EntryTypeComplex&);

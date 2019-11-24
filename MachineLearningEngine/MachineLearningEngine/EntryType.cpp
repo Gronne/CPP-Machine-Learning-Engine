@@ -15,19 +15,19 @@ EntryType::EntryType(const EntryType &newEntry)
 EntryType::EntryType(const EntryTypeNumber &number)
 {
 	_number = number;
-	_isPossible = true;
+	_isPossible = _number.isInitialised();
 }
 
 EntryType::EntryType(const EntryTypeComplex &complex)
 {
 	_complex = complex;
-	_isPossible = true;
+	_isPossible = _complex.isInitialised();
 }
 
 EntryType::EntryType(const EntryTypeVariable &variable)
 {
 	_variable = variable;
-	_isPossible = true;
+	_isPossible = _variable.isInitialised();
 }
 
 EntryType::~EntryType()
@@ -276,7 +276,7 @@ bool EntryType::isNumber(void) const
 
 bool EntryType::sameAs(const EntryType &entry) const
 {
-	return (_number.getState() == entry._number.getState() &&
-			_complex.getState() == entry._complex.getState() &&
-			_variable.getState() == entry._variable.getState());
+	return (this->_number == entry._number &&
+			this->_complex == entry._complex  &&
+			this->_variable == entry._variable);
 }

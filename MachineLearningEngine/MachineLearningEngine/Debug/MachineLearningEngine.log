@@ -1,5 +1,2 @@
-﻿  EntryTypeComplex.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\entrytypecomplex.cpp(75): warning C4018: '<=': signed/unsigned mismatch
-  EntryTypeVariable.cpp
-  Generating Code...
+﻿  EntryType.cpp
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

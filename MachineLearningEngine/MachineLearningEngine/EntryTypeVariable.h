@@ -10,8 +10,8 @@ public:
 	EntryTypeVariable(std::string);
 
 	void operator=(const EntryTypeVariable&);
-	bool operator==(const EntryTypeVariable&);
-	bool operator!=(const EntryTypeVariable&);
+	bool operator==(const EntryTypeVariable&) const;
+	bool operator!=(const EntryTypeVariable&) const;
 
 	void setState(std::string);
 	void setState(const EntryTypeVariable&);

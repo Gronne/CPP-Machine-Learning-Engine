@@ -28,12 +28,12 @@ void EntryTypeComplex::operator=(const EntryTypeComplex &entry)
 	this->_state = entry._state;
 }
 
-bool EntryTypeComplex::operator==(const EntryTypeComplex &entry)
+bool EntryTypeComplex::operator==(const EntryTypeComplex &entry) const
 {
 	return this->_state == entry._state && this->_initialised == entry._initialised;
 }
 
-bool EntryTypeComplex::operator!=(const EntryTypeComplex &entry)
+bool EntryTypeComplex::operator!=(const EntryTypeComplex &entry) const
 {
 	return this->_state != entry._state || this->_initialised != entry._initialised;
 }

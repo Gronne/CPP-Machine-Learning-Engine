@@ -12,8 +12,8 @@ public:
 	EntryTypeNumber(double);
 
 	void operator=(const EntryTypeNumber&);
-	bool operator==(const EntryTypeNumber&);
-	bool operator!=(const EntryTypeNumber&);
+	bool operator==(const EntryTypeNumber&) const;
+	bool operator!=(const EntryTypeNumber&) const;
 
 	void setState(double);
 	void setState(const EntryTypeNumber&);
