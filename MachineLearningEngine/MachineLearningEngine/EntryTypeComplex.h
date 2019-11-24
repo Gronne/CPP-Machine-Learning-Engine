@@ -9,6 +9,10 @@ public:
 	EntryTypeComplex(const EntryTypeComplex&);
 	EntryTypeComplex(double);
 
+	void operator=(const EntryTypeComplex&);
+	bool operator==(const EntryTypeComplex&);
+	bool operator!=(const EntryTypeComplex&);
+
 	void setState(double);
 	void setState(const EntryTypeComplex&);
 	bool isInitialised(void) const;

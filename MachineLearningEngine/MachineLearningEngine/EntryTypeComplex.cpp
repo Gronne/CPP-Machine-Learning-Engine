@@ -22,6 +22,22 @@ EntryTypeComplex::EntryTypeComplex(double value)
 	setState(value);
 }
 
+void EntryTypeComplex::operator=(const EntryTypeComplex &entry)
+{
+	this->_initialised = entry._initialised;
+	this->_state = entry._state;
+}
+
+bool EntryTypeComplex::operator==(const EntryTypeComplex &entry)
+{
+	return this->_state == entry._state && this->_initialised == entry._initialised;
+}
+
+bool EntryTypeComplex::operator!=(const EntryTypeComplex &entry)
+{
+	return this->_state != entry._state || this->_initialised != entry._initialised;
+}
+
 void EntryTypeComplex::setState(double state)
 {
 	_state = state;

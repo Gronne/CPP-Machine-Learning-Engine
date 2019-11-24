@@ -1,6 +1,9 @@
 #pragma once
 #include "TypesNumberConstruct.h"
+#include "TypesNumberEqual.h"
+#include "TypesNumberEqualTo.h"
 #include "TypesNumberGetState.h"
 #include "TypesNumberIsInitialised.h"
+#include "TypesNumberNotEqualTo.h"
 #include "TypesNumberPrint.h"
 #include "TypesNumberSetState.h"

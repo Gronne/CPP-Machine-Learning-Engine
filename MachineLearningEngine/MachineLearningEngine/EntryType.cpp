@@ -228,28 +228,23 @@ EntryType EntryType::operator/(const EntryType &entry) const
 
 bool EntryType::operator==(const EntryType &entry) const
 {
-	if (_number.getState() != 0 && entry._number.getState() != 0)
-		return true;
-	if (_complex.getState() != 0 && entry._complex.getState() != 0)
-		return true;
-	else
-		return false;
+	return sameAs(entry) == true;
 }
 
 bool EntryType::operator!=(const EntryType &entry) const
 {
-	return ((*this == entry) == false);
+	return sameAs(entry) == false;
 }
 
 std::string EntryType::print(void) const
 {
-	std::string entryString;
+	std::string entryTypeString;
 
-	entryString += _number.print();
-	entryString += _complex.print();
-	entryString += _variable.print();
+	entryTypeString += _number.print();
+	entryTypeString += _complex.print();
+	entryTypeString += _variable.print();
 
-	return entryString;
+	return entryTypeString;
 }
 
 bool EntryType::isPossible(void) const
@@ -259,17 +254,24 @@ bool EntryType::isPossible(void) const
 
 bool EntryType::isEmpty(void) const
 {
-	return (_number.getState() == 0 && _complex.getState() == 0 && _variable.getState() == "");
+	return (_number.isInitialised() == false && 
+			_complex.isInitialised() == false && 
+			_variable.isInitialised() == false);
 }
 
 bool EntryType::isVariable(void) const
 {
-	return (_variable.getState() != "");
+	return _variable.isInitialised();
 }
 
 bool EntryType::isComplex(void) const
 {
-	return (_complex.getState() != 0);
+	return _complex.isInitialised();
+}
+
+bool EntryType::isNumber(void) const
+{
+	return _number.isInitialised();
 }
 
 bool EntryType::sameAs(const EntryType &entry) const

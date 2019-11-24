@@ -11,6 +11,10 @@ public:
 	EntryTypeNumber(const EntryTypeNumber&);
 	EntryTypeNumber(double);
 
+	void operator=(const EntryTypeNumber&);
+	bool operator==(const EntryTypeNumber&);
+	bool operator!=(const EntryTypeNumber&);
+
 	void setState(double);
 	void setState(const EntryTypeNumber&);
 	bool isInitialised(void) const;

@@ -22,6 +22,22 @@ EntryTypeVariable::EntryTypeVariable(std::string state)
 	setState(state);
 }
 
+void EntryTypeVariable::operator=(const EntryTypeVariable &entry)
+{
+	this->_initialised = entry._initialised;
+	this->_state = entry._state;
+}
+
+bool EntryTypeVariable::operator==(const EntryTypeVariable &entry)
+{
+	return this->_state == entry._state && this->_initialised == entry._initialised;
+}
+
+bool EntryTypeVariable::operator!=(const EntryTypeVariable &entry)
+{
+	return this->_state != entry._state || this->_initialised != entry._initialised;
+}
+
 void EntryTypeVariable::setState(std::string state)
 {
 	_state = state;

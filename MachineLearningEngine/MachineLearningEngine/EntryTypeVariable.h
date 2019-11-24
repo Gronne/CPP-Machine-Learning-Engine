@@ -9,6 +9,10 @@ public:
 	EntryTypeVariable(const EntryTypeVariable&);
 	EntryTypeVariable(std::string);
 
+	void operator=(const EntryTypeVariable&);
+	bool operator==(const EntryTypeVariable&);
+	bool operator!=(const EntryTypeVariable&);
+
 	void setState(std::string);
 	void setState(const EntryTypeVariable&);
 	bool isInitialised(void) const;

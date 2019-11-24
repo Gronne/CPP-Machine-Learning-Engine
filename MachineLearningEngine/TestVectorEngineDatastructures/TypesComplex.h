@@ -1,6 +1,9 @@
 #pragma once
 #include "TypesComplexConstruct.h"
+#include "TypesComplexEqual.h"
+#include "TypesComplexEqualTo.h"
 #include "TypesComplexGetState.h"
 #include "TypesComplexIsInitialised.h"
+#include "TypesComplexNotEqualTo.h"
 #include "TypesComplexPrint.h"
 #include "TypesComplexSetState.h"

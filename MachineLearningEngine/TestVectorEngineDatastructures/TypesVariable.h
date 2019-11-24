@@ -1,6 +1,9 @@
 #pragma once
 #include "TypesVariableConstruct.h"
+#include "TypesVariableEqual.h"
+#include "TypesVariableEqualTo.h"
 #include "TypesVariableGetState.h"
 #include "TypesVariableIsInitialised.h"
+#include "TypesVariableNotEqualTo.h"
 #include "TypesVariablePrint.h"
 #include "TypesVariableSetState.h"

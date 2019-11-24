@@ -22,6 +22,22 @@ EntryTypeNumber::EntryTypeNumber(double value)
 	setState(value);
 }
 
+void EntryTypeNumber::operator=(const EntryTypeNumber &entry)
+{
+	this->_initialised = entry._initialised;
+	this->_state = entry._state;
+}
+
+bool EntryTypeNumber::operator==(const EntryTypeNumber &entry)
+{
+	return this->_state == entry._state && this->_initialised == entry._initialised;
+}
+
+bool EntryTypeNumber::operator!=(const EntryTypeNumber &entry)
+{
+	return this->_state != entry._state || this->_initialised != entry._initialised;
+}
+
 void EntryTypeNumber::setState(double state)
 {
 	_state = state;

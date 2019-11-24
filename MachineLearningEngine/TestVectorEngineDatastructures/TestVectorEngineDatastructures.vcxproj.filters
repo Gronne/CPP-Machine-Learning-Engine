@@ -232,6 +232,75 @@
     <ClInclude Include="TypesNumberPrint.h">
       <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
     </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceConstructors.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorAddition.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorMultiplication.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorDivision.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorSubstraction.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceOperatorNotEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfacePrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceIsPossible.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceIsVariable.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceIsComplex.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceIsNumber.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceSameAs.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeInterfaceIsEmpty.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexEqual.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesComplexNotEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Complex</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableEqual.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesVariableNotEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberEqual.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesNumberNotEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">

@@ -25,14 +25,15 @@ public:
 	std::string print(void) const;
 	bool isPossible(void) const;
 	bool isEmpty(void) const;
+	bool isNumber(void) const;
 	bool isVariable(void) const;
 	bool isComplex(void) const;
 	bool sameAs(const EntryType&) const;
 
 private:
-	EntryTypeNumber _number = EntryTypeNumber();
-	EntryTypeComplex _complex = EntryTypeComplex();
-	EntryTypeVariable _variable = EntryTypeVariable();
+	EntryTypeNumber _number;
+	EntryTypeComplex _complex;
+	EntryTypeVariable _variable;
 
 	bool _isPossible;
 };
