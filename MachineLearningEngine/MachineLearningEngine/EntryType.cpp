@@ -310,5 +310,6 @@ bool EntryType::sameAs(const EntryType &entry) const
 {
 	return (this->_number == entry._number &&
 			this->_complex == entry._complex  &&
-			this->_variable == entry._variable);
+			this->_variable == entry._variable &&
+			this->isPossible() == this->isPossible());
 }
