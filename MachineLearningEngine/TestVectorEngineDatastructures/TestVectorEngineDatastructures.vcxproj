@@ -40,6 +40,10 @@
     <ClInclude Include="CoreTensorInterface.h" />
     <ClInclude Include="CoreTensorMemory.h" />
     <ClInclude Include="EntryTypeCalculation.h" />
+    <ClInclude Include="EntryTypeCalculationCalculation.h" />
+    <ClInclude Include="EntryTypeCalculationConstructors.h" />
+    <ClInclude Include="EntryTypeCalculationGetState.h" />
+    <ClInclude Include="EntryTypeCalculationInvertCalculation.h" />
     <ClInclude Include="EntryTypeFactory.h" />
     <ClInclude Include="EntryTypeInterfaceIsEmpty.h" />
     <ClInclude Include="EntryTypeInterface.h" />

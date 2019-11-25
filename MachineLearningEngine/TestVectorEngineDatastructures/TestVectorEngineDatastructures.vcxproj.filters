@@ -301,6 +301,18 @@
     <ClInclude Include="TypesNumberNotEqualTo.h">
       <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Types\Number</Filter>
     </ClInclude>
+    <ClInclude Include="EntryTypeCalculationCalculation.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeCalculationInvertCalculation.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeCalculationGetState.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeCalculationConstructors.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">
