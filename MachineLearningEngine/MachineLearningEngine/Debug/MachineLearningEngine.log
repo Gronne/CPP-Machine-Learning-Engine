@@ -1,3 +1,6 @@
-﻿  EntryTypeComplex.cpp
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\entrytypecomplex.cpp(75): warning C4018: '<=': signed/unsigned mismatch
+﻿  Source.cpp
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(28): warning C4101: 'SMO': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(31): warning C4101: 'GM': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(30): warning C4101: 'TM': unreferenced local variable
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\source.cpp(29): warning C4101: 'BMO': unreferenced local variable
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

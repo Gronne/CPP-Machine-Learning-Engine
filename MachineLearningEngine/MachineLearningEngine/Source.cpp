@@ -65,7 +65,7 @@ int main(int argc, char ** argv) {
 		EntryType number(NumberObject);
 
 
-		std::cout << (complex / number).print() << std::endl;
+		std::cout << ((EntryType()).print() == "") << std::endl;
 
 		
 

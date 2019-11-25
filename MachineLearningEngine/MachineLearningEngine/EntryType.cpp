@@ -270,11 +270,14 @@ bool EntryType::operator!=(const EntryType &entry) const
 
 std::string EntryType::print(void) const
 {
-	std::string entryTypeString;
+	std::string entryTypeString = "";
 
-	entryTypeString += _number.print();
-	entryTypeString += _complex.print();
-	entryTypeString += _variable.print();
+	if (isPossible())
+	{
+		entryTypeString += _number.print();
+		entryTypeString += _complex.print();
+		entryTypeString += _variable.print();
+	}
 
 	return entryTypeString;
 }
