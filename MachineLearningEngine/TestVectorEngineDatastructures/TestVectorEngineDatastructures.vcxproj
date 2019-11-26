@@ -45,6 +45,9 @@
     <ClInclude Include="EntryTypeCalculationGetState.h" />
     <ClInclude Include="EntryTypeCalculationInvertCalculation.h" />
     <ClInclude Include="EntryTypeFactory.h" />
+    <ClInclude Include="EntryTypeFactoryComplex.h" />
+    <ClInclude Include="EntryTypeFactoryNumber.h" />
+    <ClInclude Include="EntryTypeFactoryVariable.h" />
     <ClInclude Include="EntryTypeInterfaceIsEmpty.h" />
     <ClInclude Include="EntryTypeInterface.h" />
     <ClInclude Include="EntryTypeInterfaceConstructors.h" />

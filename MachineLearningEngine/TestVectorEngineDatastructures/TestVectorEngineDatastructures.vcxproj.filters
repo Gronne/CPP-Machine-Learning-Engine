@@ -313,6 +313,15 @@
     <ClInclude Include="EntryTypeCalculationConstructors.h">
       <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Calculation</Filter>
     </ClInclude>
+    <ClInclude Include="EntryTypeFactoryNumber.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeFactoryComplex.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryTypeFactoryVariable.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Factory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">
