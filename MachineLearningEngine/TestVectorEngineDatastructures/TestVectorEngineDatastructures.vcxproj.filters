@@ -358,6 +358,9 @@
     <ClInclude Include="CoreEntryOperatorNotEqualTo.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="CoreEntryCollaps.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">

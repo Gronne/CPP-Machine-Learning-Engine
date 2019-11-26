@@ -451,6 +451,22 @@ const Matrix & Matrix::operator=(const Matrix & obj)
 	return obj;
 }
 
+const Matrix & Matrix::operator=(std::vector<double> vectorArray)
+{
+	if (vectorArray.size() != getNumberOfRows() * getNumberOfColumns())
+		throw std::exception("Elements isn't equal to number of matrix entries");
+
+	for (size_t index = 0; index < vectorArray.size(); ++index)
+	{
+		int row = (index / getNumberOfColumns()) % getNumberOfRows();
+		int column = index % getNumberOfColumns();
+
+		setEntry(row, column, vectorArray[index]);
+	}
+		
+	return *this;
+}
+
 bool Matrix::operator==(const Matrix &obj) const
 {
 	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
@@ -463,6 +479,11 @@ bool Matrix::operator==(const Matrix &obj) const
 	return true;
 }
 
+bool Matrix::operator!=(const Matrix &obj) const
+{
+	return !(*this == obj);
+}
+
 bool Matrix::operator<(const Matrix &matrix) const
 {
 	return (decideMatrixSize(*this) < decideMatrixSize(matrix));
@@ -473,43 +494,59 @@ bool Matrix::operator>(const Matrix &matrix) const
 	return (decideMatrixSize(*this) > decideMatrixSize(matrix));
 }
 
+
 bool Matrix::operator<=(const Matrix &matrix) const 
 {
 	return (decideMatrixSize(*this) <= decideMatrixSize(matrix));
 }
+
 
 bool Matrix::operator>=(const Matrix &matrix) const
 {
 	return (decideMatrixSize(*this) >= decideMatrixSize(matrix));
 }
 
-bool Matrix::operator!=(const Matrix &obj) const
+void Matrix::operator+=(const Matrix &matrix)
 {
-	if (obj.getNumberOfColumns() != getNumberOfColumns() || obj.getNumberOfRows() != getNumberOfRows())
-		return true;
-
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t col = 0; col < getNumberOfColumns(); ++col)
-			if (getEntry(row, col) != obj.getEntry(row, col))
-				return true;
-	return false;
-}
-
-void Matrix::operator+=(const Matrix &obj)
-{
-	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
-		throw std::exception("Matrix dimensions does not comply");
-
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t column = 0; column < getNumberOfColumns(); ++column)
-			setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
+	*this = *this + matrix;
 }
 
 void Matrix::operator+=(const double value)
 {
+	*this = *this + value;
+}
+
+//------------------------------------------------------------------------------
+//Matrix Addition Documentation: Documentation - Matrix- Addition
+//------------------------------------------------------------------------------
+Matrix & Matrix::operator+(const Matrix & matrix)
+{
+	if (matrix.getNumberOfRows() != getNumberOfRows() || matrix.getNumberOfColumns() != getNumberOfColumns())
+		throw std::exception("Matrix dimensions does not comply");
+
+	Matrix *returnmatrix = new Matrix(*this);
+
 	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t col = 0; col < getNumberOfColumns(); ++col)
-			setEntry(row, col, getEntry(row, col) + value);
+		for (size_t column = 0; column < getNumberOfColumns(); ++column)
+		{
+			double entryValue_1 = getEntry(row, column);
+			double entryValue_2 = matrix.getEntry(row, column);
+
+			returnmatrix->setEntry(row, column, entryValue_1 + entryValue_2);
+		}
+			
+	return *returnmatrix;
+}
+
+Matrix & Matrix::operator+(const double value)
+{
+	Matrix *returnObj = new Matrix(*this);
+
+	for (size_t row = 0; row < returnObj->getNumberOfRows(); ++row)
+		for (size_t col = 0; col < returnObj->getNumberOfColumns(); ++col)
+			returnObj->setEntry(row, col, getEntry(row, col) + value);
+
+	return *returnObj;
 }
 
 void Matrix::operator-=(const Matrix &obj)
@@ -540,32 +577,6 @@ void Matrix::operator*=(const Matrix &obj)
 void Matrix::operator*=(const double value)
 {
 	scale(value);
-}
-
-//------------------------------------------------------------------------------
-//Matrix Addition Documentation: Documentation - Matrix- Addition
-//------------------------------------------------------------------------------
-Matrix & Matrix::operator+(const Matrix & obj)
-{
-	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
-		throw std::exception("Matrix dimensions does not comply");
-
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t column = 0; column < getNumberOfColumns(); ++column)
-			returnObj->setEntry(row, column, getEntry(row, column) + obj.getEntry(row, column));
-	return *returnObj;
-}
-
-Matrix & Matrix::operator+(const double value)
-{
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-
-	for (size_t row = 0; row < returnObj->getNumberOfRows(); ++row)
-		for (size_t col = 0; col < returnObj->getNumberOfColumns(); ++col)
-			returnObj->setEntry(row, col, getEntry(row, col) + value);
-	return *returnObj;
 }
 
 Matrix & Matrix::operator-(const Matrix & obj)
@@ -636,16 +647,6 @@ Matrix & Matrix::operator/(const double value) const
 	returnObj->scale(1 / value);
 
 	return *returnObj;
-}
-
-const Matrix & Matrix::operator=(std::vector<double> vectorArray)
-{
-	if (vectorArray.size() != getNumberOfRows() * getNumberOfColumns())
-		throw std::exception("Elements isn't equal to number of matrix entries");
-
-	for (size_t index = 0; index < vectorArray.size(); ++index)
-		setEntry((index/getNumberOfColumns()) % getNumberOfRows(), index % getNumberOfColumns(), vectorArray[index]);
-	return *this;
 }
 
 
@@ -782,7 +783,10 @@ double Matrix::decideMatrixSize(const Matrix &matrix) const
 
 	for (size_t row = 0; row < matrix.getNumberOfRows(); ++row)
 		for (size_t col = 0; col < matrix.getNumberOfColumns(); ++col)
-			returnvalue += (matrix.getEntry(row, col) > 0) ? matrix.getEntry(row, col) : -matrix.getEntry(row, col);
+		{
+			double entryValue = matrix.getEntry(row, col);
+			returnvalue += (entryValue > 0) ? entryValue : -entryValue;
+		}
 	
 	return returnvalue;
 }

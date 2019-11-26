@@ -46,26 +46,32 @@ public:
 	Matrix& sort(int = 0, bool = 0, int = 0);
 	Matrix& sort(int = 0, bool = 0, int = 0) const;
 
+
 	const Matrix& operator=(const Matrix&);
 	const Matrix& operator=(std::vector<double>);
 	bool operator==(const Matrix&) const;
+	bool operator!=(const Matrix&) const;
+
 	bool operator<(const Matrix&) const;
 	bool operator>(const Matrix&) const;
 	bool operator<=(const Matrix&) const;
 	bool operator>=(const Matrix&) const;
-	bool operator!=(const Matrix&) const;
+
 	void operator+=(const Matrix&);
 	void operator+=(const double);
-	void operator-=(const Matrix&);
-	void operator-=(const double);
-	void operator*=(const Matrix&);
-	void operator*=(const double);
 	Matrix& operator+(const Matrix&);
 	Matrix& operator+(const double);
+
+	void operator-=(const Matrix&);
+	void operator-=(const double);
 	Matrix& operator-(const Matrix&);
 	Matrix& operator-(const double);
+
+	void operator*=(const Matrix&);
+	void operator*=(const double);
 	Matrix& operator*(const double);
 	Matrix& operator*(const Matrix&) const;
+
 	Matrix& operator/(const double);
 	Matrix& operator/(const double) const;
 
