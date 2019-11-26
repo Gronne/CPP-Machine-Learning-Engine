@@ -33,9 +33,20 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="CoreEntryConstructor.h" />
     <ClInclude Include="CoreEntryEntryType.h" />
     <ClInclude Include="CoreEntryFactory.h" />
     <ClInclude Include="CoreEntryInterface.h" />
+    <ClInclude Include="CoreEntryIsLeaf.h" />
+    <ClInclude Include="CoreEntryNotEqualTo.h" />
+    <ClInclude Include="CoreEntryOperatorDivision.h" />
+    <ClInclude Include="CoreEntryOperatorEqual.h" />
+    <ClInclude Include="CoreEntryOperatorEqualTo.h" />
+    <ClInclude Include="CoreEntryOperatorMultiplication.h" />
+    <ClInclude Include="CoreEntryOperatorPrint.h" />
+    <ClInclude Include="CoreEntryOperatorSubstraction.h" />
+    <ClInclude Include="CoreEntryPrint.h" />
+    <ClInclude Include="CoreEntryReplace.h" />
     <ClInclude Include="CoreTensorCoreEntry.h" />
     <ClInclude Include="CoreTensorInterface.h" />
     <ClInclude Include="CoreTensorMemory.h" />
@@ -62,6 +73,7 @@
     <ClInclude Include="EntryTypeInterfaceOperatorNotEqualTo.h" />
     <ClInclude Include="EntryTypeInterfacePrint.h" />
     <ClInclude Include="EntryTypeInterfaceSameAs.h" />
+    <ClInclude Include="CoreEntryOperatorAddition.h" />
     <ClInclude Include="EntryTypeTypes.h" />
     <ClInclude Include="EntryTypeInterfaceOperatorSubstraction.h" />
     <ClInclude Include="MatrixGetsGetColumnsTest.h" />

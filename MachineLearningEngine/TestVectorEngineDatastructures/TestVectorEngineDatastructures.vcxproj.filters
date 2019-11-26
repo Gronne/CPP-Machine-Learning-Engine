@@ -322,6 +322,42 @@
     <ClInclude Include="EntryTypeFactoryVariable.h">
       <Filter>Tensor\CoreTensor\CoreEntry\EntryType\Factory</Filter>
     </ClInclude>
+    <ClInclude Include="CoreEntryConstructor.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorSubstraction.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorMultiplication.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorEqual.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorDivision.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorPrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryIsLeaf.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryPrint.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryReplace.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryOperatorAddition.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryNotEqualTo.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">

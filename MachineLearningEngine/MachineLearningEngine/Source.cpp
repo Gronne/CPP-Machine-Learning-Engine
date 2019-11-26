@@ -58,15 +58,10 @@ int main(int argc, char ** argv) {
 
 		*/
 
-		EntryTypeComplex ComplexObject(0);
-		EntryTypeNumber NumberObject(0);
+		CoreEntry object_1(EntryFactory::Number(5));
+		CoreEntry object_2(object_1);
 
-		EntryType complex(ComplexObject);
-		EntryType number(NumberObject);
-
-
-		std::cout << ((EntryType()).print() == "") << std::endl;
-
+		object_1 == object_2;
 		
 
 	}

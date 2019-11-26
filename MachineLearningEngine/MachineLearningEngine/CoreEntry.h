@@ -15,6 +15,7 @@ public:
 	CoreEntry operator=(const EntryType&);
 	CoreEntry operator=(const CoreEntry&);
 	bool operator==(const CoreEntry&);
+	bool operator!=(const CoreEntry&);
 	CoreEntry operator+(const CoreEntry&) const;
 	void operator+=(const CoreEntry&);
 	CoreEntry operator-(const CoreEntry&) const;

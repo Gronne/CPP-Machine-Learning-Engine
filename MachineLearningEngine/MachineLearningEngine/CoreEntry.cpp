@@ -12,7 +12,11 @@ CoreEntry::CoreEntry()
 CoreEntry::CoreEntry(const EntryType &entry)
 {
 	resetTree();
-	setLeaf(entry);
+
+	if (entry.isPossible())
+		setLeaf(entry);
+	else
+		setLeaf(EntryFactory::Number(0));
 }
 
 CoreEntry::CoreEntry(const CoreEntry &newCoreEntry)	
@@ -46,8 +50,30 @@ CoreEntry CoreEntry::operator=(const CoreEntry &newCoreEntry)
 
 bool CoreEntry::operator==(const CoreEntry &entry)
 {
-	throw std::exception("Not Implemented yet, don't know how to determine equality");
-	return false;
+	if (this == NULL && &entry == NULL)
+		return true;
+	else if (this != NULL && &entry == NULL)
+		return false;
+	else if (this == NULL && &entry != NULL)
+		return false;
+
+	bool leafComparison = this->_leafEntry == entry._leafEntry;
+
+	bool calculationComparison = this->_calculation.getState() == entry._calculation.getState();
+	bool leftNodeComparison = *this->_leftEntries == *entry._leftEntries;
+	bool rightNodeComparison = *this->_rightEntries == *entry._rightEntries;
+
+	if (this->isLeaf() == true && entry.isLeaf() == true)
+		return leafComparison;
+	else if (this->isLeaf() != entry.isLeaf())
+		return false;
+	else
+		return calculationComparison && leftNodeComparison && rightNodeComparison;
+}
+
+bool CoreEntry::operator!=(const CoreEntry &entry)
+{
+	return (*this == entry) == false;
 }
 
 CoreEntry CoreEntry::operator+(const CoreEntry &entry) const
