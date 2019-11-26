@@ -355,7 +355,7 @@
     <ClInclude Include="CoreEntryOperatorAddition.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="CoreEntryNotEqualTo.h">
+    <ClInclude Include="CoreEntryOperatorNotEqualTo.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
   </ItemGroup>

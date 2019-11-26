@@ -38,7 +38,7 @@
     <ClInclude Include="CoreEntryFactory.h" />
     <ClInclude Include="CoreEntryInterface.h" />
     <ClInclude Include="CoreEntryIsLeaf.h" />
-    <ClInclude Include="CoreEntryNotEqualTo.h" />
+    <ClInclude Include="CoreEntryOperatorNotEqualTo.h" />
     <ClInclude Include="CoreEntryOperatorDivision.h" />
     <ClInclude Include="CoreEntryOperatorEqual.h" />
     <ClInclude Include="CoreEntryOperatorEqualTo.h" />

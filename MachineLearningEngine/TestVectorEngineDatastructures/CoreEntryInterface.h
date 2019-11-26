@@ -6,7 +6,7 @@
 #include "CoreEntryOperatorEqual.h"
 #include "CoreEntryOperatorEqualTo.h"
 #include "CoreEntryOperatorMultiplication.h"
-#include "CoreEntryNotEqualTo.h"
+#include "CoreEntryOperatorNotEqualTo.h"
 #include "CoreEntryOperatorPrint.h"
 #include "CoreEntryOperatorSubstraction.h"
 #include "CoreEntryPrint.h"
