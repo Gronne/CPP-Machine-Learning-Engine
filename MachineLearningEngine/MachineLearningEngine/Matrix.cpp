@@ -391,7 +391,7 @@ void Matrix::scale(double scaleingsFactor)
 {
 	for (size_t row = 0; row < getNumberOfRows(); ++row)
 		for (size_t column = 0; column < getNumberOfColumns(); ++column)
-			setEntry(row, column, scaleingsFactor * getEntry(row, column));
+			setEntry(row, column, getEntry(row, column) * scaleingsFactor);
 }
 
 
@@ -549,52 +549,38 @@ Matrix & Matrix::operator+(const double value)
 	return *returnObj;
 }
 
-void Matrix::operator-=(const Matrix &obj)
+void Matrix::operator-=(const Matrix &matrix)
 {
-	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
-		throw std::exception("Matrix dimensions does not comply");
-
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t column = 0; column < getNumberOfColumns(); ++column)
-			setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
+	*this = *this - matrix;
 }
 
 void Matrix::operator-=(const double value)
 {
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		for (size_t col = 0; col < getNumberOfColumns(); ++col)
-			setEntry(row, col, getEntry(row, col) - value);
+	*this = *this - value;
 }
 
-void Matrix::operator*=(const Matrix &obj)
+Matrix & Matrix::operator-(const Matrix & matrix)
 {
-	if (getNumberOfColumns() != obj.getNumberOfRows())
-		throw std::exception("Matrix Dimensions does not comply");
-
-	*this = multiplication(obj);
-}
-
-void Matrix::operator*=(const double value)
-{
-	scale(value);
-}
-
-Matrix & Matrix::operator-(const Matrix & obj)
-{
-	if (obj.getNumberOfRows() != getNumberOfRows() || obj.getNumberOfColumns() != getNumberOfColumns())
+	if (matrix.getNumberOfRows() != getNumberOfRows() || matrix.getNumberOfColumns() != getNumberOfColumns())
 		throw std::exception("Matrix dimensions does not comply");
 
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	Matrix *returnMatrix = new Matrix(*this);
 
 	for (size_t row = 0; row < getNumberOfRows(); ++row)
 		for (size_t column = 0; column < getNumberOfColumns(); ++column)
-			returnObj->setEntry(row, column, getEntry(row, column) - obj.getEntry(row, column));
-	return *returnObj;
+		{
+			double entryValue_1 = getEntry(row, column);
+			double entryValue_2 = matrix.getEntry(row, column);
+
+			returnMatrix->setEntry(row, column, entryValue_1 - entryValue_2);
+		}
+			
+	return *returnMatrix;
 }
 
 Matrix & Matrix::operator-(const double value)
 {
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	Matrix *returnObj = new Matrix(*this);
 
 	for (size_t row = 0; row < returnObj->getNumberOfRows(); ++row)
 		for (size_t col = 0; col < returnObj->getNumberOfColumns(); ++col)
@@ -602,25 +588,35 @@ Matrix & Matrix::operator-(const double value)
 	return *returnObj;
 }
 
+void Matrix::operator*=(const Matrix &matrix)
+{
+	*this = *this * matrix;
+}
+
+void Matrix::operator*=(const double value)
+{
+	*this = *this * value;
+}
+
+
 //------------------------------------------------------------------------------
 //Matrix Scale Documentation: Documentation - Matrix- Scale
 //------------------------------------------------------------------------------
 Matrix & Matrix::operator*(const double value)
 {
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	Matrix *returnMatrix = new Matrix(*this);
 
-	*returnObj = *this;
-	returnObj->scale(value);
+	returnMatrix->scale(value);
 
-	return *returnObj;
+	return *returnMatrix;
 }
 
-Matrix & Matrix::operator*(const Matrix &obj) const
+Matrix & Matrix::operator*(const Matrix &matrix) const
 {
-	if (getNumberOfColumns() != obj.getNumberOfRows())
+	if (getNumberOfColumns() != matrix.getNumberOfRows())
 		throw std::exception("Matrix Dimensions does not comply");
 
-	return multiplication(obj);
+	return multiplication(matrix);
 }
 
 Matrix & Matrix::operator/(const double value)
@@ -756,13 +752,20 @@ std::string Matrix::eraseZeros(std::string string) const
 //------------------------------------------------------------------------------
 //Matrix Multiplicaiton Documentation: Documentation - Matrix- Multiplication
 //------------------------------------------------------------------------------
-Matrix & Matrix::multiplication(const Matrix &obj) const
+Matrix & Matrix::multiplication(const Matrix &matrix) const
 {
-	Matrix *returnMatrix = new Matrix(getNumberOfRows(), obj.getNumberOfColumns());
+	Matrix *returnMatrix = new Matrix(getNumberOfRows(), matrix.getNumberOfColumns());
 
 	for (size_t row = 0; row < returnMatrix->getNumberOfRows(); ++row)
 		for (size_t column = 0; column < returnMatrix->getNumberOfColumns(); ++column)
-			returnMatrix->setEntry(row, column, vectorMultiplication(getRow(row), obj.getColumn(column)));
+		{
+			Matrix &&row_vec = &getRow(row);
+			Matrix &&column_vec = &matrix.getColumn(column);
+
+			double dot_product = vectorMultiplication(row_vec, column_vec);
+
+			returnMatrix->setEntry(row, column, dot_product);
+		}
 	
 	return *returnMatrix;
 }
