@@ -58,11 +58,11 @@ int main(int argc, char ** argv) {
 
 		*/
 
-		CoreEntry object_1(EntryFactory::Number(5));
-		CoreEntry object_2(object_1);
+		std::vector<int> a = { -1, 2, 3 };
+		std::vector<double> b(a.begin(), a.end());
 
-		object_1 == object_2;
-		
+		for (auto &element : b)
+			std::cout << element << std::endl;
 
 	}
 	catch (const std::exception ex)

@@ -52,7 +52,7 @@ int Matrix::getSmallestSize() const
 
 int Matrix::getLargestSize() const
 {
-	return ((getNumberOfColumns() > getNumberOfRows()) ? getNumberOfColumns() : getNumberOfRows());;
+	return ((getNumberOfColumns() > getNumberOfRows()) ? getNumberOfColumns() : getNumberOfRows());
 }
 
 
@@ -60,47 +60,34 @@ Matrix& Matrix::getRow(int row) const
 {
 	checkForInvalidRowOrColumn(row, 0);
 	
-	Matrix *resultMatrix = new Matrix();
-	constructRowMatrix(resultMatrix, 1);
+	Matrix *resultMatrix = new Matrix(1, this->getNumberOfColumns());
 	
 	insertRow(resultMatrix, 0, row);
 	return *resultMatrix;
 }
 
 
-Matrix& Matrix::getRow(std::vector<int> rows) const 
+Matrix& Matrix::getRow(std::vector<int> rows) const
 {
-	for (size_t row : rows)
-		checkForInvalidRowOrColumn(row, 0);
+	Matrix *matrix = new Matrix(rows.size(), this->getNumberOfColumns());
 
-	Matrix *resultMatrix = new Matrix();
-	constructRowMatrix(resultMatrix, rows.size());
-	
-	for (size_t rowCounter = 0; rowCounter < rows.size(); ++rowCounter)
-		insertRow(resultMatrix, rowCounter, rows[rowCounter]);
+	for (size_t row = 0; row < rows.size(); ++row)
+		matrix->setRow(row, this->getRow(rows[row]));
 
-	return *resultMatrix;
+	return *matrix;
 }
 
-Matrix & Matrix::getRow(const Matrix &rowsToGet) const
+Matrix & Matrix::getRow(const Matrix &rows) const
 {
-	if (rowsToGet.getNumberOfColumns() != 1 && rowsToGet.getNumberOfRows() != 1)
+	if (rows.getNumberOfColumns() != 1 && rows.getNumberOfRows() != 1)
 		throw std::exception("The matrix exceeds the requested number of rows or columns");
 	
 	std::vector<int> vec;
-	for (size_t row = 0; row < rowsToGet.getNumberOfRows(); ++row)
-		for (size_t col = 0; col < rowsToGet.getNumberOfColumns(); ++col)
-			vec.push_back(rowsToGet.getEntry(row, col));
+	for (size_t row = 0; row < rows.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < rows.getNumberOfColumns(); ++col)
+			vec.push_back(rows.getEntry(row, col));
 
 	return getRow(vec);
-}
-
-void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
-{
-	if (!_transposeFlag) 
-		resultMatrix->resizeMatrix(rows, _columns);
-	else 
-		resultMatrix->resizeMatrix(rows, _rows);
 }
 
 
@@ -123,26 +110,23 @@ Matrix& Matrix::getColumn(int column) const
 {
 	checkForInvalidRowOrColumn(0, column);
 
-	Matrix *resultMatrix = new Matrix();
-	constructColumnMatrix(resultMatrix, 1);
+	Matrix *resultMatrix = new Matrix(this->getNumberOfRows(), 1);
 
 	insertColumn(resultMatrix, 0, column);
+	return *resultMatrix;
+
 	return *resultMatrix;
 }
 
 
 Matrix& Matrix::getColumn(std::vector<int> columns) const 
 {
-	for (size_t column : columns)
-		checkForInvalidRowOrColumn(0, column);
+	Matrix *matrix = new Matrix(this->getNumberOfRows(), columns.size());
 
-	Matrix *resultMatrix = new Matrix();
-	constructColumnMatrix(resultMatrix, columns.size());
+	for (size_t column = 0; column < columns.size(); ++column)
+		matrix->setColumn(column, this->getColumn(columns[column]));
 
-	for (size_t columnCounter = 0; columnCounter < columns.size(); ++columnCounter)
-		insertColumn(resultMatrix, columnCounter, columns[columnCounter]);
-
-	return *resultMatrix;
+	return *matrix;
 }
 
 Matrix & Matrix::getColumn(const Matrix &columnToGet) const
@@ -156,15 +140,6 @@ Matrix & Matrix::getColumn(const Matrix &columnToGet) const
 			vec.push_back(columnToGet.getEntry(row, col));
 
 	return getColumn(vec);
-}
-
-
-void Matrix::constructColumnMatrix(Matrix *resultMatrix, int columns) const 
-{
-	if (!_transposeFlag) 
-		resultMatrix->resizeMatrix(_rows, columns);
-	else 
-		resultMatrix->resizeMatrix(_columns, columns);
 }
 
 
