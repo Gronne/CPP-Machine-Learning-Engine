@@ -86,6 +86,7 @@
     <ClInclude Include="MatrixGetsGetRowsTest.h" />
     <ClInclude Include="MatrixGetsGetRowTest.h" />
     <ClInclude Include="MatrixGetsGetSmallestSizeTest.h" />
+    <ClInclude Include="MatrixGetsGetSubMatrix.h" />
     <ClInclude Include="MatrixOperatorAdditionEqualOperatorTest.h" />
     <ClInclude Include="MatrixOperatorAdditionOperatorTest.h" />
     <ClInclude Include="MatrixOperatorDivisionEqualOperatorTest.h" />

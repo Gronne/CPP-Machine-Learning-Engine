@@ -9,3 +9,4 @@
 #include "MatrixGetsGetRowsTest.h"
 #include "MatrixGetsGetRowTest.h"
 #include "MatrixGetsGetSmallestSizeTest.h"
+#include "MatrixGetsGetSubMatrix.h"

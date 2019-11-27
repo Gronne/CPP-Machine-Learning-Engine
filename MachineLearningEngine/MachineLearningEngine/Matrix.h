@@ -23,6 +23,7 @@ public:
 	Matrix& getColumn(std::vector<int>) const;
 	Matrix& getColumn(const Matrix&) const;
 	double getEntry(int, int) const;
+	Matrix& getSubMatrix(int, int, int, int) const;
 	void setRow(int, const Matrix&);
 	void setRow(int, std::vector<double>);
 	void setColumn(int, const Matrix&);
@@ -87,8 +88,6 @@ private:
 	void checkForInvalidRowOrColumn(int, int) const;
 	void insertRow(Matrix *, int, int) const;
 	void insertColumn(Matrix *, int, int) const;
-	void constructRowMatrix(Matrix *, int) const;
-	void constructColumnMatrix(Matrix *, int) const;
 	void deleteMatrix();
 	double getWidestNumberInRow(int) const;
 	double numberWidth(double) const;

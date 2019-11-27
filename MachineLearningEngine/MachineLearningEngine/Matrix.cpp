@@ -293,6 +293,21 @@ double Matrix::getEntry(int row, int column) const
 	return (!_transposeFlag) ? _matrix[row][column] : _matrix[column][row];
 }
 
+Matrix & Matrix::getSubMatrix(int startRow, int startColumn, int rows, int columns) const
+{
+	checkForInvalidRowOrColumn(startRow, startColumn);
+	checkForInvalidRowOrColumn(startRow + rows - 1, startColumn + columns - 1);
+	checkForInvalidRowOrColumn(rows - 1, columns - 1);
+
+	Matrix *returnMatrix = new Matrix(rows, columns);
+
+	for (size_t row = 0; row < rows; ++row)
+		for (size_t column = 0; column < columns; ++column)
+			returnMatrix->setEntry(row, column, this->getEntry(startRow + row, startColumn + column));
+
+	return *returnMatrix;
+}
+
 
 void Matrix::setRow(int rowNumber, const Matrix &rowData)
 {
