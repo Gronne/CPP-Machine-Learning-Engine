@@ -2,6 +2,7 @@
 #define MATRIX_H
 
 #include <vector>
+#include <algorithm>
 #include "CoreEntry.h"
 #include "CoreEntryFactory.h"
 

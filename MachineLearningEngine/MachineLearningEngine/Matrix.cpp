@@ -209,29 +209,28 @@ void Matrix::deleteRow(int row)
 	delete matrix;
 }
 
+
 void Matrix::deleteRow(std::vector<int> rows)
 {
-	if (rows.size() == 0) return;
+	for (auto &row : rows)
+		checkForInvalidRowOrColumn(row, 0);
 
-	Matrix *matrix = new Matrix(rows.size(), 1);
+	std::sort(rows.begin(), rows.end(), std::greater<int>());
 
-	for (size_t row = 0; row < rows.size(); ++row)
-		matrix->setEntry(row, 0, rows[row]);
-
-	deleteRow(*matrix);
-	delete matrix;
+	for (auto &row : rows)
+		deleteRow(row);
 }
 
 void Matrix::deleteRow(const Matrix &rows)
 {
 	deleteExceptions(rows, 0);
 
-	Matrix *buffer = new Matrix();
-	*buffer = rows.sort(1, ((rows.getNumberOfRows() == 1) ? false : true), 0);
+	std::vector<int> vec;
+	for (size_t row = 0; row < rows.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < rows.getNumberOfColumns(); ++col)
+			vec.push_back(rows.getEntry(row, col));
 
-	for (size_t col = 0; col < rows.getNumberOfColumns(); ++col)
-		for (size_t row = 0; row < rows.getNumberOfRows(); ++row)
-			deleteRow(buffer->getEntry(row, col));
+	deleteRow(vec);
 }
 
 void Matrix::deleteColumn(int col)
@@ -246,29 +245,27 @@ void Matrix::deleteColumn(int col)
 	delete matrix;
 }
 
-void Matrix::deleteColumn(std::vector<int> columnVec)
+void Matrix::deleteColumn(std::vector<int> columns)
 {
-	if (columnVec.size() == 0) return;
+	for (auto &column : columns)
+		checkForInvalidRowOrColumn(0, column);
 
-	Matrix *matrix = new Matrix(columnVec.size(), 1);
+	std::sort(columns.begin(), columns.end(), std::greater<int>());
 
-	for (size_t row = 0; row < columnVec.size(); ++row)
-		matrix->setEntry(row, 0, columnVec[row]);
-
-	deleteColumn(*matrix);
-	delete matrix;
+	for (auto &column : columns)
+		deleteColumn(column);
 }
 
-void Matrix::deleteColumn(const Matrix &columnMat)
+void Matrix::deleteColumn(const Matrix &columns)
 {
-	deleteExceptions(columnMat, 1);
+	deleteExceptions(columns, 1);
 
-	Matrix *buffer = new Matrix();
-	*buffer = columnMat.sort(1, ((columnMat.getNumberOfRows() == 1) ? false : true), 0);
+	std::vector<int> vec;
+	for (size_t row = 0; row < columns.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < columns.getNumberOfColumns(); ++col)
+			vec.push_back(columns.getEntry(row, col));
 
-	for (size_t col = 0; col < columnMat.getNumberOfColumns(); ++col)
-		for (size_t row = 0; row < columnMat.getNumberOfRows(); ++row)
-			deleteColumn(buffer->getEntry(row, col));
+	deleteColumn(vec);
 }
 
 
