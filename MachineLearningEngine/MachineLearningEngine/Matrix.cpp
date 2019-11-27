@@ -351,16 +351,9 @@ void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 Matrix & Matrix::transpose(bool copyFlag)
 {
 	if (!copyFlag)
-	{
-		_transposeFlag = !_transposeFlag;
-		return *this;
-	}
+		return transpose();
 	else
-	{
-		Matrix *copy = new Matrix();
-		*copy = *this;
-		return copy->transpose();
-	}
+		return static_cast<const Matrix&>(this).transpose();
 }
 
 Matrix & Matrix::transpose()
@@ -371,8 +364,7 @@ Matrix & Matrix::transpose()
 
 Matrix & Matrix::transpose() const
 {
-	Matrix *copy = new Matrix();
-	*copy = *this;
+	Matrix *copy = new Matrix(this);
 	return copy->transpose();
 }
 
