@@ -619,17 +619,9 @@ Matrix & Matrix::operator*(const Matrix &matrix) const
 	return multiplication(matrix);
 }
 
-Matrix & Matrix::operator/(const double value)
+void Matrix::operator/=(const double value)
 {
-	if (value == 0)
-		throw std::exception("Not possible to divide by zero");
-
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
-
-	*returnObj = *this;
-	returnObj->scale(1/value);
-
-	return *returnObj;
+	*this = *this / value;
 }
 
 Matrix & Matrix::operator/(const double value) const
@@ -637,12 +629,10 @@ Matrix & Matrix::operator/(const double value) const
 	if (value == 0)
 		throw std::exception("Not possible to divide by zero");
 
-	Matrix *returnObj = new Matrix(getNumberOfRows(), getNumberOfColumns());
+	Matrix *returnMatrix = new Matrix(*this);
+	returnMatrix->scale(1 / value);
 
-	*returnObj = *this;
-	returnObj->scale(1 / value);
-
-	return *returnObj;
+	return *returnMatrix;
 }
 
 

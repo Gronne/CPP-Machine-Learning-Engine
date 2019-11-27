@@ -2,6 +2,7 @@
 
 #include "MatrixOperatorAdditionEqualOperatorTest.h"
 #include "MatrixOperatorAdditionOperatorTest.h"
+#include "MatrixOperatorDivisionEqualOperatorTest.h"
 #include "MatrixOperatorDivisionOperatorTest.h"
 #include "MatrixOperatorEqualEqualOperatorTest.h"
 #include "MatrixOperatorEqualOperatorTest.h"

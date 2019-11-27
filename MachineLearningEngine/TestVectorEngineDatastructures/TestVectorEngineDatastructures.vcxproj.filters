@@ -361,6 +361,9 @@
     <ClInclude Include="CoreEntryCollaps.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="MatrixOperatorDivisionEqualOperatorTest.h">
+      <Filter>Matrix\Operators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">
