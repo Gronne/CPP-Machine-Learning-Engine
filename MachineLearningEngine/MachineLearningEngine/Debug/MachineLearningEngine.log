@@ -6,70 +6,68 @@ c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\m
           [
               _Ty=int
           ]
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(109): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(146): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(147): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(148): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(117): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(155): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(156): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
           with
           [
               _Ty=int
           ]
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(165): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(181): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(243): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(244): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(245): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(280): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(281): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(282): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(315): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(327): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(339): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(351): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(392): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(393): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(475): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(476): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(529): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(530): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(545): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(546): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(569): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(570): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(585): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(586): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(642): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(655): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(665): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(707): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(708): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(173): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(195): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(257): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(258): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(259): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(294): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(295): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(296): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(329): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(350): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(395): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(396): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(478): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(479): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(532): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(533): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(548): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(549): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(572): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(573): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(588): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(589): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(645): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(658): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(668): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(710): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(711): warning C4244: 'argument': conversion from 'double' to '_Ty', possible loss of data
           with
           [
               _Ty=int
           ]
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(717): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(749): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(750): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(767): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(777): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(778): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(791): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(720): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(752): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(753): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(770): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(780): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(781): warning C4018: '<': signed/unsigned mismatch
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(794): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(802): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(797): warning C4018: '<': signed/unsigned mismatch
 c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(805): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(811): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(812): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(818): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(819): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(826): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(827): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(837): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(838): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(872): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(896): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(897): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(907): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(908): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(919): warning C4018: '<': signed/unsigned mismatch
-c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(920): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(808): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(814): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(815): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(821): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(822): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(829): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(830): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(840): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(841): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(875): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(899): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(900): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(910): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(911): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(922): warning C4018: '<': signed/unsigned mismatch
+c:\users\mathi\documents\github\ml\machinelearningengine\machinelearningengine\matrix.cpp(923): warning C4018: '<': signed/unsigned mismatch
   MachineLearningEngine.vcxproj -> C:\Users\mathi\Documents\GitHub\ML\MachineLearningEngine\Debug\MachineLearningEngine.exe

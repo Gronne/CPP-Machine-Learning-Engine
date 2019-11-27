@@ -104,6 +104,14 @@ void Matrix::constructRowMatrix(Matrix *resultMatrix, int rows) const
 }
 
 
+void Matrix::resizeMatrix(int rows, int columns)
+{
+	setRows(rows);
+	setColumns(columns);
+	constructMatrix();
+}
+
+
 void Matrix::insertRow(Matrix *setMatrix, int setMatrixRow, int getMatrixRow) const
 {
 	for (size_t column = 0; column < setMatrix->getNumberOfColumns(); ++column)
@@ -164,6 +172,12 @@ void Matrix::insertColumn(Matrix *setMatrix, int setMatrixColumn, int getMatrixC
 {
 	for (size_t row = 0; row < setMatrix->getNumberOfRows(); ++row)
 		setMatrix->setEntry(row, setMatrixColumn, getEntry(row, getMatrixColumn));
+}
+
+
+void Matrix::setMatrixSize(const Matrix &matrix)
+{
+	setMatrixSize(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
 }
 
 
@@ -319,13 +333,10 @@ void Matrix::setRow(int rowNumber, const Matrix &rowData)
 
 void Matrix::setRow(int rowNumber, std::vector<double> rowData)
 {
-	checkForInvalidRowOrColumn(rowNumber, rowData.size() - 1);
+	Matrix vec(1, rowData.size());
+	vec = rowData;
 
-	if (getNumberOfColumns() != rowData.size())
-		throw std::exception("Number of columns does not match the matrixs dimensions");
-
-	for (size_t column = 0; column < getNumberOfColumns(); ++column)
-		setEntry(rowNumber, column, rowData[column]);
+	setRow(rowNumber, vec);
 }
 
 
@@ -343,18 +354,10 @@ void Matrix::setColumn(int columnNumber, const Matrix &columnData)
 
 void Matrix::setColumn(int columnNumber, std::vector<double> columnData)
 {
-	checkForInvalidRowOrColumn(columnData.size() - 1, columnNumber);
+	Matrix vec(columnData.size(), 1);
+	vec = columnData;
 
-	if (getNumberOfRows() != columnData.size())
-		throw std::exception("Number of rows does not match the matrixs dimensions");
-
-	for (size_t row = 0; row < getNumberOfRows(); ++row)
-		setEntry(row, columnNumber, columnData[row]);
-}
-
-void Matrix::setMatrixSize(const Matrix &matrix)
-{
-	setMatrixSize(matrix.getNumberOfRows(), matrix.getNumberOfColumns());
+	setColumn(columnNumber, vec);
 }
 
 
@@ -1002,13 +1005,6 @@ void Matrix::setColumns(int columns)
 		(columns > 0) ? _rows = columns : throw std::exception("Not possible with minus rows");
 }
 
-
-void Matrix::resizeMatrix(int rows, int columns)
-{
-	setRows(rows);
-	setColumns(columns);
-	constructMatrix();
-}
 
 std::ostream & operator<<(std::ostream &out, const Matrix &matrix)
 {

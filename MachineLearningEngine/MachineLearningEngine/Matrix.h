@@ -24,8 +24,8 @@ public:
 	Matrix& getColumn(const Matrix&) const;
 	double getEntry(int, int) const;
 	void setRow(int, const Matrix&);
-	void setColumn(int, const Matrix&);
 	void setRow(int, std::vector<double>);
+	void setColumn(int, const Matrix&);
 	void setColumn(int, std::vector<double>);
 	void setMatrixSize(const Matrix&);
 	void setMatrixSize(int, int);
