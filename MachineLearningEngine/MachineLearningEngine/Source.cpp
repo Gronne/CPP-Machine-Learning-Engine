@@ -23,7 +23,6 @@ typedef long int li;
 
 
 int main(int argc, char ** argv) {
-	std::cout << "hello" << std::endl;
 
 	SimpleMatrixOperations SMO;
 	BasicMatrixOperations BMO;
@@ -58,11 +57,16 @@ int main(int argc, char ** argv) {
 
 		*/
 
-		std::vector<int> a = { -1, 2, 3 };
-		std::vector<double> b(a.begin(), a.end());
+		CoreEntry complex(EntryFactory::Complex(5));
+		CoreEntry variable(EntryFactory::Variable("a"));
+		CoreEntry number(EntryFactory::Number(10));
 
-		for (auto &element : b)
-			std::cout << element << std::endl;
+		CoreEntry object((number * variable) + number);
+
+		CoreEntry result((number * complex) + number);
+
+		std::cout << object.print() << std::endl;
+		std::cout << result.print() << std::endl;
 
 	}
 	catch (const std::exception ex)

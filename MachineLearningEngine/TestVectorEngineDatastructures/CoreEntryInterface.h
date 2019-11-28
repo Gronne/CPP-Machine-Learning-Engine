@@ -1,4 +1,5 @@
 #pragma once
+#include "CoreEntryCollapsLeafLeaf.h"
 #include "CoreEntryConstructor.h"
 #include "CoreEntryIsLeaf.h"
 #include "CoreEntryOperatorAddition.h"

@@ -33,7 +33,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
-    <ClInclude Include="CoreEntryCollaps.h" />
+    <ClInclude Include="CoreEntryCollapsLeafLeaf.h" />
     <ClInclude Include="CoreEntryConstructor.h" />
     <ClInclude Include="CoreEntryEntryType.h" />
     <ClInclude Include="CoreEntryFactory.h" />

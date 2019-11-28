@@ -40,7 +40,12 @@ Matrix & SimpleMatrixOperations::hadamard(Matrix &matrixA, Matrix &matrixB)
 
 	for (size_t row = 0; row < matrixA.getNumberOfRows(); ++row)
 		for (size_t column = 0; column < matrixA.getNumberOfColumns(); ++column)
-			result->setEntry(row, column, matrixA.getEntry(row, column) * matrixB.getEntry(row, column));
+		{
+			double entry_MA = matrixA.getEntry(row, column);
+			double entry_MB = matrixB.getEntry(row, column);
+
+			result->setEntry(row, column, entry_MA * entry_MB);
+		}
 
 	return *result;
 }
@@ -149,12 +154,6 @@ double SimpleMatrixOperations::calculateVectorLength(const Matrix &matrix)
 	return sqrt(buffer);
 }
 
-void SimpleMatrixOperations::shiftInverseEntries(Matrix &inverseMatrix)
-{
-	for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
-		for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
-			inverseMatrix.setEntry(row, col, inverseMatrix.getEntry(row, col) * (((row + col) % 2) ? -1 : 1));
-}
 
 Matrix& SimpleMatrixOperations::calculateInverse(const Matrix &matrix, double det)
 {
@@ -175,6 +174,13 @@ void SimpleMatrixOperations::setInverseMatrix(const Matrix &matrix, Matrix &inve
 		for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
 			for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
 				setDeterminantEntry(matrix, inverseMatrix, row, col);
+}
+
+void SimpleMatrixOperations::shiftInverseEntries(Matrix &inverseMatrix)
+{
+	for (size_t row = 0; row < inverseMatrix.getNumberOfRows(); ++row)
+		for (size_t col = 0; col < inverseMatrix.getNumberOfColumns(); ++col)
+			inverseMatrix.setEntry(row, col, inverseMatrix.getEntry(row, col) * (((row + col) % 2) ? -1 : 1));
 }
 
 void SimpleMatrixOperations::inverseExceptions(const Matrix &matrix, double det)

@@ -358,14 +358,14 @@
     <ClInclude Include="CoreEntryOperatorNotEqualTo.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="CoreEntryCollaps.h">
-      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="MatrixOperatorDivisionEqualOperatorTest.h">
       <Filter>Matrix\Operators</Filter>
     </ClInclude>
     <ClInclude Include="MatrixGetsGetSubMatrix.h">
       <Filter>Matrix\Gets</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryCollapsLeafLeaf.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
