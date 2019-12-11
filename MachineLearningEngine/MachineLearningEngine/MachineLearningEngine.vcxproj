@@ -143,6 +143,8 @@
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MatrixRREF.cpp" />
     <ClCompile Include="NextMemory.cpp" />
+    <ClCompile Include="Regression.cpp" />
+    <ClCompile Include="RegressionPart.cpp" />
     <ClCompile Include="SimpleMatrixOperations.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TypeMatrix.cpp" />
@@ -174,6 +176,8 @@
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MatrixRREF.h" />
     <ClInclude Include="NextMemory.h" />
+    <ClInclude Include="Regression.h" />
+    <ClInclude Include="RegressionPart.h" />
     <ClInclude Include="SimpleMatrixOperations.h" />
     <ClInclude Include="TypeMatrix.h" />
     <ClInclude Include="VectorEngineDatastructures.h" />

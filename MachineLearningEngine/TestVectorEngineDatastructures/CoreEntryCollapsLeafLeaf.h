@@ -543,3 +543,126 @@ TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_variable_multiplication_m
 	EXPECT_TRUE(object == result);
 	EXPECT_TRUE(object.isLeaf() == false);
 }
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroNumber_addition_complex)
+{
+	CoreEntry number(EntryFactory::Number(0));
+	CoreEntry complex(EntryFactory::Complex(5));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number + complex);
+
+	CoreEntry result(complex);
+
+
+	EXPECT_TRUE(object == result);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroNumber_addition_variable)
+{
+	CoreEntry number(EntryFactory::Number(0));
+	CoreEntry complex(EntryFactory::Complex(5));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number + variable);
+
+	CoreEntry result(variable);
+
+
+	EXPECT_TRUE(object == result);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroNumber_multiplication_complex)
+{
+	CoreEntry number(EntryFactory::Number(0));
+	CoreEntry complex(EntryFactory::Complex(5));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number * complex);
+
+	CoreEntry result(number);
+
+
+	EXPECT_TRUE(object == result);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroNumber_multiplication_variable)
+{
+	CoreEntry number(EntryFactory::Number(0));
+	CoreEntry complex(EntryFactory::Complex(5));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number * variable);
+
+	CoreEntry result(number);
+
+
+	EXPECT_TRUE(object == result);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroComplex_addition_number)
+{
+	CoreEntry number(EntryFactory::Number(5));
+	CoreEntry complex(EntryFactory::Complex(0));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number + complex);
+
+	CoreEntry result(number);
+
+
+	EXPECT_TRUE(object == result);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroComplex_addition_variable)
+{
+	CoreEntry number(EntryFactory::Number(5));
+	CoreEntry complex(EntryFactory::Complex(0));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(complex + variable);
+
+	CoreEntry result(variable);
+
+
+	EXPECT_TRUE(object == result);
+	EXPECT_TRUE(object.isLeaf() == false);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroComplex_multiplication_number)
+{
+	CoreEntry number(EntryFactory::Number(5));
+	CoreEntry complex(EntryFactory::Complex(0));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(number * complex);
+
+	CoreEntry result(EntryFactory::Number(0));
+
+
+	EXPECT_TRUE(object == result);
+	EXPECT_TRUE(object.isLeaf() == false);
+}
+
+
+TEST(TensorCoreTensorCoreEntryCollapsLeafLeaf, Collaps_zeroComplex_multiplication_variable)
+{
+	CoreEntry number(EntryFactory::Number(5));
+	CoreEntry complex(EntryFactory::Complex(0));
+	CoreEntry variable(EntryFactory::Variable("a"));
+
+	CoreEntry object(variable * complex);
+
+	CoreEntry result(EntryFactory::Number(0));
+
+
+	EXPECT_TRUE(object == result);
+	EXPECT_TRUE(object.isLeaf() == false);
+}

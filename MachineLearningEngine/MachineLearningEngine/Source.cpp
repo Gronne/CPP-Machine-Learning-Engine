@@ -15,6 +15,8 @@
 #include "ClusterMemory.h"
 #include "NextMemory.h"
 #include "AllMemory.h"
+#include "RegressionPart.h"
+#include "Regression.h"
 
 typedef long int li;
 
@@ -36,37 +38,31 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		/*
+		RegressionPart part1(1, "110");
+		RegressionPart part3(1, "000");
+		RegressionPart part5(2, "010");
+		RegressionPart part6(1, "001");
+		RegressionPart part7(4, "011");
 
-		std::cout << "Start: " << std::endl << std::endl;
+		Matrix matrix(3, 10);
+		matrix = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+					11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+					21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
 
-		CoreEntry A = CoreEntryFactory::Number(5) + CoreEntryFactory::Complex(6);
-		CoreEntry B = CoreEntryFactory::Variable("A") + CoreEntryFactory::Complex(5);
-		std::cout << A << std::endl;
-		std::cout << B << std::endl;
+		std::cout << matrix << std::endl << std::endl;
 
-		A += B;
+		Regression regression;
+		regression.addPartLeft(part3);
+		regression.addPartLeft(part1);
+		regression.addPartLeft(part5);
 
-		std::cout << A << std::endl;
+		regression.addPartRight(part6);
+		regression.addPartRight(part7);
 
-		A.replace(CoreEntryFactory::Variable("A"), CoreEntryFactory::Number(5));
+		std::cout << regression.print() << std::endl;
 
-		A *= CoreEntryFactory::Complex(2);
-
-		std::cout << A << std::endl;
-
-		*/
-
-		CoreEntry complex(EntryFactory::Complex(5));
-		CoreEntry variable(EntryFactory::Variable("a"));
-		CoreEntry number(EntryFactory::Number(10));
-
-		CoreEntry object((number * variable) + number);
-
-		CoreEntry result((number * complex) + number);
-
-		std::cout << object.print() << std::endl;
-		std::cout << result.print() << std::endl;
+		regression.fitData(matrix);
+		std::cout << regression.print() << std::endl;
 
 	}
 	catch (const std::exception ex)

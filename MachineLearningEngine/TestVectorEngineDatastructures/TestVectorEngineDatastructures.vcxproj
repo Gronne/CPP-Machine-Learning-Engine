@@ -34,6 +34,9 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="CoreEntryCollapsLeafLeaf.h" />
+    <ClInclude Include="CoreEntryCollapsLeafTree.h" />
+    <ClInclude Include="CoreEntryCollapsTreeLeaf.h" />
+    <ClInclude Include="CoreEntryCollapsTreeTree.h" />
     <ClInclude Include="CoreEntryConstructor.h" />
     <ClInclude Include="CoreEntryEntryType.h" />
     <ClInclude Include="CoreEntryFactory.h" />

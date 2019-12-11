@@ -367,6 +367,15 @@
     <ClInclude Include="CoreEntryCollapsLeafLeaf.h">
       <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="CoreEntryCollapsLeafTree.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryCollapsTreeLeaf.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreEntryCollapsTreeTree.h">
+      <Filter>Tensor\CoreTensor\CoreEntry\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Matrix">

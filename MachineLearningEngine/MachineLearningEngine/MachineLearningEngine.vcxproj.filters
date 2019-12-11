@@ -109,6 +109,12 @@
     <Filter Include="Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core\Memory\MemoryTypes">
       <UniqueIdentifier>{80aec3f2-bfde-4ad8-84a6-cd6875753939}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\VectorEngine\Regression">
+      <UniqueIdentifier>{0422c3f6-a454-4c1d-a161-eaceeb788741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\VectorEngine\Regression">
+      <UniqueIdentifier>{b8a22fca-a39e-4c79-8fae-68f846e66892}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Matrix.cpp">
@@ -198,6 +204,12 @@
     <ClCompile Include="CoreTensor.cpp">
       <Filter>Source Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
     </ClCompile>
+    <ClCompile Include="Regression.cpp">
+      <Filter>Source Files\VectorEngine\Regression</Filter>
+    </ClCompile>
+    <ClCompile Include="RegressionPart.cpp">
+      <Filter>Source Files\VectorEngine\Regression</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleMatrixOperations.h">
@@ -283,6 +295,12 @@
     </ClInclude>
     <ClInclude Include="CoreTensor.h">
       <Filter>Header Files\VectorEngine\vectorDatastructures\NewMatrix\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Regression.h">
+      <Filter>Header Files\VectorEngine\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="RegressionPart.h">
+      <Filter>Header Files\VectorEngine\Regression</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
