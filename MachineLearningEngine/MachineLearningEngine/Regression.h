@@ -14,9 +14,9 @@ public:
 
 	void addPartLeft(RegressionPart part);
 	void addPartRight(RegressionPart part);
-	void fitData(Matrix data);
 
-	void calculate(Matrix vector);
+	void fitData(Matrix& data);
+	double calculateValue(Matrix&, int = 0);
 
 	std::string print(void);
 
@@ -36,7 +36,7 @@ private:
 	std::vector<RegressionPart> _partsLeft;
 	std::vector<RegressionPart> _partsRight;
 
-	Matrix _alphaValues = new Matrix;
+	Matrix *_alphaValues = new Matrix;
 	bool _resultsInitialised = false;
 };
 

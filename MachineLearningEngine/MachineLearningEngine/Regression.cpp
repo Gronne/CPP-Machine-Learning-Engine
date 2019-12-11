@@ -23,14 +23,14 @@ void Regression::addPartRight(RegressionPart part)
 	this->_resultsInitialised = false;
 }
 
-void Regression::fitData(Matrix data)
+void Regression::fitData(Matrix &data)
 {
 	Matrix *leftData = new Matrix(1, 1);
 	Matrix *rightData = new Matrix(1, 1);
 	*leftData = createDataFit(_partsLeft, data);
 	*rightData = createDataFit(_partsRight, data);
 
-	this->_alphaValues = leastSquareMethod(*leftData, *rightData);
+	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
 	this->_resultsInitialised = true;
 
 	std::cout << _alphaValues << std::endl;
@@ -71,10 +71,22 @@ Matrix & Regression::leastSquareMethod(Matrix &leftData, Matrix &rightData)
 }
 
 
-void Regression::calculate(Matrix vector)
+double Regression::calculateValue(Matrix &vector, int resultNr)
 {
 	if (_resultsInitialised == false)
 		throw std::exception("No data fitted to the current version of the regression");
+
+	double accumulatedValue = 0;
+
+	for (size_t partNr = 0; partNr < this->_partsLeft.size(); ++partNr)
+	{
+		double alphaValue = getAlphaValue(resultNr, partNr);
+		double partValue  = this->_partsLeft[partNr].calculateValue(vector);
+		
+		accumulatedValue +=  alphaValue * partValue;
+	}
+
+	return accumulatedValue;
 }
 
 
@@ -142,7 +154,7 @@ std::string Regression::getAlphaString(int solutionNr, int partNr)
 
 double Regression::getAlphaValue(int solutionNr, int partNr)
 {
-	return _alphaValues.getEntry(partNr, solutionNr);
+	return _alphaValues->getEntry(partNr, solutionNr);
 }
 
 

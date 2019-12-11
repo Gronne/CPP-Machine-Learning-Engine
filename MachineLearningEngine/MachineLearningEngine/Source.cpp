@@ -64,6 +64,8 @@ int main(int argc, char ** argv) {
 		regression.fitData(matrix);
 		std::cout << regression.print() << std::endl;
 
+		std::cout << regression.calculateValue(matrix.getColumn(1)) << std::endl;
+
 	}
 	catch (const std::exception ex)
 	{
