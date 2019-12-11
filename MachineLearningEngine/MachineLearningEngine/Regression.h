@@ -10,12 +10,15 @@ class Regression
 {
 public:
 	Regression();
+	Regression(Regression&);
 	~Regression();
 
 	void addPartLeft(RegressionPart part);
 	void addPartRight(RegressionPart part);
 
 	void fitData(Matrix& data);
+	void fitData(Matrix& trainingData, Matrix& resultData);
+
 	double calculateValue(Matrix&, int = 0);
 
 	std::string print(void);

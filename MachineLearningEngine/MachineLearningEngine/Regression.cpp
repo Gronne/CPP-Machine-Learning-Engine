@@ -6,6 +6,14 @@ Regression::Regression()
 {
 }
 
+Regression::Regression(Regression &regression)
+{
+	*this->_alphaValues = regression._alphaValues;
+	this->_resultsInitialised = regression._resultsInitialised;
+	this->_partsLeft = regression._partsLeft;
+	this->_partsLeft = regression._partsRight;
+}
+
 
 Regression::~Regression()
 {
@@ -33,7 +41,19 @@ void Regression::fitData(Matrix &data)
 	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
 	this->_resultsInitialised = true;
 
-	std::cout << _alphaValues << std::endl;
+	delete leftData;
+	delete rightData;
+}
+
+void Regression::fitData(Matrix & trainingData, Matrix & resultData)
+{
+	Matrix *leftData = new Matrix(1, 1);
+	Matrix *rightData = new Matrix(1, 1);
+	*leftData = createDataFit(_partsLeft, trainingData);
+	*rightData = createDataFit(_partsRight, resultData);
+
+	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
+	this->_resultsInitialised = true;
 
 	delete leftData;
 	delete rightData;
