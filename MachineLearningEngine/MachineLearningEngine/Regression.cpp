@@ -19,34 +19,39 @@ Regression::~Regression()
 {
 }
 
+
+//--------------------------------------------------------------------------------------------
+//Regression addPartLeft Documentation: Implementation - Archetecture, d... - Chapter 2.7.1.1
+//--------------------------------------------------------------------------------------------
 void Regression::addPartLeft(RegressionPart part)
 {
 	_partsLeft.push_back(part);
 	this->_resultsInitialised = false;
 }
 
+
+//--------------------------------------------------------------------------------------------
+//Regression addPartRight Documentation: Implementation - Archetecture, d... - Chapter 2.7.1.2
+//--------------------------------------------------------------------------------------------
 void Regression::addPartRight(RegressionPart part)
 {
 	_partsRight.push_back(part);
 	this->_resultsInitialised = false;
 }
 
+
+//--------------------------------------------------------------------------------------------
+//Regression fitData Documentation: Implementation - Archetecture, d... - Chapter 2.7.2.1
+//--------------------------------------------------------------------------------------------
 void Regression::fitData(Matrix &data)
 {
-	Matrix *leftData = new Matrix(1, 1);
-	Matrix *rightData = new Matrix(1, 1);
-	*leftData = createDataFit(_partsLeft, data);
-	*rightData = createDataFit(_partsRight, data);
-
-	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
-	this->_resultsInitialised = true;
-
-	calculateErrors(data, *rightData);
-
-	delete leftData;
-	delete rightData;
+	fitData(data, data);
 }
 
+
+//--------------------------------------------------------------------------------------------
+//Regression fitData Documentation: Implementation - Archetecture, d... - Chapter 2.7.2.2
+//--------------------------------------------------------------------------------------------
 void Regression::fitData(Matrix & trainingData, Matrix & resultData)
 {
 	Matrix *leftData = new Matrix(1, 1);
@@ -64,6 +69,9 @@ void Regression::fitData(Matrix & trainingData, Matrix & resultData)
 }
 
 
+//------------------------------------------------------------------------------------------------
+//Regression error Documentation: Implementation - Archetecture, d... - Chapter 2.7.3.1
+//---------------------------------------------f---------------------------------------------------
 double Regression::error(void)
 {
 	if (_resultsInitialised)
@@ -73,6 +81,9 @@ double Regression::error(void)
 }
 
 
+//------------------------------------------------------------------------------------------------
+//Regression errorNormalised Documentation: Implementation - Archetecture, d... - Chapter 2.7.3.2
+//------------------------------------------------------------------------------------------------
 double Regression::errorNormalized(void)
 {
 	if (_resultsInitialised)
@@ -98,35 +109,42 @@ Matrix & Regression::createDataFit(std::vector<RegressionPart> &regression, Matr
 	return *fittedMatrix;
 }
 
-Matrix & Regression::leastSquareMethod(Matrix &leftData, Matrix &rightData)
+//--------------------------------------------------------------------------------------------------
+//Regression leastSquareMethod Documentation: Implementation - Archetecture, d... - Chapter 2.7.2.2
+//--------------------------------------------------------------------------------------------------
+Matrix & Regression::leastSquareMethod(Matrix &MatrixA, Matrix &MatrixB)
 {
 	Matrix *gramMatrix = new Matrix;
-	*gramMatrix = leftData * leftData.transpose(1);
+	*gramMatrix = MatrixA * MatrixA.transpose(1);
 
 	Matrix *invertedMatrix = new Matrix;
 	*invertedMatrix = BasicMatrixOperations::getEchelonInverse(*gramMatrix);
 
 	Matrix *multipliedMatrix = new Matrix;
-	*multipliedMatrix = leftData * rightData.transpose(1);
+	*multipliedMatrix = MatrixA * MatrixB.transpose(1);
 
 	return (*invertedMatrix * *multipliedMatrix);
 }
 
-void Regression::calculateErrors(Matrix &traningDataFit, Matrix &resultsFit)
+
+//--------------------------------------------------------------------------------------------------
+//Regression calculateErrors Documentation: Implementation - Archetecture, d... - Chapter 2.7.2.2
+//--------------------------------------------------------------------------------------------------
+void Regression::calculateErrors(Matrix &traningData, Matrix &resultsFit)
 {
 	double fullError = 0;
 
 	for (size_t solutionNr = 0; solutionNr < getNumberOfSolutions(); ++solutionNr)
-		for (size_t column = 0; column < traningDataFit.getNumberOfColumns(); ++column)
+		for (size_t column = 0; column < traningData.getNumberOfColumns(); ++column)
 		{
-			double modelValue = calculateValue(traningDataFit.getColumn(column));
-			double trueValue = resultsFit.getEntry(solutionNr, column);
+			const double modelValue = calculateValue(traningData.getColumn(column));
+			const double trueValue = resultsFit.getEntry(solutionNr, column);
 
 			fullError += norm((modelValue - trueValue));
 		}
 
-	_errorFull = fullError;
-	_errorNormalized = fullError / traningDataFit.getNumberOfColumns();
+	this->_errorFull = fullError;
+	this->_errorNormalized = fullError / traningData.getNumberOfColumns();
 }
 
 double Regression::norm(double value)
@@ -134,18 +152,20 @@ double Regression::norm(double value)
 	return (value > 0) ? value : -value;
 }
 
-
+//--------------------------------------------------------------------------------------------------
+//Regression calculateValue Documentation: Implementation - Archetecture, d... - Chapter 2.7.3
+//--------------------------------------------------------------------------------------------------
 double Regression::calculateValue(Matrix &vector, int resultNr)
 {
 	if (_resultsInitialised == false)
-		throw std::exception("No data fitted to the current version of the regression");
+		throw std::exception("The current model haven't been fittet to any data");
 
 	double accumulatedValue = 0;
 
 	for (size_t partNr = 0; partNr < this->_partsLeft.size(); ++partNr)
 	{
-		double alphaValue = getAlphaValue(resultNr, partNr);
-		double partValue  = this->_partsLeft[partNr].calculateValue(vector);
+		const double alphaValue = getAlphaValue(resultNr, partNr);
+		const double partValue  = this->_partsLeft[partNr].calculateValue(vector);
 		
 		accumulatedValue +=  alphaValue * partValue;
 	}
@@ -154,16 +174,22 @@ double Regression::calculateValue(Matrix &vector, int resultNr)
 }
 
 
+//--------------------------------------------------------------------------------------------------
+//Regression Print Documentation: Implementation - Archetecture, d... - Chapter 2.7.4
+//--------------------------------------------------------------------------------------------------
 std::string Regression::print(void)
 {
 	std::string regressionString = "";
 
-	if (getNumberOfSolutions() == 1)
+	if(this->_resultsInitialised == false)
 		regressionString = printLeftParts(_partsLeft, 0) + " = " + printRightParts(_partsRight);
-	
-	else if(getNumberOfSolutions() > 1)
+
+	else if (this->_resultsInitialised == true && this->getNumberOfSolutions() == 1)
+		regressionString = printLeftParts(_partsLeft, 0) + " = " + printRightParts(_partsRight);
+
+	else if (this->_resultsInitialised == true && this->getNumberOfSolutions() > 1)
 		for (size_t solutionNr = 0; solutionNr < getNumberOfSolutions(); ++solutionNr)
-			regressionString += printLeftParts(_partsLeft, solutionNr) + " = " + "y" + "\n";
+			regressionString += printLeftParts(_partsLeft, solutionNr) + " = " + "y" + "\n";		
 
 	return regressionString;
 }

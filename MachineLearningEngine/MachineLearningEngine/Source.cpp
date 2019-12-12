@@ -45,8 +45,19 @@ int main(int argc, char ** argv) {
 
 		regression.addPartRight({ 1, "1" });
 
+
+		Regression regression2;
+
+		regression2.addPartLeft({ 1, "0" });
+		regression2.addPartLeft({ 1, "1" });
+
+		regression2.addPartRight({ 1, "10" });
+		regression2.addPartRight({ 1, "01" });
+
+
 		
 		std::cout << std::endl << " Regression: " << regression.print() << std::endl << std::endl;
+		std::cout << "Regression: " << regression2.print() << std::endl << std::endl;
 
 
 		Matrix trainingData(1, 10);
@@ -55,11 +66,17 @@ int main(int argc, char ** argv) {
 		Matrix results(1, 10);
 		results = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
 
+		Matrix results2(2, 10);
+		results2 = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
+					4, 6, 8, 10, 12, 14, 16, 18, 20, 22 };
+
 
 		regression.fitData(trainingData, results);
+		regression2.fitData(trainingData, results2);
 
 
 		std::cout << std::endl << " Fitted Regression: " << regression.print() << std::endl << std::endl;
+		std::cout << std::endl << "Fitted Regression: " << std::endl << regression2.print() << std::endl << std::endl;
 
 		double error = regression.error();
 		double errorNorm = regression.errorNormalized();
