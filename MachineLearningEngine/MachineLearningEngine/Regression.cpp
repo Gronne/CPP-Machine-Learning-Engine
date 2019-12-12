@@ -41,6 +41,8 @@ void Regression::fitData(Matrix &data)
 	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
 	this->_resultsInitialised = true;
 
+	calculateErrors(data, *rightData);
+
 	delete leftData;
 	delete rightData;
 }
@@ -55,8 +57,28 @@ void Regression::fitData(Matrix & trainingData, Matrix & resultData)
 	*this->_alphaValues = leastSquareMethod(*leftData, *rightData);
 	this->_resultsInitialised = true;
 
+	calculateErrors(trainingData, *rightData);
+
 	delete leftData;
 	delete rightData;
+}
+
+
+double Regression::error(void)
+{
+	if (_resultsInitialised)
+		return _errorFull;
+	else
+		throw std::exception("The current model haven't been fittet to any data");
+}
+
+
+double Regression::errorNormalized(void)
+{
+	if (_resultsInitialised)
+		return _errorNormalized;
+	else
+		throw std::exception("The current model haven't been fittet to any data");
 }
 
 
@@ -88,6 +110,28 @@ Matrix & Regression::leastSquareMethod(Matrix &leftData, Matrix &rightData)
 	*multipliedMatrix = leftData * rightData.transpose(1);
 
 	return (*invertedMatrix * *multipliedMatrix);
+}
+
+void Regression::calculateErrors(Matrix &traningDataFit, Matrix &resultsFit)
+{
+	double fullError = 0;
+
+	for (size_t solutionNr = 0; solutionNr < getNumberOfSolutions(); ++solutionNr)
+		for (size_t column = 0; column < traningDataFit.getNumberOfColumns(); ++column)
+		{
+			double modelValue = calculateValue(traningDataFit.getColumn(column));
+			double trueValue = resultsFit.getEntry(solutionNr, column);
+
+			fullError += norm((modelValue - trueValue));
+		}
+
+	_errorFull = fullError;
+	_errorNormalized = fullError / traningDataFit.getNumberOfColumns();
+}
+
+double Regression::norm(double value)
+{
+	return (value > 0) ? value : -value;
 }
 
 
@@ -150,10 +194,10 @@ std::string Regression::printRightParts(std::vector<RegressionPart> &parts)
 	std::string partsString = "";
 
 	if (parts.size() > 0)
-		partsString += parts[0].print();
+		partsString += parts[0].print('Y');
 
 	for (size_t partNr = 1; partNr < parts.size(); partNr++)
-		partsString += ", " + parts[partNr].print();
+		partsString += ", " + parts[partNr].print('Y');
 
 	return partsString;
 }

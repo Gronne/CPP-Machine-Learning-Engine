@@ -38,34 +38,47 @@ int main(int argc, char ** argv) {
 
 	try
 	{
-		RegressionPart part1(1, "110");
-		RegressionPart part3(1, "000");
-		RegressionPart part5(2, "010");
-		RegressionPart part6(1, "1");
-		RegressionPart part7(4, "1");
-
-		Matrix matrix(2, 10);
-		matrix = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-					11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-
-		Matrix result(1, 10);
-		result = { 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
-
-		std::cout << matrix << std::endl << std::endl;
-
 		Regression regression;
-		regression.addPartLeft(part3);
-		regression.addPartLeft(part1);
-		regression.addPartLeft(part5);
 
-		regression.addPartRight(part6);
+		regression.addPartLeft({ 1, "0" });
+		regression.addPartLeft({ 1, "1" });
 
-		std::cout << regression.print() << std::endl;
+		regression.addPartRight({ 1, "1" });
 
-		regression.fitData(matrix, result);
-		std::cout << regression.print() << std::endl;
+		
+		std::cout << std::endl << " Regression: " << regression.print() << std::endl << std::endl;
 
-		std::cout << regression.calculateValue(matrix.getColumn(1)) << std::endl;
+
+		Matrix trainingData(1, 10);
+		trainingData = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+		Matrix results(1, 10);
+		results = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+
+
+		regression.fitData(trainingData, results);
+
+
+		std::cout << std::endl << " Fitted Regression: " << regression.print() << std::endl << std::endl;
+
+		double error = regression.error();
+		double errorNorm = regression.errorNormalized();
+
+		std::cout << " Error: " << error << std::endl;
+		std::cout << " Normalized Error: " << errorNorm << std::endl << std::endl;
+
+
+
+		Matrix solutionValues(1, 1);
+		solutionValues.setEntry(0, 0, 5);
+
+		double solution = regression.calculateValue(solutionValues);
+
+		std::cout << " Calculated Solution: " << solution << std::endl;
+		std::cout << " Correct Solution:    " << results.getEntry(0, 4) << std::endl;
+
+
+		
 
 	}
 	catch (const std::exception ex)

@@ -18,7 +18,7 @@ public:
 
 	double calculateValue(Matrix& vector);
 
-	std::string print(void);
+	std::string print(char = 'X');
 
 private:
 	struct _dependency
@@ -28,8 +28,8 @@ private:
 	};
 
 
-	std::string printDependency(_dependency);
-	std::string printDependentVariables(_dependency);
+	std::string printDependency(_dependency, char);
+	std::string printDependentVariables(_dependency, char);
 
 	void convertStringToDependencies(std::string, std::vector<int>&);
 

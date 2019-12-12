@@ -51,56 +51,56 @@ double RegressionPart::calculateValue(Matrix &vector)
 }
 
 
-std::string RegressionPart::print(void)
+std::string RegressionPart::print(char variableChar)
 {
 	std::string regressionPartString = "";
 
 
 	if(_dependencies.size() > 0)
-		regressionPartString += printDependency(_dependencies[0]);
+		regressionPartString += printDependency(_dependencies[0], variableChar);
 	
 	for (size_t index = 1; index < _dependencies.size(); ++index)
 	{
-		regressionPartString += "*" + printDependency(_dependencies[index]);
+		regressionPartString += "*" + printDependency(_dependencies[index], variableChar);
 	}
 
 	return regressionPartString;
 }
 
 
-std::string RegressionPart::printDependency(_dependency dependency)
+std::string RegressionPart::printDependency(_dependency dependency, char variableChar)
 {
 	std::string part = "";
 
 	switch (dependency.type)
 	{
-	case 1: part += "(" + printDependentVariables(dependency) + ")";
+	case 1: part += "(" + printDependentVariables(dependency, variableChar) + ")";
 		break;
 
-	case 2: part += "sin(" + printDependentVariables(dependency) + ")";
+	case 2: part += "sin(" + printDependentVariables(dependency, variableChar) + ")";
 		break;
 
-	case 3: part += "e^(" + printDependentVariables(dependency) + ")";
+	case 3: part += "e^(" + printDependentVariables(dependency, variableChar) + ")";
 		break;
 
-	case 4: part += "log2(" + printDependentVariables(dependency) + ")";
+	case 4: part += "log2(" + printDependentVariables(dependency, variableChar) + ")";
 		break;
 	}
 
 	return part;
 }
 
-std::string RegressionPart::printDependentVariables(_dependency dependency)
+std::string RegressionPart::printDependentVariables(_dependency dependency, char variableChar)
 {
 	std::string dependentVariables = "";
 
 	if(dependency.dependencies.size() > 0)
-		dependentVariables += "X" + std::to_string(dependency.dependencies[0]);
+		dependentVariables += variableChar + std::to_string(dependency.dependencies[0]);
 	
 	for (size_t dependencyIndex = 1; dependencyIndex < dependency.dependencies.size(); ++dependencyIndex)
 	{
 		dependentVariables += "*";
-		dependentVariables += "X" + std::to_string(dependency.dependencies[dependencyIndex]);
+		dependentVariables += variableChar + std::to_string(dependency.dependencies[dependencyIndex]);
 	}
 		
 	return dependentVariables;

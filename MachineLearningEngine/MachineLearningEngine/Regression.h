@@ -19,6 +19,9 @@ public:
 	void fitData(Matrix& data);
 	void fitData(Matrix& trainingData, Matrix& resultData);
 
+	double error(void);
+	double errorNormalized(void);
+
 	double calculateValue(Matrix&, int = 0);
 
 	std::string print(void);
@@ -34,6 +37,9 @@ private:
 
 	Matrix& createDataFit(std::vector<RegressionPart>&, Matrix&);
 	Matrix& leastSquareMethod(Matrix&, Matrix&);
+	void calculateErrors(Matrix&, Matrix&);
+
+	double norm(double);
 
 
 	std::vector<RegressionPart> _partsLeft;
@@ -41,6 +47,9 @@ private:
 
 	Matrix *_alphaValues = new Matrix;
 	bool _resultsInitialised = false;
+	
+	double _errorFull = 0;
+	double _errorNormalized = 0;
 };
 
 
