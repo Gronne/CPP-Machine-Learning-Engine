@@ -92,10 +92,23 @@ int main(int argc, char ** argv) {
 		double solution = regression.calculateValue(solutionValues);
 
 		std::cout << " Calculated Solution: " << solution << std::endl;
-		std::cout << " Correct Solution:    " << results.getEntry(0, 4) << std::endl;
+		std::cout << " Correct Solution:    " << results.getEntry(0, 4) << std::endl << std::endl;
 
 
-		
+
+		Regression type1;
+		type1.addPartLeft({ 1, "1" });
+		type1.addPartRight({ 1, "1" });
+
+		Regression type2;
+		type2.addPartLeft({ 1, "1" });
+		type2.addPartRight({ 1, "1" });
+		type2.addPartRight({ 1, "1" });
+
+		std::cout << type1.print() << std::endl << std::endl;
+		std::cout << type2.print() << std::endl << std::endl;
+
+		std::cout << regression2.print() << std::endl << std::endl;
 
 	}
 	catch (const std::exception ex)

@@ -4,8 +4,8 @@
 #include "../MachineLearningEngine/GetMatrix.cpp"
 #include "../MachineLearningEngine/Matrix.cpp"
 #include "../MachineLearningEngine/MatrixRREF.cpp"
-#include "../MachineLearningEngine/Regression.h"
-#include "../MachineLearningEngine/RegressionPart.h"
+#include "../MachineLearningEngine/Regression.cpp"
+#include "../MachineLearningEngine/RegressionPart.cpp"
 #include "../MachineLearningEngine/SimpleMatrixOperations.cpp"
 #include "../MachineLearningEngine/TypeMatrix.cpp"
 

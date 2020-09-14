@@ -1,7 +1,7 @@
 #pragma once
 #include "VectorEngineHeaders.h"
 
-TEST(MatrixSizeDeleteColumn, DCSHolePositive)
+TEST(MatrixSizeDeleteColumn, DeleteColumnHolePositive)
 {
 	Matrix *matrix = new Matrix(3, 3);
 	*matrix = { 1, 2, 3, 
@@ -384,7 +384,7 @@ TEST(MatrixSizeDeleteColumn, DCV_3)
 }
 
 //----exception----
-TEST(MatrixSizeDeleteColumn, DCV_Exception1)
+TEST(MatrixSizeDeleteColumn, DeleteColumn_Exception1)
 {
 	Matrix *matrix = new Matrix(2, 4);
 	std::vector<int> rows = { 4 };

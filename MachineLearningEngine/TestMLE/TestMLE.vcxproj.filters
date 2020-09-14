@@ -168,6 +168,45 @@
     <ClInclude Include="VectorEngineTypeMatrixIsFullDependentTest.h">
       <Filter>VectorEngineDatastructures\TypeMatrix</Filter>
     </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegression.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPart.h">
+      <Filter>VectorEngineDatastructures\Regression\RegressionPart</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegression.h">
+      <Filter>VectorEngineDatastructures\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionConstruct.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionAddParts.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionFitData.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionCalculateValue.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionErrors.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPrint.h">
+      <Filter>VectorEngineDatastructures\Regression\Regression</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPartConstruct.h">
+      <Filter>VectorEngineDatastructures\Regression\RegressionPart</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPartAddNewDependency.h">
+      <Filter>VectorEngineDatastructures\Regression\RegressionPart</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPartCalculateValue.h">
+      <Filter>VectorEngineDatastructures\Regression\RegressionPart</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorEngineRegressionRegressionPartPrint.h">
+      <Filter>VectorEngineDatastructures\Regression\RegressionPart</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -190,6 +229,15 @@
     </Filter>
     <Filter Include="VectorEngineDatastructures\GetMatrix">
       <UniqueIdentifier>{8516ae6f-8a4e-408d-91ba-d63a19fb250b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\Regression">
+      <UniqueIdentifier>{6ae60208-86d5-4642-aa2d-949d1bee36ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\Regression\Regression">
+      <UniqueIdentifier>{4dc2c59b-17a3-4abd-99c2-0befe29e2975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VectorEngineDatastructures\Regression\RegressionPart">
+      <UniqueIdentifier>{7370c48a-2e50-4b0b-bdb9-65e0ca7ea0ce}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
